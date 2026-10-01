@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Metodo FOCUS · Centro Studi Lambda</title>
+<meta name="description" content="Il Metodo FOCUS di Centro Studi Lambda: Fiducia, Organizzazione, Comprensione, Uso consapevole degli strumenti, Sicurezza nell'esposizione. Cinque abilità di studio che si allenano con un tutor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=8">
+<style>
+/* =================== LAMBDA · Metodo FOCUS =================== */
+.cap-label{position:absolute;left:clamp(16px,4vw,56px);top:calc(var(--hdr) + 18px);font:500 11px/1 var(--mono);letter-spacing:.18em;color:rgba(255,255,255,.45);text-transform:uppercase}
+
+/* ---------- HERO: le cinque lettere in 3D ---------- */
+.fhero{position:relative;min-height:100svh;overflow:hidden;padding-bottom:90px!important;background:radial-gradient(ellipse 80% 70% at 50% 60%, #16475a 0%, var(--navy) 55%, var(--deep) 100%);display:flex;flex-direction:column;justify-content:center;padding:calc(var(--hdr) + 30px) 0 50px}
+.fhero .wrap{position:relative;z-index:2}
+.fhero .eyebrow{color:var(--warm)}
+.fhero h1{margin-top:16px;max-width:15ch;font:700 clamp(40px,4.6vw,76px)/.98 var(--font);letter-spacing:-.05em}
+.fhero h1 em{font-style:normal;color:var(--warm)}
+.fhero .lead{margin-top:20px;max-width:52ch;font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:rgba(255,255,255,.74)}
+.fhero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hletters{position:relative;z-index:2;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(8px,1.5vw,24px);width:min(1100px,calc(100% - 2*var(--gutter)));margin:clamp(24px,4vh,50px) auto 40px;perspective:1000px}
+.hl{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;cursor:default}
+.hl .L{display:block;font:700 clamp(70px,10.5vw,176px)/1 var(--font);letter-spacing:-.02em;color:#fff;transition:color .4s,transform .6s var(--ease);
+  text-shadow:1px 1px 0 #1d5b73,2px 2px 0 #1a5366,3px 3px 0 #174a5c,4px 4px 0 #144253,5px 5px 0 #113a49,6px 6px 0 #0f3340,7px 7px 0 #0d2d39,14px 20px 34px rgba(0,0,0,.45)}
+.hl b{margin-top:8px;font:700 clamp(13px,1.3vw,18px)/1.15 var(--font);letter-spacing:-.01em;color:rgba(255,255,255,.75);transition:color .4s}
+.hl:hover .L,.hl.on .L{color:var(--warm);transform:translateY(-10px) rotateX(10deg)}
+.hl:hover b,.hl.on b{color:#fff}
+
+/* ---------- PERCHÉ UN METODO ---------- */
+.why{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.why .eyebrow,.train .eyebrow,.ages .eyebrow,.faq .eyebrow{color:var(--teal)}
+.why .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.vs{display:grid;gap:12px}
+.vs div{padding:24px 26px;border-radius:24px}
+.vs .no{background:#fff;color:#8a9aa2}
+.vs .no b{text-decoration:line-through;text-decoration-color:#E5484D;text-decoration-thickness:3px}
+.vs .yes{background:var(--navy);color:#fff}
+.vs .yes b{color:var(--warm)}
+.vs b{display:block;font:700 clamp(26px,2.6vw,38px)/1 var(--font);letter-spacing:-.035em}
+.vs span{display:block;margin-top:8px;font-size:15.5px;line-height:1.45}
+.vs .no span{color:#8a9aa2} .vs .yes span{color:rgba(255,255,255,.72)}
+.why .more{display:inline-block;margin-top:24px;font-weight:700;color:var(--teal);border-bottom:1.5px solid currentColor}
+
+/* ================= CAPITOLO 5 · IL METODO FOCUS ================= */
+.cap5{position:relative;height:720vh;background:var(--light)}
+.cap5 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 50% 40%, #f6fafb 0%, var(--light) 60%, #d9e7ec 100%);color:var(--navy)}
+.cap5 .cap-label{color:rgba(14,33,46,.5)}
+.row-wrap{position:absolute;left:0;right:0;top:15%;height:clamp(120px,19vw,280px);perspective:1200px}
+.frow{position:absolute;left:0;top:0;display:flex;gap:clamp(10px,2.2vw,40px);transform-style:preserve-3d;will-change:transform}
+.fl{display:inline-block;font:700 clamp(96px,15vw,236px)/1 var(--font);letter-spacing:-.02em;color:var(--navy);transform-style:preserve-3d;will-change:transform,opacity,filter;opacity:0;
+  text-shadow:1px 1px 0 #24566a,2px 2px 0 #24566a,3px 3px 0 #22505f,4px 4px 0 #1f4a58,5px 5px 0 #1c4452,6px 6px 0 #193e4b,7px 7px 0 #163844,14px 20px 30px rgba(14,33,46,.22);transition:color .5s}
+.fl.on{color:var(--aqua)}
+.guide{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;will-change:transform}
+.guide .ring,.guide .bridge{fill:none;stroke:var(--navy);stroke-width:5;stroke-linecap:round}
+.guide .glint{fill:none;stroke:rgba(14,33,46,.3);stroke-width:3;stroke-linecap:round}
+.panels{position:absolute;left:50%;top:calc(15% + clamp(120px,19vw,280px) + 4vh);width:min(680px,90vw);transform:translateX(-50%)}
+.panel{position:absolute;left:0;right:0;top:0;opacity:0;will-change:opacity,transform}
+.panel h3{font:700 clamp(30px,3.6vw,52px)/1 var(--font);letter-spacing:-.04em}
+.panel h3 span{color:var(--aqua)}
+.panel .lead{margin-top:10px;font-size:clamp(17px,1.5vw,21px);line-height:1.4;color:#3b5563}
+.demo{position:relative;margin-top:24px;height:clamp(150px,20vh,200px);border-radius:20px;background:#fff;box-shadow:0 30px 60px -30px rgba(14,33,46,.25);overflow:hidden}
+/* F */
+.demo-f{display:grid;align-content:center;gap:22px;padding:0 28px}
+.meter{height:14px;border-radius:14px;background:#e5eff2;overflow:hidden}
+.meter i{display:block;height:100%;width:20%;border-radius:14px;background:linear-gradient(90deg,var(--aqua),var(--warm))}
+.swap{position:relative;height:40px;font:700 clamp(22px,2.4vw,32px)/40px var(--font);letter-spacing:-.03em}
+.swap span{position:absolute;left:0;top:0;white-space:nowrap}
+.swap .neg{color:#8a9aa2}
+.swap .neg::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:4px;border-radius:4px;background:#E5484D;transform:scaleX(var(--s,0));transform-origin:left}
+.swap .pos{color:var(--navy);opacity:0}
+/* O */
+.demo-o .day{position:absolute;top:12px;width:20%;text-align:center;font:500 11px/1 var(--mono);letter-spacing:.12em;color:#8a9aa2}
+.demo-o .col{position:absolute;top:32px;bottom:12px;width:1px;background:#e5eff2}
+.chip{position:absolute;padding:8px 12px;border-radius:10px;font:700 clamp(12px,1.1vw,15px)/1 var(--font);white-space:nowrap;color:var(--navy);box-shadow:0 8px 18px -8px rgba(14,33,46,.35);will-change:left,top,transform}
+/* C */
+.demo-c{padding:22px 26px;display:flex;align-items:center}
+.para{font-size:clamp(15px,1.45vw,20px);line-height:1.55;color:var(--navy)}
+.para .w{transition:none}
+.para .k{font-weight:700;background:linear-gradient(var(--warm),var(--warm)) no-repeat 0 86%/0% 42%;border-radius:3px}
+/* U */
+.demo-u svg{position:absolute;inset:0;width:100%;height:100%}
+.demo-u .br{fill:none;stroke:var(--aqua);stroke-width:3;stroke-linecap:round}
+.demo-u .node rect{fill:#fff;stroke:var(--teal);stroke-width:2}
+.demo-u .node text{font:700 15px var(--font);fill:var(--navy);text-anchor:middle}
+.demo-u .center rect{fill:var(--navy);stroke:none}
+.demo-u .center text{fill:#fff;font-size:17px}
+/* S */
+.demo-s{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:18px;padding:0 24px}
+.bubble{padding:12px 16px;border-radius:16px 16px 16px 4px;background:var(--navy);color:#fff;font:700 14px/1.2 var(--font);white-space:nowrap}
+.bubble small{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--warm);margin-bottom:6px}
+.wave{display:flex;align-items:center;gap:3px;height:120px}
+.wave i{flex:1;border-radius:3px;background:var(--aqua);min-height:4px}
+.say5{position:absolute;left:0;right:0;text-align:center;padding:0 24px;pointer-events:none}
+.say5 p{opacity:0;font:700 clamp(34px,5vw,76px)/1 var(--font);letter-spacing:-.045em;color:var(--navy);will-change:opacity,transform}
+.say5 b{color:var(--aqua)}
+#c5open{top:44%}
+#c5end{top:calc(15% + clamp(120px,19vw,280px) + 8vh)}
+@media (max-width: 640px){
+  .cap5{height:620vh}
+  .row-wrap{top:16%}
+  .fl{font-size:19vw}
+  .demo{height:170px}
+  .demo-s{grid-template-columns:1fr;gap:10px;padding:14px 18px}
+  .wave{height:80px}
+}
+@media (prefers-reduced-motion: reduce){
+  .cap5{height:auto}
+  .cap5 .stage{position:relative;height:auto;padding:120px 16px 80px}
+  .row-wrap,.say5,.guide{display:none}
+  .panels{position:relative;left:auto;top:auto;transform:none;margin:0 auto;display:grid;gap:40px}
+  .panel{position:relative;opacity:1}
+}
+
+/* ---------- DAL TEST AL METODO ---------- */
+.map{background:var(--deep);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.map .eyebrow{color:var(--warm)}
+.map .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.mwrap{position:relative;display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:20px;align-items:center;margin-top:50px}
+.mcol{display:grid;gap:10px;position:relative;z-index:2}
+.area{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);color:#fff;font:700 16px/1 var(--font);text-align:left;transition:border-color .3s,background .3s,transform .4s var(--ease)}
+.area small{font:500 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.area.emo{border-color:rgba(180,138,214,.3)} .area.emo small{color:#c3a6e0}
+.area.on{background:rgba(255,214,107,.12);border-color:var(--warm);transform:translateX(6px)}
+.area.emo.on{background:rgba(180,138,214,.16);border-color:#b48ad6}
+.letters5{display:grid;gap:10px;position:relative;z-index:2}
+.lt{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:18px;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);transition:border-color .3s,background .3s,transform .4s var(--ease)}
+.lt i{font-style:normal;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font:700 24px/1 var(--font);background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);transition:background .3s,color .3s}
+.lt b{font-size:15px;color:rgba(255,255,255,.7)}
+.lt.on{border-color:var(--warm);background:rgba(255,214,107,.08);transform:translateX(-6px)} .lt.on i{background:var(--warm);color:var(--navy)} .lt.on b{color:#fff}
+#mLines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+#mLines path{fill:none;stroke:rgba(255,255,255,.08);stroke-width:1.5;transition:stroke .3s,stroke-width .3s}
+#mLines path.on{stroke:var(--warm);stroke-width:2.5}
+#mLines path.on.emo{stroke:#b48ad6}
+.mexp{grid-column:2;grid-row:1;align-self:center;padding:26px;border-radius:26px;background:#0c1d27;box-shadow:0 30px 60px -30px #000;border:1px solid rgba(255,255,255,.1);text-align:center;position:relative;z-index:2;min-height:220px;display:flex;flex-direction:column;justify-content:center}
+.mexp .k{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--warm)}
+.mexp h3{margin-top:12px;font:700 clamp(22px,2vw,30px)/1.1 var(--font);letter-spacing:-.03em}
+.mexp p{margin-top:12px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.75)}
+.mexp.swap>*{animation:mx .5s var(--ease) both} @keyframes mx{from{opacity:0;transform:translateY(10px)}}
+.mnote{margin-top:22px;text-align:center;font-size:14px;color:rgba(255,255,255,.5)}
+.mnote a{color:var(--warm);font-weight:700}
+
+/* ---------- COME SI ALLENA ---------- */
+.train{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:46px}
+.tc{padding:24px;border-radius:26px;background:var(--light);display:flex;flex-direction:column}
+.tc svg{width:34px;height:34px;fill:none;stroke:var(--aqua);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tc small{margin-top:18px;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--aqua)}
+.tc b{margin-top:8px;font:700 21px/1.1 var(--font);letter-spacing:-.02em}
+.tc p{margin-top:8px;font-size:15px;line-height:1.45;color:#4a6370}
+
+/* ---------- A OGNI ETÀ ---------- */
+.ages{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.agrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:46px}
+.ag{display:flex;flex-direction:column;padding:22px 20px;border-radius:24px;background:#fff;min-height:250px;box-shadow:0 20px 40px -34px rgba(14,33,46,.5);transition:transform .5s var(--ease),background .4s,color .4s}
+.ag:hover{transform:translateY(-6px);background:var(--navy);color:#fff}
+.ag small{font:500 11px/1 var(--mono);letter-spacing:.12em;color:var(--aqua);text-transform:uppercase}
+.ag b{margin-top:8px;font:700 21px/1.1 var(--font)}
+.ag p{margin-top:10px;font-size:14.5px;line-height:1.45;opacity:.75}
+.ag span{margin-top:auto;padding-top:14px;font-weight:700;font-size:14px}
+
+/* ---------- STORIA ---------- */
+.sband{background:#050d12;padding:clamp(90px,12vh,140px) 0;text-align:center}
+.sband .eyebrow{color:rgba(255,255,255,.5)}
+.sband h2{margin-top:14px;font:700 clamp(34px,4.4vw,66px)/1 var(--font);letter-spacing:-.045em}
+.sband h2 em{font-style:normal;color:var(--warm)}
+.sband .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px}
+.btn-play{background:#fff;color:var(--navy)}
+
+/* ---------- FAQ + FINALE ---------- */
+.faq{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.faq .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px)}
+.qa{border-top:1px solid rgba(14,33,46,.12)} .qa:last-child{border-bottom:1px solid rgba(14,33,46,.12)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font:700 clamp(18px,1.5vw,21px)/1.25 var(--font);letter-spacing:-.02em}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary i{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--light);display:grid;place-items:center;font-style:normal;transition:transform .4s var(--ease),background .3s}
+.qa[open] summary i{transform:rotate(45deg);background:var(--warm)}
+.qa p{padding:0 50px 24px 0;font-size:16.5px;line-height:1.55;color:#4a6370}
+.final{background:radial-gradient(ellipse 70% 60% at 50% 45%, #16475a 0%, var(--navy) 55%, var(--deep) 100%);padding:clamp(110px,14vh,160px) 0;text-align:center}
+.final h2{font:700 clamp(40px,5vw,80px)/.98 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.final h2 em{font-style:normal;color:var(--warm)}
+.final .ctas{display:flex;justify-content:center;margin-top:38px}
+.final .note{margin-top:18px;font-size:14px;color:rgba(255,255,255,.55)}
+
+@media (max-width: 1100px){ .tgrid{grid-template-columns:1fr 1fr} .agrid{grid-template-columns:repeat(3,1fr)} }
+@media (max-width: 860px){
+  .why .grid,.faq .grid{grid-template-columns:1fr}
+  .mwrap{grid-template-columns:1fr 1fr} .mexp{grid-column:1/3;grid-row:auto;order:3} #mLines{display:none}
+  .area{font-size:14px;padding:12px} .area small{display:none}
+  .lt{padding:8px 10px;gap:10px} .lt i{width:36px;height:36px;font-size:19px} .lt b{font-size:13px}
+  .agrid{grid-template-columns:1fr 1fr}
+  .hl b{display:none}
+}
+@media (max-width: 560px){ .tgrid,.agrid{grid-template-columns:1fr} .fhero .ctas .btn{width:100%;justify-content:center} .qa p{padding-right:0} }
+</style>
+</head>
+<body data-page="focus" data-branch="stud">
+<div data-lambda-header></div>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="fhero" data-theme="dark" aria-labelledby="fhTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Il metodo Lambda</p>
+      <h1 class="split" id="fhTitle">Metodo FOCUS. <em>Cinque abilità, per tutta la vita.</em></h1>
+      <p class="lead" data-reveal>Non è una materia in più: è il modo di studiarle tutte. Cinque abilità che si allenano con un tutor, come in uno sport, finché diventano abitudine.</p>
+      <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Scopri da dove parte: il test →</span></a><a class="btn btn-ghost" href="#abilita"><span class="t">Le 5 abilità ↓</span></a></div>
+    </div>
+    <div class="hletters" id="hletters" aria-label="F come Fiducia, O come Organizzazione, C come Comprensione, U come Uso consapevole degli strumenti, S come Sicurezza nell'esposizione">
+      <div class="hl"><span class="L">F</span><b>Fiducia</b></div>
+      <div class="hl"><span class="L">O</span><b>Organizzazione</b></div>
+      <div class="hl"><span class="L">C</span><b>Comprensione</b></div>
+      <div class="hl"><span class="L">U</span><b>Uso degli strumenti</b></div>
+      <div class="hl"><span class="L">S</span><b>Sicurezza</b></div>
+    </div>
+  </section>
+
+  <!-- ============ PERCHÉ UN METODO ============ -->
+  <section class="why sheet" data-theme="light" aria-labelledby="wTitle">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow" data-reveal>Perché un metodo</p>
+        <h2 class="sec-title split" id="wTitle">Il problema non è l'impegno. <em>È il come.</em></h2>
+        <p class="sec-lead" data-reveal>Tanti ragazzi studiano molte ore con pochi risultati. Non perché non si impegnino, ma perché nessuno ha mai insegnato loro come si studia. FOCUS colma proprio questo vuoto. E lo fa insieme alle ripetizioni: le ripetizioni sistemano l'oggi, il metodo sistema il domani.</p>
+        <a class="more" data-reveal href="studenti.html#differenza">Ripetizioni + metodo: la differenza Lambda →</a>
+      </div>
+      <div class="vs" data-reveal>
+        <div class="no"><b>Studiare di più</b><span>Più ore sui libri, stessa fatica, stessi risultati.</span></div>
+        <div class="yes"><b>Studiare meglio</b><span>Meno ore, fatte bene: un metodo che funziona in ogni materia e resta per sempre.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LE CINQUE ABILITÀ (dalla storia, capitolo 5) ============ -->
+  <section class="cap5 sheet" id="abilita" data-theme="light" aria-labelledby="cap5-title">
+    <div class="stage">
+      <div class="cap-label" id="cap5-title">Le cinque abilità</div>
+      <div class="say5" id="c5open"><p>Cinque lettere. <b>Cinque abilità.</b></p></div>
+
+      <div class="row-wrap" id="rowWrap" aria-hidden="true">
+        <div class="frow" id="frow"><span class="fl">F</span><span class="fl">O</span><span class="fl">C</span><span class="fl">U</span><span class="fl">S</span></div>
+        <svg class="guide" id="guide"></svg>
+      </div>
+
+      <div class="panels" id="panels">
+        <div class="panel">
+          <h3><span>F</span>iducia</h3>
+          <p class="lead">Smette di dire "non ce la faccio" e affronta lo studio con sicurezza.</p>
+          <div class="demo demo-f"><div class="meter"><i id="fBar"></i></div>
+            <div class="swap"><span class="neg" id="fNeg">“Non ce la faccio.”</span><span class="pos" id="fPos">“Posso farcela.”</span></div></div>
+        </div>
+        <div class="panel">
+          <h3><span>O</span>rganizzazione</h3>
+          <p class="lead">Sa cosa studiare, quando e per quanto. Niente più pomeriggi infiniti.</p>
+          <div class="demo demo-o" id="demoO"></div>
+        </div>
+        <div class="panel">
+          <h3><span>C</span>omprensione</h3>
+          <p class="lead">Legge, comprende e sintetizza anche i testi più complessi.</p>
+          <div class="demo demo-c"><p class="para" id="para"></p></div>
+        </div>
+        <div class="panel">
+          <h3><span>U</span>so consapevole degli strumenti</h3>
+          <p class="lead">Mappe mentali, lettura veloce, memoria efficace: gli strumenti giusti al momento giusto.</p>
+          <div class="demo demo-u">
+            <svg viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet" id="mapSvg">
+              <path class="br" pathLength="1" d="M300 100 C230 100 200 50 130 50"/>
+              <path class="br" pathLength="1" d="M300 100 C230 100 200 150 130 150"/>
+              <path class="br" pathLength="1" d="M300 100 C370 100 400 50 470 50"/>
+              <path class="br" pathLength="1" d="M300 100 C370 100 400 150 470 150"/>
+              <g class="node center"><rect x="232" y="80" width="136" height="40" rx="12"/><text x="300" y="106">Fotosintesi</text></g>
+              <g class="node"><rect x="66" y="32" width="100" height="36" rx="10"/><text x="116" y="56">Luce</text></g>
+              <g class="node"><rect x="66" y="132" width="100" height="36" rx="10"/><text x="116" y="156">Acqua</text></g>
+              <g class="node"><rect x="434" y="32" width="100" height="36" rx="10"/><text x="484" y="56">CO₂</text></g>
+              <g class="node"><rect x="434" y="132" width="100" height="36" rx="10"/><text x="484" y="156">Ossigeno</text></g>
+            </svg>
+          </div>
+        </div>
+        <div class="panel">
+          <h3><span>S</span>icurezza nell'esposizione</h3>
+          <p class="lead">All'interrogazione parla con calma, in ordine, senza bloccarsi.</p>
+          <div class="demo demo-s"><div class="bubble"><small id="sState">VOCE TREMOLANTE</small>Interrogazione di storia</div><div class="wave" id="wave"></div></div>
+        </div>
+      </div>
+
+      <div class="say5" id="c5end"><p>Cinque abilità. <b>Per tutta la vita.</b></p></div>
+    </div>
+  </section>
+
+  <!-- ============ DAL TEST AL METODO ============ -->
+  <section class="map sheet" id="test-metodo" data-theme="dark" aria-labelledby="mTitle">
+    <div class="wrap">
+      <div class="top"><div><p class="eyebrow" data-reveal>Dal test al metodo</p><h2 class="sec-title split" id="mTitle">Il test dice dove parte. <em>FOCUS dice come allenarlo.</em></h2></div>
+        <p class="sec-lead" data-reveal style="max-width:40ch">Il Performance Test misura sette aree. Il tutor le traduce in un piano sulle cinque abilità FOCUS. Tocca un'area per vedere su cosa si lavora.</p></div>
+      <div class="mwrap" id="mwrap" data-reveal>
+        <svg id="mLines" aria-hidden="true"></svg>
+        <div class="mcol" id="areas" role="group" aria-label="Le aree del test"></div>
+        <div class="mexp" id="mexp" aria-live="polite"></div>
+        <div class="letters5" id="lts"></div>
+      </div>
+      <p class="mnote" data-reveal>Le aree del test, da −100 a +100, diventano un piano su misura. <a href="test.html">Scopri il profilo di tuo figlio →</a></p>
+    </div>
+  </section>
+
+  <!-- ============ COME SI ALLENA ============ -->
+  <section class="train sheet" data-theme="light" aria-labelledby="trTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Come si allena</p>
+      <h2 class="sec-title split" id="trTitle">Una settimana <em>con FOCUS.</em></h2>
+      <p class="sec-lead" data-reveal>Dal lunedì al sabato, online, con un tutor che conosce tuo figlio per nome.</p>
+      <div class="tgrid" data-reveal>
+        <article class="tc"><svg viewBox="0 0 34 34"><rect x="4" y="8" width="20" height="17" rx="3"/><path d="M24 14l7-4v14l-7-4"/></svg><small>Lezioni live</small><b>Il tutor, uno a uno</b><p>Il metodo applicato alle sue materie, sui compiti veri della settimana.</p></article>
+        <article class="tc"><svg viewBox="0 0 34 34"><path d="M13 4v9L5 27h24l-8-14V4M11 4h12"/></svg><small>Laboratori</small><b>Le tecniche, allenate</b><p>Mappe, lettura veloce, memoria, esposizione: in piccoli gruppi, con esercizi pratici.</p></article>
+        <article class="tc"><svg viewBox="0 0 34 34"><path d="M5 29V12l12-8 12 8v17M12 29v-8h10v8"/></svg><small>Aule studio</small><b>Studiare in compagnia</b><p>Sessioni online con altri ragazzi e un tutor collegato a cui chiedere aiuto.</p></article>
+        <article class="tc"><svg viewBox="0 0 34 34"><path d="M5 28h24M7 22l6-7 5 4 9-11"/></svg><small>Monitoraggio</small><b>Progressi misurati</b><p>Il tutor aggiorna il piano ogni settimana. E nelle materie critiche affianca le ripetizioni.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A OGNI ETÀ ============ -->
+  <section class="ages sheet" data-theme="light" aria-labelledby="agTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Per ogni età</p>
+      <h2 class="sec-title split" id="agTitle">Gli stessi principi, <em>strumenti diversi.</em></h2>
+      <div class="agrid" data-reveal>
+        <a class="ag" href="percorso.html?p=primaria"><small>6–10 anni</small><b>Primaria</b><p>Routine semplici, giochi di memoria, prime mappe colorate.</p><span>Scopri →</span></a>
+        <a class="ag" href="percorso.html?p=media"><small>11–13 anni</small><b>Media</b><p>Il diario, il primo schema, come si studia un capitolo.</p><span>Scopri →</span></a>
+        <a class="ag" href="percorso.html?p=superiore"><small>14–18 anni</small><b>Superiore</b><p>Piano settimanale, mappe, interrogazioni senza blocchi.</p><span>Scopri →</span></a>
+        <a class="ag" href="percorso.html?p=universita"><small>19+ anni</small><b>Università</b><p>Piano di sessione, lettura strategica, esami orali.</p><span>Scopri →</span></a>
+        <a class="ag" href="percorso.html?p=test-universitari"><small>Test d'accesso</small><b>Test universitari</b><p>Logica, gestione del tempo, simulazioni.</p><span>Scopri →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LA STORIA ============ -->
+  <section class="sband" data-theme="dark" aria-labelledby="sbTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>La storia</p>
+      <h2 class="split" id="sbTitle">Guarda FOCUS <em>cambiare una serata.</em></h2>
+      <div class="ctas" data-reveal><a class="btn btn-play magnetic" href="storia.html?play=1"><span class="t">▶ Guarda la storia</span></a></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq sheet" data-theme="light" aria-labelledby="qTitle">
+    <div class="wrap grid">
+      <div><p class="eyebrow" data-reveal>Domande frequenti</p><h2 class="sec-title split" id="qTitle">FOCUS, <em>in pratica.</em></h2></div>
+      <div data-reveal>
+        <details class="qa" open><summary>FOCUS sostituisce le ripetizioni?<i>+</i></summary><p>No, le completa. Le ripetizioni recuperano le lacune nella materia; FOCUS insegna come studiarla, così non ci si ritrova indietro. Da noi lo stesso tutor lavora su entrambe le cose.</p></details>
+        <details class="qa"><summary>Come capite su quale abilità lavorare?<i>+</i></summary><p>Si parte dal Performance Test: misura sette aree, dall'organizzazione all'ansia. In videochiamata il tutor vi spiega i risultati e costruisce il piano FOCUS su misura.</p></details>
+        <details class="qa"><summary>In quanto tempo si vedono i primi cambiamenti?<i>+</i></summary><p>Le prime tecniche si usano già dalle prime settimane, soprattutto nell'organizzazione. Perché il metodo diventi un'abitudine serve qualche mese di allenamento costante.</p></details>
+        <details class="qa"><summary>Funziona anche con DSA o BES?<i>+</i></summary><p>Sì: FOCUS si adatta, a partire dagli strumenti compensativi previsti dal suo PDP. Il test misura il modo di studiare, non l'intelligenza.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" data-theme="dark" aria-labelledby="fTitle">
+    <div class="wrap">
+      <h2 class="split" id="fTitle">Ogni metodo parte da una domanda: <em>da dove partiamo?</em></h2>
+      <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a></div>
+      <p class="note" data-reveal>Gratuito · online · 10 minuti · poi un tutor vi spiega i risultati</p>
+    </div>
+  </section>
+</main>
+
+<div data-lambda-footer></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/lambda.js?v=17"></script>
+<script>
+gsap.set('#logo', { autoAlpha: 1 });
+(() => {
+  const L = window.Lambda, $ = (s) => document.querySelector(s);
+
+  /* ---------- hero: le lettere entrano una alla volta, poi si accendono a turno ---------- */
+  const H = [...document.querySelectorAll('#hletters .hl')];
+  if (!L.reduced) {
+    gsap.from(H, { yPercent: 40, opacity: 0, duration: 1.2, stagger: 0.12, ease: 'expo.out', delay: 0.3, clearProps: 'transform,opacity' });
+    gsap.from(H.map((h) => h.querySelector('b')), { y: 14, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out', delay: 0.8 });
+    let hi = 0; setInterval(() => { if (document.hidden) return; H.forEach((h, i) => h.classList.toggle('on', i === hi)); hi = (hi + 1) % (H.length + 1); }, 1400);
+  }
+
+  /* ---------- dal test al metodo: aree del test ↔ lettere FOCUS ---------- */
+  const LT = [['F', 'Fiducia'], ['O', 'Organizzazione'], ['C', 'Comprensione'], ['U', 'Uso degli strumenti'], ['S', 'Sicurezza nell\'esposizione']];
+  const AR = [
+    ['Organizzazione', 'Abilità di studio', [1], 'Un piano settimanale realistico: cosa studiare, quando e per quanto.'],
+    ['Elaborazione', 'Abilità di studio', [2], 'Lettura attiva, sintesi e collegamenti: rielabora invece di ripetere.'],
+    ['Strategie', 'Abilità di studio', [3], 'La tecnica giusta al momento giusto: mappe, schemi, memoria, lettura veloce.'],
+    ['Metacognizione', 'Abilità di studio', [2, 3], 'Accorgersi di quando non si sta capendo, e cambiare strategia.'],
+    ['Autovalutazione', 'Abilità di studio', [0], 'Valutarsi in modo realistico: capire da solo se è pronto.'],
+    ['Ansia', 'Area emotiva', [4, 0], 'Simulazioni di interrogazione e una scaletta per esporre: la paura lascia spazio alla calma.', 1],
+    ['Resilienza', 'Area emotiva', [0], 'Un brutto voto diventa un punto di partenza, con piccoli successi misurabili.', 1],
+  ];
+  const areasEl = $('#areas'), ltsEl = $('#lts'), exp = $('#mexp'), svg = $('#mLines'), wrap = $('#mwrap');
+  areasEl.innerHTML = AR.map(([n, g, , , emo], i) => `<button class="area${emo ? ' emo' : ''}" type="button" data-i="${i}">${n}<small>${emo ? 'emotiva' : 'studio'}</small></button>`).join('');
+  ltsEl.innerHTML = LT.map(([l, n], i) => `<div class="lt" data-i="${i}"><i>${l}</i><b>${n}</b></div>`).join('');
+  const As = [...areasEl.children], Ls = [...ltsEl.children];
+  let cur = 0, auto = !L.reduced, tmr;
+  function drawLines() {
+    if (innerWidth <= 860) return;
+    const w = wrap.getBoundingClientRect(); svg.setAttribute('viewBox', `0 0 ${w.width} ${w.height}`);
+    svg.innerHTML = AR.flatMap(([, , to, , emo], i) => to.map((j) => {
+      const a = As[i].getBoundingClientRect(), b = Ls[j].getBoundingClientRect();
+      const x1 = a.right - w.left, y1 = a.top + a.height / 2 - w.top, x2 = b.left - w.left, y2 = b.top + b.height / 2 - w.top, mx = (x1 + x2) / 2;
+      return `<path data-a="${i}" class="${emo ? 'emo' : ''}" d="M${x1} ${y1} C${mx} ${y1} ${mx} ${y2} ${x2} ${y2}"/>`;
+    })).join('');
+    paint();
+  }
+  function paint() {
+    const [n, g, to, t, emo] = AR[cur];
+    As.forEach((a, i) => a.classList.toggle('on', i === cur));
+    Ls.forEach((l, j) => l.classList.toggle('on', to.includes(j)));
+    svg.querySelectorAll('path').forEach((p) => p.classList.toggle('on', +p.dataset.a === cur));
+    exp.innerHTML = `<p class="k">${n} → ${to.map((j) => LT[j][0]).join(' + ')}</p><h3>${to.map((j) => LT[j][1]).join(' e ')}</h3><p>${t}</p>`;
+    exp.classList.remove('swap'); void exp.offsetWidth; exp.classList.add('swap');
+  }
+  const go = (i) => { cur = i; paint(); };
+  areasEl.addEventListener('click', (e) => { const b = e.target.closest('.area'); if (!b) return; auto = false; clearInterval(tmr); go(+b.dataset.i); });
+  areasEl.addEventListener('mouseover', (e) => { const b = e.target.closest('.area'); if (!b) return; auto = false; clearInterval(tmr); go(+b.dataset.i); });
+  drawLines(); addEventListener('resize', drawLines); document.fonts?.ready.then(drawLines);
+  if (auto) tmr = setInterval(() => auto && go((cur + 1) % AR.length), 3200);
+})();
+</script>
+<script>
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s) => document.querySelector(s);
+  const sec = $('#abilita'), rowWrap = $('#rowWrap'), frow = $('#frow'), guide = $('#guide');
+  const letters = [...frow.querySelectorAll('.fl')], panels = [...document.querySelectorAll('#panels .panel')];
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+  const win = (p, a, b, f = 0.03) => clamp01((p - a) / f) * clamp01((b - p) / f);
+  const ease = (t) => 1 - Math.pow(1 - t, 3), easeIO = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+  /* ---------- costruzione delle mini-dimostrazioni ---------- */
+  // O · la settimana
+  const demoO = $('#demoO'), days = ['LUN', 'MAR', 'MER', 'GIO', 'VEN'];
+  const subj = [['Matematica', '#FFE7A3'], ['Latino', '#CDEFF1'], ['Storia', '#FFD9CC'], ['Inglese', '#DDE8FF'], ['Scienze', '#D8F3DF']];
+  days.forEach((d, i) => { demoO.insertAdjacentHTML('beforeend', `<div class="day" style="left:${i * 20}%">${d}</div>${i ? `<div class="col" style="left:${i * 20}%"></div>` : ''}`); });
+  const chipStart = [[18, 30, -24], [72, 70, 18], [40, 78, -12], [86, 34, 26], [58, 40, -30]];
+  const chips = subj.map(([t, c]) => { const e = document.createElement('div'); e.className = 'chip'; e.textContent = t; e.style.background = c; demoO.appendChild(e); return e; });
+  // C · il paragrafo e le parole chiave
+  const para = $('#para');
+  const text = [['La'], ['Rivoluzione francese', 1], ['iniziò nel'], ['1789', 1], [', quando il popolo, stanco delle'], ['tasse', 1], ['e della'], ['fame', 1], [', prese la'], ['Bastiglia', 1], ['e mise fine alla'], ['monarchia assoluta', 1], ['.']];
+  para.innerHTML = text.map(([t, k]) => `<span class="${k ? 'k' : 'w'}">${t}</span>`).join(' ');
+  const pw = [...para.querySelectorAll('.w')], pk = [...para.querySelectorAll('.k')];
+  // S · l'onda della voce
+  const wave = $('#wave'); const bars = [...Array(36)].map(() => { const e = document.createElement('i'); wave.appendChild(e); return e; });
+  const chaos = bars.map((_, i) => 0.15 + Math.abs(Math.sin(i * 12.9898) * 43758.5453 % 1) * 0.85);
+  // U · la mappa
+  const branches = [...document.querySelectorAll('#mapSvg .br')], nodes = [...document.querySelectorAll('#mapSvg .node:not(.center)')];
+
+  function demo(i, d, t) {
+    if (i === 0) {
+      $('#fBar').style.width = (20 + 72 * ease(d)) + '%';
+      const neg = $('#fNeg'), pos = $('#fPos');
+      neg.style.setProperty('--s', clamp01((d - 0.2) / 0.25));
+      neg.style.opacity = 1 - clamp01((d - 0.5) / 0.12);
+      pos.style.opacity = clamp01((d - 0.55) / 0.12);
+      pos.style.transform = `translateY(${(1 - clamp01((d - 0.55) / 0.12)) * 12}px)`;
+    }
+    if (i === 1) {
+      const k = easeIO(clamp01((d - 0.15) / 0.5));
+      chips.forEach((c, j) => {
+        const [sx, sy, sr] = chipStart[j];
+        const tx = j * 20 + 10, ty = 50 + (j % 2) * 18;
+        c.style.left = (sx + (tx - sx) * k) + '%'; c.style.top = (sy + (ty - sy) * k) + '%';
+        c.style.transform = `translate(-50%,-50%) rotate(${sr * (1 - k)}deg) scale(${0.95 + 0.05 * k})`;
+      });
+    }
+    if (i === 2) {
+      const k = clamp01((d - 0.15) / 0.45);
+      pw.forEach((w) => (w.style.opacity = (1 - 0.82 * k).toFixed(3)));
+      pk.forEach((w, j) => (w.style.backgroundSize = `${clamp01((d - 0.3 - j * 0.05) / 0.12) * 100}% 42%`));
+    }
+    if (i === 3) {
+      branches.forEach((b, j) => (b.style.strokeDashoffset = 1 - clamp01((d - 0.12 - j * 0.1) / 0.18)));
+      nodes.forEach((n, j) => { const s = ease(clamp01((d - 0.28 - j * 0.1) / 0.12)); n.style.opacity = s; n.style.transformOrigin = 'center'; n.style.transformBox = 'fill-box'; n.style.transform = `scale(${0.6 + 0.4 * s})`; });
+    }
+    if (i === 4) {
+      const k = easeIO(clamp01((d - 0.15) / 0.5));
+      bars.forEach((b, j) => {
+        const jitter = chaos[j] * (0.6 + 0.4 * Math.sin(t * 9 + j * 1.7));
+        const calm = 0.35 + 0.3 * Math.sin(j * 0.45 + t * 2.4);
+        b.style.height = ((jitter * (1 - k) + calm * k) * 100).toFixed(1) + '%';
+      });
+      $('#sState').textContent = k > 0.5 ? 'VOCE SICURA' : 'VOCE TREMOLANTE';
+    }
+  }
+
+  /* ---------- gli occhiali guida ---------- */
+  const R = () => Math.max(20, Math.min(36, innerWidth * 0.022));
+  function drawGuide() {
+    const r = R(), gap = r * 0.36, w = r * 4 + gap * 2 + 12, h = r * 2 + 12, cy = h / 2, c1 = 6 + r, c2 = w - 6 - r;
+    guide.setAttribute('width', w); guide.setAttribute('height', h); guide.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    guide.innerHTML = `<circle class="ring" cx="${c1}" cy="${cy}" r="${r}"/><circle class="ring" cx="${c2}" cy="${cy}" r="${r}"/><path class="bridge" d="M${c1 + r} ${cy - r * .15} Q${w / 2} ${cy - r * .5} ${c2 - r} ${cy - r * .15}"/><path class="glint" d="M${c1 - r * .55} ${cy - r * .35} A${r * .7} ${r * .7} 0 0 1 ${c1 - r * .1} ${cy - r * .68}"/>`;
+    guide._w = w; guide._h = h;
+  }
+  drawGuide(); addEventListener('resize', drawGuide);
+
+  let rowX = null, gX = null;
+  function update(now) {
+    requestAnimationFrame(update);
+    const r = sec.getBoundingClientRect(), p = (-r.top) / (r.height - innerHeight);
+    if (p > -0.02 && p <= 1) document.querySelectorAll('#rail a').forEach((d, i) => { d.classList.toggle('on', i === 5); d.classList.toggle('done', i < 5); });
+    if (reduced) { panels.forEach((pn, i) => demo(i, 1, 0)); return; }
+    if (p < -0.3 || p > 1.3) return;
+    const t = now / 1000;
+
+    $('#c5open p').style.opacity = win(p, -0.03, 0.1, 0.04);
+    $('#c5open p').style.transform = `translateY(${(1 - win(p, -0.03, 0.1, 0.04)) * 20}px)`;
+
+    const seg = (p - 0.16) / 0.16, act = seg >= 0 && seg < 5 ? Math.floor(seg) : -1, d = seg - Math.floor(seg);
+    const allOn = p >= 0.96;
+
+    // lettere: entrano, poi quella attiva ruota e si accende
+    letters.forEach((el, i) => {
+      const inK = ease(clamp01((p - 0.06 - i * 0.015) / 0.08));
+      const isAct = i === act, rot = isAct ? 360 * easeIO(clamp01(d / 0.22)) : 0;
+      const focus = act < 0 ? 1 : isAct ? 1 : 0;
+      el.classList.toggle('on', isAct || allOn);
+      el.style.opacity = (inK * (allOn ? 1 : act < 0 ? 1 : isAct ? 1 : 0.28)).toFixed(3);
+      el.style.filter = `blur(${allOn || act < 0 || isAct ? 0 : 1.5}px)`;
+      el.style.transform = `translateY(${(1 - inK) * 80}px) rotateY(${rot}deg) scale(${isAct ? 1.12 : allOn ? 1 : act < 0 ? 1 : 0.9})`;
+      void focus;
+    });
+
+    // la fila scivola per centrare la lettera attiva
+    const W = rowWrap.clientWidth, target = act >= 0 ? act : 2;
+    const L = letters[target], want = W / 2 - (L.offsetLeft + L.offsetWidth / 2);
+    rowX = rowX === null ? want : rowX + (want - rowX) * 0.08;
+    frow.style.transform = `translateX(${rowX}px) rotateY(${(want - rowX) * -0.02}deg)`;
+
+    // gli occhiali si posano sopra la lettera attiva
+    const gx = rowX + L.offsetLeft + L.offsetWidth / 2 - guide._w / 2;
+    gX = gX === null ? gx : gX + (gx - gX) * 0.1;
+    const gv = clamp01((p - 0.14) / 0.04) * (1 - clamp01((p - 0.97) / 0.03));
+    guide.style.opacity = gv;
+    guide.style.transform = `translate(${gX}px, ${-guide._h - 6 + Math.sin(t * 2) * 3}px)`;
+
+    // pannelli con la dimostrazione
+    panels.forEach((pn, i) => {
+      const v = i === act ? win(d, 0.06, 0.94, 0.06) : 0;
+      pn.style.opacity = v; pn.style.transform = `translateY(${(1 - v) * 24}px)`;
+      if (i === act) demo(i, d, t);
+    });
+
+    const e = clamp01((p - 0.965) / 0.03);
+    $('#c5end p').style.opacity = e; $('#c5end p').style.transform = `translateY(${(1 - e) * 20}px)`;
+  }
+  requestAnimationFrame(update);
+})();
+</script>
+</body>
+</html>

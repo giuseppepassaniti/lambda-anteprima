@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Centro Studi Lambda · Scegli il tuo percorso</title>
+<meta name="description" content="Centro Studi Lambda: metodo di studio, tutor e lezioni online in tutta Italia. Per studenti e per chi prepara un concorso in divisa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=8">
+<style>
+/* =================== HOME · stili specifici della pagina =================== */
+
+/* ---------- HERO A DUE PORTE ---------- */
+.door{cursor:pointer}
+.veil{position:fixed;inset:0;z-index:90;pointer-events:none}
+.veil.stud{background:radial-gradient(ellipse 80% 70% at 30% 60%, #16475a 0%, var(--navy) 55%, var(--deep) 100%)}
+.veil.conc{background:radial-gradient(ellipse 80% 70% at 70% 60%, #2c3620 0%, #121510 55%, var(--ink) 100%)}
+.hint{letter-spacing:.24em}
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:var(--deep)}
+.door{position:relative;overflow:hidden;display:flex;flex-direction:column;padding:calc(var(--hdr) + clamp(150px,20vh,210px)) clamp(20px,4vw,64px) 0}
+.door.stud{background:radial-gradient(ellipse 90% 70% at 30% 78%, #16475a 0%, var(--navy) 55%, var(--deep) 100%)}
+.door.conc{background:radial-gradient(ellipse 90% 70% at 70% 78%, #2c3620 0%, #121510 55%, var(--ink) 100%)}
+.door .content{position:relative;z-index:4;max-width:520px;transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.door.dim .content{opacity:.42;transform:scale(.985)}
+.door.dim .blurred{opacity:.22}
+.door .shade{position:absolute;inset:0;z-index:3;pointer-events:none;background:rgba(3,6,8,0);transition:background .7s var(--ease)}
+.door.dim .shade{background:rgba(3,6,8,.28)}
+.lbl{display:flex;align-items:center;gap:12px;font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+.stud .lbl{color:var(--warm)} .conc .lbl{color:var(--mil-l)}
+.tricolore{display:inline-flex;height:6px;width:36px;border-radius:3px;overflow:hidden}
+.tricolore i{flex:1}
+.door h2{margin-top:18px;font:700 clamp(34px,3.9vw,60px)/.98 var(--font);letter-spacing:-.045em;text-wrap:balance}
+.stud h2 em{font-style:normal;color:var(--warm)} .conc h2 em{font-style:normal;color:var(--red)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tags span{font:500 13px/1 var(--font);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85)}
+.conc .tags span{border-color:rgba(169,185,122,.35)}
+.door .ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:28px}
+.link{font-weight:700;font-size:15px;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:3px;transition:color .3s,border-color .3s}
+.link:hover{color:#fff;border-color:#fff}
+.star-bg{position:absolute;right:-8%;bottom:-12%;width:min(70%,560px);opacity:.1;pointer-events:none;z-index:1}
+.hero-title{position:absolute;left:0;right:0;top:calc(var(--hdr) + clamp(28px,5vh,56px));z-index:6;text-align:center;padding:0 24px;pointer-events:none}
+.hero-title h1{font:700 clamp(46px,6vw,96px)/.92 var(--font);letter-spacing:-.05em}
+.hero-title p{margin-top:12px;font:500 clamp(18px,2vw,30px)/1.15 var(--font);letter-spacing:-.03em;color:rgba(255,255,255,.88)}
+.hero-title p em{font-style:normal;font-weight:700;color:#fff;padding-bottom:6px;background:linear-gradient(90deg,var(--warm) 0 50%,var(--red) 50% 100%) no-repeat 0 100%/100% 4px}
+.seam{position:absolute;left:50%;top:0;bottom:0;width:1px;z-index:5;background:linear-gradient(transparent,rgba(255,255,255,.18) 30%,rgba(255,255,255,.18) 70%,transparent);pointer-events:none}
+.field{position:absolute;inset:0;pointer-events:none;z-index:2}
+.field .w{position:absolute;white-space:nowrap;font-weight:500;letter-spacing:-.01em;line-height:1;transform:translate(-50%,-50%)}
+.field .w.note{font-family:var(--mono);letter-spacing:0}
+.blurred{filter:blur(6px);opacity:.5}
+.stud .blurred .w{color:var(--slate)} .conc .blurred .w{color:#7d8566}
+.sharp{-webkit-mask-image:radial-gradient(circle var(--r,0px) at var(--x1,0) var(--y,0),#000 98%,transparent 100%),radial-gradient(circle var(--r,0px) at var(--x2,0) var(--y,0),#000 98%,transparent 100%),linear-gradient(#000,#000);
+  mask-image:radial-gradient(circle var(--r,0px) at var(--x1,0) var(--y,0),#000 98%,transparent 100%),radial-gradient(circle var(--r,0px) at var(--x2,0) var(--y,0),#000 98%,transparent 100%),linear-gradient(#000,#000);
+  -webkit-mask-size:100% 100%,100% 100%,var(--bw,0) var(--bh,0);mask-size:100% 100%,100% 100%,var(--bw,0) var(--bh,0);
+  -webkit-mask-position:0 0,0 0,var(--bx,0) var(--by,0);mask-position:0 0,0 0,var(--bx,0) var(--by,0);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.stud .sharp{background:radial-gradient(ellipse 90% 70% at 30% 78%, #1d5b73 0%, #11303f 55%, #0b1f2a 100%)}
+.conc .sharp{background:radial-gradient(ellipse 90% 70% at 70% 78%, #3a4829 0%, #1a1e15 55%, #0e100c 100%)}
+.sharp .w{color:#fff;font-weight:700}
+.stud .sharp .w.on{color:var(--warm)} .conc .sharp .w.on{color:var(--mil-l)}
+.sharp .w.note{color:rgba(255,255,255,.55);font-weight:500}
+.sharp .w.on{animation:pop .5s var(--ease)}
+@keyframes pop{0%{transform:translate(-50%,-50%) scale(.8)}60%{transform:translate(-50%,-50%) scale(1.08)}100%{transform:translate(-50%,-50%) scale(1)}}
+.lens{position:absolute;left:0;top:0;z-index:7;pointer-events:none;overflow:visible;will-change:transform;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+.lens .ring,.lens .bridge{fill:none;stroke:#fff;stroke-width:7;stroke-linecap:round}
+.lens .glint{fill:none;stroke:rgba(255,255,255,.55);stroke-width:4;stroke-linecap:round}
+.hint{position:absolute;left:50%;bottom:26px;z-index:6;transform:translateX(-50%);font:500 11px/1 var(--mono);letter-spacing:.2em;color:rgba(255,255,255,.5);display:flex;flex-direction:column;align-items:center;gap:10px}
+.hint i{width:1.5px;height:34px;background:linear-gradient(#fff,transparent);animation:drip 1.8s var(--ease) infinite;transform-origin:top}
+@keyframes drip{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.hero-title .word>span{transform:translateY(110%)}
+.hero-title.in .word>span{transform:none}
+
+@media (max-width: 860px){
+  .hero{grid-template-columns:1fr}
+  .door{min-height:88svh;padding-top:clamp(70px,10vh,110px)}
+  .door.stud{padding-top:calc(var(--hdr) + 190px)}
+  .hero-title{top:calc(var(--hdr) + 24px)}
+  .seam{display:none}
+  .door.dim .content{opacity:1;transform:none}
+  .door.dim .shade{background:transparent}
+}
+@media (max-width: 560px){
+  .door .ctas .btn{width:100%;justify-content:center}
+  .hero-title h1{font-size:13vw}
+}
+</style>
+</head>
+<body class="intro-on" data-page="soglia" data-branch="gate">
+
+<!-- ============ INTRO: logo 3D ============ -->
+<div class="intro" id="intro">
+  <div class="intro-bg" id="introBg"></div>
+  <canvas id="intro3d" aria-hidden="true"></canvas>
+  <div class="intro-word" id="introWord"><img src="assets/wordmark-white.png" alt=""></div>
+  <button class="skip" id="skip">SALTA INTRO</button>
+</div>
+
+<div data-lambda-header></div>
+
+<main>
+  <!-- ============ HERO · DUE PORTE ============ -->
+  <section class="hero" id="hero" aria-labelledby="heroTitle" data-theme="dark">
+    <div class="hero-title split" data-manual id="heroTitleWrap">
+      <h1 id="heroTitle">Due percorsi.</h1>
+      <p>Un unico metodo: <em>farti arrivare lontano.</em></p>
+    </div>
+    <div class="door stud" id="doorStud" data-href="studenti.html">
+      <div class="field blurred" aria-hidden="true"></div><div class="field sharp" aria-hidden="true"></div><div class="shade"></div>
+      <div class="content">
+        <div class="lbl">Studenti e genitori</div>
+        <h2>Voglio che mio figlio <em>studi meglio.</em></h2>
+        <div class="tags"><span>Performance Test</span><span>Metodo FOCUS</span><span>Tutor</span><span>Aule studio online</span><span>Laboratori</span></div>
+        <div class="ctas"><a class="btn btn-stud magnetic" href="studenti.html" data-go><span class="t">Entra nel percorso studenti →</span></a></div>
+      </div>
+    </div>
+    <div class="door conc" id="doorConc" data-href="concorsi.html">
+      <svg class="star-bg" viewBox="0 0 200 200" aria-hidden="true"><defs><clipPath id="starClip"><path d="M100 8 L124 76 L196 76 L138 118 L160 188 L100 146 L40 188 L62 118 L4 76 L76 76 Z"/></clipPath></defs>
+        <g clip-path="url(#starClip)"><rect width="200" height="200" fill="#A9B97A"/><path d="M0 120 L200 20 L200 60 L0 160 Z" fill="#F2F1EC"/><path d="M0 160 L200 60 L200 100 L0 200 Z" fill="#D7263D"/></g></svg>
+      <div class="field blurred" aria-hidden="true"></div><div class="field sharp" aria-hidden="true"></div><div class="shade"></div>
+      <div class="content">
+        <div class="lbl"><span class="tricolore"><i style="background:var(--flag-g)"></i><i style="background:var(--bone)"></i><i style="background:var(--red)"></i></span>Concorsi Militari Academy</div>
+        <h2>Voglio entrare <em>in divisa.</em></h2>
+        <div class="tags"><span>Orientamento</span><span>Metodo EAGLE</span><span>Tutor</span><span>Banca dati</span><span>Simulatore</span></div>
+        <div class="ctas"><a class="btn btn-conc magnetic" href="concorsi.html" data-go><span class="t">Entra in Concorsi Militari Academy →</span></a></div>
+      </div>
+    </div>
+    <div class="seam" aria-hidden="true"></div>
+    <svg class="lens" id="lens" aria-hidden="true"></svg>
+    <div class="hint" id="hint" aria-hidden="true">SCEGLI LA TUA STRADA</div>
+  </section>
+
+</main>
+
+<div data-lambda-footer></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/lambda.js?v=17"></script>
+
+<!-- ======================= HOME · comportamenti della pagina ======================= -->
+<script>
+(() => {
+  const L = window.Lambda, reduced = L.reduced, $ = (s) => document.querySelector(s);
+  const hero = $('#hero'), lens = $('#lens'), logo = $('#logo'), logoIcon = $('#logoIcon');
+  const mob = () => innerWidth < 860;
+
+  /* ================= HERO A DUE PORTE ================= */
+  const DOORS = {
+    stud: { el: $('#doorStud'), pairs: [['ansia', 'fiducia'], ['compiti infiniti', 'organizzazione'], ['non capisco', 'comprensione'], ['evidenzio tutto', 'mappe mentali'], ['interrogazione', 'sicurezza'], ['debiti', 'promosso']], notes: ['a² + b² = c²', '1492', 'Past Simple', 'Inferno, I'] },
+    conc: { el: $('#doorConc'), pairs: [['banca dati infinita', 'memoria efficiente'], ['dimentico tutto', 'richiamo allenato'], ['poco tempo', 'gestione strategica'], ['insicurezza', 'leadership'], ['ansia da prova', 'esame sicuro'], ['non idoneo', 'idoneo']], notes: ['Art. 1 Cost.', 'Logica', 'Quiz n. 1284', 'Prova fisica'] },
+  };
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const baseR = () => (innerWidth < 560 ? 40 : Math.max(52, Math.min(86, innerWidth * 0.05)));
+  function buildDoor(key) {
+    const D = DOORS[key], el = D.el, w = el.clientWidth, h = el.clientHeight, r = baseR();
+    const content = el.querySelector('.content'), cb = content.offsetTop + content.offsetHeight;
+    const A = { x: w * 0.08, y: Math.max(cb + r * 1.5 + 16, h * 0.6), w: w * 0.84 }; A.h = Math.max(140, h - A.y - 50);
+    seed = key === 'stud' ? 7 : 19;
+    const colW = A.w / 2, maxW = Math.min(4.3 * r - 20, colW * 0.92), items = [];
+    D.pairs.forEach(([a, b], i) => { const row = Math.floor(i / 2), c = i % 2, len = Math.max(a.length, b.length); items.push({ t: 1, a, b, size: Math.min(26, maxW / (len * 0.56)), x: A.x + colW * (c + 0.5) + (row % 2 ? 1 : -1) * colW * 0.08, y: A.y + (A.h / 3) * (row + 0.5), rot: (rnd() - 0.5) * 16 }); });
+    D.notes.forEach((n) => items.push({ t: 0, a: n, b: n, size: 12, x: A.x + rnd() * A.w, y: A.y + rnd() * A.h, rot: (rnd() - 0.5) * 16 }));
+    const html = (s) => items.map((it) => `<span class="w${it.t ? ' target' : ' note'}" style="left:${it.x}px;top:${it.y}px;font-size:${it.size}px;${s ? '' : `transform:translate(-50%,-50%) rotate(${it.rot}deg)`}">${s ? it.b : it.a}</span>`).join('');
+    el.querySelector('.blurred').innerHTML = html(false); const sh = el.querySelector('.sharp'); sh.innerHTML = html(true);
+    D.targets = [0, 1, 3, 2, 4, 5].map((i) => ({ x: items[i].x, y: items[i].y, s: sh.querySelectorAll('.target')[i] })); D.sharp = sh;
+  }
+  function drawLens(r) {
+    const gap = r * 0.36, w = r * 4 + gap * 2 + 20, h = r * 2 + 20, cy = h / 2, c1 = 10 + r, c2 = w - 10 - r;
+    lens.setAttribute('width', w); lens.setAttribute('height', h); lens.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    lens.innerHTML = `<circle class="ring" cx="${c1}" cy="${cy}" r="${r}"/><circle class="ring" cx="${c2}" cy="${cy}" r="${r}"/><path class="bridge" d="M${c1 + r} ${cy - r * .15} Q${w / 2} ${cy - r * .5} ${c2 - r} ${cy - r * .15}"/><path class="glint" d="M${c1 - r * .55} ${cy - r * .35} A${r * .7} ${r * .7} 0 0 1 ${c1 - r * .1} ${cy - r * .68}"/><path class="glint" d="M${c2 - r * .55} ${cy - r * .35} A${r * .7} ${r * .7} 0 0 1 ${c2 - r * .1} ${cy - r * .68}"/>`;
+    lens._w = w; lens._h = h; lens._off = (c2 - c1) / 2;
+  }
+  let active = 'stud', hover = null, lastSwitch = 0;
+  const scan = { i: -1, next: 0, t0: 0, from: null, move: 750, hold: 1500 };
+  const Lp = { x: 0, y: 0, vis: 0 };
+  const setActive = (k) => { if (k === active) return; active = k; scan.i = -1; scan.next = 0; lastSwitch = performance.now(); Object.entries(DOORS).forEach(([key, D]) => D.el.classList.toggle('dim', key !== k)); };
+  Object.entries(DOORS).forEach(([key, D]) => D.el.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { hover = key; setActive(key); } }));
+  hero.addEventListener('pointerleave', () => { hover = null; });
+  const doorOrigin = (k) => { const b = DOORS[k].el.getBoundingClientRect(), hb = hero.getBoundingClientRect(); return { x: b.left - hb.left, y: b.top - hb.top }; };
+  function stepScan(now) {
+    const D = DOORS[active]; if (!D.targets) return; const o = doorOrigin(active);
+    if (now >= scan.next) { scan.i = (scan.i + 1) % D.targets.length; if (scan.i === 0) D.targets.forEach((t) => t.s.classList.remove('on')); scan.from = { x: Lp.x, y: Lp.y }; scan.t0 = now; scan.next = now + scan.move + scan.hold; scan.landed = false; }
+    const t = D.targets[scan.i], tx = o.x + t.x, ty = o.y + t.y, p = Math.min(1, (now - scan.t0) / scan.move), e = L.easeIO(p);
+    Lp.x = scan.from.x + (tx - scan.from.x) * e; Lp.y = scan.from.y + (ty - scan.from.y) * e + Math.sin(Math.PI * p) * -30;
+    if (p >= 1 && !scan.landed) { scan.landed = true; t.s.classList.add('on'); }
+  }
+  let started = false;
+  L.onFrame((now, sy) => {
+    if (!started) return;
+    const hb = hero.getBoundingClientRect(); if (hb.bottom < -50) return;
+    if (mob()) { const bs = DOORS.stud.el.getBoundingClientRect(), bc = DOORS.conc.el.getBoundingClientRect(); setActive((Math.min(innerHeight, bc.bottom) - Math.max(0, bc.top)) > (Math.min(innerHeight, bs.bottom) - Math.max(0, bs.top)) ? 'conc' : 'stud'); }
+    else if (!hover && now - lastSwitch > 9000) setActive(active === 'stud' ? 'conc' : 'stud');
+    if (!reduced) stepScan(now);
+    const R = baseR(), e = 0; // nella soglia non si scorre: gli occhiali restano nelle porte
+    const lg = logoIcon.getBoundingClientRect(), gx = lg.left + lg.width / 2 - hb.left, gy = lg.top + lg.height * 0.24 - hb.top;
+    const cx = Lp.x + (gx - Lp.x) * e, cy = Lp.y + (gy - Lp.y) * e, rr = (R * (1 - e) + lg.width * 0.15 * e) * Lp.vis, of = lens._off * (rr / R);
+    Object.entries(DOORS).forEach(([key, D]) => { const o = doorOrigin(key), on = key === active ? 1 : 0, s = D.sharp.style;
+      s.setProperty('--r', rr * on + 'px'); s.setProperty('--x1', (cx - o.x - of) + 'px'); s.setProperty('--x2', (cx - o.x + of) + 'px'); s.setProperty('--y', (cy - o.y) + 'px');
+      s.setProperty('--bx', (cx - o.x - of) + 'px'); s.setProperty('--by', (cy - o.y - rr * 0.55) + 'px'); s.setProperty('--bw', of * 2 * on + 'px'); s.setProperty('--bh', rr * 1.1 * on + 'px'); });
+    lens.style.transform = `translate(${cx - lens._w / 2}px, ${cy - lens._h / 2}px) scale(${rr / R})`;
+    lens.style.opacity = e > 0.92 ? String(1 - (e - 0.92) / 0.08) : '1';
+    logo.classList.toggle('lit', e > 0.9);
+  });
+
+  gsap.set(['.door .content > *', '.field', '#hint', '.seam', '.star-bg'], { autoAlpha: 0 });
+  gsap.set(logo, { autoAlpha: 0 });
+  function startHero(fromIntro) {
+    if (started) return; started = true;
+    drawLens(baseR()); buildDoor('stud'); buildDoor('conc'); DOORS.conc.el.classList.add('dim');
+    const o = doorOrigin('stud'), t0 = DOORS.stud.targets[0]; Lp.x = o.x + t0.x; Lp.y = o.y + t0.y - 200;
+    addEventListener('resize', () => { drawLens(baseR()); buildDoor('stud'); buildDoor('conc'); scan.i = -1; scan.next = 0; });
+    L.release();
+    $('#heroTitleWrap').classList.add('in');
+    if (reduced) { gsap.set(['.door .content > *', '.field', '#hint', '.seam', '.star-bg', logo], { autoAlpha: 1 }); Lp.vis = 1; Lp.x = o.x + t0.x; Lp.y = o.y + t0.y; return; }
+    const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    if (fromIntro) tl.set(logo, { autoAlpha: 1 }, 0);
+    else { const icon = logoIcon.querySelectorAll('.st'); icon.forEach((p) => { const len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.strokeDashoffset = len; });
+      tl.set(logo, { autoAlpha: 1 }, 0).to(icon, { strokeDashoffset: 0, duration: 1.1, stagger: 0.07, ease: 'power2.inOut' }, 0).from('.wordmark', { clipPath: 'inset(0 100% 0 0)', duration: 1, ease: 'power3.inOut' }, 0.3); }
+    tl.fromTo('.seam', { scaleY: 0, autoAlpha: 0 }, { scaleY: 1, autoAlpha: 1, duration: 1.4, ease: 'power3.inOut' }, 0)
+      .fromTo('#doorStud .content > *', { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.9, stagger: 0.07 }, 0.55)
+      .fromTo('#doorConc .content > *', { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.9, stagger: 0.07 }, 0.7)
+      .fromTo('.field.blurred', { autoAlpha: 0 }, { autoAlpha: 0.5, duration: 1.2, clearProps: 'opacity,visibility' }, 0.6)
+      .fromTo('.field.sharp', { autoAlpha: 0 }, { autoAlpha: 1, duration: 1.2, clearProps: 'opacity,visibility' }, 0.6)
+      .fromTo('.star-bg', { autoAlpha: 0, rotate: -20, scale: 0.8 }, { autoAlpha: 0.1, rotate: 0, scale: 1, duration: 1.6 }, 0.6)
+      .to(Lp, { vis: 1, duration: 1.2, ease: 'elastic.out(1, 0.55)' }, 1.0)
+      .add(() => { scan.next = performance.now() + 300; lastSwitch = performance.now(); }, 1.0)
+      .fromTo('#hint', { autoAlpha: 0 }, { autoAlpha: 1, duration: 1 }, 1.4);
+  }
+  window.__startHero = startHero;
+  if (reduced) { $('#intro').remove(); startHero(false); }
+  else setTimeout(() => { if (!started && !window.__introRunning) { $('#intro')?.remove(); startHero(false); } }, 4000);
+
+  /* ================= LA SCELTA: la porta si espande e porta nel suo mondo ================= */
+  const go = (door) => {
+    const href = door.dataset.href; try { localStorage.setItem('lambda-branch', door.id === 'doorStud' ? 'stud' : 'conc'); } catch (e) {}
+    if (reduced) { location.href = href; return; }
+    const b = door.getBoundingClientRect(), veil = document.createElement('div');
+    veil.className = 'veil ' + (door.id === 'doorStud' ? 'stud' : 'conc');
+    veil.style.clipPath = `inset(${b.top}px ${innerWidth - b.right}px ${innerHeight - b.bottom}px ${b.left}px round 0px)`;
+    document.body.appendChild(veil);
+    gsap.to(veil, { clipPath: 'inset(0px 0px 0px 0px round 0px)', duration: 0.8, ease: 'expo.inOut' });
+    gsap.to(door.querySelector('.content'), { scale: 1.04, autoAlpha: 0, duration: 0.5, ease: 'power2.in' });
+    gsap.to('.lens', { scale: 2.4, autoAlpha: 0, duration: 0.7, ease: 'expo.in' });
+    setTimeout(() => (location.href = href), 820);
+  };
+  Object.values(DOORS).forEach((D) => D.el.addEventListener('click', (e) => { e.preventDefault(); go(D.el); }));
+})();
+</script>
+
+<!-- ======================= INTRO 3D ======================= -->
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+<script type="module" src="assets/intro3d.js"></script>
+</body>
+</html>

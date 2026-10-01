@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sede · Centro Studi Lambda</title>
+<meta name="description" content="La sede Lambda: tutor in presenza e postazioni studio collegate alla Rete Lambda.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=8">
+<style>
+/* =================== LAMBDA · template della singola sede =================== */
+.soon-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px dashed currentColor;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.65}
+
+/* ---------- HERO 3D ---------- */
+.shero{position:relative;height:100svh;min-height:640px;overflow:hidden;background:#050d12}
+#sCanvas{position:absolute;inset:0;width:100%;height:100%}
+.shero .veil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(5,13,18,.92) 0%,rgba(5,13,18,.6) 34%,transparent 62%),linear-gradient(0deg,rgba(5,13,18,.7),transparent 30%)}
+.shero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:var(--hdr)}
+.crumb{display:flex;gap:10px;font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.crumb a:hover{color:#fff} .crumb b{color:var(--warm);font-weight:500}
+.shero h1{margin-top:22px;max-width:12ch;font:700 clamp(46px,5.6vw,92px)/.94 var(--font);letter-spacing:-.05em}
+.shero h1 em{font-style:normal;color:var(--warm)}
+.shero .lead{margin-top:22px;max-width:44ch;font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:rgba(255,255,255,.74)}
+.shero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.facts span{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-size:14px;color:rgba(255,255,255,.8)}
+.facts svg{width:16px;height:16px;fill:none;stroke:var(--warm);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.slabel{position:absolute;left:0;top:0;z-index:1;padding:8px 13px;border-radius:999px;background:rgba(8,22,31,.75);border:1px solid rgba(255,214,107,.6);font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--warm);white-space:nowrap;opacity:0;pointer-events:none}
+.sfallback{display:none;position:absolute;right:6%;top:50%;width:min(36vw,420px);transform:translateY(-45%);opacity:.9}
+body.nogl .sfallback{display:block} body.nogl #sCanvas,body.nogl .slabel{display:none}
+
+
+/* ---------- TOUR 3D ---------- */
+.tour{background:var(--deep);padding:clamp(100px,13vh,150px) 0 clamp(110px,14vh,160px)}
+.tour .eyebrow{color:var(--warm)}
+.tour .ttop{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.tbox{position:relative;margin-top:40px;height:min(74vh,700px);min-height:440px;border-radius:32px;overflow:hidden;background:#dfe8ec;box-shadow:0 50px 100px -50px #000}
+#tCanvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:pan-y}
+#tCanvas:active{cursor:grabbing}
+#tHot{position:absolute;inset:0;pointer-events:none}
+.hs{position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;padding:0;transition:opacity .35s}
+.hs i{position:relative;width:22px;height:22px;border-radius:50%;background:var(--warm);box-shadow:0 0 0 6px rgba(255,214,107,.3),0 6px 16px rgba(14,33,46,.4)}
+.hs i::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--warm);animation:hsr 1.8s ease-out infinite}
+@keyframes hsr{from{transform:scale(.8);opacity:1}to{transform:scale(1.8);opacity:0}}
+.hs span{padding:7px 11px;border-radius:999px;background:rgba(14,33,46,.85);color:#fff;font:700 13px/1 var(--font);white-space:nowrap;opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .3s var(--ease)}
+.hs:hover span,.hs:focus-visible span{opacity:1;transform:none}
+.tpanel{position:absolute;left:20px;bottom:20px;width:min(400px,calc(100% - 40px));padding:22px 24px;border-radius:24px;background:rgba(8,22,31,.86);color:#fff;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.tpanel.swap>*{animation:tin .6s var(--ease) both}
+.tpanel.swap>*:nth-child(2){animation-delay:.05s} .tpanel.swap>*:nth-child(3){animation-delay:.1s}
+@keyframes tin{from{opacity:0;transform:translateY(10px)}}
+.tpanel .k{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--warm)}
+.tpanel h3{margin-top:10px;font:700 clamp(22px,2vw,28px)/1.1 var(--font);letter-spacing:-.03em}
+.tpanel p{margin-top:8px;font-size:15px;line-height:1.45;color:rgba(255,255,255,.72)}
+.tnav{display:flex;align-items:center;gap:12px;margin-top:18px}
+.tnav button#tPrev{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);color:#fff;font-size:16px}
+.tnav button#tPrev:disabled{opacity:.3}
+.tnav #tNext{margin-left:auto;padding:12px 18px;border-radius:999px;background:var(--warm);color:var(--navy);font:700 14px/1 var(--font)}
+#tDots{display:flex;gap:6px}
+#tDots button{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);transition:background .3s,transform .3s}
+#tDots button[aria-current="true"]{background:var(--warm);transform:scale(1.3)}
+.thint{position:absolute;right:20px;top:20px;display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(14,33,46,.8);color:#fff;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;transition:opacity .5s;pointer-events:none}
+.tbox.used .thint{opacity:0}
+.tnote{position:absolute;right:20px;bottom:16px;font:500 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(14,33,46,.5)}
+.tlist{display:none;list-style:none;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.tlist li{padding:22px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.tlist b{display:block;font-size:18px} .tlist span{display:block;margin-top:6px;font-size:14.5px;line-height:1.45;color:rgba(255,255,255,.7)}
+body.nogl .tbox{display:none} body.nogl .tlist{display:grid}
+@media (max-width: 760px){
+  .tbox{height:78vh;min-height:520px;border-radius:24px}
+  .tpanel{left:12px;right:12px;bottom:12px;width:auto;padding:18px}
+  .thint{display:none} .tnote{top:14px;bottom:auto;right:14px}
+  .tlist{grid-template-columns:1fr 1fr}
+}
+
+/* ---------- GALLERIA ---------- */
+.gal{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.gal .eyebrow,.flow .eyebrow,.seat .eyebrow,.team .eyebrow,.visit .eyebrow{color:var(--teal)}
+.ggrid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px;margin-top:44px}
+.gtile{position:relative;border-radius:24px;overflow:hidden;background:linear-gradient(150deg,#d4e2e7,#c3d5dc)}
+.gtile:first-child{grid-row:1/3}
+.gtile img{width:100%;height:100%;object-fit:cover}
+.gtile .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;color:var(--navy)}
+.gtile .ph svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.gtile .ph b{position:relative;font-size:17px}
+.gtile .ph small{position:relative;margin-top:4px;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#4a6370}
+
+/* ---------- COME FUNZIONA IN SEDE ---------- */
+.flow{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.fsteps{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:56px;counter-reset:f}
+.fsteps::before{content:"";position:absolute;left:4%;right:4%;top:28px;height:2px;background:linear-gradient(90deg,var(--aqua),var(--warm));transform-origin:left;transform:scaleX(var(--fl,0));transition:transform 1.6s var(--ease)}
+.fsteps.in{--fl:1}
+.fst{position:relative;text-align:center;padding:0 4px}
+.fst .ic{position:relative;z-index:1;width:56px;height:56px;margin:0 auto;border-radius:50%;background:var(--navy);display:grid;place-items:center;box-shadow:0 0 0 6px #fff}
+.fst .ic svg{width:26px;height:26px;fill:none;stroke:var(--warm);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fst.net .ic{background:var(--aqua)} .fst.net .ic svg{stroke:#fff}
+.fst small{display:block;margin-top:18px;font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--aqua)}
+.fst b{display:block;margin-top:8px;font-size:17px;line-height:1.2}
+.fst p{margin-top:6px;font-size:14px;line-height:1.4;color:#4a6370}
+
+/* ---------- POSTAZIONI ---------- */
+.seat{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.seat .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.feat{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+.feat li{padding:16px 18px;border-radius:18px;background:#fff;box-shadow:0 14px 30px -24px rgba(14,33,46,.4)}
+.feat b{display:block;font-size:16px} .feat span{display:block;margin-top:4px;font-size:14px;line-height:1.4;color:#4a6370}
+.isoS svg{width:100%;height:auto}
+
+/* ---------- COLLEGATA A TUTTA LAMBDA ---------- */
+.link{background:var(--deep);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.link .eyebrow{color:var(--warm)}
+.link .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.netd{margin-top:40px}
+.netd svg{width:100%;height:auto;max-height:440px}
+.netd .flowl{fill:none;stroke-width:2;stroke-dasharray:6 8;animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.netd text{font-family:var(--font);font-weight:700}
+
+/* ---------- TUTOR + RECENSIONI ---------- */
+.team{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr) 1.2fr;gap:12px;margin-top:44px}
+.tc{border-radius:24px;padding:22px;background:var(--light);display:flex;flex-direction:column;gap:14px;min-height:260px}
+.tc .ph{flex:1;border-radius:18px;background:linear-gradient(160deg,#cddde3,#b7cdd5);display:grid;place-items:end center;overflow:hidden}
+.tc .ph svg{width:70%}
+.tc b{font-size:17px} .tc small{display:block;margin-top:2px;font-size:13px;color:#4a6370}
+.tp{border-radius:24px;padding:26px;background:var(--navy);color:#fff;display:flex;flex-direction:column}
+.tp .big{font:700 64px/1 var(--font);letter-spacing:-.04em}
+.tp p{margin-top:12px;font-size:15px;line-height:1.45;color:rgba(255,255,255,.7)}
+.tp a{margin-top:auto;padding-top:18px;font-weight:700;color:var(--warm)}
+
+/* ---------- ORARI, MAPPA, PRENOTA ---------- */
+.visit{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.vgrid{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:12px;margin-top:44px;align-items:stretch}
+.vc{border-radius:24px;padding:24px;background:#fff;box-shadow:0 20px 40px -34px rgba(14,33,46,.5)}
+.vc h3{font:500 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+.hours{list-style:none;margin-top:16px;display:grid;gap:10px}
+.hours li{display:flex;justify-content:space-between;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(14,33,46,.08);font-size:15px}
+.hours li b{font-weight:700}
+.gmap{display:block;width:100%;height:190px;margin-top:12px;border:0;border-radius:14px;background:#e5eff2}
+.nomap{display:grid;place-content:center;text-align:center;background:radial-gradient(circle at 50% 45%,rgba(0,148,158,.18),#e5eff2 60%)}
+.nomap span{font:700 24px/1 var(--font)} .nomap small{margin-top:6px;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#6b7f88}
+.contacts{display:grid;gap:8px;margin-top:16px}
+.ct{display:block;padding:12px 14px;border-radius:14px;background:var(--light);font-size:14.5px;color:var(--navy);word-break:break-word}
+.ct b{display:block;font:500 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.mapc .addr{margin-top:6px;font-size:15px;line-height:1.4}
+.mapc>a{display:inline-block;margin-top:10px;font-weight:700;color:var(--teal);border-bottom:1.5px solid currentColor}
+.vform{display:grid;gap:10px;margin-top:16px}
+.vform input{width:100%;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(14,33,46,.14);font:500 16px/1 var(--font);color:var(--navy);background:#fff;outline:none;transition:border-color .3s}
+.vform input:focus{border-color:var(--aqua)}
+.vopts{display:flex;flex-wrap:wrap;gap:6px}
+.vopt{padding:10px 12px;border-radius:12px;border:1.5px solid rgba(14,33,46,.14);font:700 14px/1 var(--font);color:var(--navy);transition:background .25s,border-color .25s,color .25s}
+.vopt[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.vform .lbl{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#6b7f88;margin-top:4px}
+.vchk{display:flex;gap:10px;font-size:13px;line-height:1.4;color:#4a6370}
+.vchk input{width:18px;height:18px;flex-shrink:0;accent-color:var(--aqua)}
+.vform .btn[disabled]{opacity:.4;pointer-events:none}
+.vok{display:none;text-align:center;padding:30px 10px}
+.vok b{display:block;font-size:24px;margin-top:10px} .vok p{margin-top:8px;color:#4a6370;line-height:1.5}
+.vc.sent .vform{display:none} .vc.sent .vok{display:block}
+.alt{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:20px 24px;border-radius:22px;background:var(--navy);color:#fff}
+.alt p{font-weight:700;font-size:17px} .alt p span{display:block;font-weight:500;font-size:14px;color:rgba(255,255,255,.65);margin-top:4px}
+
+/* ---------- ALTRE SEDI ---------- */
+.others{background:radial-gradient(ellipse 70% 60% at 50% 45%, #16475a 0%, var(--navy) 55%, var(--deep) 100%);padding:clamp(100px,13vh,150px) 0}
+.others h2{font:700 clamp(34px,4vw,60px)/1 var(--font);letter-spacing:-.045em;text-align:center}
+.others h2 em{font-style:normal;color:var(--warm)}
+.olist{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.ol{padding:22px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);transition:transform .4s var(--ease),background .3s}
+.ol:hover{transform:translateY(-4px);background:rgba(255,255,255,.09)}
+.ol small{font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--warm);text-transform:uppercase}
+.ol b{display:block;margin-top:8px;font-size:22px} .ol span{display:block;margin-top:14px;font-weight:700;font-size:14px;color:var(--warm)}
+
+@media (max-width: 1100px){ .fsteps{grid-template-columns:repeat(3,1fr);row-gap:34px} .fsteps::before{display:none} .tgrid{grid-template-columns:1fr 1fr} .vgrid{grid-template-columns:1fr 1fr} .vgrid .vc:last-child{grid-column:1/3} }
+@media (max-width: 860px){
+  .shero .veil{background:linear-gradient(0deg,rgba(5,13,18,.95) 0%,rgba(5,13,18,.7) 45%,rgba(5,13,18,.1) 75%)}
+  .shero .wrap{justify-content:flex-end;padding-bottom:50px}
+  .sfallback{right:50%;top:22%;transform:translate(50%,0);width:60vw}
+  .slabel{display:none}
+  .ggrid{grid-template-columns:1fr 1fr;grid-template-rows:200px 160px 160px} .gtile:first-child{grid-column:1/3;grid-row:auto}
+  .seat .grid{grid-template-columns:1fr} .olist{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 600px){ .fsteps{grid-template-columns:1fr 1fr} .feat{grid-template-columns:1fr} .tgrid,.vgrid{grid-template-columns:1fr} .vgrid .vc:last-child{grid-column:auto} .shero .ctas .btn{width:100%;justify-content:center} }
+
+/* =================== veste CMA (sede.html?c=...&b=cma) =================== */
+body[data-branch="conc"]{--warm:#CD141F;--aqua:#a9b97a;--teal:#a9b97a;--navy:#0b0c0a;--deep:#060805;--light:#141a11;background:#060805}
+body[data-branch="conc"] .shero{background:#060805}
+body[data-branch="conc"] .shero .veil{background:linear-gradient(90deg,rgba(6,8,5,.92) 0%,rgba(6,8,5,.6) 34%,transparent 62%),linear-gradient(0deg,rgba(6,8,5,.7),transparent 30%)}
+body[data-branch="conc"] .slabel{background:rgba(12,17,10,.8);border-color:rgba(205,20,31,.7);color:#ff8a92}
+body[data-branch="conc"] .tour .eyebrow,body[data-branch="conc"] .link .eyebrow{color:#a9b97a}
+body[data-branch="conc"] .tbox{background:#d9ddd3}
+body[data-branch="conc"] .tpanel,body[data-branch="conc"] .thint{background:rgba(12,17,10,.88)}
+body[data-branch="conc"] .tnav #tNext,body[data-branch="conc"] .vopt[aria-pressed="true"]{color:#fff}
+body[data-branch="conc"] .hs i{box-shadow:0 0 0 6px rgba(205,20,31,.3),0 6px 16px rgba(0,0,0,.4)}
+body[data-branch="conc"] .hs span{background:rgba(12,17,10,.9)}
+body[data-branch="conc"] :is(.gal,.flow,.seat,.team,.visit){background:#0b0c0a;color:#F2F1EC}
+body[data-branch="conc"] :is(.flow,.team){background:linear-gradient(#0b0c0a,#10160d)}
+body[data-branch="conc"] .gtile{background:linear-gradient(150deg,#1d2718,#11160e);border:1px solid rgba(169,185,122,.18)}
+body[data-branch="conc"] .gtile .ph{color:#F2F1EC}
+body[data-branch="conc"] :is(.gtile .ph small,.fst p,.feat span,.tc small,.vok p,.vchk,.vform .lbl){color:rgba(242,241,236,.6)}
+body[data-branch="conc"] .fst .ic{background:#1d2718;box-shadow:0 0 0 6px #0b0c0a}
+body[data-branch="conc"] .fst.net .ic{background:#4B5A2B}
+body[data-branch="conc"] :is(.feat li,.vc,.tc){background:linear-gradient(165deg,rgba(242,241,236,.07),rgba(242,241,236,.02));border:1px solid rgba(169,185,122,.2);box-shadow:none}
+body[data-branch="conc"] .tc .ph{background:linear-gradient(160deg,#26331f,#151c11)}
+body[data-branch="conc"] .tp,body[data-branch="conc"] .alt{background:linear-gradient(160deg,rgba(205,20,31,.22),#11160e);border:1px solid rgba(205,20,31,.5)}
+body[data-branch="conc"] .hours li{border-color:rgba(169,185,122,.15)}
+body[data-branch="conc"] .gmap{background:#141a11}
+body[data-branch="conc"] .nomap{background:radial-gradient(circle at 50% 45%,rgba(169,185,122,.18),#141a11 60%)}
+body[data-branch="conc"] .ct{background:rgba(242,241,236,.06);color:#F2F1EC}
+body[data-branch="conc"] .vform input{background:rgba(242,241,236,.05);border-color:rgba(169,185,122,.25);color:#F2F1EC}
+body[data-branch="conc"] .vopt{border-color:rgba(169,185,122,.25);color:#F2F1EC}
+body[data-branch="conc"] .vopt[aria-pressed="true"]{background:#CD141F;border-color:#CD141F}
+body[data-branch="conc"] .others{background:radial-gradient(ellipse 60% 60% at 50% 50%,#22301d 0%,#121710 55%,#060805 100%)}
+body[data-branch="conc"] .sec-title em{color:#CD141F}
+</style>
+</head>
+<body data-page="sedi" data-branch="stud">
+<script>
+  // la sede si sceglie dall'indirizzo: sede.html?c=messina
+  // ...e il ramo: sede.html?c=messina&b=cma apre la stessa sede nella veste di Concorsi Militari Academy
+  (function () { var q = new URLSearchParams(location.search), c = q.get('c'); document.body.dataset.sede = c || 'messina';
+    if (q.get('b') === 'cma') { document.body.dataset.branch = 'conc'; document.querySelector('link[rel=icon]').href = 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%231d2a18%22/%3E%3Cpath%20d%3D%22M32%208l6.5%2017.5H57L42%2036.5l5.5%2018L32%2043.5%2016.5%2054.5%2022%2036.5%207%2025.5h18.5z%22%20fill%3D%22%23CD141F%22/%3E%3C/svg%3E'; document.write('<script src="assets/cma-mark.js?v=1"><\/script><script src="assets/sedi-theme-cma.js?v=4"><\/script>'); } })();
+</script>
+<div data-lambda-header></div>
+<main id="main"></main>
+<div data-lambda-footer></div>
+
+<script src="assets/sedi-info.js?v=3"></script>
+<script>
+/* ---------- costruzione della pagina dai dati della sede (prima del motore) ---------- */
+(() => {
+  const I = window.SEDI_INFO, key = document.body.dataset.sede;
+  const CMA = document.body.dataset.branch === 'conc';
+  if (!I[key]) { location.replace(CMA ? 'sedi-concorsi.html#elenco' : 'sedi.html#elenco'); return; }
+  const S = I[key], N = S.name, SOON = !!S.opening, MESE = SOON ? S.opening.split(' ')[0] : '';
+  document.title = CMA ? `CMA ${N} · Concorsi Militari Academy` : `Lambda ${N} · Centro Studi Lambda`;
+  document.querySelector('meta[name="description"]').content = CMA ? `Concorsi Militari Academy a ${N}: tutor in presenza e postazioni collegate alla Rete CMA. E tutta la preparazione anche online.` : `Lambda ${N}: tutor in presenza e postazioni studio collegate alla Rete Lambda. E tutti i percorsi anche online.`;
+  const soon = (t = 'in arrivo') => `<span class="soon-tag">${t}</span>`;
+  const ic = (d) => `<svg viewBox="0 0 24 24"><path d="${d}"/></svg>`;
+  const PIN = 'M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21zM12 7.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4z', CLOCK = 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2', SEAT = 'M4 18V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9M2 18h20M8 7V4h8v3';
+  const ph = (b, s, i) => `<div class="ph"><svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="300" height="200" fill="none"/>${i}</svg><b>${b}</b><small>${s}</small></div>`;
+  const PHS = SOON ? 'foto all\'apertura' : 'foto in arrivo';
+  const PH = [
+    ['Le postazioni', PHS, '<g fill="#184E61" opacity=".5"><rect x="40" y="110" width="70" height="8" rx="3"/><rect x="130" y="110" width="70" height="8" rx="3"/><rect x="220" y="110" width="70" height="8" rx="3"/><rect x="60" y="80" width="30" height="22" rx="3"/><rect x="150" y="80" width="30" height="22" rx="3"/><rect x="240" y="80" width="30" height="22" rx="3"/></g>'],
+    ['L\'accoglienza', PHS, '<rect x="90" y="90" width="120" height="50" rx="8" fill="#0E212E" opacity=".35"/><circle cx="150" cy="70" r="14" fill="#184E61" opacity=".45"/>'],
+    ['Il tutor in sede', PHS, '<circle cx="150" cy="80" r="22" fill="#184E61" opacity=".45"/><path d="M105 160c6-32 26-48 45-48s39 16 45 48z" fill="#184E61" opacity=".45"/>'],
+    ['Lo spazio studio', PHS, '<rect x="60" y="50" width="180" height="90" rx="8" fill="none" stroke="#184E61" stroke-width="4" opacity=".4"/>'],
+    ['L\'ingresso', PHS, '<rect x="120" y="60" width="60" height="100" rx="6" fill="#184E61" opacity=".35"/><rect x="132" y="72" width="36" height="40" rx="3" fill="#FFD66B" opacity=".6"/>'],
+  ];
+  const gallery = [...S.photos.slice(0, 5).map((p) => `<figure class="gtile"><img src="${p.src}" alt="${p.alt}" loading="lazy"></figure>`), ...PH.slice(S.photos.length, 5).map(([b, s, i]) => `<figure class="gtile">${ph(b, s, i)}</figure>`)].slice(0, 5).join('');
+  const hours = S.hours.length ? S.hours.map(([d, h]) => `<li><b>${d}</b><span>${h}</span></li>`).join('') : (SOON ? [['Apertura', soon(S.opening)], ['Orari', soon('in arrivo')]] : [['Lunedì – Venerdì', soon()], ['Sabato', soon()]]).map(([d, v]) => `<li><b>${d}</b><span>${v}</span></li>`).join('');
+  const tutors = S.tutors.length ? S.tutors.slice(0, 3).map((t) => `<div class="tc"><div class="ph"><img src="${t.photo}" alt="${t.name}"></div><div><b>${t.name}</b><small>${t.role}</small></div></div>`).join('')
+    : [1, 2, 3].map(() => `<div class="tc"><div class="ph"><svg viewBox="0 0 100 80" aria-hidden="true"><circle cx="50" cy="30" r="15" fill="#184E61" opacity=".5"/><path d="M20 80c3-22 15-32 30-32s27 10 30 32z" fill="#184E61" opacity=".5"/></svg></div><div><b>Tutor della sede</b><small>Profilo e foto in arrivo</small></div></div>`).join('');
+  const others = Object.entries(I).filter(([k]) => k !== key).map(([k, o]) => `<a class="ol" href="sede.html?c=${k}"><small>${o.region}</small><b>Lambda ${o.name}</b><span>${o.opening ? `Apre a ${o.opening.split(' ')[0]} →` : 'Scopri la sede →'}</span></a>`).join('')
+    + `<a class="ol" href="test.html"><small>Ovunque in Italia</small><b>Online</b><span>Inizia dal test →</span></a>`;
+  const LK = window.SEDE_LINKS(key);
+
+  const HTML = `
+  <section class="shero" id="sHero" data-theme="dark" aria-labelledby="sTitle">
+    <canvas id="sCanvas" aria-hidden="true"></canvas>
+    <div class="slabel" id="sLabel" aria-hidden="true">Lambda ${N}</div>
+    <svg class="sfallback" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="80" fill="none" stroke="#3fc8d1" stroke-opacity=".3"/><circle cx="100" cy="100" r="50" fill="none" stroke="#3fc8d1" stroke-opacity=".5"/><circle cx="100" cy="100" r="10" fill="#FFD66B"/></svg>
+    <div class="veil" aria-hidden="true"></div>
+    <div class="wrap">
+      <nav class="crumb" aria-label="Sei qui" data-reveal><a href="sedi.html">Sedi</a><span>/</span><b>${N}</b></nav>
+      <h1 class="split" id="sTitle">Lambda ${N}. <em>${SOON ? `Apre a ${MESE}.` : 'Il tuo spazio per studiare.'}</em></h1>
+      <p class="lead" data-reveal>${SOON ? `La nuova sede di ${N} apre a ${S.opening}: il tutor in presenza e le postazioni studio, collegate a tutta la Rete Lambda. Nel frattempo, il percorso è già disponibile online.` : 'Il tutor in presenza e una postazione per studiare, collegata a tutta la Rete Lambda. E se un giorno non puoi venire, il percorso continua online.'}</p>
+      <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="${SOON ? 'test.html' : '#visita'}"><span class="t">${SOON ? 'Inizia subito online →' : 'Prenota una visita →'}</span></a><a class="btn btn-ghost" href="#tour"><span class="t">Fai un giro nella sede</span></a></div>
+      <div class="facts" data-reveal>
+        ${SOON ? `<span>${ic(CLOCK)}In apertura · ${S.opening}</span>` : ''}
+        <span>${ic(PIN)}${S.address || `${S.area} · indirizzo in arrivo`}</span>
+        ${SOON ? '' : `<span>${ic(CLOCK)}${S.hours.length ? S.hours[0].join(' ') : 'Orari in arrivo'}</span>`}
+        <span>${ic(SEAT)}${S.seats ? `${S.seats} postazioni` : 'Postazioni con tablet e cuffie'}</span>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="tour sheet" id="tour" data-theme="dark" aria-labelledby="trTitle">
+    <div class="wrap">
+      <div class="ttop"><div><p class="eyebrow" data-reveal>Il tour</p><h2 class="sec-title split" id="trTitle">Fai un giro <em>nella sede.</em></h2></div>
+        <p class="sec-lead" data-reveal style="max-width:40ch">Guardati intorno e tocca i punti luminosi: dall'ingresso alla tua postazione, fino al collegamento con tutta Lambda.</p></div>
+      <div class="tbox" id="tBox" data-reveal>
+        <canvas id="tCanvas" aria-label="Tour 3D della sede di ${N}"></canvas>
+        <div id="tHot"></div>
+        <div class="thint" aria-hidden="true">↔ Trascina per guardarti intorno</div>
+        <p class="tnote">Ricostruzione illustrativa</p>
+        <div class="tpanel" aria-live="polite">
+          <p class="k">Tappa <span id="tN">1</span> di 4 · <span id="tK">Ingresso</span></p>
+          <h3 id="tT">Benvenuti a Lambda ${N}.</h3>
+          <p id="tP"></p>
+          <div class="tnav"><button id="tPrev" type="button" aria-label="Tappa precedente">←</button><div id="tDots"></div><button id="tNext" type="button"><span>Avanti →</span></button></div>
+        </div>
+      </div>
+      <ul class="tlist">
+        <li><b>Ingresso</b><span>Uno spazio luminoso e silenzioso, pensato per studiare.</span></li>
+        <li><b>Accoglienza e tutor</b><span>Il tutor in presenza, per fare il punto e avere assistenza.</span></li>
+        <li><b>Le postazioni</b><span>Tablet e cuffie, pronti per lezioni e studio.</span></li>
+        <li><b>Collegati alla rete</b><span>Gli stessi docenti, laboratori e aule studio di chi studia da casa.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="gal sheet" data-theme="light" aria-labelledby="gTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>La sede</p>
+      <h2 class="sec-title split" id="gTitle">Uno spazio luminoso, <em>pensato per studiare.</em></h2>
+      <div class="ggrid" data-reveal>${gallery}</div>
+    </div>
+  </section>
+
+  <section class="flow sheet" data-theme="light" aria-labelledby="flTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Come funziona in sede</p>
+      <h2 class="sec-title split" id="flTitle">Dalla porta d'ingresso <em>a tutta Lambda.</em></h2>
+      <div class="fsteps" data-reveal>
+        <div class="fst">${'<div class="ic">' + ic('M4 21V8l8-5 8 5v13M9 21v-6h6v6') + '</div>'}<small>01</small><b>Arrivi in sede</b><p>Ti accoglie lo staff Lambda.</p></div>
+        <div class="fst"><div class="ic">${ic('M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c1-4 4-7 7-7s6 3 7 7M17 8h5M19.5 5.5v5')}</div><small>02</small><b>Incontri il tutor</b><p>Il punto sul percorso, di persona.</p></div>
+        <div class="fst"><div class="ic">${ic('M5 4h14v11H5zM8 19h8M12 15v4')}</div><small>03</small><b>Prendi la postazione</b><p>Tablet e cuffie, pronti.</p></div>
+        <div class="fst net"><div class="ic">${ic('M12 3v4M12 17v4M3 12h4M17 12h4M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z')}</div><small>04</small><b>Ti colleghi alla rete</b><p>La Rete Lambda, la stessa di chi studia da casa.</p></div>
+        <div class="fst net"><div class="ic">${ic('M3 6h18v12H3zM9 10l5 2-5 2z')}</div><small>05</small><b>Docenti, laboratori, aule</b><p>Lezioni live e studio guidato.</p></div>
+        <div class="fst"><div class="ic">${ic('M3 20h18M5 16l4-5 4 3 6-8')}</div><small>06</small><b>Il tutor monitora</b><p>Progressi seguiti ogni settimana.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seat sheet" data-theme="light" aria-labelledby="ptTitle">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow" data-reveal>Le postazioni</p>
+        <h2 class="sec-title split" id="ptTitle">La tua postazione, <em>pronta quando arrivi.</em></h2>
+        <ul class="feat" data-reveal>
+          <li><b>Tablet</b><span>Per seguire lezioni live, aule studio e laboratori.</span></li>
+          <li><b>Cuffie</b><span>Per concentrarsi, anche con altri ragazzi in sala.</span></li>
+          <li><b>Connessione alla rete</b><span>Gli stessi docenti e strumenti di chi studia da casa.</span></li>
+          <li><b>Il tutor a due passi</b><span>Per un dubbio, un consiglio, il punto della settimana.</span></li>
+        </ul>
+      </div>
+      <div class="isoS" data-reveal>
+        <svg viewBox="0 0 480 360" role="img" aria-label="Una postazione: scrivania, tablet sul supporto, cuffie e sedia">
+          <defs><linearGradient id="tb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16475a"/><stop offset="1" stop-color="#0E212E"/></linearGradient></defs>
+          <ellipse cx="240" cy="300" rx="200" ry="40" fill="rgba(0,148,158,.12)"/>
+          <path d="M70 200 L240 115 L410 200 L240 285 Z" fill="#ffffff"/><path d="M70 200 V214 L240 299 V285 Z" fill="#d6e2e7"/><path d="M410 200 V214 L240 299 V285 Z" fill="#c3d5dc"/>
+          <path d="M95 197 V233 M240 285 V321 M385 197 V233" stroke="#0E212E" stroke-width="6" stroke-linecap="round"/>
+          <path d="M150 158 L250 108 L250 50 L150 100 Z" fill="#0E212E"/>
+          <path d="M200 172 L222 160 L222 150 L200 162 Z" fill="#1b2329"/>
+          <path d="M170 150 L262 104 L262 44 L170 90 Z" fill="#1b2329"/><path d="M176 144 L256 104 L256 52 L176 92 Z" fill="url(#tb)"/>
+          <circle cx="216" cy="88" r="12" fill="rgba(229,239,242,.85)"/><path d="M198 116 Q216 96 234 104 L234 110 L198 128 Z" fill="rgba(229,239,242,.85)"/>
+          <circle cx="186" cy="136" r="3" fill="#00B67A"/>
+          <g transform="translate(300 186)"><path d="M-28 6 A30 18 0 0 1 28 -8" fill="none" stroke="#0E212E" stroke-width="7" stroke-linecap="round"/><ellipse cx="-30" cy="8" rx="12" ry="8" fill="#1f7a93"/><ellipse cx="30" cy="-8" rx="12" ry="8" fill="#1f7a93"/></g>
+          <path d="M260 262 L320 232 L360 252 L300 282 Z" fill="#1f7a93"/><path d="M320 232 L320 182 L360 202 L360 252 Z" fill="#185f72"/>
+          <path d="M216 44 V-10" stroke="#3fc8d1" stroke-width="2" stroke-dasharray="4 6"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s" repeatCount="indefinite"/></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="link sheet" data-theme="dark" aria-labelledby="lkTitle">
+    <div class="wrap">
+      <div class="top"><div><p class="eyebrow" data-reveal>Collegata a tutta Lambda</p><h2 class="sec-title split" id="lkTitle">Da ${N}, <em>accedi a tutta Lambda.</em></h2></div>
+        <p class="sec-lead" data-reveal style="max-width:40ch">In sede la lezione arriva dalla Rete Lambda: gli stessi docenti, laboratori e aule studio di chi si collega da casa, da qualsiasi città.</p></div>
+      <div class="netd" data-reveal>
+        <svg viewBox="0 0 1000 420" role="img" aria-label="La sede di ${N} è collegata alla Rete Lambda, insieme a chi studia da casa: docenti, laboratori, aule studio e tutor">
+          <path class="flowl" d="M190 210 C330 210 360 210 500 210" stroke="#FFD66B"/>
+          <path class="flowl" d="M190 340 C330 340 380 260 500 220" stroke="#3fc8d1" opacity=".6"/>
+          <path class="flowl" d="M500 210 C620 210 650 70 800 70" stroke="#3fc8d1"/><path class="flowl" d="M500 210 C620 210 650 163 800 163" stroke="#3fc8d1"/>
+          <path class="flowl" d="M500 210 C620 210 650 257 800 257" stroke="#3fc8d1"/><path class="flowl" d="M500 210 C620 210 650 350 800 350" stroke="#3fc8d1"/>
+          <g><rect x="40" y="168" width="170" height="84" rx="20" fill="#FFD66B"/><text x="125" y="205" text-anchor="middle" font-size="15" fill="#0E212E">LAMBDA</text><text x="125" y="230" text-anchor="middle" font-size="22" fill="#0E212E">${N}</text></g>
+          <g><rect x="40" y="310" width="170" height="60" rx="18" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.15)"/><text x="125" y="346" text-anchor="middle" font-size="16" fill="rgba(255,255,255,.75)">Chi studia da casa</text></g>
+          <circle cx="500" cy="210" r="74" fill="rgba(63,200,209,.12)"/><circle cx="500" cy="210" r="52" fill="#00949E"/>
+          <text x="500" y="204" text-anchor="middle" font-size="14" fill="#fff">RETE</text><text x="500" y="226" text-anchor="middle" font-size="18" fill="#fff">LAMBDA</text>
+          ${[['Docenti', 70], ['Laboratori', 163], ['Aule studio', 257], ['Tutor', 350]].map(([t, y]) => `<g><rect x="800" y="${y - 28}" width="170" height="56" rx="16" fill="rgba(255,255,255,.06)" stroke="rgba(63,200,209,.35)"/><text x="885" y="${y + 6}" text-anchor="middle" font-size="18" fill="#fff">${t}</text></g>`).join('')}
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="team sheet" data-theme="light" aria-labelledby="tmTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Le persone</p>
+      <h2 class="sec-title split" id="tmTitle">I tutor di ${N}, <em>e cosa dicono le famiglie.</em></h2>
+      <div class="tgrid" data-reveal>
+        ${tutors}
+        <div class="tp"><div class="stars"><i></i><i></i><i></i><i></i><i></i></div><div class="big" style="margin-top:14px">4,9</div><p>su Trustpilot, per tutta Lambda. Le recensioni delle famiglie di ${N} arriveranno qui.</p><a href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">Leggi le recensioni →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit sheet" id="visita" data-theme="light" aria-labelledby="vTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Vieni a trovarci</p>
+      <h2 class="sec-title split" id="vTitle">${SOON ? `Vuoi essere tra i primi <em>a Lambda ${N}?</em>` : `Prenota una visita <em>a Lambda ${N}.</em>`}</h2>
+      <div class="vgrid" data-reveal>
+        <div class="vc"><h3>Orari</h3><ul class="hours">${hours}</ul></div>
+        <div class="vc mapc"><h3>Dove siamo</h3>
+          ${LK.embed ? `<iframe class="gmap" src="${LK.embed}" title="Mappa: Lambda ${N}, ${S.address}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>` : `<div class="gmap nomap"><span>${N}</span><small>Indirizzo in arrivo</small></div>`}
+          <p class="addr">${S.address || `${S.area}<br>${soon('indirizzo in arrivo')}`}</p>
+          <a href="${LK.maps}" target="_blank" rel="noopener">Apri in Google Maps →</a>
+          <div class="contacts"><a class="ct" href="${LK.tel}"><b>Chiama</b>${S.phone}</a><a class="ct" href="${LK.mail}"><b>Scrivi</b>${S.email}</a></div></div>
+        <div class="vc" id="vcard">
+          <h3>${SOON ? 'Avvisami all\'apertura' : 'Prenota una visita'}</h3>
+          <form class="vform" id="vform" novalidate>
+            <input id="vName" type="text" autocomplete="name" placeholder="Il tuo nome" required>
+            <input id="vTel" type="tel" autocomplete="tel" placeholder="Telefono / WhatsApp" required>
+            <span class="lbl">${SOON ? 'Cosa ti interessa?' : 'Perché vuoi venire?'}</span>
+            <div class="vopts" id="vWhy">${(SOON ? ['Avvisami all\'apertura', 'Consulenza online subito', 'Informazioni'] : ['Conoscere la sede', 'Consulenza con un tutor', 'Assistenza']).map((t) => `<button class="vopt" type="button" aria-pressed="false">${t}</button>`).join('')}</div>
+            <span class="lbl">Quando preferisci?</span>
+            <div class="vopts" id="vWhen">${['Mattina', 'Pomeriggio', 'Sabato'].map((t) => `<button class="vopt" type="button" aria-pressed="false">${t}</button>`).join('')}</div>
+            <label class="vchk"><input type="checkbox" id="vOk"><span>Ho letto l'informativa privacy e acconsento a essere ricontattato.</span></label>
+            <button class="btn btn-navy" id="vSend" type="submit" disabled><span class="t">${SOON ? 'Tienimi aggiornato →' : 'Richiedi la visita →'}</span></button>
+          </form>
+          <div class="vok" aria-live="polite"><svg viewBox="0 0 60 60" width="56" aria-hidden="true"><circle cx="30" cy="30" r="27" fill="none" stroke="#00949E" stroke-width="3"/><path d="M18 31l8 8 16-17" fill="none" stroke="#00949E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Richiesta inviata!</b><p>${SOON ? `Ti avvisiamo appena la sede di ${N} apre. Intanto puoi iniziare online.` : `La sede di ${N} ti ricontatta per fissare il giorno della visita.`}</p></div>
+        </div>
+      </div>
+      <div class="alt" data-reveal><p>Non riesci a venire in sede?<span>Il percorso è lo stesso online: si parte dal test, poi la consulenza in videochiamata.</span></p><a class="btn btn-stud" href="test.html"><span class="t">Inizia online →</span></a></div>
+    </div>
+  </section>
+
+  <section class="others" data-theme="dark" aria-labelledby="oTitle">
+    <div class="wrap"><h2 id="oTitle" class="split">Le altre sedi, <em>e tutta Italia online.</em></h2><div class="olist" data-reveal>${others}</div></div>
+  </section>`;
+  /* veste CMA: stessa sede e stesso modello, cambiano marchio, link e colori dei disegni */
+  const cmaify = (h) => [
+    [new RegExp(`Lambda ${N}`, 'g'), `CMA ${N}`], [/Rete Lambda/g, 'Rete CMA'], [/tutta Lambda/g, 'tutta CMA'], [/staff Lambda/g, 'staff CMA'],
+    [/>LAMBDA</g, '>CMA<'], [/<b>Lambda /g, '<b>CMA '],
+    [/href="sedi\.html/g, 'href="sedi-concorsi.html'], [/href="test\.html"/g, 'href="test-concorsi.html"'], [/sede\.html\?c=(\w+)"/g, 'sede.html?c=$1&b=cma"'],
+    [/btn-stud|btn-navy/g, 'btn-conc'], [/data-theme="light"/g, 'data-theme="dark"'],
+    ['Gli stessi docenti, laboratori e aule studio di chi studia da casa.', 'Gli stessi docenti, tutor e simulatore di chi si prepara da casa.'],
+    ['Per seguire lezioni live, aule studio e laboratori.', 'Per seguire le lezioni live e allenarti sul simulatore.'],
+    ['Gli stessi docenti e strumenti di chi studia da casa.', 'Gli stessi docenti e strumenti di chi si prepara da casa.'],
+    ['Docenti, laboratori, aule', 'Docenti, simulatore, aule'], ['Lezioni live e studio guidato.', 'Lezioni live e allenamento.'],
+    ['gli stessi docenti, laboratori e aule studio di chi si collega da casa', 'gli stessi docenti, tutor e simulatore di chi si prepara da casa'],
+    ["['Laboratori', 163]", "['Simulatore', 163]"], ['>Laboratori<', '>Simulatore<'],
+    ['Il punto sul percorso, di persona.', 'Il punto sulla preparazione, di persona.'], ['con altri ragazzi in sala', 'con altri candidati in sala'],
+    ['e cosa dicono le famiglie.', 'e cosa dicono i candidati.'], ['per tutta CMA. Le recensioni delle famiglie di', 'per Centro Studi Lambda. Le recensioni dei candidati di'],
+    ['Chi studia da casa', 'Chi si prepara da casa'], ['Il percorso è lo stesso online: si parte dal test, poi la consulenza in videochiamata.', 'La preparazione è la stessa online: si parte dal Test Concorsi, poi il colloquio in videochiamata.'],
+    ['Consulenza online subito', 'Colloquio online subito'], ['Consulenza con un tutor', 'Colloquio con un tutor'],
+    ['il percorso è già disponibile online', 'la preparazione è già disponibile online'], ['il percorso continua online', 'la preparazione continua online'],
+    [/#FFD66B/gi, '#CD141F'], [/#3fc8d1/g, '#a9b97a'], [/#00949E/g, '#4B5A2B'], [/#184E61/g, '#4B5A2B'], [/#1f7a93/g, '#4B5A2B'], [/#185f72/g, '#33452a'], [/#16475a/g, '#2f4126'],
+    [/rgba\(63,200,209/g, 'rgba(169,185,122'], [/rgba\(0,148,158/g, 'rgba(169,185,122'], [/(<text[^>]*?)fill="#0E212E"/g, '$1fill="#fff"'], [/#0E212E/g, '#141c10'],
+  ].reduce((acc, [a, b]) => acc.replace(a, b), h);
+  document.getElementById('main').innerHTML = CMA ? cmaify(HTML) : HTML;
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/lambda.js?v=17"></script>
+<script>
+gsap.set('#logo', { autoAlpha: 1 });
+(() => {
+  const $ = (s) => document.querySelector(s);
+  if (!$('#vform')) return;
+  // la linea del percorso si disegna quando entra in vista
+  new IntersectionObserver((e, o) => e.forEach((x) => { if (x.isIntersecting) { x.target.classList.add('in'); o.disconnect(); } }), { threshold: 0.4 }).observe($('.fsteps'));
+  // prenota una visita (prototipo: nessun dato viene inviato)
+  const pick = (id) => $(id).addEventListener('click', (e) => { const b = e.target.closest('.vopt'); if (!b) return; b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); check(); });
+  const check = () => { $('#vSend').disabled = !($('#vName').value.trim() && $('#vTel').value.replace(/\D/g, '').length >= 8 && $('#vOk').checked); };
+  pick('#vWhy'); pick('#vWhen');
+  $('#vform').addEventListener('input', check); $('#vform').addEventListener('change', check);
+  $('#vform').addEventListener('submit', (e) => { e.preventDefault(); if ($('#vSend').disabled) return; /* TODO: collegare al CRM della sede */ $('#vcard').classList.add('sent'); });
+})();
+</script>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+<script type="module" src="assets/sede3d.js?v=6"></script>
+<script type="module" src="assets/sede-tour.js?v=5"></script>
+</body>
+</html>

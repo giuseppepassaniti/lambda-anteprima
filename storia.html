@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La storia · Centro Studi Lambda</title>
+<meta name="description" content="Il percorso di tante famiglie: dalla sera dei compiti infiniti alla sera in cui, a cena, si parla d'altro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=8">
+<style>
+:root{--accent:var(--warm)}
+/* ================= INDICE DEI CAPITOLI ================= */
+.rail{position:fixed;right:clamp(12px,2vw,28px);top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:14px;opacity:0;transition:opacity .6s}
+.rail.show{opacity:1}
+.rail a{position:relative;display:block;width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);transition:background .4s,border-color .4s,transform .4s var(--ease)}
+.rail a.done{background:rgba(255,255,255,.35);border-color:transparent}
+.rail a.on{background:var(--accent);border-color:var(--accent);transform:scale(1.35)}
+.rail a span{position:absolute;right:22px;top:50%;transform:translateY(-50%);white-space:nowrap;font:500 11px/1 var(--mono);letter-spacing:.1em;color:rgba(255,255,255,.75);opacity:0;transition:opacity .3s;pointer-events:none}
+.rail a:hover span,.rail a.on span{opacity:1}
+.rail a.soon{opacity:.35}
+
+/* ================= CAPITOLO 1 · LA SERA ================= */
+.cap1{position:relative;height:420vh;background:#050d12}
+.cap1 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.lamp{position:absolute;left:50%;top:38%;width:130vmax;height:130vmax;margin:-65vmax 0 0 -65vmax;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,190,110,.26) 0%, rgba(255,160,80,.10) 22%, rgba(5,13,18,0) 55%);will-change:transform,opacity}
+.cap-label{position:absolute;left:clamp(16px,4vw,56px);top:calc(var(--hdr) + 18px);font:500 11px/1 var(--mono);letter-spacing:.18em;color:rgba(255,255,255,.45);text-transform:uppercase}
+/* mondo 3D di parole */
+.world{position:absolute;inset:0;perspective:900px;perspective-origin:50% 42%;pointer-events:none}
+.world .layer{position:absolute;left:50%;top:42%;transform-style:preserve-3d}
+.world .ww{position:absolute;left:0;top:0;white-space:nowrap;font-weight:500;color:#9fb3bc;letter-spacing:-.01em;will-change:transform,filter,opacity}
+.world .ww.mono{font-family:var(--mono);color:#6f8791}
+/* orologio a palette */
+.clock3d{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);perspective:1400px;will-change:opacity}
+.clock3d .rig{display:flex;align-items:center;gap:.06em;transform-style:preserve-3d;font:700 clamp(84px,15vw,230px)/1 var(--font);will-change:transform}
+.card{position:relative;width:.66em;height:1.06em;border-radius:.07em;transform-style:preserve-3d;
+  box-shadow:0 .02em 0 #0a141a,0 .04em 0 #081116,0 .06em 0 #060e13,0 .09em .12em rgba(0,0,0,.6)}
+.card .half,.card .flap{position:absolute;left:0;right:0;height:50%;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.card .top,.card .ftop{top:0;border-radius:.07em .07em 0 0;background:linear-gradient(180deg,#22343e,#18262e);transform-origin:50% 100%}
+.card .bot,.card .fbot{bottom:0;border-radius:0 0 .07em .07em;background:linear-gradient(180deg,#131f26,#0f1a20);transform-origin:50% 0}
+.card span{position:absolute;left:0;right:0;text-align:center;height:1.06em;line-height:1.06em;color:#f3ede2;letter-spacing:-.02em}
+.card .bot span,.card .fbot span{top:-100%}
+.card::after{content:"";position:absolute;left:0;right:0;top:50%;height:.012em;min-height:2px;background:#050d12;transform:translateZ(1px)}
+.card .shine{position:absolute;inset:0;border-radius:.07em;background:linear-gradient(160deg,rgba(255,200,130,.16),transparent 45%);pointer-events:none}
+.colon{display:flex;flex-direction:column;gap:.18em;padding:0 .04em}
+.colon i{width:.09em;height:.09em;border-radius:50%;background:#f3ede2;opacity:.85}
+/* testi alla mamma */
+.lines{position:absolute;left:0;right:0;top:66%;display:grid;place-items:center;text-align:center;padding:0 24px}
+.lines p{grid-area:1/1;font-weight:500;font-size:clamp(24px,3.1vw,44px);letter-spacing:-.025em;line-height:1.15;color:#f3ede2;max-width:22ch;text-wrap:balance;opacity:0;will-change:transform,opacity,filter}
+.lines p b{color:var(--warm);font-weight:700}
+.whisper{position:absolute;font-style:italic;font-weight:400;font-size:clamp(15px,1.4vw,20px);color:rgba(243,237,226,.75);opacity:0;white-space:nowrap;will-change:opacity,filter,transform}
+.opener,.closer{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 24px;pointer-events:none}
+.opener p{font-weight:500;font-size:clamp(28px,4vw,60px);letter-spacing:-.03em;color:#f3ede2;opacity:0}
+.closer p{font-weight:700;font-size:clamp(44px,7vw,110px);letter-spacing:-.045em;line-height:.95;color:#f3ede2}
+.closer p span{display:block;opacity:0;will-change:transform,opacity}
+.closer p span:last-child{color:var(--warm)}
+.next{background:var(--light);color:var(--navy)}
+.next small{opacity:.55}
+
+/* ================= CAPITOLO 2 · LE SOLUZIONI GIÀ PROVATE ================= */
+.cap2{position:relative;height:480vh;background:#060e14}
+.cap2 .stage,.cap3 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.cap2 .stage{background:radial-gradient(ellipse 70% 60% at 50% 38%, #0f2430 0%, #060e14 65%)}
+.deck{position:absolute;inset:0;perspective:1100px;perspective-origin:50% 38%}
+.tcard{position:absolute;left:50%;top:38%;width:min(520px,84vw);padding:30px 34px 38px;border-radius:22px;color:#f3ede2;
+  background:linear-gradient(160deg,#1c2f39,#101d25);border:1px solid rgba(255,255,255,.09);box-shadow:0 40px 80px -24px rgba(0,0,0,.75);
+  transform-style:preserve-3d;will-change:transform,opacity;opacity:0}
+.tcard .n{font:500 12px/1 var(--mono);letter-spacing:.2em;color:rgba(243,237,226,.45)}
+.tcard h3{font:700 clamp(28px,3.3vw,46px)/1.02 var(--font);letter-spacing:-.035em;margin:14px 0 12px;text-wrap:balance}
+.tcard p{font-size:clamp(16px,1.3vw,19px);line-height:1.4;color:rgba(243,237,226,.62)}
+.stamp{position:absolute;right:20px;bottom:-20px;padding:10px 16px;border:3px solid var(--coral,#FF6B4A);color:#FF6B4A;border-radius:8px;
+  font:700 clamp(14px,1.4vw,18px)/1 var(--mono);letter-spacing:.14em;background:rgba(6,14,20,.9);opacity:0;white-space:nowrap}
+.say{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:18px;text-align:center;padding:0 24px;pointer-events:none}
+.say p{opacity:0;will-change:opacity,transform,filter}
+.say .big{font:700 clamp(36px,5.4vw,84px)/1 var(--font);letter-spacing:-.045em;color:#f3ede2;max-width:16ch;text-wrap:balance}
+.say .mid{font:500 clamp(22px,2.6vw,38px)/1.2 var(--font);letter-spacing:-.025em;color:#f3ede2;max-width:24ch;text-wrap:balance}
+.say .mid b,.say .big b{color:var(--warm);font-weight:700}
+.say .small{font:500 clamp(17px,1.6vw,22px)/1.4 var(--font);color:rgba(243,237,226,.65);max-width:34ch;text-wrap:balance}
+
+/* ================= CAPITOLO 3 · I PENSIERI ================= */
+.cap3{position:relative;height:360vh;background:#03080c}
+.thinks{position:absolute;inset:0;perspective:800px;perspective-origin:50% 46%;pointer-events:none}
+.tk{position:absolute;left:50%;top:46%;white-space:nowrap;font:700 clamp(34px,6vw,104px)/1 var(--font);letter-spacing:-.04em;color:#e8e2d6;opacity:0;will-change:transform,filter,opacity}
+@media (max-width: 640px){ .cap2{height:420vh} .cap3{height:320vh} .tk{font-size:9.5vw} }
+@media (prefers-reduced-motion: reduce){
+  .cap2,.cap3{height:auto}
+  .cap2 .stage,.cap3 .stage{position:relative;height:auto;min-height:100vh;padding:140px 16px 100px;display:grid;gap:18px;justify-items:center}
+  .deck,.thinks{position:relative;perspective:none;display:grid;gap:18px;justify-items:center}
+  .tcard,.tk{position:relative;left:auto;top:auto;opacity:1;transform:none!important}
+  .say{position:relative}
+  .say p{opacity:1}
+}
+
+/* ================= CAPITOLO 5 · IL METODO FOCUS ================= */
+.cap5{position:relative;height:720vh;background:var(--light)}
+.cap5 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 50% 40%, #f6fafb 0%, var(--light) 60%, #d9e7ec 100%);color:var(--navy)}
+.cap5 .cap-label{color:rgba(14,33,46,.5)}
+.row-wrap{position:absolute;left:0;right:0;top:15%;height:clamp(120px,19vw,280px);perspective:1200px}
+.frow{position:absolute;left:0;top:0;display:flex;gap:clamp(10px,2.2vw,40px);transform-style:preserve-3d;will-change:transform}
+.fl{display:inline-block;font:700 clamp(96px,15vw,236px)/1 var(--font);letter-spacing:-.02em;color:var(--navy);transform-style:preserve-3d;will-change:transform,opacity,filter;opacity:0;
+  text-shadow:1px 1px 0 #24566a,2px 2px 0 #24566a,3px 3px 0 #22505f,4px 4px 0 #1f4a58,5px 5px 0 #1c4452,6px 6px 0 #193e4b,7px 7px 0 #163844,14px 20px 30px rgba(14,33,46,.22);transition:color .5s}
+.fl.on{color:var(--aqua)}
+.guide{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;will-change:transform}
+.guide .ring,.guide .bridge{fill:none;stroke:var(--navy);stroke-width:5;stroke-linecap:round}
+.guide .glint{fill:none;stroke:rgba(14,33,46,.3);stroke-width:3;stroke-linecap:round}
+.panels{position:absolute;left:50%;top:calc(15% + clamp(120px,19vw,280px) + 4vh);width:min(680px,90vw);transform:translateX(-50%)}
+.panel{position:absolute;left:0;right:0;top:0;opacity:0;will-change:opacity,transform}
+.panel h3{font:700 clamp(30px,3.6vw,52px)/1 var(--font);letter-spacing:-.04em}
+.panel h3 span{color:var(--aqua)}
+.panel .lead{margin-top:10px;font-size:clamp(17px,1.5vw,21px);line-height:1.4;color:#3b5563}
+.demo{position:relative;margin-top:24px;height:clamp(150px,20vh,200px);border-radius:20px;background:#fff;box-shadow:0 30px 60px -30px rgba(14,33,46,.25);overflow:hidden}
+/* F */
+.demo-f{display:grid;align-content:center;gap:22px;padding:0 28px}
+.meter{height:14px;border-radius:14px;background:#e5eff2;overflow:hidden}
+.meter i{display:block;height:100%;width:20%;border-radius:14px;background:linear-gradient(90deg,var(--aqua),var(--warm))}
+.swap{position:relative;height:40px;font:700 clamp(22px,2.4vw,32px)/40px var(--font);letter-spacing:-.03em}
+.swap span{position:absolute;left:0;top:0;white-space:nowrap}
+.swap .neg{color:#8a9aa2}
+.swap .neg::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:4px;border-radius:4px;background:#E5484D;transform:scaleX(var(--s,0));transform-origin:left}
+.swap .pos{color:var(--navy);opacity:0}
+/* O */
+.demo-o .day{position:absolute;top:12px;width:20%;text-align:center;font:500 11px/1 var(--mono);letter-spacing:.12em;color:#8a9aa2}
+.demo-o .col{position:absolute;top:32px;bottom:12px;width:1px;background:#e5eff2}
+.chip{position:absolute;padding:8px 12px;border-radius:10px;font:700 clamp(12px,1.1vw,15px)/1 var(--font);white-space:nowrap;color:var(--navy);box-shadow:0 8px 18px -8px rgba(14,33,46,.35);will-change:left,top,transform}
+/* C */
+.demo-c{padding:22px 26px;display:flex;align-items:center}
+.para{font-size:clamp(15px,1.45vw,20px);line-height:1.55;color:var(--navy)}
+.para .w{transition:none}
+.para .k{font-weight:700;background:linear-gradient(var(--warm),var(--warm)) no-repeat 0 86%/0% 42%;border-radius:3px}
+/* U */
+.demo-u svg{position:absolute;inset:0;width:100%;height:100%}
+.demo-u .br{fill:none;stroke:var(--aqua);stroke-width:3;stroke-linecap:round}
+.demo-u .node rect{fill:#fff;stroke:var(--teal);stroke-width:2}
+.demo-u .node text{font:700 15px var(--font);fill:var(--navy);text-anchor:middle}
+.demo-u .center rect{fill:var(--navy);stroke:none}
+.demo-u .center text{fill:#fff;font-size:17px}
+/* S */
+.demo-s{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:18px;padding:0 24px}
+.bubble{padding:12px 16px;border-radius:16px 16px 16px 4px;background:var(--navy);color:#fff;font:700 14px/1.2 var(--font);white-space:nowrap}
+.bubble small{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--warm);margin-bottom:6px}
+.wave{display:flex;align-items:center;gap:3px;height:120px}
+.wave i{flex:1;border-radius:3px;background:var(--aqua);min-height:4px}
+.say5{position:absolute;left:0;right:0;text-align:center;padding:0 24px;pointer-events:none}
+.say5 p{opacity:0;font:700 clamp(34px,5vw,76px)/1 var(--font);letter-spacing:-.045em;color:var(--navy);will-change:opacity,transform}
+.say5 b{color:var(--aqua)}
+#c5open{top:44%}
+#c5end{top:calc(15% + clamp(120px,19vw,280px) + 8vh)}
+@media (max-width: 640px){
+  .cap5{height:620vh}
+  .row-wrap{top:16%}
+  .fl{font-size:19vw}
+  .demo{height:170px}
+  .demo-s{grid-template-columns:1fr;gap:10px;padding:14px 18px}
+  .wave{height:80px}
+}
+@media (prefers-reduced-motion: reduce){
+  .cap5{height:auto}
+  .cap5 .stage{position:relative;height:auto;padding:120px 16px 80px}
+  .row-wrap,.say5,.guide{display:none}
+  .panels{position:relative;left:auto;top:auto;transform:none;margin:0 auto;display:grid;gap:40px}
+  .panel{position:relative;opacity:1}
+}
+
+/* ================= CAPITOLO 6 · IL PERCORSO CON LAMBDA ================= */
+.cap6{position:relative;height:900vh;background:var(--light)}
+.cap6 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--navy);
+  background:radial-gradient(ellipse 90% 70% at 50% 45%, #f7fbfc 0%, var(--light) 60%, #d6e5ea 100%)}
+.cap6 .cap-label{color:rgba(14,33,46,.5)}
+.c6open{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:6px;text-align:center;padding:0 24px;pointer-events:none}
+.c6open p{font:700 clamp(36px,5.4vw,84px)/1 var(--font);letter-spacing:-.045em;opacity:0;will-change:opacity,transform}
+.c6open p b{color:var(--aqua)}
+.view{position:absolute;inset:0;perspective:1600px;perspective-origin:50% 40%}
+.track{position:absolute;left:0;top:0;height:100%;transform-style:preserve-3d;will-change:transform}
+.line6{position:absolute;left:0;top:0;height:100%;overflow:visible;pointer-events:none}
+.line6 .base{fill:none;stroke:rgba(14,33,46,.12);stroke-width:3;stroke-dasharray:2 10;stroke-linecap:round}
+.line6 .lit{fill:none;stroke:var(--aqua);stroke-width:5;stroke-linecap:round;filter:drop-shadow(0 0 8px rgba(0,148,158,.55))}
+.line6 .dot{fill:#fff;stroke:rgba(14,33,46,.25);stroke-width:3}
+.line6 .dot.on{fill:var(--aqua);stroke:#fff}
+.stop{position:absolute;top:12%;width:var(--sw);padding:0 clamp(10px,2vw,28px);will-change:transform,opacity,filter}
+.scard{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(16px,2.4vw,32px);align-items:center;background:#fff;border-radius:28px;padding:clamp(20px,2.6vw,34px);box-shadow:0 40px 80px -40px rgba(14,33,46,.35)}
+.scard .num{font:500 12px/1 var(--mono);letter-spacing:.2em;color:var(--aqua)}
+.scard h3{margin:10px 0 10px;font:700 clamp(24px,2.6vw,38px)/1.02 var(--font);letter-spacing:-.035em;text-wrap:balance}
+.scard p{font-size:clamp(15px,1.25vw,18px);line-height:1.45;color:#3b5563}
+.scard .note{margin-top:10px;font:500 11px/1.4 var(--mono);letter-spacing:.06em;color:#8a9aa2}
+.vis{position:relative;height:clamp(170px,22vh,230px);border-radius:18px;background:#f2f7f8;overflow:hidden}
+.chips6{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.chips6 span{font:700 12px/1 var(--font);padding:7px 10px;border-radius:999px;background:var(--navy);color:#fff}
+.chips6 span:last-child{background:var(--warm);color:var(--navy)}
+.vis svg{position:absolute;inset:0;width:100%;height:100%}
+.vcall{position:absolute;inset:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{position:relative;border-radius:14px;overflow:hidden;display:grid;place-items:center}
+.tile .av{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.45)}
+.tile .nm{position:absolute;left:8px;bottom:8px;font:700 11px/1 var(--font);color:#fff;background:rgba(0,0,0,.35);padding:5px 7px;border-radius:6px}
+.tile .talk{position:absolute;right:8px;bottom:8px;display:flex;gap:2px;align-items:flex-end;height:16px}
+.tile .talk i{width:3px;background:#fff;border-radius:2px}
+.week6{position:absolute;inset:12px;display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.week6 .d{display:flex;flex-direction:column;gap:5px}
+.week6 .d b{font:500 10px/1 var(--mono);letter-spacing:.1em;color:#8a9aa2;text-align:center;margin-bottom:4px}
+.week6 .blk{border-radius:7px;height:26px;font:700 10px/26px var(--font);text-align:center;color:var(--navy);white-space:nowrap;overflow:hidden}
+.live{position:absolute;left:10px;top:10px;z-index:2;font:700 11px/1 var(--font);color:#fff;background:#E5484D;padding:6px 9px;border-radius:7px}
+.phone6{position:absolute;left:50%;top:10px;bottom:-40px;width:150px;margin-left:-75px;border-radius:26px;background:#0A1820;padding:7px}
+.phone6 .scr{height:100%;border-radius:20px;background:var(--light);padding:22px 10px 10px;display:grid;gap:6px;align-content:start}
+.phone6 .t{font:700 12px/1.1 var(--font)}
+.phone6 .row{background:#fff;border-radius:9px;padding:7px 8px;font:700 10px/1.2 var(--font)}
+.phone6 .row small{display:block;font-weight:400;color:#6b7f88}
+.phone6 .btn6{margin-top:4px;border-radius:9px;padding:8px;text-align:center;font:700 10px/1 var(--font);background:var(--aqua);color:#fff;position:relative;overflow:hidden}
+.phone6 .rip{position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px;border-radius:50%;background:rgba(255,255,255,.6)}
+.cal6{position:absolute;left:14px;right:14px;top:14px;display:flex;gap:6px}
+.cal6 span{flex:1;height:44px;border-radius:10px;background:#fff;display:grid;place-items:center;font:700 11px/1 var(--mono);color:#8a9aa2;position:relative}
+.cal6 span i{position:absolute;bottom:6px;width:7px;height:7px;border-radius:50%;background:var(--aqua)}
+.msg6{position:absolute;left:14px;right:14px;display:flex;gap:8px;align-items:flex-end}
+.msg6 .av6{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;font:700 12px var(--font);color:#fff}
+.msg6 .bb{background:#fff;border-radius:14px 14px 14px 4px;padding:8px 11px;font:500 12px/1.3 var(--font);box-shadow:0 6px 16px -8px rgba(14,33,46,.3)}
+.msg6 .bb small{display:block;font:700 10px/1 var(--font);color:var(--aqua);margin-bottom:3px}
+.seal6{position:absolute;left:50%;top:50%;width:170px;height:170px;margin:-85px}
+.seal6 .core{position:absolute;inset:34px;border-radius:50%;background:var(--warm);display:grid;place-items:center;text-align:center;color:var(--navy);font:700 30px/1 var(--font)}
+.seal6 .core small{display:block;font:700 11px/1 var(--mono);letter-spacing:.1em;margin-top:4px}
+@media (max-width: 760px){
+  .cap6{height:820vh}
+  .stop{top:14%}
+  .scard{grid-template-columns:1fr}
+  .vis{height:170px}
+}
+@media (prefers-reduced-motion: reduce){
+  .cap6{height:auto}
+  .cap6 .stage{position:relative;height:auto;padding:120px 16px 80px}
+  .view{position:relative;perspective:none}
+  .track{position:relative;height:auto;display:grid;gap:24px;transform:none!important}
+  .stop{position:relative;top:auto;left:auto!important;width:auto;opacity:1!important;transform:none!important;filter:none!important}
+  .line6,.c6open{display:none}
+}
+
+/* ================= CAPITOLO 7 · LE ALTRE FAMIGLIE ================= */
+.cap7{position:relative;height:620vh;background:#fbf5ea}
+.cap7 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--navy);
+  background:radial-gradient(ellipse 80% 70% at 50% 45%, #fffaf0 0%, #f3efe6 55%, #e3ebe9 100%)}
+.cap7 .cap-label{color:rgba(14,33,46,.5)}
+.gal{position:absolute;inset:0;perspective:1000px;perspective-origin:50% 45%;pointer-events:none}
+.gal .layer7{position:absolute;left:50%;top:45%;transform-style:preserve-3d}
+.star7{position:absolute;left:0;top:0;border-radius:50%;will-change:transform,opacity}
+.rcard{position:absolute;left:0;top:0;width:min(430px,80vw);padding:24px 26px 22px;border-radius:22px;background:#fff;
+  box-shadow:0 30px 60px -28px rgba(14,33,46,.35);will-change:transform,opacity,filter;opacity:0}
+.rcard .st7{display:flex;gap:3px;margin-bottom:14px}
+.rcard .st7 i{width:20px;height:20px;background:var(--tp);display:grid;place-items:center}
+.rcard .st7 svg{width:14px;height:14px}
+.rcard q{display:block;font:700 clamp(19px,1.7vw,24px)/1.25 var(--font);letter-spacing:-.02em;quotes:"“" "”"}
+.rcard .who{margin-top:14px;font-size:14px;color:#5a6f78}
+.rcard .who b{color:var(--navy)}
+.c7open{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 24px;pointer-events:none}
+.c7open p{font:700 clamp(34px,5vw,78px)/1.02 var(--font);letter-spacing:-.045em;max-width:16ch;text-wrap:balance;opacity:0;will-change:opacity,transform}
+.c7open p b{color:var(--aqua)}
+.nums{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(1000px,92vw);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,48px);text-align:center;pointer-events:none}
+.num7{opacity:0;will-change:opacity,transform}
+.num7 .v{font:700 clamp(54px,7.4vw,118px)/1 var(--font);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.num7 .v.acc{color:var(--aqua)}
+.num7 .l{margin-top:10px;font-size:clamp(15px,1.4vw,19px);color:#3b5563;line-height:1.35}
+.num7 .st7{display:flex;gap:3px;justify-content:center;margin-top:12px}
+.num7 .st7 i{width:22px;height:22px;background:var(--tp);display:grid;place-items:center}
+.num7 .st7 svg{width:15px;height:15px}
+.src7{position:absolute;left:0;right:0;bottom:12%;text-align:center;opacity:0}
+.src7 a{font:500 13px/1 var(--mono);letter-spacing:.08em;color:var(--teal);border-bottom:1px solid rgba(24,78,97,.35);padding-bottom:3px;pointer-events:auto}
+@media (max-width: 760px){
+  .cap7{height:560vh}
+  .nums{grid-template-columns:1fr;gap:26px}
+  .num7 .v{font-size:15vw}
+}
+@media (prefers-reduced-motion: reduce){
+  .cap7{height:auto}
+  .cap7 .stage{position:relative;height:auto;padding:120px 16px 80px;display:grid;gap:24px;justify-items:center}
+  .gal{position:relative;perspective:none}
+  .gal .layer7{position:relative;left:auto;top:auto;display:grid;gap:16px}
+  .star7{display:none}
+  .rcard,.num7,.src7,.c7open p{opacity:1!important;transform:none!important;filter:none!important;position:relative}
+  .nums{position:relative;left:auto;top:auto;transform:none}
+  .c7open{position:relative}
+}
+
+/* ================= CAPITOLO 8 · LA NUOVA SERA ================= */
+.cap8{position:relative;height:440vh;background:#fdf1e2}
+.cap8 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--navy);
+  background:linear-gradient(180deg,#fff6ea 0%,#fde9d2 55%,#f7d2b4 100%)}
+.cap8 .cap-label{color:rgba(14,33,46,.5)}
+.sunset{position:absolute;left:50%;top:40%;width:140vmax;height:140vmax;margin:-70vmax 0 0 -70vmax;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,196,120,.55) 0%, rgba(255,150,110,.22) 25%, rgba(253,241,226,0) 55%);will-change:transform,opacity}
+.cap8 .world .ww{color:#b0764a;font-weight:600}
+.cap8 .world .ww b{color:#00949E;margin-left:.25em}
+.cap8 .card{box-shadow:0 .02em 0 #e9d8c3,0 .04em 0 #e2cdb4,0 .06em 0 #d9c0a3,0 .1em .14em rgba(120,70,30,.25)}
+.cap8 .card .top,.cap8 .card .ftop{background:linear-gradient(180deg,#fffdf8,#fbf3e7)}
+.cap8 .card .bot,.cap8 .card .fbot{background:linear-gradient(180deg,#f6ecdd,#f1e4d1)}
+.cap8 .card span{color:var(--navy)}
+.cap8 .card::after{background:#e8d6bf}
+.cap8 .card .shine{background:linear-gradient(160deg,rgba(255,255,255,.7),transparent 45%)}
+.cap8 .colon i{background:var(--navy)}
+.cap8 .lines p{color:var(--navy)}
+.cap8 .lines p b{color:#00949E}
+.cap8 .whisper{color:#7a4f33}
+.cap8 .opener p{color:var(--navy)}
+.cap8 .closer p{color:var(--navy)}
+.cap8 .closer p span:last-child{color:#00949E}
+.guide8{position:absolute;left:50%;top:0;overflow:visible;pointer-events:none;opacity:0;will-change:transform,opacity}
+.guide8 .ring,.guide8 .bridge{fill:none;stroke:var(--navy);stroke-width:6;stroke-linecap:round}
+@media (max-width: 640px){ .cap8{height:380vh} }
+@media (prefers-reduced-motion: reduce){
+  .cap8{height:auto}
+  .cap8 .stage{position:relative;height:auto;min-height:100vh;padding:140px 0 120px}
+}
+
+/* ================= CAPITOLO 9 · IL PRIMO PASSO ================= */
+.cap9{position:relative;background:linear-gradient(180deg,#f7d2b4 0%,var(--light) 22%,var(--light) 100%);color:var(--navy);padding:clamp(120px,16vh,180px) clamp(16px,4vw,56px) clamp(90px,12vh,140px)}
+.cap9 .cap-label{position:static;margin-bottom:28px;color:rgba(14,33,46,.5)}
+.c9grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,80px);align-items:center}
+.c9title{font:700 clamp(38px,4.6vw,72px)/1 var(--font);letter-spacing:-.045em;text-wrap:balance}
+.c9title em{font-style:normal;color:var(--aqua)}
+.c9ctas{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;margin-top:40px}
+.btn-big{height:68px;padding:0 38px;font-size:19px;background:var(--navy);color:#fff}
+.btn-big:hover{box-shadow:0 18px 44px -12px rgba(14,33,46,.55)}
+.c9alt{font-size:16px;color:#3b5563}
+.c9alt a{color:var(--navy);font-weight:700;border-bottom:2px solid var(--warm)}
+.c9trust{list-style:none;display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:34px;font-size:15px;color:#3b5563}
+.c9trust li{display:flex;align-items:center;gap:10px}
+.c9trust b{color:var(--navy)}
+.c9 .stars i{width:20px;height:20px}
+.c9reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.cap9.in .c9reveal{opacity:1;transform:none}
+.cap9.in .c9reveal:nth-child(2){transition-delay:.12s}.cap9.in .c9reveal:nth-child(3){transition-delay:.24s}.cap9.in .c9reveal:nth-child(4){transition-delay:.36s}
+.tcard9wrap{position:relative;perspective:1200px;padding-top:40px}
+.tcard9{position:relative;border-radius:32px;padding:clamp(28px,3.4vw,46px);background:radial-gradient(circle at 70% 0%,#1d5b73 0%,var(--navy) 60%);color:#fff;
+  box-shadow:0 60px 100px -40px rgba(14,33,46,.6);transform-style:preserve-3d;will-change:transform}
+.tcard9 .lbl{font:500 12px/1 var(--mono);letter-spacing:.2em;color:rgba(255,255,255,.55)}
+.tcard9 .tt{margin-top:18px;font:700 clamp(40px,4.6vw,70px)/.92 var(--font);letter-spacing:-.045em;transform:translateZ(40px)}
+.tcard9 .tt span{color:var(--warm)}
+.tcard9 .chips9{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;transform:translateZ(30px)}
+.tcard9 .chips9 span{font:700 15px/1 var(--font);padding:11px 16px;border-radius:999px;border:2px solid rgba(255,255,255,.8)}
+.tcard9 .chips9 span:last-child{background:var(--warm);border-color:var(--warm);color:var(--navy)}
+.tcard9 .after{display:flex;gap:14px;align-items:center;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:16px;line-height:1.4;color:rgba(255,255,255,.82);transform:translateZ(20px)}
+.tcard9 .after i{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:rgba(0,148,158,.25);display:grid;place-items:center;font-style:normal;font-size:20px}
+.tcard9 .ln{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.cap9.in .tcard9 .ln{opacity:1;transform:none}
+.cap9.in .tcard9 .ln:nth-of-type(2){transition-delay:.25s}.cap9.in .tcard9 .ln:nth-of-type(3){transition-delay:.5s}.cap9.in .tcard9 .ln:nth-of-type(4){transition-delay:.75s}
+.guide9{position:absolute;left:50%;top:0;margin-left:-72px;width:144px;overflow:visible;opacity:0;transform:translateY(-160px) rotate(-14deg);transition:opacity .6s,transform 1.2s cubic-bezier(.3,1.5,.5,1) 1s;pointer-events:none;z-index:2}
+.guide9 .ring,.guide9 .bridge{fill:none;stroke:var(--navy);stroke-width:6;stroke-linecap:round}
+.cap9.in .guide9{opacity:1;transform:translateY(8px) rotate(0)}
+@media (max-width: 900px){
+  .c9grid{grid-template-columns:1fr}
+  .foot-cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 560px){
+  .btn-big{width:100%;justify-content:center}
+  .foot-cols{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){
+  .c9reveal,.tcard9 .ln,.guide9{opacity:1;transform:none;transition:none}
+}
+
+/* ================= RACCORDO (capitoli 2–3 in arrivo) ================= */
+.bridge{height:70vh;background:#050d12;display:grid;place-items:center;text-align:center;padding:0 24px}
+.bridge p{font:500 12px/1.8 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(243,237,226,.38)}
+
+/* ================= CAPITOLO 4 · LA SVOLTA ================= */
+.cap4{position:relative;height:500vh;background:#050d12}
+.cap4 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.dark-world,.light-world{position:absolute;inset:0;overflow:hidden}
+.light-world{background:radial-gradient(ellipse 80% 70% at 50% 45%, #f4f8f9 0%, var(--light) 60%, #d6e4e9 100%);
+  -webkit-mask-image:radial-gradient(circle var(--r,0px) at var(--x1,0) var(--y,0),#000 98%,transparent 100%),radial-gradient(circle var(--r,0px) at var(--x2,0) var(--y,0),#000 98%,transparent 100%),linear-gradient(#000,#000);
+          mask-image:radial-gradient(circle var(--r,0px) at var(--x1,0) var(--y,0),#000 98%,transparent 100%),radial-gradient(circle var(--r,0px) at var(--x2,0) var(--y,0),#000 98%,transparent 100%),linear-gradient(#000,#000);
+  -webkit-mask-size:100% 100%,100% 100%,var(--bw,0) var(--bh,0);mask-size:100% 100%,100% 100%,var(--bw,0) var(--bh,0);
+  -webkit-mask-position:0 0,0 0,var(--bx,0) var(--by,0);mask-position:0 0,0 0,var(--bx,0) var(--by,0);
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.thought{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;white-space:nowrap;will-change:opacity,filter}
+.dark-world .thought{font:700 clamp(40px,6vw,92px)/1 var(--font);letter-spacing:-.045em;color:#f3ede2}
+.phrase{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;justify-items:center;white-space:nowrap;will-change:opacity}
+.phrase p{grid-area:1/1;font:700 clamp(24px,5vw,76px)/1.1 var(--font);letter-spacing:-.04em}
+.phrase em{font-style:normal}
+.dark-world .phrase p{color:#f3ede2}
+.dark-world .phrase .new em{color:var(--warm)}
+.light-world .phrase p{color:var(--navy)}
+.light-world .phrase em{color:var(--aqua)}
+@media (max-width: 1200px){ .rail a.on span{opacity:0} .rail a:hover span{opacity:1} }
+.light-world .thought em{font-style:normal;color:var(--aqua)}
+.question{position:absolute;left:0;right:0;top:76%;text-align:center;padding:0 24px;font:700 clamp(30px,4.4vw,66px)/1.05 var(--font);letter-spacing:-.04em;color:#f3ede2;opacity:0;will-change:opacity,transform}
+.question em{font-style:normal;color:var(--warm)}
+.glint{position:absolute;left:50%;top:16%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#fff;box-shadow:0 0 20px 6px rgba(255,255,255,.6),0 0 60px 20px rgba(0,148,158,.35);opacity:0}
+.wd{position:absolute;white-space:nowrap;font-weight:500;color:#6f8791;filter:blur(5px)}
+.wl{position:absolute;white-space:nowrap;font-weight:700;letter-spacing:-.02em;color:var(--teal);opacity:0}
+.closing{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:22px;text-align:center;padding:0 24px;pointer-events:none}
+.closing p{opacity:0;will-change:opacity,transform}
+.closing .big{font:700 clamp(40px,6.4vw,100px)/.95 var(--font);letter-spacing:-.05em;color:var(--navy);max-width:14ch;text-wrap:balance}
+.closing .small{font:500 clamp(19px,2vw,28px)/1.35 var(--font);letter-spacing:-.02em;color:#3b5563;max-width:30ch;text-wrap:balance}
+.closing .small b{color:var(--aqua);font-weight:700}
+#glasses3d{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cap4 .cap-label{z-index:3}
+
+/* header in versione chiara, dopo la svolta */
+.hdr,.nav a,.wordmark,.logo-icon .st,.burger i{transition:color .6s,filter .6s,stroke .6s,background .6s,height .5s var(--ease),backdrop-filter .5s,box-shadow .5s}
+body.light-hdr .nav a{color:rgba(14,33,46,.8)}
+body.light-hdr .nav a:hover{color:var(--navy)}
+body.light-hdr .wordmark{filter:brightness(.13)}
+body.light-hdr .logo-icon .st{stroke:var(--navy)}
+body.light-hdr .burger i{background:var(--navy)}
+body.light-hdr .hdr.scrolled{background:rgba(229,239,242,.8);box-shadow:0 1px 0 rgba(14,33,46,.08)}
+body.light-hdr .rail a{border-color:rgba(14,33,46,.35)}
+body.light-hdr .rail a.done{background:rgba(14,33,46,.3)}
+body.light-hdr .rail a.on{background:var(--aqua);border-color:var(--aqua)}
+body.light-hdr .rail a span{color:rgba(14,33,46,.7)}
+body.light-hdr .cap-label{color:rgba(14,33,46,.5)}
+@media (max-width: 640px){
+  .cap4{height:420vh}
+  .question{top:72%}
+}
+@media (prefers-reduced-motion: reduce){
+  .cap4{height:auto}
+  .cap4 .stage{position:relative;height:auto;min-height:100vh}
+  .light-world{-webkit-mask-image:none;mask-image:none}
+  .closing p{opacity:1}
+  .dark-world,#glasses3d,.light-world .thought{display:none}
+}
+@media (max-width: 640px){
+  .rail{display:none}
+  .cap1{height:340vh}
+  .clock3d{top:34%}
+  .clock3d .rig{font-size:22vw}
+  .lines{top:60%}
+  .whisper{font-size:14px}
+}
+@media (prefers-reduced-motion: reduce){
+  .cap1{height:auto}
+  .cap1 .stage{position:relative;height:auto;min-height:100vh;padding:140px 0 120px}
+  .lines{position:relative;top:auto;margin-top:62vh;gap:18px}
+  .lines p{grid-area:auto;opacity:1}
+  .opener,.closer,.whisper,.world{display:none}
+}
+/* ================= COPERTINA ================= */
+.cover{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;background:#050d12;padding:calc(var(--hdr) + 40px) 24px 120px}
+.lampglow{position:absolute;left:50%;top:-30%;width:120vmax;height:90vmax;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 40%,rgba(255,214,107,.16),rgba(255,214,107,.04) 35%,transparent 60%);pointer-events:none;animation:flick 6s ease-in-out infinite}
+@keyframes flick{0%,100%{opacity:1}45%{opacity:.86}50%{opacity:.95}}
+.cv-clock{position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);display:flex;gap:1.4vw;font:700 clamp(150px,24vw,380px)/1 var(--font);color:rgba(243,237,226,.03);pointer-events:none;user-select:none}
+.cv-clock span{width:.68em;height:1.06em;border-radius:.06em;display:grid;place-items:center;background:rgba(255,255,255,.012);border:1px solid rgba(255,255,255,.025)}
+.cv-clock .c{width:auto;background:none;border:0}
+.cv-in{position:relative;z-index:2;max-width:900px}
+.cv-k{font:500 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:rgba(243,237,226,.5)}
+.cover h1{margin-top:22px;font:700 clamp(48px,7.4vw,124px)/.92 var(--font);letter-spacing:-.055em;color:#f3ede2;text-wrap:balance}
+.cover h1 em{font-style:normal;color:var(--warm)}
+.cv-lead{margin:26px auto 0;max-width:46ch;font-size:clamp(17px,1.5vw,21px);line-height:1.5;color:rgba(243,237,226,.68)}
+.cv-act{display:flex;flex-direction:column;align-items:center;gap:18px;margin-top:44px}
+.cv-play{display:flex;align-items:center;gap:18px;padding:10px 30px 10px 10px;border-radius:999px;background:#f3ede2;color:var(--navy);text-align:left;transition:transform .5s var(--ease),box-shadow .4s}
+.cv-play:hover{transform:scale(1.04);box-shadow:0 20px 60px -16px rgba(255,214,107,.55)}
+.cv-play i{width:64px;height:64px;border-radius:50%;background:var(--warm);display:grid;place-items:center;font-style:normal;font-size:20px;position:relative}
+.cv-play i::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(255,214,107,.6);animation:ring 2s ease-out infinite}
+@keyframes ring{from{transform:scale(.9);opacity:1}to{transform:scale(1.35);opacity:0}}
+.cv-play span{font:700 20px/1.1 var(--font)}
+.cv-play small{display:block;margin-top:4px;font-weight:500;font-size:13.5px;color:#4a6370}
+.cv-read{font-size:15px;color:rgba(243,237,226,.55);border-bottom:1px solid rgba(243,237,226,.25);padding-bottom:2px}
+.cv-read:hover{color:#fff}
+.cv-scroll{position:absolute;left:50%;bottom:28px;width:1px;height:56px;background:rgba(243,237,226,.15);overflow:hidden}
+.cv-scroll i{position:absolute;left:0;top:-40%;width:100%;height:40%;background:var(--warm);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{to{top:110%}}
+
+/* ================= PLAYER ================= */
+.player{position:fixed;left:50%;bottom:22px;z-index:60;display:flex;align-items:center;gap:14px;width:min(460px,calc(100% - 32px));padding:8px 10px 8px 8px;border-radius:999px;
+  background:rgba(8,22,31,.78);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.12);box-shadow:0 20px 50px -20px rgba(0,0,0,.6);
+  transform:translate(-50%,140%);opacity:0;transition:transform .6s var(--ease),opacity .4s}
+.player.show{transform:translate(-50%,0);opacity:1}
+.pp{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--warm);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.pp:hover{transform:scale(1.08)}
+.pp svg{width:20px;height:20px;fill:var(--navy)}
+.pp .ic-pause{display:none}
+body.story-play .pp .ic-pause{display:block} body.story-play .pp .ic-play{display:none}
+.pmid{flex:1;min-width:0}
+.prow{display:flex;justify-content:space-between;gap:10px;font:500 11px/1 var(--mono);letter-spacing:.1em;color:rgba(255,255,255,.75);text-transform:uppercase}
+.prow #pChap{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prow #pTime{flex-shrink:0;white-space:nowrap;color:rgba(255,255,255,.45)}
+.pbar{position:relative;height:4px;margin-top:9px;border-radius:2px;background:rgba(255,255,255,.14);cursor:pointer}
+.pbar::before{content:"";position:absolute;inset:-10px 0}
+.pbar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:2px;background:linear-gradient(90deg,var(--aqua),var(--warm))}
+.pspd{flex-shrink:0;min-width:46px;height:34px;padding:0 10px;border-radius:999px;border:1px solid rgba(255,255,255,.2);font:700 13px/1 var(--font);color:#fff}
+.pspd:hover{background:rgba(255,255,255,.08)}
+body.light-hdr .player{background:rgba(255,255,255,.82);border-color:rgba(14,33,46,.1)}
+body.light-hdr .prow{color:rgba(14,33,46,.75)} body.light-hdr .prow #pTime{color:rgba(14,33,46,.45)}
+body.light-hdr .pbar{background:rgba(14,33,46,.12)} body.light-hdr .pspd{color:var(--navy);border-color:rgba(14,33,46,.2)}
+/* durante il racconto l'header si fa da parte */
+.hdr{transition:transform .6s var(--ease),background .5s,box-shadow .5s}
+body.story-play .hdr{transform:translateY(-110%)}
+@media (prefers-reduced-motion: reduce){ .player,.cv-play,.cv-scroll{display:none} }
+@media (max-width: 640px){ .cv-play span{font-size:18px} .cv-play i{width:54px;height:54px} .player{bottom:14px} }
+
+</style>
+</head>
+<body data-page="storia" data-branch="stud" data-hdr-manual>
+<div data-lambda-header></div>
+
+<main>
+  <!-- ============ COPERTINA ============ -->
+  <section class="cover" id="cover" aria-labelledby="coverTitle">
+    <div class="lampglow" aria-hidden="true"></div>
+    <div class="cv-clock" aria-hidden="true"><span>2</span><span>1</span><span class="c">:</span><span>3</span><span>0</span></div>
+    <div class="cv-in">
+      <p class="cv-k" data-reveal>La storia · capitoli 1–9</p>
+      <h1 class="split" id="coverTitle">Ogni sera, <em>la stessa scena.</em></h1>
+      <p class="cv-lead" data-reveal>Il percorso di tante famiglie che abbiamo incontrato: dalla sera dei compiti infiniti alla sera in cui, a cena, si parla d'altro.</p>
+      <div class="cv-act" data-reveal>
+        <button class="cv-play" id="coverPlay" type="button"><i aria-hidden="true">▶</i><span>Guarda la storia<small id="coverDur">come un video, circa 2 minuti</small></span></button>
+        <a class="cv-read" href="#cap1">oppure scorri e leggi ↓</a>
+      </div>
+    </div>
+    <div class="cv-scroll" aria-hidden="true"><i></i></div>
+  </section>
+
+  <!-- ============ PLAYER: modalità racconto ============ -->
+  <div class="player" id="player" role="region" aria-label="Modalità racconto">
+    <button class="pp" id="pp" type="button" aria-label="Riproduci la storia"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-play" d="M8 5v14l11-7z"/><path class="ic-pause" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
+    <div class="pmid"><div class="prow"><span id="pChap">0 · Inizio</span><span id="pTime">0:00</span></div><div class="pbar" id="pBar"><i></i></div></div>
+    <button class="pspd" id="pSpeed" type="button" aria-label="Velocità">1×</button>
+  </div>
+
+  <section class="cap1" id="cap1" aria-labelledby="cap1-title">
+    <div class="stage">
+      <div class="lamp" id="lamp" aria-hidden="true"></div>
+      <div class="world" aria-hidden="true"><div class="layer" id="layer"></div></div>
+      <div class="cap-label" id="cap1-title">Capitolo 1 · La sera</div>
+
+      <div class="clock3d" id="clock3d" aria-label="Orologio: 21:30" role="img">
+        <div class="rig" id="rig">
+          <div class="card" data-d="0"></div><div class="card" data-d="1"></div>
+          <div class="colon"><i></i><i></i></div>
+          <div class="card" data-d="2"></div><div class="card" data-d="3"></div>
+        </div>
+      </div>
+
+      <div class="lines" id="lines">
+        <p>Sono le <b>21:30</b>.</p>
+        <p>Tuo figlio è sui libri dal pomeriggio.</p>
+        <p>Tu lo guardi dalla porta della cucina.</p>
+        <p>E ti chiedi come sia possibile che tanta fatica non porti a niente.</p>
+      </div>
+
+      <div class="whisper" data-w="0" style="left:12%;top:24%">“Ancora non hai finito?”</div>
+      <div class="whisper" data-w="1" style="right:10%;top:30%">“Domani ho la verifica.”</div>
+      <div class="whisper" data-w="2" style="left:16%;top:56%">“Non mi entra in testa.”</div>
+      <div class="whisper" data-w="3" style="right:14%;top:58%">“Dai, concentrati.”</div>
+
+      <div class="opener" id="opener"><p>Partiamo da una sera qualunque.</p></div>
+      <div class="closer" id="closer"><p><span>Ogni sera.</span><span>La stessa scena.</span></p></div>
+    </div>
+  </section>
+
+  <!-- ============ CAPITOLO 2 · LE SOLUZIONI GIÀ PROVATE ============ -->
+  <section class="cap2" id="cap2" aria-labelledby="cap2-title">
+    <div class="stage">
+      <div class="cap-label" id="cap2-title">Capitolo 2 · Le soluzioni già provate</div>
+      <div class="deck" id="deck">
+        <article class="tcard"><div class="n">TENTATIVO 01</div><h3>Le ripetizioni del pomeriggio</h3><p>Due volte a settimana. Poi tre.</p><div class="stamp">NON È BASTATO</div></article>
+        <article class="tcard"><div class="n">TENTATIVO 02</div><h3>Il doposcuola</h3><p>Compiti fatti. Ma non capiti.</p><div class="stamp">NON È BASTATO</div></article>
+        <article class="tcard"><div class="n">TENTATIVO 03</div><h3>L'app per studiare</h3><p>Scaricata con entusiasmo. Usata per una settimana.</p><div class="stamp">NON È BASTATO</div></article>
+        <article class="tcard"><div class="n">TENTATIVO 04</div><h3>Il cugino bravo in matematica</h3><p>Spiega benissimo. Ma non può esserci sempre.</p><div class="stamp">NON È BASTATO</div></article>
+        <article class="tcard"><div class="n">TENTATIVO 05</div><h3>“Studia di più”</h3><p>Più ore sui libri. Stessi voti.</p><div class="stamp">NON È BASTATO</div></article>
+        <article class="tcard"><div class="n">TENTATIVO 06</div><h3>“Niente telefono fino a giugno”</h3><p>Più litigi. Stessi voti.</p><div class="stamp">NON È BASTATO</div></article>
+      </div>
+      <div class="say" id="c2open"><p class="big">Non è che non hai provato.</p></div>
+      <div class="say" id="c2end">
+        <p class="big">Hai provato di tutto.</p>
+        <p class="small">E ogni volta, dopo qualche settimana, si ricominciava da capo.</p>
+      </div>
+      <div class="say" id="c2seed"><p class="mid">Ogni soluzione aggiungeva <b>ore</b>.<br>Nessuna cambiava <b>il modo di studiare</b>.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ CAPITOLO 3 · I PENSIERI ============ -->
+  <section class="cap3" id="cap3" aria-labelledby="cap3-title">
+    <div class="stage">
+      <div class="cap-label" id="cap3-title">Capitolo 3 · I pensieri</div>
+      <div class="thinks" id="thinks">
+        <p class="tk">Non è portato.</p>
+        <p class="tk">È pigro.</p>
+        <p class="tk">Sbaglio qualcosa io?</p>
+        <p class="tk">Forse la scuola non fa per lui.</p>
+        <p class="tk">Gli altri ce la fanno.</p>
+        <p class="tk">E se perde l'anno?</p>
+      </div>
+      <div class="say" id="c3end">
+        <p class="small">Sono pensieri che fanno quasi tutte le mamme.</p>
+        <p class="big"><b>Non sei sola.</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAPITOLO 4 · LA SVOLTA ============ -->
+  <section class="cap4" id="cap4" aria-labelledby="cap4-title">
+    <div class="stage">
+      <div class="dark-world" id="darkWorld">
+        <div class="glint" id="glint" aria-hidden="true"></div>
+        <div class="phrase" id="phraseDark"><p class="old" id="pOld">Non è portato.</p><p class="new" id="pNew">Non ha ancora <em>un metodo.</em></p></div>
+        <p class="question" id="question">E se il problema <em>non fosse lui?</em></p>
+      </div>
+      <div class="light-world" id="lightWorld">
+        <div class="phrase" id="phraseLight"><p class="new">Non ha ancora <em>un metodo.</em></p></div>
+        <div class="closing" id="closing">
+          <p class="big">Non esistono ragazzi incapaci.</p>
+          <p class="small">Solo ragazzi che non hanno ancora trovato <b>il metodo giusto</b>.</p>
+        </div>
+      </div>
+      <canvas id="glasses3d" aria-hidden="true"></canvas>
+      <div class="cap-label" id="cap4-title">Capitolo 4 · La svolta</div>
+    </div>
+  </section>
+
+  <!-- ============ CAPITOLO 5 · IL METODO FOCUS ============ -->
+  <section class="cap5" id="cap5" aria-labelledby="cap5-title">
+    <div class="stage">
+      <div class="cap-label" id="cap5-title">Capitolo 5 · Il Metodo FOCUS</div>
+      <div class="say5" id="c5open"><p>Il metodo ha un nome.</p></div>
+
+      <div class="row-wrap" id="rowWrap" aria-hidden="true">
+        <div class="frow" id="frow"><span class="fl">F</span><span class="fl">O</span><span class="fl">C</span><span class="fl">U</span><span class="fl">S</span></div>
+        <svg class="guide" id="guide"></svg>
+      </div>
+
+      <div class="panels" id="panels">
+        <div class="panel">
+          <h3><span>F</span>iducia</h3>
+          <p class="lead">Smette di dire "non ce la faccio" e affronta lo studio con sicurezza.</p>
+          <div class="demo demo-f"><div class="meter"><i id="fBar"></i></div>
+            <div class="swap"><span class="neg" id="fNeg">“Non ce la faccio.”</span><span class="pos" id="fPos">“Posso farcela.”</span></div></div>
+        </div>
+        <div class="panel">
+          <h3><span>O</span>rganizzazione</h3>
+          <p class="lead">Sa cosa studiare, quando e per quanto. Niente più pomeriggi infiniti.</p>
+          <div class="demo demo-o" id="demoO"></div>
+        </div>
+        <div class="panel">
+          <h3><span>C</span>omprensione</h3>
+          <p class="lead">Legge, comprende e sintetizza anche i testi più complessi.</p>
+          <div class="demo demo-c"><p class="para" id="para"></p></div>
+        </div>
+        <div class="panel">
+          <h3><span>U</span>so consapevole degli strumenti</h3>
+          <p class="lead">Mappe mentali, lettura veloce, memoria efficace: gli strumenti giusti al momento giusto.</p>
+          <div class="demo demo-u">
+            <svg viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet" id="mapSvg">
+              <path class="br" pathLength="1" d="M300 100 C230 100 200 50 130 50"/>
+              <path class="br" pathLength="1" d="M300 100 C230 100 200 150 130 150"/>
+              <path class="br" pathLength="1" d="M300 100 C370 100 400 50 470 50"/>
+              <path class="br" pathLength="1" d="M300 100 C370 100 400 150 470 150"/>
+              <g class="node center"><rect x="232" y="80" width="136" height="40" rx="12"/><text x="300" y="106">Fotosintesi</text></g>
+              <g class="node"><rect x="66" y="32" width="100" height="36" rx="10"/><text x="116" y="56">Luce</text></g>
+              <g class="node"><rect x="66" y="132" width="100" height="36" rx="10"/><text x="116" y="156">Acqua</text></g>
+              <g class="node"><rect x="434" y="32" width="100" height="36" rx="10"/><text x="484" y="56">CO₂</text></g>
+              <g class="node"><rect x="434" y="132" width="100" height="36" rx="10"/><text x="484" y="156">Ossigeno</text></g>
+            </svg>
+          </div>
+        </div>
+        <div class="panel">
+          <h3><span>S</span>icurezza nell'esposizione</h3>
+          <p class="lead">All'interrogazione parla con calma, in ordine, senza bloccarsi.</p>
+          <div class="demo demo-s"><div class="bubble"><small id="sState">VOCE TREMOLANTE</small>Interrogazione di storia</div><div class="wave" id="wave"></div></div>
+        </div>
+      </div>
+
+      <div class="say5" id="c5end"><p>Cinque abilità. <b>Per tutta la vita.</b></p></div>
+    </div>
+  </section>
+
+  <!-- ============ CAPITOLO 6 · IL PERCORSO CON LAMBDA ============ -->
+  <section class="cap6" id="cap6" aria-labelledby="cap6-title">
+    <div class="stage">
+      <div class="cap-label" id="cap6-title">Capitolo 6 · Il percorso con Lambda</div>
+      <div class="c6open" id="c6open"><p>Tutto online, da casa.</p><p><b>Ma mai da solo.</b></p></div>
+      <div class="view">
+        <div class="track" id="track">
+          <svg class="line6" id="line6" aria-hidden="true"><path class="base" id="lBase"/><path class="lit" id="lLit" pathLength="1"/></svg>
+
+          <div class="stop"><div class="scard"><div>
+            <div class="num">TAPPA 01</div><h3>Lambda Performance Test</h3>
+            <p>Fotografa il punto di partenza di tuo figlio: come studia, dove si blocca, cosa può migliorare.</p>
+            <div class="chips6"><span>10 minuti</span><span>da casa</span><span>gratuito</span></div>
+          </div><div class="vis" data-v="test"><svg viewBox="-160 -120 320 240"><g id="radarGrid"></g><polygon id="radarStart" fill="rgba(255,138,91,.35)" stroke="#FF8A5B" stroke-width="3" stroke-linejoin="round"/></svg></div></div></div>
+
+          <div class="stop"><div class="scard"><div>
+            <div class="num">TAPPA 02</div><h3>La consegna con il tutor</h3>
+            <p>Un tutor ti spiega i risultati in videochiamata, con calma, e risponde alle tue domande.</p>
+          </div><div class="vis" data-v="call"><div class="vcall">
+            <div class="tile" style="background:linear-gradient(160deg,#00949E,#0A3440)"><div class="av"></div><div class="nm">Chiara · tutor</div><div class="talk" id="talk"><i></i><i></i><i></i><i></i></div></div>
+            <div class="tile" style="background:linear-gradient(160deg,#FF8A5B,#3d2a2a)"><div class="av"></div><div class="nm">Tu</div></div>
+          </div></div></div></div>
+
+          <div class="stop"><div class="scard"><div>
+            <div class="num">TAPPA 03</div><h3>Il programma su misura</h3>
+            <p>Il tutor crea un programma didattico personalizzato, pensato per lui e aggiornato settimana per settimana.</p>
+          </div><div class="vis" data-v="week"><div class="week6" id="week6"></div></div></div></div>
+
+          <div class="stop"><div class="scard"><div>
+            <div class="num">TAPPA 04</div><h3>Le lezioni live</h3>
+            <p>Tutte su Zoom, con docenti specializzati. Da casa, senza spostamenti e senza perdere tempo.</p>
+          </div><div class="vis" data-v="live"><div class="live" id="liveBadge">● LIVE · Matematica</div><div class="vcall" style="grid-template-rows:1fr 1fr">
+            <div class="tile" style="background:linear-gradient(160deg,#184E61,#0A1820)"><div class="av" style="width:36px;height:36px"></div><div class="nm">Prof. Rossi</div></div>
+            <div class="tile" style="background:linear-gradient(160deg,#FFD66B,#6b5a2a)"><div class="av" style="width:36px;height:36px"></div></div>
+            <div class="tile" style="background:linear-gradient(160deg,#00949E,#0A3440)"><div class="av" style="width:36px;height:36px"></div></div>
+            <div class="tile" style="background:linear-gradient(160deg,#FF8A5B,#3d2a2a)"><div class="av" style="width:36px;height:36px"></div></div>
+          </div></div></div></div>
+
+          <div class="stop"><div class="scard"><div>
+            <div class="num">TAPPA 05</div><h3>L'app di Lambda</h3>
+            <p>Portale corsi e prenotazioni: lezioni, materiali e calendario in un solo posto.</p>
+            <p class="note">ANTEPRIMA · DA SOSTITUIRE CON LE SCHERMATE REALI</p>
+          </div><div class="vis" data-v="app"><div class="phone6"><div class="scr">
+            <div class="t">Il tuo programma</div>
+            <div class="row">Matematica<small>Oggi · 15:30 · live</small></div>
+            <div class="row">Metodo di studio<small>Mappe mentali</small></div>
+            <div class="btn6" id="bookBtn">Prenota lezione<span class="rip" id="rip"></span></div>
+          </div></div></div></div></div>
+
+          <div class="stop"><div class="scard"><div>
+            <div class="num">TAPPA 06</div><h3>Mai da solo</h3>
+            <p>Un tutor lo segue dal lunedì al sabato. E se serve, psicologi per ansia e motivazione.</p>
+          </div><div class="vis" data-v="team">
+            <div class="cal6" id="cal6"><span>L</span><span>M</span><span>M</span><span>G</span><span>V</span><span>S</span></div>
+            <div class="msg6" style="top:74px"><div class="av6" style="background:var(--aqua)">C</div><div class="bb"><small>Chiara · tutor</small>Com'è andata la verifica di oggi?</div></div>
+            <div class="msg6" style="top:132px"><div class="av6" style="background:var(--navy)">P</div><div class="bb"><small>Psicologa</small>Giovedì lavoriamo sull'ansia da interrogazione.</div></div>
+          </div></div></div>
+
+          <div class="stop"><div class="scard"><div>
+            <div class="num">TAPPA 07</div><h3>Garanzia 100%</h3>
+            <p>Vi accompagniamo fino all'obiettivo. Se non arriva, lo riprepariamo gratis o rimborsiamo il 100%.</p>
+            <p class="note">CONDIZIONI DA VALIDARE PER IL PERCORSO SCOLASTICO</p>
+          </div><div class="vis" data-v="seal"><div class="seal6">
+            <svg viewBox="-85 -85 170 170" id="sealRing"><defs><path id="sr6" d="M0,-68 a68,68 0 1,1 -0.1,0"/></defs><text font-size="13" font-weight="700" letter-spacing="2.4" fill="#0E212E" font-family="Space Grotesk, sans-serif"><textPath href="#sr6">GARANZIA · RISULTATI O RIMBORSO · GARANZIA · </textPath></text></svg>
+            <div class="core">100%<small>GARANZIA</small></div>
+          </div></div></div></div>
+        </div>
+        <svg class="guide" id="guide6" aria-hidden="true"></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAPITOLO 7 · LE ALTRE FAMIGLIE ============ -->
+  <section class="cap7" id="cap7" aria-labelledby="cap7-title">
+    <div class="stage">
+      <div class="cap-label" id="cap7-title">Capitolo 7 · Le altre famiglie</div>
+      <div class="gal"><div class="layer7" id="layer7">
+        <figure class="rcard"><div class="st7"></div><q>La vedo più tranquilla, motivata ed organizzata nello studio.</q><figcaption class="who"><b>Silvia</b> · genitore, su Trustpilot</figcaption></figure>
+        <figure class="rcard"><div class="st7"></div><q>Mio figlio aveva tre debiti, in 2 mesi ha superato i debiti.</q><figcaption class="who"><b>Elisabetta V.</b> · genitore, su Trustpilot</figcaption></figure>
+        <figure class="rcard"><div class="st7"></div><q>Ho visto in mio figlio una scintilla di entusiasmo.</q><figcaption class="who"><b>Fabio T.</b> · genitore, su Trustpilot</figcaption></figure>
+        <figure class="rcard"><div class="st7"></div><q>Ha superato i debiti in modo soddisfacente e recuperato autostima.</q><figcaption class="who"><b>Simona</b> · genitore, su Trustpilot</figcaption></figure>
+        <figure class="rcard"><div class="st7"></div><q>Mio figlio non solo è cresciuto scolasticamente ma anche come persona.</q><figcaption class="who"><b>Irene L. M.</b> · genitore, su Trustpilot</figcaption></figure>
+      </div></div>
+      <div class="c7open" id="c7open"><p>Non sei la prima mamma a fare <b>questo percorso</b>.</p></div>
+      <div class="nums" id="nums">
+        <div class="num7"><div class="v" id="n5000">+5000</div><div class="l">studenti aiutati</div></div>
+        <div class="num7"><div class="v acc" id="n49">4,9</div><div class="st7"></div><div class="l">su Trustpilot</div></div>
+        <div class="num7"><div class="v">N°1</div><div class="l">in Italia per<br>recensioni certificate</div></div>
+      </div>
+      <div class="src7" id="src7"><a href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">LEGGI TUTTE LE RECENSIONI SU TRUSTPILOT →</a></div>
+    </div>
+  </section>
+
+  <!-- ============ CAPITOLO 8 · LA NUOVA SERA (specchio del capitolo 1) ============ -->
+  <section class="cap8" id="cap8" aria-labelledby="cap8-title">
+    <div class="stage">
+      <div class="sunset" id="sunset" aria-hidden="true"></div>
+      <div class="world" aria-hidden="true"><div class="layer" id="layer8"></div></div>
+      <div class="cap-label" id="cap8-title">Capitolo 8 · La nuova sera</div>
+
+      <div class="clock3d" id="clock8" aria-label="Orologio: 22:47" role="img">
+        <div class="rig" id="rig8">
+          <div class="card"></div><div class="card"></div>
+          <div class="colon"><i></i><i></i></div>
+          <div class="card"></div><div class="card"></div>
+        </div>
+      </div>
+      <svg class="guide8" id="guide8" aria-hidden="true"></svg>
+
+      <div class="lines" id="lines8">
+        <p>Sono le <b>18:00</b>.</p>
+        <p>I compiti sono finiti.</p>
+        <p>Ha studiato meno ore. <b>E ricorda di più.</b></p>
+        <p>E stasera, a cena, si parla d'altro.</p>
+      </div>
+
+      <div class="whisper" data-w="0" style="left:14%;top:17%">“Fatto!”</div>
+      <div class="whisper" data-w="1" style="right:12%;top:20%">“Ripasso in 15 minuti.”</div>
+      <div class="whisper" data-w="2" style="left:10%;top:80%">“Domani interrogazione? Sono pronto.”</div>
+      <div class="whisper" data-w="3" style="right:14%;top:84%">“Posso uscire?”</div>
+
+      <div class="opener" id="opener8"><p>Qualche tempo dopo. La stessa cucina.</p></div>
+      <div class="closer" id="closer8"><p><span>Ogni sera.</span><span>Una scena nuova.</span></p></div>
+    </div>
+  </section>
+
+  <!-- ============ CAPITOLO 9 · IL PRIMO PASSO ============ -->
+  <section class="cap9" id="cap9" aria-labelledby="cap9-title">
+    <div class="c9grid">
+      <div class="c9">
+        <div class="cap-label c9reveal">Capitolo 9 · Il primo passo</div>
+        <h2 class="c9title c9reveal" id="cap9-title">Ogni nuova sera comincia da qui: <em>capire da dove parte tuo figlio.</em></h2>
+        <div class="c9ctas c9reveal">
+          <a class="btn btn-big magnetic" href="test.html"><span class="t">Fai il test gratuito →</span></a>
+          <p class="c9alt">Preferisci parlarne prima?<br><a href="studenti.html#sedi">Parla con un tutor</a></p>
+        </div>
+        <ul class="c9trust c9reveal">
+          <li><span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span><b>4,9</b> su Trustpilot</span></li>
+          <li><span><b>5000+</b> studenti aiutati</span></li>
+          <li><span><b>Garanzia</b> 100%</span></li>
+        </ul>
+      </div>
+      <div class="tcard9wrap" id="tcardWrap">
+        <svg class="guide9" viewBox="0 0 144 60" aria-hidden="true"><circle class="ring" cx="36" cy="30" r="26"/><circle class="ring" cx="108" cy="30" r="26"/><path class="bridge" d="M62 26 Q72 18 82 26"/></svg>
+        <div class="tcard9" id="tcard9">
+          <div class="lbl ln">IL PRIMO PASSO</div>
+          <div class="tt ln">LAMBDA<br>PERFORMANCE<br><span>TEST</span></div>
+          <div class="chips9 ln"><span>10 minuti</span><span>da casa</span><span>gratuito</span></div>
+          <div class="after ln"><i>🎥</i><span>Poi un tutor ti spiega i risultati in videochiamata, e insieme decidete da dove partire.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div data-lambda-footer></div>
+
+<nav class="rail" id="rail" aria-label="Capitoli">
+  <a href="#cover"><span>0 · Inizio</span></a>
+  <a href="#cap1"><span>1 · La sera</span></a>
+  <a href="#cap2"><span>2 · Soluzioni provate</span></a>
+  <a href="#cap3"><span>3 · I pensieri</span></a>
+  <a href="#cap4"><span>4 · La svolta</span></a>
+  <a href="#cap5"><span>5 · Metodo FOCUS</span></a>
+  <a href="#cap6"><span>6 · Il percorso</span></a>
+  <a href="#cap7"><span>7 · Le famiglie</span></a>
+  <a href="#cap8"><span>8 · La nuova sera</span></a>
+  <a href="#cap9"><span>9 · Il primo passo</span></a>
+</nav>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/lambda.js?v=17"></script>
+<script>
+/* ============ MODALITÀ RACCONTO: la storia scorre da sola, come un video ============ */
+(() => {
+  const L = window.Lambda, $ = (s) => document.querySelector(s), body = document.body;
+  gsap.set('#logo', { autoAlpha: 1 });
+  if (L.reduced || !L.lenis) return;
+  const player = $('#player'), pp = $('#pp'), bar = $('#pBar i'), chapEl = $('#pChap'), timeEl = $('#pTime'), spdBtn = $('#pSpeed');
+  const CH = [...document.querySelectorAll('#rail a')].map((a) => ({ el: document.querySelector(a.getAttribute('href')), name: a.querySelector('span').textContent }));
+  const SPEEDS = [1, 1.5, 2];
+  // ritmo: uno schermo ogni 3,2 secondi (abbastanza per leggere ogni frase dei capitoli)
+  const pxs = () => innerHeight / 3.2;
+  const endY = () => $('#cap9').getBoundingClientRect().top + L.lenis.scroll;
+  let playing = false, si = 0, last = 0, y = 0;
+  const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}`;
+  const total = () => endY() / pxs();
+  $('#coverDur').textContent = `come un video, circa ${Math.round(total() / 60)} minuti`;
+
+  function play() {
+    if (playing) return;
+    y = L.lenis.scroll; if (y >= endY() - 4) y = 0;  // finita: ricomincia dall'inizio
+    playing = true; last = 0; body.classList.add('story-play'); pp.setAttribute('aria-label', 'Metti in pausa');
+  }
+  function pause() { if (!playing) return; playing = false; body.classList.remove('story-play'); pp.setAttribute('aria-label', 'Riproduci la storia'); }
+  const toggle = () => (playing ? pause() : play());
+
+  $('#coverPlay').addEventListener('click', play);
+  pp.addEventListener('click', toggle);
+  spdBtn.addEventListener('click', () => { si = (si + 1) % SPEEDS.length; spdBtn.textContent = SPEEDS[si] + '×'; });
+  $('#pBar').addEventListener('click', (e) => { const b = e.currentTarget.getBoundingClientRect(); y = ((e.clientX - b.left) / b.width) * endY(); L.lenis.scrollTo(y, { immediate: true, force: true }); });
+  // se l'utente scorre da sé, il racconto si ferma: comanda lui
+  ['wheel', 'touchstart'].forEach((ev) => addEventListener(ev, () => pause(), { passive: true }));
+  addEventListener('keydown', (e) => {
+    if (e.target.closest('input,textarea')) return;
+    if (e.code === 'Space' && L.lenis.scroll > 40) { e.preventDefault(); toggle(); }
+    else if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End'].includes(e.key)) pause();
+  });
+  document.querySelectorAll('#rail a, .cv-read').forEach((a) => a.addEventListener('click', pause));
+
+  L.onFrame((now, sy) => {
+    const end = endY();
+    if (playing) {
+      const dt = last ? Math.min(0.05, (now - last) / 1000) : 0; last = now;
+      y += pxs() * SPEEDS[si] * dt;
+      if (y >= end) { y = end; pause(); }
+      L.lenis.scrollTo(y, { immediate: true, force: true });
+    }
+    const p = Math.min(1, Math.max(0, sy / end));
+    bar.style.width = p * 100 + '%';
+    timeEl.textContent = playing || p > 0 ? `${mmss(p * total())} / ${mmss(total())}` : mmss(total());
+    const cur = CH.filter((c) => c.el && c.el.getBoundingClientRect().top <= innerHeight * 0.5).pop();
+    if (cur && chapEl.textContent !== cur.name) chapEl.textContent = cur.name;
+    // il player compare dopo la copertina (o se si sta guardando) e lascia spazio all'invito finale
+    const c9 = $('#cap9').getBoundingClientRect().top;
+    player.classList.toggle('show', playing || (sy > innerHeight * 0.5 && c9 > innerHeight * 0.4));
+  });
+
+  if (new URLSearchParams(location.search).has('play')) setTimeout(play, 900);
+})();
+</script>
+
+
+
+<!-- ======================= CAPITOLO 1 · LA SERA ======================= -->
+<script>
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s) => document.querySelector(s);
+  const sec = $('#cap1'), lamp = $('#lamp'), layer = $('#layer'), clock = $('#clock3d'), rig = $('#rig');
+  const lines = [...document.querySelectorAll('#lines p')], whispers = [...document.querySelectorAll('#cap1 .whisper')];
+  const opener = $('#opener p'), closer = [...document.querySelectorAll('#closer span')];
+  const logo = $('#logo'), rail = $('#rail'), dots = [...rail.querySelectorAll('a')];
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+  const win = (p, a, b, fade = 0.03) => clamp01((p - a) / fade) * clamp01((b - p) / fade); // 0→1→0 in una finestra
+  const ease = (t) => 1 - Math.pow(1 - t, 3);
+
+  /* ---------- orologio a palette ---------- */
+  const cards = [...rig.querySelectorAll('.card')].map((el) => {
+    el.innerHTML = '<div class="half top"><span></span></div><div class="half bot"><span></span></div><div class="flap ftop"><span></span></div><div class="flap fbot"><span></span></div><div class="shine"></div>';
+    const q = (s) => el.querySelector(s + ' span');
+    const c = { el, top: q('.top'), bot: q('.bot'), ftop: el.querySelector('.ftop'), fbot: el.querySelector('.fbot'), cur: '', target: '', busy: false };
+    c.ftop.style.visibility = c.fbot.style.visibility = 'hidden';
+    return c;
+  });
+  const setNow = (c, d) => { c.cur = c.target = d; c.top.textContent = c.bot.textContent = d; };
+  function flip(c) {
+    if (c.cur === c.target) { c.busy = false; return; }
+    const old = c.cur, nw = c.target; c.busy = true;
+    c.top.textContent = nw; c.bot.textContent = old;
+    c.ftop.firstChild.textContent = old; c.fbot.firstChild.textContent = nw;
+    c.ftop.style.visibility = 'visible';
+    c.ftop.animate([{ transform: 'rotateX(0deg)' }, { transform: 'rotateX(-90deg)' }], { duration: 110, easing: 'ease-in', fill: 'forwards' }).onfinish = () => {
+      c.ftop.style.visibility = 'hidden'; c.fbot.style.visibility = 'visible';
+      c.fbot.animate([{ transform: 'rotateX(90deg)' }, { transform: 'rotateX(0deg)' }], { duration: 140, easing: 'cubic-bezier(.2,1.6,.4,1)', fill: 'forwards' }).onfinish = () => {
+        c.bot.textContent = nw; c.fbot.style.visibility = 'hidden'; c.cur = nw; flip(c);
+      };
+    };
+  }
+  const setDigit = (c, d) => { c.target = d; if (!c.busy) flip(c); };
+  '2130'.split('').forEach((d, i) => setNow(cards[i], d));
+  let shownMin = -1;
+  function setTime(min) {
+    if (min === shownMin) return; shownMin = min;
+    const s = String(Math.floor(min / 60)).padStart(2, '0') + String(min % 60).padStart(2, '0');
+    s.split('').forEach((d, i) => (reduced ? setNow(cards[i], d) : setDigit(cards[i], d)));
+    clock.setAttribute('aria-label', `Orologio: ${s.slice(0, 2)}:${s.slice(2)}`);
+  }
+
+  /* ---------- parole sospese nello spazio ---------- */
+  const W = [['compiti',-420,-170,-200],['verifica',390,-120,-520],['ancora',-300,150,-820],['capitolo 4',270,200,-320],['esercizi pag. 112',-540,40,-1100,1],
+    ['versione di latino',470,10,-900],['riassunto',-150,-240,-1300],['interrogazione',140,-270,-700],['da ripassare',-380,-40,-1500],['formule',540,-230,-1250,1],
+    ['1861',-620,230,-600,1],['sottolinea',330,270,-1400],['date da ricordare',-90,290,-1000],['mappa',620,130,-1650],['pag. 47–58',-570,-260,-420,1],['non capisco',40,220,-1750]];
+  const mob = () => innerWidth < 640;
+  const words = W.slice(0, mob() ? 10 : W.length).map(([t, x, y, z, m]) => {
+    const el = document.createElement('div'); el.className = 'ww' + (m ? ' mono' : ''); el.textContent = t;
+    el.style.fontSize = (m ? 22 : 36) + 'px'; layer.appendChild(el);
+    return { el, x, y, z };
+  });
+
+  /* ---------- aggiornamento legato allo scroll ---------- */
+  function update() {
+    const r = sec.getBoundingClientRect(), vh = innerHeight;
+    const p = (-r.top) / (r.height - vh);                 // 0 = inizio capitolo, 1 = fine
+    const inside = r.top < vh * 0.4 && r.bottom > vh * 0.2;
+
+    // logo spento durante i capitoli bui; indice dei capitoli
+    if (p > -0.08 && r.bottom > 0) { logo.classList.add('off'); logo.classList.remove('lit'); } else logo.classList.remove('off');
+    rail.classList.toggle('show', document.getElementById('cap9').getBoundingClientRect().top > innerHeight * 0.35); // a fine racconto l'indice lascia spazio
+    if (p <= 1) { // oltre la fine del capitolo 1, l'indice lo gestiscono i capitoli successivi
+      const idx = p < -0.08 ? 0 : 1;
+      dots.forEach((d, i) => { d.classList.toggle('on', i === idx); d.classList.toggle('done', i < idx); });
+    }
+    if (reduced) { setTime(1290); return; }
+    if (p < -0.6 || p > 1.3) return;
+    const sx = mob() ? 0.45 : Math.min(1, innerWidth / 1400);
+
+    // apertura
+    opener.style.opacity = win(p, -0.05, 0.12, 0.05);
+    opener.style.filter = `blur(${(1 - win(p, -0.05, 0.12, 0.05)) * 8}px)`;
+
+    // orologio: compare, gira e il tempo corre (21:30 → 22:47)
+    const cIn = ease(clamp01((p - 0.08) / 0.08)), cOut = clamp01((p - 0.84) / 0.06);
+    clock.style.opacity = cIn * (1 - cOut);
+    rig.style.transform = `translateY(${(1 - cIn) * 60}px) scale(${0.9 + cIn * 0.1}) rotateX(${14 - p * 8}deg) rotateY(${-18 + p * 30}deg)`;
+    setTime(1290 + Math.round(clamp01((p - 0.31) / 0.47) * 77)); // fermo sulle 21:30 finché la frase lo dice
+
+    // la lampada si restringe
+    const l = clamp01((p - 0.45) / 0.45);
+    lamp.style.transform = `scale(${1 - l * 0.6})`;
+    lamp.style.opacity = String(Math.min(1, clamp01((p + 0.02) / 0.1)) * (1 - l * 0.55) * (1 - clamp01((p - 0.9) / 0.1) * 0.5));
+
+    // la camera avanza tra le parole
+    const cam = p * 1500, fadeAll = 1 - clamp01((p - 0.8) / 0.08) * 0.92, appear = clamp01((p - 0.06) / 0.1);
+    for (const w of words) {
+      const zr = w.z + cam;
+      const blur = Math.min(14, Math.abs(zr + 150) / 60);
+      const op = (zr > 300 ? clamp01(1 - (zr - 300) / 300) : clamp01((zr + 1900) / 600)) * appear * fadeAll;
+      w.el.style.transform = `translate(-50%,-50%) translate3d(${w.x * sx}px, ${w.y * sx}px, ${zr}px)`;
+      w.el.style.filter = `blur(${blur}px)`;
+      w.el.style.opacity = (op * 0.8).toFixed(3);
+    }
+
+    // frasi alla mamma, una alla volta
+    const LW = [[0.17, 0.31], [0.31, 0.45], [0.45, 0.59], [0.59, 0.78]];
+    lines.forEach((el, i) => {
+      const v = win(p, LW[i][0], LW[i][1], 0.03);
+      el.style.opacity = v; el.style.transform = `translateY(${(1 - v) * 18}px)`; el.style.filter = `blur(${(1 - v) * 6}px)`;
+    });
+    // sussurri
+    const WW = [[0.46, 0.62], [0.52, 0.68], [0.6, 0.76], [0.66, 0.8]];
+    whispers.forEach((el, i) => {
+      const v = win(p, WW[i][0], WW[i][1], 0.04);
+      el.style.opacity = v * 0.9; el.style.filter = `blur(${(1 - v) * 5}px)`; el.style.transform = `translateY(${(1 - v) * -10}px)`;
+    });
+    // chiusura
+    closer.forEach((el, i) => {
+      const v = ease(clamp01((p - (0.86 + i * 0.05)) / 0.04));
+      el.style.opacity = v; el.style.transform = `translateY(${(1 - v) * 30}px)`;
+    });
+  }
+  (function loop() { update(); requestAnimationFrame(loop); })();
+})();
+</script>
+
+<!-- ======================= CAPITOLI 2 e 3 ======================= -->
+<script>
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+  const $ = (s) => document.querySelector(s);
+  const c2 = $('#cap2'), c3 = $('#cap3'), logo = $('#logo'), dots = [...document.querySelectorAll('#rail a')];
+  const cards = [...document.querySelectorAll('#deck .tcard')], stamps = cards.map((c) => c.querySelector('.stamp'));
+  const thinks = [...document.querySelectorAll('#thinks .tk')];
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+  const win = (p, a, b, f = 0.03) => clamp01((p - a) / f) * clamp01((b - p) / f);
+  const easeOut = (t) => 1 - Math.pow(1 - t, 3), easeIn = (t) => t * t * t;
+  const prog = (el) => { const r = el.getBoundingClientRect(); return { p: (-r.top) / (r.height - innerHeight), vis: r.top < innerHeight && r.bottom > 0 }; };
+  const show = (el, v, dy = 20) => { el.style.opacity = v; el.style.transform = `translateY(${(1 - v) * dy}px)`; el.style.filter = `blur(${(1 - v) * 6}px)`; };
+  const mob = () => innerWidth < 640;
+
+  function update() {
+    const a = prog(c2), b = prog(c3);
+    // logo spento e indice dei capitoli
+    if (a.vis || b.vis) { logo.classList.add('off'); logo.classList.remove('lit'); }
+    if (a.p > -0.02 && b.p < -0.02) dots.forEach((d, i) => { d.classList.toggle('on', i === 2); d.classList.toggle('done', i < 2); });
+    if (b.p > -0.02 && b.p <= 1.05) dots.forEach((d, i) => { d.classList.toggle('on', i === 3); d.classList.toggle('done', i < 3); });
+
+    /* ----- capitolo 2: le carte ----- */
+    if (a.p > -0.4 && a.p < 1.3) {
+      const p = a.p, vh = innerHeight;
+      show($('#c2open p'), win(p, -0.04, 0.1, 0.04));
+      const pileFade = clamp01((p - 0.88) / 0.1);
+      cards.forEach((c, i) => {
+        const t = (p - (0.1 + i * 0.12)) / 0.12;
+        if (t < 0) { c.style.opacity = 0; return; }
+        const ar = easeOut(clamp01(t / 0.35)), fl = easeIn(clamp01((t - 0.7) / 0.3));
+        // colpo del timbro
+        const st = clamp01((t - 0.42) / 0.08), shake = t > 0.46 && t < 0.56 ? Math.sin(t * 180) * 6 * (0.56 - t) * 10 : 0;
+        stamps[i].style.opacity = st;
+        stamps[i].style.transform = `rotate(-8deg) scale(${2.6 - 1.6 * easeOut(st)})`;
+        // posizione nella pila, in basso
+        const px = (i - 2.5) * (mob() ? 26 : 70), py = vh * 0.4 + (i % 2) * 12, prz = ((i % 3) - 1) * 16 + (i - 2.5) * 3;
+        const z = -1400 * (1 - ar), ry = 38 * (1 - ar) - 4, rx = 12 * (1 - ar);
+        c.style.opacity = (ar * (1 - pileFade)).toFixed(3);
+        c.style.filter = `blur(${pileFade * 8 + (1 - ar) * 4}px) brightness(${1 - fl * 0.45})`;
+        c.style.transform = `translate(-50%,-50%) translate3d(${px * fl + shake}px, ${py * fl - pileFade * 60}px, ${z}px) rotateY(${ry * (1 - fl)}deg) rotateX(${rx + fl * 58}deg) rotateZ(${prz * fl}deg) scale(${1 - fl * 0.52})`;
+      });
+      const e = [...document.querySelectorAll('#c2end p')];
+      e.forEach((el, i) => show(el, win(p, 0.83 + i * 0.03, 0.93, 0.03)));
+      show($('#c2seed p'), clamp01((p - 0.93) / 0.04) * (1 - clamp01((p - 1.02) / 0.06)));
+    }
+
+    /* ----- capitolo 3: i pensieri ti vengono addosso ----- */
+    if (b.p > -0.4 && b.p < 1.3) {
+      const p = b.p, sx = mob() ? 0.35 : Math.min(1, innerWidth / 1400);
+      const off = [[-140, -90], [160, 70], [-70, 130], [120, -130], [-180, 30], [70, 100]];
+      thinks.forEach((el, i) => {
+        const u = (p - (0.04 + i * 0.1)) / 0.3;
+        if (u <= 0 || u >= 1) { el.style.opacity = 0; return; }
+        const z = -2200 + u * 2900;
+        const blur = z > 0 ? Math.min(18, z / 45) : Math.min(14, -z / 160);
+        el.style.opacity = (clamp01(u / 0.15) * clamp01((1 - u) / 0.12) * 0.95).toFixed(3);
+        el.style.filter = `blur(${blur}px)`;
+        el.style.transform = `translate(-50%,-50%) translate3d(${off[i][0] * sx}px, ${off[i][1] * sx}px, ${z}px)`;
+      });
+      const e = [...document.querySelectorAll('#c3end p')];
+      e.forEach((el, i) => show(el, clamp01((p - (0.84 + i * 0.05)) / 0.04) * (1 - clamp01((p - 1.0) / 0.05))));
+    }
+    requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+})();
+</script>
+
+<!-- ======================= CAPITOLO 5 · IL METODO FOCUS ======================= -->
+<script>
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s) => document.querySelector(s);
+  const sec = $('#cap5'), rowWrap = $('#rowWrap'), frow = $('#frow'), guide = $('#guide');
+  const letters = [...frow.querySelectorAll('.fl')], panels = [...document.querySelectorAll('#panels .panel')];
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+  const win = (p, a, b, f = 0.03) => clamp01((p - a) / f) * clamp01((b - p) / f);
+  const ease = (t) => 1 - Math.pow(1 - t, 3), easeIO = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+  /* ---------- costruzione delle mini-dimostrazioni ---------- */
+  // O · la settimana
+  const demoO = $('#demoO'), days = ['LUN', 'MAR', 'MER', 'GIO', 'VEN'];
+  const subj = [['Matematica', '#FFE7A3'], ['Latino', '#CDEFF1'], ['Storia', '#FFD9CC'], ['Inglese', '#DDE8FF'], ['Scienze', '#D8F3DF']];
+  days.forEach((d, i) => { demoO.insertAdjacentHTML('beforeend', `<div class="day" style="left:${i * 20}%">${d}</div>${i ? `<div class="col" style="left:${i * 20}%"></div>` : ''}`); });
+  const chipStart = [[18, 30, -24], [72, 70, 18], [40, 78, -12], [86, 34, 26], [58, 40, -30]];
+  const chips = subj.map(([t, c]) => { const e = document.createElement('div'); e.className = 'chip'; e.textContent = t; e.style.background = c; demoO.appendChild(e); return e; });
+  // C · il paragrafo e le parole chiave
+  const para = $('#para');
+  const text = [['La'], ['Rivoluzione francese', 1], ['iniziò nel'], ['1789', 1], [', quando il popolo, stanco delle'], ['tasse', 1], ['e della'], ['fame', 1], [', prese la'], ['Bastiglia', 1], ['e mise fine alla'], ['monarchia assoluta', 1], ['.']];
+  para.innerHTML = text.map(([t, k]) => `<span class="${k ? 'k' : 'w'}">${t}</span>`).join(' ');
+  const pw = [...para.querySelectorAll('.w')], pk = [...para.querySelectorAll('.k')];
+  // S · l'onda della voce
+  const wave = $('#wave'); const bars = [...Array(36)].map(() => { const e = document.createElement('i'); wave.appendChild(e); return e; });
+  const chaos = bars.map((_, i) => 0.15 + Math.abs(Math.sin(i * 12.9898) * 43758.5453 % 1) * 0.85);
+  // U · la mappa
+  const branches = [...document.querySelectorAll('#mapSvg .br')], nodes = [...document.querySelectorAll('#mapSvg .node:not(.center)')];
+
+  function demo(i, d, t) {
+    if (i === 0) {
+      $('#fBar').style.width = (20 + 72 * ease(d)) + '%';
+      const neg = $('#fNeg'), pos = $('#fPos');
+      neg.style.setProperty('--s', clamp01((d - 0.2) / 0.25));
+      neg.style.opacity = 1 - clamp01((d - 0.5) / 0.12);
+      pos.style.opacity = clamp01((d - 0.55) / 0.12);
+      pos.style.transform = `translateY(${(1 - clamp01((d - 0.55) / 0.12)) * 12}px)`;
+    }
+    if (i === 1) {
+      const k = easeIO(clamp01((d - 0.15) / 0.5));
+      chips.forEach((c, j) => {
+        const [sx, sy, sr] = chipStart[j];
+        const tx = j * 20 + 10, ty = 50 + (j % 2) * 18;
+        c.style.left = (sx + (tx - sx) * k) + '%'; c.style.top = (sy + (ty - sy) * k) + '%';
+        c.style.transform = `translate(-50%,-50%) rotate(${sr * (1 - k)}deg) scale(${0.95 + 0.05 * k})`;
+      });
+    }
+    if (i === 2) {
+      const k = clamp01((d - 0.15) / 0.45);
+      pw.forEach((w) => (w.style.opacity = (1 - 0.82 * k).toFixed(3)));
+      pk.forEach((w, j) => (w.style.backgroundSize = `${clamp01((d - 0.3 - j * 0.05) / 0.12) * 100}% 42%`));
+    }
+    if (i === 3) {
+      branches.forEach((b, j) => (b.style.strokeDashoffset = 1 - clamp01((d - 0.12 - j * 0.1) / 0.18)));
+      nodes.forEach((n, j) => { const s = ease(clamp01((d - 0.28 - j * 0.1) / 0.12)); n.style.opacity = s; n.style.transformOrigin = 'center'; n.style.transformBox = 'fill-box'; n.style.transform = `scale(${0.6 + 0.4 * s})`; });
+    }
+    if (i === 4) {
+      const k = easeIO(clamp01((d - 0.15) / 0.5));
+      bars.forEach((b, j) => {
+        const jitter = chaos[j] * (0.6 + 0.4 * Math.sin(t * 9 + j * 1.7));
+        const calm = 0.35 + 0.3 * Math.sin(j * 0.45 + t * 2.4);
+        b.style.height = ((jitter * (1 - k) + calm * k) * 100).toFixed(1) + '%';
+      });
+      $('#sState').textContent = k > 0.5 ? 'VOCE SICURA' : 'VOCE TREMOLANTE';
+    }
+  }
+
+  /* ---------- gli occhiali guida ---------- */
+  const R = () => Math.max(20, Math.min(36, innerWidth * 0.022));
+  function drawGuide() {
+    const r = R(), gap = r * 0.36, w = r * 4 + gap * 2 + 12, h = r * 2 + 12, cy = h / 2, c1 = 6 + r, c2 = w - 6 - r;
+    guide.setAttribute('width', w); guide.setAttribute('height', h); guide.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    guide.innerHTML = `<circle class="ring" cx="${c1}" cy="${cy}" r="${r}"/><circle class="ring" cx="${c2}" cy="${cy}" r="${r}"/><path class="bridge" d="M${c1 + r} ${cy - r * .15} Q${w / 2} ${cy - r * .5} ${c2 - r} ${cy - r * .15}"/><path class="glint" d="M${c1 - r * .55} ${cy - r * .35} A${r * .7} ${r * .7} 0 0 1 ${c1 - r * .1} ${cy - r * .68}"/>`;
+    guide._w = w; guide._h = h;
+  }
+  drawGuide(); addEventListener('resize', drawGuide);
+
+  let rowX = null, gX = null;
+  function update(now) {
+    requestAnimationFrame(update);
+    const r = sec.getBoundingClientRect(), p = (-r.top) / (r.height - innerHeight);
+    if (p > -0.02 && p <= 1) document.querySelectorAll('#rail a').forEach((d, i) => { d.classList.toggle('on', i === 5); d.classList.toggle('done', i < 5); });
+    if (reduced) { panels.forEach((pn, i) => demo(i, 1, 0)); return; }
+    if (p < -0.3 || p > 1.3) return;
+    const t = now / 1000;
+
+    $('#c5open p').style.opacity = win(p, -0.03, 0.1, 0.04);
+    $('#c5open p').style.transform = `translateY(${(1 - win(p, -0.03, 0.1, 0.04)) * 20}px)`;
+
+    const seg = (p - 0.16) / 0.16, act = seg >= 0 && seg < 5 ? Math.floor(seg) : -1, d = seg - Math.floor(seg);
+    const allOn = p >= 0.96;
+
+    // lettere: entrano, poi quella attiva ruota e si accende
+    letters.forEach((el, i) => {
+      const inK = ease(clamp01((p - 0.06 - i * 0.015) / 0.08));
+      const isAct = i === act, rot = isAct ? 360 * easeIO(clamp01(d / 0.22)) : 0;
+      const focus = act < 0 ? 1 : isAct ? 1 : 0;
+      el.classList.toggle('on', isAct || allOn);
+      el.style.opacity = (inK * (allOn ? 1 : act < 0 ? 1 : isAct ? 1 : 0.28)).toFixed(3);
+      el.style.filter = `blur(${allOn || act < 0 || isAct ? 0 : 1.5}px)`;
+      el.style.transform = `translateY(${(1 - inK) * 80}px) rotateY(${rot}deg) scale(${isAct ? 1.12 : allOn ? 1 : act < 0 ? 1 : 0.9})`;
+      void focus;
+    });
+
+    // la fila scivola per centrare la lettera attiva
+    const W = rowWrap.clientWidth, target = act >= 0 ? act : 2;
+    const L = letters[target], want = W / 2 - (L.offsetLeft + L.offsetWidth / 2);
+    rowX = rowX === null ? want : rowX + (want - rowX) * 0.08;
+    frow.style.transform = `translateX(${rowX}px) rotateY(${(want - rowX) * -0.02}deg)`;
+
+    // gli occhiali si posano sopra la lettera attiva
+    const gx = rowX + L.offsetLeft + L.offsetWidth / 2 - guide._w / 2;
+    gX = gX === null ? gx : gX + (gx - gX) * 0.1;
+    const gv = clamp01((p - 0.14) / 0.04) * (1 - clamp01((p - 0.97) / 0.03));
+    guide.style.opacity = gv;
+    guide.style.transform = `translate(${gX}px, ${-guide._h - 6 + Math.sin(t * 2) * 3}px)`;
+
+    // pannelli con la dimostrazione
+    panels.forEach((pn, i) => {
+      const v = i === act ? win(d, 0.06, 0.94, 0.06) : 0;
+      pn.style.opacity = v; pn.style.transform = `translateY(${(1 - v) * 24}px)`;
+      if (i === act) demo(i, d, t);
+    });
+
+    const e = clamp01((p - 0.965) / 0.03);
+    $('#c5end p').style.opacity = e; $('#c5end p').style.transform = `translateY(${(1 - e) * 20}px)`;
+  }
+  requestAnimationFrame(update);
+})();
+</script>
+
+<!-- ======================= CAPITOLO 6 · IL PERCORSO ======================= -->
+<script>
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s) => document.querySelector(s);
+  const sec = $('#cap6'), track = $('#track'), line = $('#line6'), guide = $('#guide6'), stage = sec.querySelector('.stage');
+  const stops = [...track.querySelectorAll('.stop')], N = stops.length;
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+  const win = (p, a, b, f = 0.03) => clamp01((p - a) / f) * clamp01((b - p) / f);
+  const ease = (t) => 1 - Math.pow(1 - t, 3), easeIO = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+  /* ---------- contenuti delle tappe ---------- */
+  // radar FOCUS
+  const AX = ['F', 'O', 'C', 'U', 'S'], pt = (i, v, R = 90) => { const a = (i * 72 - 90) * Math.PI / 180; return [Math.cos(a) * R * v, Math.sin(a) * R * v]; };
+  $('#radarGrid').innerHTML = [0.33, 0.66, 1].map((r) => `<polygon points="${AX.map((_, i) => pt(i, r).join(',')).join(' ')}" fill="none" stroke="#d5e3e8" stroke-width="2"/>`).join('')
+    + AX.map((l, i) => { const [x, y] = pt(i, 1), [lx, ly] = pt(i, 1.22); return `<line x1="0" y1="0" x2="${x}" y2="${y}" stroke="#d5e3e8" stroke-width="2"/><text x="${lx}" y="${ly + 6}" text-anchor="middle" font-size="17" font-weight="700" fill="#0E212E" font-family="Space Grotesk, sans-serif">${l}</text>`; }).join('');
+  const START = [0.4, 0.3, 0.55, 0.25, 0.45];
+  // settimana
+  const W6 = [['LUN', [['Mate', '#FFE7A3'], ['Metodo', '#CDEFF1']]], ['MAR', [['Italiano', '#FFD9CC']]], ['MER', [['Mate', '#FFE7A3'], ['Inglese', '#DDE8FF']]],
+    ['GIO', [['Storia', '#D8F3DF']]], ['VEN', [['Mate', '#FFE7A3'], ['Ripasso', '#CDEFF1']]], ['SAB', [['Tutor', '#E5EFF2']]]];
+  $('#week6').innerHTML = W6.map(([d, bl]) => `<div class="d"><b>${d}</b>${bl.map(([t, c]) => `<div class="blk" style="background:${c}">${t}</div>`).join('')}</div>`).join('');
+  const blocks = [...document.querySelectorAll('#week6 .blk')];
+  const calDots = [...document.querySelectorAll('#cal6 span')].map((s) => { const i = document.createElement('i'); s.appendChild(i); return i; });
+  const msgs = [...stops[5].querySelectorAll('.msg6')];
+
+  function anim(i, v, t) {
+    if (i === 0) $('#radarStart').setAttribute('points', START.map((s, j) => pt(j, s * ease(clamp01((v - 0.2) / 0.5))).join(',')).join(' '));
+    if (i === 1) [...document.querySelectorAll('#talk i')].forEach((b, j) => (b.style.height = (4 + Math.abs(Math.sin(t * 8 + j * 1.3)) * 12) + 'px'));
+    if (i === 2) blocks.forEach((b, j) => { const k = ease(clamp01((v - 0.15 - j * 0.05) / 0.12)); b.style.opacity = k; b.style.transform = `translateY(${(1 - k) * 10}px) scale(${0.9 + 0.1 * k})`; });
+    if (i === 3) $('#liveBadge').style.opacity = 0.65 + 0.35 * Math.abs(Math.sin(t * 3));
+    if (i === 4) { const k = clamp01((v - 0.5) / 0.25); const r = $('#rip'); r.style.transform = `scale(${k * 30})`; r.style.opacity = k > 0 ? 1 - k : 0; $('#bookBtn').style.background = k > 0.6 ? '#00B67A' : ''; $('#bookBtn').firstChild.textContent = k > 0.6 ? 'Prenotata ✓' : 'Prenota lezione'; }
+    if (i === 5) { calDots.forEach((d, j) => (d.style.transform = `scale(${ease(clamp01((v - 0.1 - j * 0.06) / 0.1))})`)); msgs.forEach((m, j) => { const k = ease(clamp01((v - 0.45 - j * 0.15) / 0.12)); m.style.opacity = k; m.style.transform = `translateY(${(1 - k) * 12}px)`; }); }
+    if (i === 6) $('#sealRing').style.transform = `rotate(${t * 18}deg)`;
+  }
+
+  /* ---------- geometria: tappe, linea, occhiali ---------- */
+  let SW = 0, lineY = 0, pts = [];
+  function layout() {
+    SW = Math.min(780, innerWidth * 0.88);
+    track.style.setProperty('--sw', SW + 'px');
+    stops.forEach((s, i) => (s.style.left = i * SW + 'px'));
+    track.style.width = N * SW + 'px';
+    // blocco "scheda + linea" centrato in verticale, sotto l'etichetta del capitolo
+    const h = stage.clientHeight, cardH = Math.max(...stops.map((s) => s.offsetHeight));
+    const topY = Math.max(140, (h - cardH - 110) / 2 + 20);
+    stops.forEach((s) => (s.style.top = topY + 'px'));
+    lineY = topY + cardH + 100;
+    pts = stops.map((_, i) => [i * SW + SW / 2, lineY + (i % 2 ? 16 : -16)]);
+    const d = [`M${0} ${lineY}`, `L${pts[0][0] - SW * 0.3} ${lineY}`];
+    for (let i = 0; i < N; i++) {
+      const [x, y] = pts[i], [px, py] = i ? pts[i - 1] : [pts[0][0] - SW * 0.3, lineY];
+      d.push(`C${px + (x - px) / 2} ${py} ${px + (x - px) / 2} ${y} ${x} ${y}`);
+    }
+    d.push(`L${N * SW} ${pts[N - 1][1]}`);
+    line.setAttribute('width', N * SW); line.setAttribute('height', h);
+    line.querySelectorAll('.dot').forEach((c) => c.remove());
+    $('#lBase').setAttribute('d', d.join(' ')); $('#lLit').setAttribute('d', d.join(' '));
+    pts.forEach(([x, y]) => { const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle'); c.setAttribute('class', 'dot'); c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 9); line.appendChild(c); });
+    // occhiali
+    const r = Math.max(16, Math.min(26, innerWidth * 0.018)), gap = r * 0.36, w = r * 4 + gap * 2 + 12, gh = r * 2 + 12, cy = gh / 2, c1 = 6 + r, c2 = w - 6 - r;
+    guide.setAttribute('width', w); guide.setAttribute('height', gh); guide.setAttribute('viewBox', `0 0 ${w} ${gh}`);
+    guide.innerHTML = `<circle class="ring" cx="${c1}" cy="${cy}" r="${r}"/><circle class="ring" cx="${c2}" cy="${cy}" r="${r}"/><path class="bridge" d="M${c1 + r} ${cy - r * .15} Q${w / 2} ${cy - r * .5} ${c2 - r} ${cy - r * .15}"/>`;
+    guide._w = w; guide._h = gh;
+  }
+  layout(); addEventListener('resize', layout); document.fonts && document.fonts.ready.then(layout);
+  const dots = () => [...line.querySelectorAll('.dot')];
+
+  function update(now) {
+    requestAnimationFrame(update);
+    const r = sec.getBoundingClientRect(), p = (-r.top) / (r.height - innerHeight);
+    if (p > -0.02 && p <= 1) document.querySelectorAll('#rail a').forEach((d, i) => { d.classList.toggle('on', i === 6); d.classList.toggle('done', i < 6); });
+    if (reduced) { stops.forEach((_, i) => anim(i, 1, 0)); return; }
+    if (p < -0.3 || p > 1.3) return;
+    const t = now / 1000;
+
+    // apertura
+    [...document.querySelectorAll('#c6open p')].forEach((e, i) => { const v = win(p, -0.03 + i * 0.02, 0.1, 0.03); e.style.opacity = v; e.style.transform = `translateY(${(1 - v) * 20}px)`; });
+
+    // viaggio con soste sulle tappe
+    const raw = clamp01((p - 0.1) / 0.84) * (N - 1), i0 = Math.min(N - 1, Math.floor(raw)), f = raw - i0;
+    const pos = raw >= N - 1 ? N - 1 : i0 + easeIO(clamp01((f - 0.45) / 0.55));
+    const appear = ease(clamp01((p - 0.06) / 0.06));
+    const W = stage.clientWidth, tx = W / 2 - (pos * SW + SW / 2);
+    track.style.transform = `translateX(${tx}px) translateY(${(1 - appear) * 60}px)`;
+    track.style.opacity = appear;
+
+    stops.forEach((s, i) => {
+      const dist = Math.min(1.5, Math.abs(pos - i)), side = Math.sign(i - pos);
+      s.style.opacity = (1 - Math.min(1, dist) * 0.65).toFixed(3);
+      s.style.filter = `blur(${Math.min(1, dist) * 2.5}px)`;
+      s.style.transform = `translateZ(${-dist * 220}px) rotateY(${-side * Math.min(1, dist) * 14}deg)`;
+      if (dist < 1) anim(i, clamp01((raw - i + 0.25) / 0.6), t);
+    });
+
+    // linea luminosa e punti accesi
+    const frac = (pos * SW + SW / 2) / (N * SW);
+    $('#lLit').style.strokeDasharray = '1'; $('#lLit').style.strokeDashoffset = String(1 - frac);
+    dots().forEach((d, i) => d.classList.toggle('on', pos >= i - 0.02));
+
+    // gli occhiali percorrono la linea
+    const gxT = pos * SW + SW / 2, k = Math.min(N - 2, Math.floor(pos)), fk = pos - k;
+    const gy = pts[k][1] + (pts[k + 1][1] - pts[k][1]) * (fk < 0.5 ? 2 * fk * fk : 1 - Math.pow(-2 * fk + 2, 2) / 2);
+    guide.style.opacity = appear;
+    guide.style.transform = `translate(${tx + gxT - guide._w / 2}px, ${gy - guide._h - 12 + Math.sin(t * 2.2) * 3}px)`;
+  }
+  requestAnimationFrame(update);
+})();
+</script>
+
+<!-- ======================= CAPITOLO 7 · LE ALTRE FAMIGLIE ======================= -->
+<script>
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s) => document.querySelector(s);
+  const sec = $('#cap7'), layer = $('#layer7');
+  const cards = [...layer.querySelectorAll('.rcard')], nums = [...document.querySelectorAll('.num7')];
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+  const win = (p, a, b, f = 0.03) => clamp01((p - a) / f) * clamp01((b - p) / f);
+  const ease = (t) => 1 - Math.pow(1 - t, 3), easeIO = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const STAR = '<svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.5 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg>';
+  document.querySelectorAll('.cap7 .st7').forEach((s) => (s.innerHTML = Array(5).fill(`<i>${STAR}</i>`).join('')));
+
+  // le recensioni lungo il volo, alternate a sinistra e a destra
+  const CZ = [-700, -1450, -2200, -2950, -3700], CX = [-230, 240, -200, 220, -150], CY = [-40, 30, -60, 50, -20];
+  // i punti luminosi della galassia (solo decorativi)
+  const COLS = ['#00949E', '#FFD66B', '#184E61', '#FF8A5B', '#9fc7cf'];
+  let seed = 5; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const stars = [...Array(innerWidth < 640 ? 70 : 140)].map(() => {
+    const e = document.createElement('div'); e.className = 'star7';
+    const s = 3 + rnd() * 7; e.style.width = e.style.height = s + 'px'; e.style.background = COLS[Math.floor(rnd() * COLS.length)];
+    layer.appendChild(e);
+    return { e, x: (rnd() - 0.5) * 2200, y: (rnd() - 0.5) * 1300, z: -rnd() * 4400 };
+  });
+
+  const fmt = (n) => n.toLocaleString('it-IT');
+  function update() {
+    requestAnimationFrame(update);
+    const r = sec.getBoundingClientRect(), p = (-r.top) / (r.height - innerHeight);
+    if (p > -0.02 && p <= 1) document.querySelectorAll('#rail a').forEach((d, i) => { d.classList.toggle('on', i === 7); d.classList.toggle('done', i < 7); });
+    if (reduced) return;
+    if (p < -0.3 || p > 1.3) return;
+    const sx = innerWidth < 640 ? 0.42 : Math.min(1, innerWidth / 1300);
+
+    const o = win(p, -0.03, 0.11, 0.04);
+    $('#c7open p').style.opacity = o; $('#c7open p').style.transform = `translateY(${(1 - o) * 20}px) scale(${0.96 + 0.04 * o})`;
+
+    // la camera vola in avanti e si ferma davanti a ogni recensione
+    const S = [0, ...CZ.map((z) => -z - 60), 4400];
+    const raw = clamp01((p - 0.08) / 0.64) * (S.length - 1), si = Math.min(S.length - 2, Math.floor(raw)), sf = raw - si;
+    const cam = S[si] + (S[si + 1] - S[si]) * easeIO(clamp01((sf - 0.4) / 0.6));
+    const gather = easeIO(clamp01((p - 0.72) / 0.12));          // poi la galassia si raccoglie al centro
+    const appear = clamp01((p - 0.05) / 0.06);
+
+    cards.forEach((c, i) => {
+      const zr = CZ[i] + cam;
+      const op = (zr > 200 ? clamp01(1 - (zr - 200) / 260) : clamp01((zr + 1500) / 700)) * appear * (1 - gather);
+      const blur = zr > 140 ? Math.min(10, (zr - 140) / 40) : Math.min(8, Math.max(0, -zr - 420) / 110);
+      c.style.opacity = op.toFixed(3);
+      c.style.filter = `blur(${blur}px)`;
+      c.style.transform = `translate(-50%,-50%) translate3d(${CX[i] * sx}px, ${CY[i] * sx}px, ${zr}px) rotateY(${-CX[i] * 0.03}deg)`;
+    });
+    stars.forEach((s) => {
+      const zr = s.z + cam * 0.9 + (s.z + cam * 0.9 > 600 ? -4400 : 0);  // i punti che superano la camera ricompaiono in fondo
+      const k = 1 - gather;
+      const op = clamp01((zr + 4400) / 1200) * clamp01((700 - zr) / 300) * appear;
+      s.e.style.opacity = (op * (0.35 + 0.65 * gather) * (1 - clamp01((p - 0.86) / 0.06))).toFixed(3);
+      s.e.style.transform = `translate3d(${s.x * sx * k}px, ${s.y * sx * k}px, ${zr * k}px)`;
+    });
+
+    // i tre numeri
+    nums.forEach((n, i) => {
+      const v = ease(clamp01((p - (0.8 + i * 0.03)) / 0.06));
+      n.style.opacity = v; n.style.transform = `translateY(${(1 - v) * 30}px) scale(${0.9 + 0.1 * v})`;
+    });
+    const c1 = ease(clamp01((p - 0.8) / 0.1)), c2 = ease(clamp01((p - 0.83) / 0.1));
+    $('#n5000').textContent = '+' + fmt(Math.round(5000 * c1));
+    $('#n49').textContent = (4.9 * c2).toFixed(1).replace('.', ',');
+    $('#src7').style.opacity = clamp01((p - 0.9) / 0.05);
+  }
+  requestAnimationFrame(update);
+})();
+</script>
+
+<!-- ======================= CAPITOLO 8 · LA NUOVA SERA ======================= -->
+<script>
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s) => document.querySelector(s);
+  const sec = $('#cap8'), sunset = $('#sunset'), layer = $('#layer8'), clock = $('#clock8'), rig = $('#rig8'), guide = $('#guide8');
+  const lines = [...document.querySelectorAll('#lines8 p')], whispers = [...document.querySelectorAll('#cap8 .whisper')];
+  const opener = $('#opener8 p'), closer = [...document.querySelectorAll('#closer8 span')];
+  const clamp01 = (v) => Math.min(1, Math.max(0, v));
+  const win = (p, a, b, f = 0.03) => clamp01((p - a) / f) * clamp01((b - p) / f);
+  const ease = (t) => 1 - Math.pow(1 - t, 3), easeIO = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+  /* ---------- orologio a palette (stesso meccanismo del capitolo 1, qui gira all'indietro) ---------- */
+  const cards = [...rig.querySelectorAll('.card')].map((el) => {
+    el.innerHTML = '<div class="half top"><span></span></div><div class="half bot"><span></span></div><div class="flap ftop"><span></span></div><div class="flap fbot"><span></span></div><div class="shine"></div>';
+    const q = (s) => el.querySelector(s + ' span');
+    const c = { top: q('.top'), bot: q('.bot'), ftop: el.querySelector('.ftop'), fbot: el.querySelector('.fbot'), cur: '', target: '', busy: false };
+    c.ftop.style.visibility = c.fbot.style.visibility = 'hidden';
+    return c;
+  });
+  const setNow = (c, d) => { c.cur = c.target = d; c.top.textContent = c.bot.textContent = d; };
+  function flip(c) {
+    if (c.cur === c.target) { c.busy = false; return; }
+    const old = c.cur, nw = c.target; c.busy = true;
+    c.top.textContent = nw; c.bot.textContent = old; c.ftop.firstChild.textContent = old; c.fbot.firstChild.textContent = nw;
+    c.ftop.style.visibility = 'visible';
+    c.ftop.animate([{ transform: 'rotateX(0deg)' }, { transform: 'rotateX(-90deg)' }], { duration: 100, easing: 'ease-in', fill: 'forwards' }).onfinish = () => {
+      c.ftop.style.visibility = 'hidden'; c.fbot.style.visibility = 'visible';
+      c.fbot.animate([{ transform: 'rotateX(90deg)' }, { transform: 'rotateX(0deg)' }], { duration: 130, easing: 'cubic-bezier(.2,1.6,.4,1)', fill: 'forwards' }).onfinish = () => {
+        c.bot.textContent = nw; c.fbot.style.visibility = 'hidden'; c.cur = nw; flip(c);
+      };
+    };
+  }
+  '2247'.split('').forEach((d, i) => setNow(cards[i], d));
+  let shown = -1;
+  function setTime(min) {
+    if (min === shown) return; shown = min;
+    const s = String(Math.floor(min / 60)).padStart(2, '0') + String(min % 60).padStart(2, '0');
+    s.split('').forEach((d, i) => { if (reduced) setNow(cards[i], d); else { cards[i].target = d; if (!cards[i].busy) flip(cards[i]); } });
+    clock.setAttribute('aria-label', `Orologio: ${s.slice(0, 2)}:${s.slice(2)}`);
+  }
+
+  /* ---------- le parole della sera, ora ordinate e con la spunta ---------- */
+  const W = ['compiti', 'verifica', 'capitolo 4', 'versione di latino', 'esercizi pag. 112', 'mappa', 'riassunto', 'interrogazione', 'da ripassare', 'formule'];
+  const mob = () => innerWidth < 640;
+  const words = W.slice(0, mob() ? 6 : W.length).map((t, i) => {
+    const el = document.createElement('div'); el.className = 'ww'; el.innerHTML = `${t}<b>✓</b>`; el.style.fontSize = '20px'; layer.appendChild(el);
+    return { el, col: i % 2 ? 1 : -1, row: Math.floor(i / 2) };
+  });
+
+  /* ---------- occhiali che si posano sull'orologio ---------- */
+  (function drawGuide() {
+    const r = 30, gap = r * 0.36, w = r * 4 + gap * 2 + 12, gh = r * 2 + 12, cy = gh / 2, c1 = 6 + r, c2 = w - 6 - r;
+    guide.setAttribute('width', w); guide.setAttribute('height', gh); guide.setAttribute('viewBox', `0 0 ${w} ${gh}`);
+    guide.innerHTML = `<circle class="ring" cx="${c1}" cy="${cy}" r="${r}"/><circle class="ring" cx="${c2}" cy="${cy}" r="${r}"/><path class="bridge" d="M${c1 + r} ${cy - r * .15} Q${w / 2} ${cy - r * .5} ${c2 - r} ${cy - r * .15}"/>`;
+    guide._w = w; guide._h = gh;
+  })();
+
+  function update(now) {
+    requestAnimationFrame(update);
+    const r = sec.getBoundingClientRect(), p = (-r.top) / (r.height - innerHeight);
+    if (p > -0.02 && p <= 1) document.querySelectorAll('#rail a').forEach((d, i) => { d.classList.toggle('on', i === 8); d.classList.toggle('done', i < 8); });
+    if (reduced) { setTime(1080); return; }
+    if (p < -0.4 || p > 1.3) return;
+    const t = now / 1000, sx = mob() ? 0.42 : Math.min(1, innerWidth / 1400);
+
+    // apertura
+    const o = win(p, -0.05, 0.12, 0.05);
+    opener.style.opacity = o; opener.style.filter = `blur(${(1 - o) * 8}px)`;
+
+    // orologio: compare alle 22:47 e torna indietro fino alle 18:00
+    const cIn = ease(clamp01((p - 0.08) / 0.08)), settle = ease(clamp01((p - 0.84) / 0.06));
+    clock.style.opacity = cIn * (1 - clamp01((p - 0.88) / 0.05) * 0.8);
+    rig.style.transform = `translateY(${(1 - cIn) * 60}px) scale(${0.9 + cIn * 0.1}) rotateX(${8 - p * 8}deg) rotateY(${14 - p * 14}deg)`;
+    setTime(1367 - Math.round(easeIO(clamp01((p - 0.12) / 0.14)) * 287)); // alle 18:00 prima che la frase lo dica
+
+    // la luce del tramonto si allarga
+    const sl = clamp01((p + 0.05) / 0.5);
+    sunset.style.transform = `scale(${0.6 + sl * 0.6})`; sunset.style.opacity = 0.4 + 0.6 * sl;
+
+    // parole ordinate in due colonne ai lati dell'orologio, che respirano piano (su telefono restano nascoste)
+    const appear = innerWidth < 1100 ? 0 : clamp01((p - 0.3) / 0.12) * (1 - clamp01((p - 0.84) / 0.06) * 0.85);
+    const half = rig.getBoundingClientRect().width / 2;
+    words.forEach((w, i) => {
+      const x = w.col * (half + 70 + w.el.offsetWidth / 2 + (w.row % 2) * 24);
+      w.el.style.opacity = (appear * 0.85).toFixed(3);
+      w.el.style.transform = `translate(-50%,-50%) translate3d(${x}px, ${(w.row - 2) * 50 + Math.sin(t * 0.8 + i) * 4}px, 0px)`;
+    });
+
+    // frasi, sussurri
+    const LW = [[0.3, 0.44], [0.44, 0.56], [0.56, 0.69], [0.69, 0.83]];
+    lines.forEach((el, i) => { const v = win(p, LW[i][0], LW[i][1], 0.03); el.style.opacity = v; el.style.transform = `translateY(${(1 - v) * 18}px)`; el.style.filter = `blur(${(1 - v) * 6}px)`; });
+    const WW = [[0.46, 0.62], [0.52, 0.68], [0.6, 0.76], [0.66, 0.82]];
+    whispers.forEach((el, i) => { const v = win(p, WW[i][0], WW[i][1], 0.04); el.style.opacity = v * 0.9; el.style.transform = `translateY(${(1 - v) * 10}px)`; });
+
+    // gli occhiali scendono e si posano sull'orologio
+    const rb = rig.getBoundingClientRect(), sr = sec.querySelector('.stage').getBoundingClientRect();
+    const gy = rb.top - sr.top - guide._h * 0.72;
+    guide.style.opacity = clamp01((p - 0.8) / 0.03) * (1 - clamp01((p - 0.9) / 0.05) * 0.75);
+    guide.style.transform = `translate(-50%, ${gy - (1 - settle) * 260}px) rotate(${(1 - settle) * -12}deg)`;
+
+    // chiusura a specchio
+    closer.forEach((el, i) => { const v = ease(clamp01((p - (0.9 + i * 0.04)) / 0.04)); el.style.opacity = v; el.style.transform = `translateY(${(1 - v) * 30}px)`; });
+  }
+  requestAnimationFrame(update);
+})();
+</script>
+
+<!-- ======================= CAPITOLO 9 · IL PRIMO PASSO ======================= -->
+<script>
+(() => {
+  const sec = document.getElementById('cap9'), card = document.getElementById('tcard9'), wrap = document.getElementById('tcardWrap');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // la scheda si inclina in 3D seguendo il mouse
+  let rx = 0, ry = 0, tx = 0, ty = 0;
+  if (!reduced && matchMedia('(pointer: fine)').matches) {
+    wrap.addEventListener('pointermove', (e) => { const b = wrap.getBoundingClientRect(); tx = ((e.clientY - b.top) / b.height - 0.5) * -12; ty = ((e.clientX - b.left) / b.width - 0.5) * 16; });
+    wrap.addEventListener('pointerleave', () => { tx = 0; ty = 0; });
+  }
+  (function loop(now) {
+    requestAnimationFrame(loop);
+    const r = sec.getBoundingClientRect();
+    if (r.top < innerHeight * 0.7) sec.classList.add('in');
+    if (r.top < innerHeight * 0.5 && r.bottom > 0) document.querySelectorAll('#rail a').forEach((d, i) => { d.classList.toggle('on', i === 9); d.classList.toggle('done', i < 9); });
+    if (r.top < innerHeight * 0.35) document.getElementById('rail').classList.remove('show'); // il racconto è finito: l'indice lascia spazio
+    if (reduced) return;
+    rx += (tx - rx) * 0.08; ry += (ty - ry) * 0.08;
+    const float = Math.sin((now || 0) / 1000 * 1.2) * 4;
+    card.style.transform = `rotateX(${rx + 4}deg) rotateY(${ry - 6}deg) translateY(${float}px)`;
+  })();
+})();
+</script>
+
+<!-- ======================= INTRO 3D (Three.js) ======================= -->
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+
+
+<!-- ======================= CAPITOLO 4 · LA SVOLTA (Three.js) ======================= -->
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const sec = document.getElementById('cap4');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s) => document.querySelector(s);
+const light = $('#lightWorld'), phraseDark = $('#phraseDark'), pOld = $('#pOld'), pNew = $('#pNew'), phraseLight = $('#phraseLight'), question = $('#question'), glint = $('#glint');
+const closing = [...document.querySelectorAll('#closing p')], logo = $('#logo'), dots = [...document.querySelectorAll('#rail a')];
+const clamp01 = (v) => Math.min(1, Math.max(0, v));
+const win = (p, a, b, f = 0.03) => clamp01((p - a) / f) * clamp01((b - p) / f);
+const easeOut = (t) => 1 - Math.pow(1 - t, 3), easeIn = (t) => t * t * t;
+
+/* parole sullo sfondo: problemi sfocati al buio, soluzioni ordinate nella luce */
+const mob = () => innerWidth < 640;
+const dark = $('#darkWorld');
+[['compiti', 12, 18], ['ansia', 78, 22], ['verifica', 20, 78], ['debiti', 82, 74], ['non capisco', 8, 46], ['stress', 88, 48], ['distrazione', 34, 12], ['voti bassi', 64, 86]]
+  .forEach(([t, x, y]) => { const e = document.createElement('div'); e.className = 'wd'; e.textContent = t; e.style.cssText = `left:${x}%;top:${y}%;font-size:${mob() ? 16 : 24}px;transform:translate(-50%,-50%) rotate(${(x % 7) - 3}deg)`; dark.appendChild(e); });
+const lw = [['fiducia', 16, 16], ['organizzazione', 50, 12], ['comprensione', 84, 16], ['memoria', 10, 84], ['concentrazione', 50, 88], ['autonomia', 90, 84], ['sicurezza', 8, 50], ['metodo', 92, 50]]
+  .map(([t, x, y]) => { const e = document.createElement('div'); e.className = 'wl'; e.textContent = t; e.style.cssText = `left:${x}%;top:${y}%;font-size:${mob() ? 15 : 22}px;transform:translate(-50%,-50%)`; light.appendChild(e); return e; });
+
+/* ---------- scena 3D: gli occhiali ---------- */
+const canvas = document.getElementById('glasses3d');
+let renderer = null, scene, camera, glasses, R = 0.46, OFF = 0.62, camZ = 6;
+if (!reduced) {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(2, devicePixelRatio));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.outputColorSpace = THREE.SRGBColorSpace;
+  scene = new THREE.Scene();
+  scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+  camera = new THREE.PerspectiveCamera(35, 1, 0.05, 100);
+  const key = new THREE.DirectionalLight(0xffffff, 1.4); key.position.set(3, 5, 5); scene.add(key);
+  const rim = new THREE.DirectionalLight(0x3cc4cc, 2.4); rim.position.set(-4, 2, -3); scene.add(rim);
+  const chrome = new THREE.MeshStandardMaterial({ color: 0xf2f4f5, metalness: 1, roughness: 0.15 });
+  glasses = new THREE.Group();
+  [-OFF, OFF].forEach((x) => {
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(R, 0.06, 24, 80), chrome); ring.position.x = x; glasses.add(ring);
+    const s = Math.sign(x);
+    glasses.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([
+      new THREE.Vector3(x + s * R, 0.12, 0), new THREE.Vector3(x + s * (R + 0.08), 0.12, -0.5), new THREE.Vector3(x + s * (R + 0.08), 0.08, -1.2), new THREE.Vector3(x + s * (R + 0.02), -0.12, -1.45)]), 40, 0.035, 10), chrome));
+  });
+  glasses.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.QuadraticBezierCurve3(
+    new THREE.Vector3(-OFF + R - 0.02, 0.06, 0), new THREE.Vector3(0, 0.26, 0), new THREE.Vector3(OFF - R + 0.02, 0.06, 0)), 24, 0.045, 10), chrome));
+  glasses.scale.setScalar(1.25);
+  scene.add(glasses);
+}
+function fit() {
+  if (!renderer) return;
+  renderer.setSize(innerWidth, innerHeight, false);
+  camera.aspect = innerWidth / innerHeight;
+  // su schermi stretti la camera si allontana, così gli occhiali entrano in larghezza
+  camZ = Math.max(6, 2.9 * 1.25 / (2 * Math.tan(THREE.MathUtils.degToRad(17.5)) * camera.aspect) * 1.25);
+  camera.position.set(0, 0, camZ); camera.lookAt(0, 0, 0); camera.updateProjectionMatrix();
+}
+fit(); addEventListener('resize', fit);
+
+const v = new THREE.Vector3();
+const toScreen = (x, y, z) => { v.set(x, y, z); glasses.localToWorld(v); v.project(camera); return { x: (v.x + 1) / 2 * innerWidth, y: (1 - v.y) / 2 * innerHeight }; };
+// quanti pixel vale un'unità del mondo 3D sul piano della frase (z = 0)
+const unitPx = () => innerHeight / (2 * camZ * Math.tan(THREE.MathUtils.degToRad(17.5)));
+
+/* ---------- aggiornamento legato allo scroll ---------- */
+const clock = new THREE.Clock();
+function frame() {
+  requestAnimationFrame(frame);
+  const r = sec.getBoundingClientRect(), vh = innerHeight;
+  const p = (-r.top) / (r.height - vh);
+
+  // logo: spento nel buio, si riaccende alla svolta; header chiaro dopo la svolta
+  if (p > -0.45 && p < 0.72) { logo.classList.add('off'); logo.classList.remove('lit'); }
+  else if (p >= 0.72) { logo.classList.remove('off'); logo.classList.add('lit'); }
+  document.body.classList.toggle('light-hdr', p >= 0.74);
+  if (p > -0.02 && p <= 1) { const idx = 4; dots.forEach((d, i) => { d.classList.toggle('on', i === idx); d.classList.toggle('done', i < idx); }); }
+
+  if (reduced) { light.style.setProperty('--r', '4000px'); return; }
+  if (p < -0.5 || p > 1.2) return;
+
+  // 1 · il pensiero rimasto e il riflesso degli occhiali in arrivo
+  const din = clamp01((p + 0.04) / 0.08);
+  phraseDark.style.opacity = din * (1 - clamp01((p - 0.66) / 0.08));
+  phraseDark.style.filter = `blur(${(1 - din) * 10}px)`;
+  glint.style.opacity = win(p, 0.0, 0.1, 0.03);
+
+  // geometria: metà larghezza della frase e altezza, in unità del mondo 3D
+  const U = unitPx(), pr = phraseDark.getBoundingClientRect();
+  const half = Math.max(pr.width / 2 / U - 0.2, 0.3), lift = (0.46 * 1.25) + pr.height / 2 / U + 0.28;
+
+  // 2 · scendono ruotando accanto alla frase, poi la attraversano da sinistra a destra
+  const k = easeOut(clamp01((p - 0.06) / 0.14));
+  const s = clamp01((p - 0.2) / 0.16), se = s < 0.5 ? 2 * s * s : 1 - Math.pow(-2 * s + 2, 2) / 2;
+  const up = easeOut(clamp01((p - 0.36) / 0.08));             // 3 · si alzano sopra la frase
+  const a = easeIn(clamp01((p - 0.54) / 0.24));               // 4 · poi vengono verso di te
+  const t = clock.getElapsedTime(), still = k * (1 - a);
+  const gx = (-half + 2 * half * se) * (1 - up);
+  glasses.position.set(gx, (1 - k) * 3.4 + up * lift * (1 - a) + Math.sin(t * 1.8) * 0.025 * still, a * (camZ - 0.9));
+  glasses.rotation.set((1 - k) * 0.5 + a * 0.08, (1 - k) * -Math.PI * 2.5, Math.sin(t * 1.3) * 0.03 * still);
+  canvas.style.opacity = String(1 - clamp01((p - 0.74) / 0.05));
+
+  // la frase si riscrive dietro il passaggio delle lenti
+  const lensX = innerWidth / 2 + gx * U;
+  const ro = pOld.getBoundingClientRect(), rn = pNew.getBoundingClientRect();
+  const cutO = s >= 1 ? ro.width + 40 : s <= 0 ? 0 : Math.max(0, lensX - ro.left);
+  const cutN = s >= 1 ? rn.width + 40 : s <= 0 ? 0 : Math.max(0, lensX - rn.left);
+  pOld.style.clipPath = `inset(-20% -5% -20% ${cutO}px)`;
+  pNew.style.clipPath = `inset(-20% calc(100% - ${cutN}px) -20% -5%)`;
+
+  // la maschera delle lenti segue la proiezione del 3D
+  const c1 = toScreen(-OFF, 0, 0), c2 = toScreen(OFF, 0, 0), e1 = toScreen(-OFF + R - 0.04, 0, 0);
+  let rad = Math.hypot(e1.x - c1.x, e1.y - c1.y) * clamp01((p - 0.2) / 0.05);
+  if (p > 0.77) rad = 5000;
+  const cy = (c1.y + c2.y) / 2;
+  light.style.setProperty('--r', rad + 'px');
+  light.style.setProperty('--x1', c1.x + 'px'); light.style.setProperty('--x2', c2.x + 'px'); light.style.setProperty('--y', cy + 'px');
+  light.style.setProperty('--bx', c1.x + 'px'); light.style.setProperty('--by', (cy - rad * 0.62) + 'px');
+  light.style.setProperty('--bw', Math.max(0, c2.x - c1.x) + 'px'); light.style.setProperty('--bh', (p > 0.77 ? 0 : rad * 1.24 * (1 - up)) + 'px'); // la striscia serve solo durante il passaggio sulla frase
+
+  // la frase vista attraverso le lenti (versione nel mondo chiaro)
+  phraseLight.style.opacity = 1 - clamp01((p - 0.62) / 0.06);
+  // 3 · la domanda
+  const q = win(p, 0.4, 0.56, 0.04);
+  question.style.opacity = q; question.style.transform = `translateY(${(1 - q) * 20}px)`;
+  // 5 · la luce: parole ordinate e chiusura
+  const lwk = clamp01((p - 0.64) / 0.12);
+  lw.forEach((e, i) => { e.style.opacity = (lwk * 0.55).toFixed(3); e.style.transform = `translate(-50%,-50%) translateY(${(1 - lwk) * (i % 2 ? 14 : -14)}px)`; });
+  closing.forEach((e, i) => { const c = easeOut(clamp01((p - (0.8 + i * 0.06)) / 0.05)); e.style.opacity = c; e.style.transform = `translateY(${(1 - c) * 26}px)`; });
+
+  renderer.render(scene, camera);
+}
+frame();
+</script>
+</body>
+</html>

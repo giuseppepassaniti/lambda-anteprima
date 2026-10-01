@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lambda Performance Test · Gratuito, online, 10 minuti</title>
+<meta name="description" content="In 10 minuti, la fotografia di come studia tuo figlio: un profilo su 7 aree (abilità di studio e area emotiva) e un tutor che ve lo spiega in videochiamata. Gratuito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=8">
+<style>
+/* =================== LAMBDA PERFORMANCE TEST =================== */
+
+/* ---------- radar FOCUS (riusato in hero, esempio, risultato) ---------- */
+.radar{width:100%;height:auto;overflow:visible}
+.radar .grid{fill:none;stroke:rgba(255,255,255,.12);stroke-width:1}
+.radar .axis{stroke:rgba(255,255,255,.12);stroke-width:1}
+.radar .shape{fill:rgba(255,214,107,.22);stroke:var(--warm);stroke-width:2.5;stroke-linejoin:round}
+.radar .dot{fill:var(--warm)}
+.radar .lbl{font:700 15px var(--font);fill:#fff;dominant-baseline:middle;transition:fill .3s}
+.radar .lbl.emo{fill:#c3a6e0}
+.radar .grid.zero{stroke:rgba(255,255,255,.35);stroke-dasharray:4 5}
+.radar .dot.emo{fill:#b48ad6}
+.radar .lbl.hi{fill:var(--warm)}
+.radar .ax.hi{stroke:rgba(255,214,107,.55);stroke-width:1.5;stroke-dasharray:4 5}
+
+/* ---------- HERO ---------- */
+.thero{position:relative;min-height:100svh;display:grid;align-items:center;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 72% 50%, #16475a 0%, var(--navy) 55%, var(--deep) 100%)}
+.thero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px);align-items:center;padding-top:calc(var(--hdr) + 40px);padding-bottom:80px}
+.thero .eyebrow{color:var(--warm)}
+.thero h1{margin-top:18px;font:700 clamp(42px,5vw,84px)/.96 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.thero h1 em{font-style:normal;color:var(--warm)}
+.thero .lead{margin-top:22px;font-size:clamp(17px,1.45vw,21px);line-height:1.45;color:rgba(255,255,255,.74);max-width:46ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chips span{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font:700 14px/1 var(--font)}
+.chips span i{width:7px;height:7px;border-radius:50%;background:var(--warm)}
+.thero .ctas{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;margin-top:32px}
+.thero .small{font-size:14px;color:rgba(255,255,255,.55)}
+.hradar{position:relative;max-width:520px;justify-self:center;width:100%}
+.hradar .tag{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);font:500 12px/1 var(--mono);letter-spacing:.16em;color:rgba(255,255,255,.5);white-space:nowrap}
+.hradar .glow{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,rgba(255,214,107,.16),transparent 65%);filter:blur(10px)}
+
+/* ---------- COME FUNZIONA ---------- */
+.tsteps{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.tsteps .eyebrow{color:var(--teal)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;counter-reset:s}
+.tcard{position:relative;padding:28px 26px 30px;border-radius:28px;background:#fff;box-shadow:0 30px 60px -40px rgba(14,33,46,.45);overflow:hidden}
+.tcard .n{font:700 84px/1 var(--font);letter-spacing:-.05em;color:var(--light);position:absolute;right:18px;top:12px}
+.tcard .ic{width:56px;height:56px;border-radius:18px;background:var(--navy);display:grid;place-items:center}
+.tcard .ic svg{width:30px;height:30px;fill:none;stroke:var(--warm);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.tcard .when{margin-top:22px;font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--aqua);text-transform:uppercase}
+.tcard h3{margin-top:10px;font:700 26px/1.08 var(--font);letter-spacing:-.03em}
+.tcard p{margin-top:10px;font-size:16px;line-height:1.45;color:#4a6370}
+.tline{display:flex;align-items:center;gap:12px;margin-top:34px;font-weight:700}
+.tline .btn{margin-left:auto}
+
+/* ---------- ESEMPIO DI PROFILO ---------- */
+.sample{background:var(--deep);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.sample .eyebrow{color:var(--warm)}
+.sample .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center;margin-top:46px}
+.scard{position:relative;border-radius:32px;padding:clamp(22px,3vw,36px);background:linear-gradient(160deg,#123344,#0b1e28);border:1px solid rgba(255,255,255,.08);box-shadow:0 50px 90px -50px #000}
+.scard .who{display:flex;justify-content:space-between;align-items:center;font:500 12px/1 var(--mono);letter-spacing:.14em;color:rgba(255,255,255,.5)}
+.scard .who b{font:700 18px/1 var(--font);letter-spacing:-.01em;color:#fff}
+.bars{list-style:none;display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:1fr 52px;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid transparent;cursor:pointer;transition:background .3s,border-color .3s}
+.bar:hover,.bar.hi{background:rgba(255,255,255,.08);border-color:rgba(255,214,107,.4)}
+.bar .L{width:44px;height:44px;border-radius:12px;background:rgba(255,214,107,.12);color:var(--warm);display:grid;place-items:center;font:700 22px/1 var(--font)}
+.bar b{display:block;font-size:16px}
+.bar small{display:block;margin-top:3px;font-size:13.5px;line-height:1.35;color:rgba(255,255,255,.58)}
+.legend{display:flex;justify-content:center;gap:18px;margin-top:6px;font-size:13px;color:rgba(255,255,255,.65)}
+.legend span{display:flex;align-items:center;gap:8px}
+.legend i{width:12px;height:12px;border-radius:3px;background:var(--warm)}
+.legend .emo i{background:#b48ad6}
+.meter2{position:relative;height:8px;border-radius:4px;background:rgba(255,255,255,.08);margin-top:10px}
+.meter2::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:1.5px;background:rgba(255,255,255,.35)}
+.meter2 i{position:absolute;top:0;bottom:0;left:50%;width:0;border-radius:4px;background:var(--warm);transition:left 1.2s var(--ease),width 1.2s var(--ease)}
+.bar.emo .meter2 i{background:#b48ad6}
+.bar .v{font:700 18px/1 var(--font);text-align:right;color:rgba(255,255,255,.8)}
+.sample .note{margin-top:18px;font-size:14px;color:rgba(255,255,255,.5)}
+
+/* ---------- FAQ ---------- */
+.faq{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.faq .eyebrow{color:var(--teal)}
+.faq .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px)}
+.qa{border-top:1px solid rgba(14,33,46,.12)}
+.qa:last-child{border-bottom:1px solid rgba(14,33,46,.12)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font:700 clamp(18px,1.5vw,21px)/1.25 var(--font);letter-spacing:-.02em}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary i{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--light);display:grid;place-items:center;font-style:normal;transition:transform .4s var(--ease),background .3s}
+.qa[open] summary i{transform:rotate(45deg);background:var(--warm)}
+.qa p{padding:0 50px 24px 0;font-size:16.5px;line-height:1.55;color:#4a6370}
+
+.final{background:radial-gradient(ellipse 70% 60% at 50% 45%, #16475a 0%, var(--navy) 55%, var(--deep) 100%);padding:clamp(120px,16vh,180px) 0;text-align:center}
+.final h2{font:700 clamp(40px,5.2vw,84px)/.98 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.final h2 em{font-style:normal;color:var(--warm)}
+.final .ctas{display:flex;justify-content:center;margin-top:40px}
+.final .note{margin-top:18px;font-size:14px;color:rgba(255,255,255,.55)}
+
+/* =================== IL TEST (esperienza a schermo intero) =================== */
+.tx{position:fixed;inset:0;z-index:80;background:radial-gradient(ellipse 80% 70% at 50% 40%, #15404f 0%, var(--navy) 55%, var(--deep) 100%);color:#fff;
+  display:flex;flex-direction:column;visibility:hidden}
+.tx.open{visibility:visible}
+.tx-top{display:flex;align-items:center;gap:18px;padding:18px var(--gutter);flex-shrink:0}
+.tx-top .brand{display:flex;align-items:center;gap:10px;font:500 12px/1 var(--mono);letter-spacing:.16em;color:rgba(255,255,255,.6)}
+.tx-top .brand svg{width:34px;height:28px}
+.tx-top .brand svg .st{fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.tx-prog{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.1);overflow:hidden;max-width:520px;margin-inline:auto}
+.tx-prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--aqua),var(--warm));transition:width .6s var(--ease)}
+.tx-close{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);color:#fff;font-size:18px;display:grid;place-items:center;transition:background .3s}
+.tx-close:hover{background:rgba(255,255,255,.1)}
+.tx-body{position:relative;flex:1;overflow-y:auto;overscroll-behavior:contain}
+.scr{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px var(--gutter) 40px}
+.scr.on{display:flex}
+.scr .in{width:min(760px,100%);margin:auto}
+.scr .k{font:500 12px/1 var(--mono);letter-spacing:.18em;color:var(--warm);text-transform:uppercase}
+.scr h2{margin-top:16px;font:700 clamp(32px,4.2vw,62px)/1 var(--font);letter-spacing:-.045em;text-wrap:balance}
+.scr h2 em{font-style:normal;color:var(--warm)}
+.scr .sub{margin-top:16px;font-size:clamp(16px,1.35vw,19px);line-height:1.5;color:rgba(255,255,255,.7);max-width:52ch}
+.scr .act{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-top:34px}
+.lnk{font-weight:700;color:rgba(255,255,255,.65);text-decoration:underline;text-underline-offset:4px}
+.lnk:hover{color:#fff}
+.fld{display:block;margin-top:28px}
+.fld>span{display:block;font:500 12px/1 var(--mono);letter-spacing:.14em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-bottom:12px}
+.inp{width:100%;max-width:440px;padding:18px 20px;border-radius:16px;border:1.5px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:#fff;font:700 20px/1 var(--font);outline:none;transition:border-color .3s,background .3s}
+.inp:focus{border-color:var(--warm);background:rgba(255,255,255,.08)}
+.inp::placeholder{color:rgba(255,255,255,.3);font-weight:500}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{padding:16px 20px;border-radius:16px;border:1.5px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);color:#fff;font:700 17px/1 var(--font);transition:border-color .3s,background .3s,transform .4s var(--ease)}
+.opt:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.4)}
+.opt[aria-pressed="true"]{border-color:var(--warm);background:rgba(255,214,107,.14)}
+.btn[disabled]{opacity:.35;pointer-events:none}
+
+/* passaggio del telefono */
+.hand{display:flex;align-items:center;gap:22px;margin-bottom:30px}
+.phone{width:74px;height:126px;border-radius:16px;border:3px solid #fff;position:relative;animation:pass 2.4s var(--ease) infinite}
+.phone::after{content:"";position:absolute;left:50%;bottom:8px;width:18px;height:3px;border-radius:2px;background:#fff;transform:translateX(-50%)}
+.phone i{position:absolute;inset:12px 8px 20px;border-radius:6px;background:linear-gradient(160deg,var(--aqua),var(--warm));opacity:.85}
+@keyframes pass{0%,15%{transform:translateX(0) rotate(-6deg)}50%,65%{transform:translateX(60px) rotate(8deg)}100%{transform:translateX(0) rotate(-6deg)}}
+.hand.back .phone{animation-direction:reverse}
+
+/* domanda */
+.qhead{display:flex;justify-content:space-between;align-items:center;font:500 13px/1 var(--mono);letter-spacing:.14em;color:rgba(255,255,255,.5)}
+.qhead b{color:var(--warm);font-weight:500}
+.qtext{margin-top:22px;min-height:2.1em;font:700 clamp(28px,3.6vw,52px)/1.05 var(--font);letter-spacing:-.04em;text-wrap:balance}
+.ans{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:38px}
+.an{position:relative;padding:22px 14px 18px;border-radius:20px;border:1.5px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);color:#fff;text-align:left;font:700 18px/1.1 var(--font);transition:border-color .25s,background .25s,transform .4s var(--ease)}
+.an small{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:22px}
+.an .pips{display:flex;gap:4px;margin-top:14px}
+.an .pips i{width:14px;height:5px;border-radius:3px;background:rgba(255,255,255,.18)}
+.an .pips i.f{background:var(--warm)}
+.an:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.4)}
+.an.sel{border-color:var(--warm);background:rgba(255,214,107,.16);transform:translateY(-3px) scale(1.02)}
+.qfoot{display:flex;justify-content:space-between;align-items:center;margin-top:30px;font-size:14px;color:rgba(255,255,255,.45)}
+.qslide{animation:qin .55s var(--ease)}
+@keyframes qin{from{opacity:0;transform:translateY(24px)}}
+
+/* elaborazione e risultato */
+.calc{display:flex;flex-direction:column;align-items:center;text-align:center}
+.calc .letters{display:flex;gap:10px;margin-top:30px}
+.calc .letters span{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font:700 13px/1 var(--mono);background:rgba(255,255,255,.06);color:rgba(255,255,255,.3);transition:background .4s,color .4s,transform .5s var(--ease)}
+.calc .letters span.on{background:var(--warm);color:var(--navy);transform:translateY(-6px)}
+.calc .letters span.emo.on{background:#b48ad6;color:#fff}
+.calc .letters{flex-wrap:wrap;justify-content:center}
+.res{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(24px,4vw,60px);align-items:center;width:min(1080px,100%);margin:auto}
+.res .rcard{padding:16px;border-radius:28px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+.res h2{font-size:clamp(30px,3.2vw,48px)}
+.verdict{display:grid;gap:10px;margin-top:22px}
+.verdict div{padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.05);border-left:3px solid var(--aqua)}
+.verdict div.w{border-left-color:var(--warm)}
+.verdict b{display:block;font:500 11px/1 var(--mono);letter-spacing:.14em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:8px}
+.verdict p{font-size:15.5px;line-height:1.45;color:rgba(255,255,255,.85)}
+.verdict p strong{color:#fff}
+.disc{margin-top:14px;font-size:13px;line-height:1.45;color:rgba(255,255,255,.45)}
+
+/* prenotazione */
+.book{width:min(980px,100%);margin:auto}
+.days{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:26px}
+.day{padding:14px 6px;border-radius:16px;border:1.5px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);color:#fff;text-align:center;transition:border-color .25s,background .25s}
+.day small{display:block;font:500 11px/1 var(--mono);letter-spacing:.12em;color:rgba(255,255,255,.5);text-transform:uppercase}
+.day b{display:block;margin-top:8px;font:700 26px/1 var(--font)}
+.day span{display:block;margin-top:4px;font-size:12px;color:rgba(255,255,255,.5)}
+.day[aria-pressed="true"]{border-color:var(--warm);background:rgba(255,214,107,.14)}
+.slots{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;min-height:52px}
+.slot{padding:13px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.16);color:#fff;font:700 16px/1 var(--font);transition:border-color .25s,background .25s}
+.slot[aria-pressed="true"]{border-color:var(--warm);background:var(--warm);color:var(--navy)}
+.slot:disabled{opacity:.25;text-decoration:line-through}
+.form{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:26px}
+.form .inp{max-width:none;font-size:17px;padding:16px 18px}
+.chk{display:flex;gap:12px;align-items:flex-start;margin-top:16px;font-size:14px;line-height:1.4;color:rgba(255,255,255,.65);cursor:pointer}
+.chk input{width:20px;height:20px;accent-color:var(--warm);flex-shrink:0;margin-top:1px}
+.sum{margin-top:22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:15px;color:rgba(255,255,255,.7)}
+.sum b{color:var(--warm)}
+.ok{display:flex;flex-direction:column;align-items:center;text-align:center}
+.ok .tick{width:96px;height:96px}
+.ok .tick circle{fill:none;stroke:var(--warm);stroke-width:4;stroke-dasharray:290;stroke-dashoffset:290;animation:draw 1s var(--ease) forwards}
+.ok .tick path{fill:none;stroke:var(--warm);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:draw .6s .6s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.ticket{margin-top:30px;display:grid;grid-template-columns:repeat(3,auto);gap:10px 34px;padding:22px 28px;border-radius:22px;background:rgba(255,255,255,.05);border:1px dashed rgba(255,255,255,.2);text-align:left}
+.ticket small{display:block;font:500 11px/1 var(--mono);letter-spacing:.12em;color:rgba(255,255,255,.45);text-transform:uppercase}
+.ticket b{display:block;margin-top:6px;font-size:17px}
+.ok .sub{margin-inline:auto}
+
+body.tx-on{overflow:hidden}
+
+@media (max-width: 980px){
+  .thero .wrap,.sample .grid,.faq .grid,.res{grid-template-columns:1fr}
+  .hradar{max-width:380px}
+  .tgrid{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr}
+}
+@media (max-width: 640px){
+  .thero .wrap{padding-top:calc(var(--hdr) + 10px)}
+  .hradar{max-width:280px}
+  .ans{grid-template-columns:1fr 1fr}
+  .days{grid-template-columns:repeat(3,1fr)}
+  .tline{flex-wrap:wrap} .tline .btn{margin-left:0;width:100%;justify-content:center}
+  .thero .ctas .btn,.final .ctas .btn,.scr .act .btn{width:100%;justify-content:center}
+  .ticket{grid-template-columns:1fr}
+  .qa p{padding-right:0}
+  .res .rcard{max-width:320px;margin-inline:auto}
+  .scr{align-items:flex-start}
+}
+</style>
+</head>
+<body data-page="test" data-branch="stud">
+<div data-lambda-header></div>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="thero" data-theme="dark" aria-labelledby="tTitle">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" data-reveal>Lambda Performance Test</p>
+        <h1 class="split" id="tTitle">In 10 minuti, <em>la fotografia di come studia tuo figlio.</em></h1>
+        <p class="lead" data-reveal>Lui risponde a poche domande. Tu ricevi il suo profilo su 7 aree: abilità di studio e area emotiva. E un tutor, in videochiamata, vi spiega da dove partire.</p>
+        <div class="chips" data-reveal><span><i></i>Gratuito</span><span><i></i>Online</span><span><i></i>10 minuti</span><span><i></i>Consegna con un tutor</span></div>
+        <div class="ctas" data-reveal>
+          <a class="btn btn-stud magnetic" href="#inizia" data-start><span class="t">Inizia il test →</span></a>
+          <span class="small">Nessuna carta di credito. Nessun impegno.</span>
+        </div>
+      </div>
+      <div class="hradar" data-reveal aria-hidden="true"><div class="glow"></div><svg class="radar" id="heroRadar" viewBox="-30 -30 360 360"></svg><span class="tag" id="heroTag">PROFILO DI STUDIO · ESEMPIO</span></div>
+    </div>
+  </section>
+
+  <!-- ============ COME FUNZIONA ============ -->
+  <section class="tsteps sheet" data-theme="light" aria-labelledby="sTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Come funziona</p>
+      <h2 class="sec-title split" id="sTitle">Tre passi. <em>Tutti da casa.</em></h2>
+      <div class="tgrid">
+        <article class="tcard" data-reveal><span class="n">1</span><div class="ic"><svg viewBox="0 0 30 30"><rect x="8" y="3" width="14" height="24" rx="3"/><path d="M13 23h4"/></svg></div>
+          <div class="when">Oggi · 10 minuti</div><h3>Tuo figlio risponde</h3><p>Dieci affermazioni sul suo modo di studiare, da telefono o computer. Nessuna risposta giusta o sbagliata.</p></article>
+        <article class="tcard" data-reveal><span class="n">2</span><div class="ic"><svg viewBox="0 0 30 30"><path d="M15 3 L27 12 L22.5 26 H7.5 L3 12 Z"/><path d="M15 9 L21 13.5 L18.5 21 H11.5 L9 13.5 Z"/></svg></div>
+          <div class="when">Subito</div><h3>Il profilo di studio</h3><p>Sette aree, da −100 a +100: organizzazione, elaborazione, strategie, metacognizione, autovalutazione, ansia e resilienza.</p></article>
+        <article class="tcard" data-reveal><span class="n">3</span><div class="ic"><svg viewBox="0 0 30 30"><rect x="3" y="7" width="17" height="16" rx="3"/><path d="M20 13 L27 9 V21 L20 17"/></svg></div>
+          <div class="when">Quando vuoi tu · 30 minuti</div><h3>Un tutor ve lo spiega</h3><p>In videochiamata, comodamente da casa: il tutor legge il report con voi e vi dice da dove partire. Senza impegno.</p></article>
+      </div>
+      <div class="tline" data-reveal><span>Gratuito, sempre. Anche se poi decidete di non proseguire.</span><a class="btn btn-navy magnetic" href="#inizia" data-start><span class="t">Inizia il test →</span></a></div>
+    </div>
+  </section>
+
+  <!-- ============ ESEMPIO DI PROFILO ============ -->
+  <section class="sample sheet" data-theme="dark" aria-labelledby="eTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Cosa scoprirete</p>
+      <h2 class="sec-title split" id="eTitle">Non un voto. <em>Una mappa.</em></h2>
+      <p class="sec-lead" data-reveal>Ecco come appare un profilo: sette aree, da −100 a +100. Tocca un'area per vederla sul grafico.</p>
+      <div class="grid">
+        <div class="scard" data-reveal><div class="who"><span>PROFILO DI ESEMPIO</span><b>Marco · 2ª superiore</b></div><svg class="radar" id="sampleRadar" viewBox="-30 -30 360 360" aria-label="Profilo di esempio sulle 7 aree del test" role="img"></svg><div class="legend"><span><i></i>Abilità di studio</span><span class="emo"><i></i>Area emotiva</span></div></div>
+        <div>
+          <ul class="bars" id="bars" data-reveal></ul>
+          <p class="note" data-reveal>Profilo dimostrativo. Il report completo viene spiegato da un tutor in videochiamata.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq sheet" data-theme="light" aria-labelledby="qTitle">
+    <div class="wrap grid">
+      <div><p class="eyebrow" data-reveal>Domande frequenti</p><h2 class="sec-title split" id="qTitle">Prima di <em>iniziare.</em></h2></div>
+      <div data-reveal>
+        <details class="qa" open><summary>È davvero gratuito?<i>+</i></summary><p>Sì. Il test e la consegna dei risultati con il tutor sono gratuiti e senza impegno. Se poi vorrete iniziare un percorso, ve lo proporremo su misura: decidete voi.</p></details>
+        <details class="qa"><summary>Chi deve rispondere, io o mio figlio?<i>+</i></summary><p>Entrambi, per un minuto tu e per il resto lui. All'inizio ti chiediamo il nome e la classe, poi gli passi il telefono: le domande parlano a lui, in modo semplice.</p></details>
+        <details class="qa"><summary>Da che età si può fare?<i>+</i></summary><p>Dalla scuola primaria all'università. Per i più piccoli è normale che un genitore legga le domande ad alta voce insieme a loro.</p></details>
+        <details class="qa"><summary>Va bene anche se ha un DSA o un BES?<i>+</i></summary><p>Sì. Il test non misura l'intelligenza né i voti, ma il modo di studiare. Durante la consegna il tutor terrà conto di eventuali certificazioni.</p></details>
+        <details class="qa"><summary>Cosa succede dopo il test?<i>+</i></summary><p>Scegli giorno e ora per la videochiamata, dal lunedì al sabato. Un tutor vi spiega il profilo, risponde alle vostre domande e, se serve, vi propone un piano.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INVITO FINALE ============ -->
+  <section class="final" data-theme="dark" aria-labelledby="fTitle">
+    <div class="wrap">
+      <h2 class="split" id="fTitle">Dieci minuti oggi. <em>Un metodo per sempre.</em></h2>
+      <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="#inizia" data-start><span class="t">Inizia il test →</span></a></div>
+      <p class="note" data-reveal>Gratuito · online · 10 minuti · poi un tutor vi spiega i risultati</p>
+    </div>
+  </section>
+</main>
+
+<div data-lambda-footer></div>
+
+<!-- ============ IL TEST ============ -->
+<div class="tx" id="tx" role="dialog" aria-modal="true" aria-label="Lambda Performance Test" aria-hidden="true">
+  <div class="tx-top">
+    <div class="brand"><svg viewBox="0 0 120 100" aria-hidden="true"><circle class="st" cx="38" cy="24" r="17"/><circle class="st" cx="82" cy="24" r="17"/><path class="st" d="M55 22 Q60 17 65 22"/><path class="st" d="M34 50 H92 V62 H34 Z M30 66 H86 V76 H30 Z M22 80 H98 V94 H22 Z"/></svg><span>PERFORMANCE TEST</span></div>
+    <div class="tx-prog" aria-hidden="true"><i id="txProg"></i></div>
+    <button class="tx-close" id="txClose" aria-label="Chiudi il test">✕</button>
+  </div>
+  <div class="tx-body" data-lenis-prevent>
+
+    <!-- 0 · al genitore -->
+    <section class="scr" data-s="parent"><div class="in">
+      <p class="k">Per te · 1 minuto</p>
+      <h2>Prima due domande <em>a te.</em></h2>
+      <label class="fld"><span>Come si chiama tuo figlio?</span><input class="inp" id="kidName" type="text" maxlength="20" autocomplete="off" placeholder="Es. Marco"></label>
+      <div class="fld"><span>Che scuola frequenta?</span><div class="opts" id="levels" role="group" aria-label="Scuola">
+        <button class="opt" type="button" aria-pressed="false" data-v="primaria">Primaria</button><button class="opt" type="button" aria-pressed="false" data-v="media">Media</button>
+        <button class="opt" type="button" aria-pressed="false" data-v="superiore">Superiore</button><button class="opt" type="button" aria-pressed="false" data-v="università">Università</button></div></div>
+      <div class="act"><button class="btn btn-stud" id="toHand" disabled><span class="t">Avanti →</span></button></div>
+    </div></section>
+
+    <!-- 1 · passaggio del telefono -->
+    <section class="scr" data-s="hand"><div class="in">
+      <div class="hand" aria-hidden="true"><div class="phone"><i></i></div></div>
+      <p class="k">Passaggio di consegne</p>
+      <h2>Ora tocca a <em data-kid>tuo figlio</em>.</h2>
+      <p class="sub" id="handSub">Passagli il telefono, o chiamalo al computer. Sono 10 frasi: per ognuna sceglie quanto gli somiglia. Non ci sono risposte giuste o sbagliate.</p>
+      <div class="act"><button class="btn btn-stud" id="startQ"><span class="t">Iniziamo →</span></button></div>
+    </div></section>
+
+    <!-- 2 · le domande -->
+    <section class="scr" data-s="q"><div class="in" id="qBox"></div></section>
+
+    <!-- 3 · elaborazione -->
+    <section class="scr" data-s="calc"><div class="in calc">
+      <div class="hand back" aria-hidden="true"><div class="phone"><i></i></div></div>
+      <p class="k">Fatto!</p>
+      <h2>Grazie, <em data-kid>campione</em>.<br>Ora ridai il telefono a mamma o papà.</h2>
+      <div class="letters" id="calcL" aria-hidden="true"><span>ORG</span><span>ELA</span><span>STR</span><span>MET</span><span>AUT</span><span class="emo">ANS</span><span class="emo">RES</span></div>
+      <div class="act" style="justify-content:center"><button class="btn btn-stud" id="toRes" disabled><span class="t">Sto elaborando il profilo…</span></button></div>
+    </div></section>
+
+    <!-- 4 · risultato -->
+    <section class="scr" data-s="res"><div class="res">
+      <div class="rcard"><svg class="radar" id="resRadar" viewBox="-30 -30 360 360" role="img" aria-label="Il profilo di studio di tuo figlio"></svg><div class="legend"><span><i></i>Abilità di studio</span><span class="emo"><i></i>Area emotiva</span></div></div>
+      <div>
+        <p class="k">Il profilo di studio di <span data-kid>tuo figlio</span></p>
+        <h2 id="resTitle">Ecco da dove parte.</h2>
+        <div class="verdict" id="verdict"></div>
+        <div class="act"><button class="btn btn-stud" id="toBook"><span class="t">Prenota la consegna gratuita →</span></button></div>
+        <p class="disc">È un'anteprima: in videochiamata il tutor vi spiega il report completo e lo traduce in un piano con il Metodo FOCUS.</p>
+      </div>
+    </div></section>
+
+    <!-- 5 · prenotazione -->
+    <section class="scr" data-s="book"><form class="book" id="bookForm" novalidate>
+      <p class="k">Consegna dei risultati · videochiamata gratuita · 30 minuti</p>
+      <h2>Quando vi <em>chiamiamo?</em></h2>
+      <div class="days" id="days" role="group" aria-label="Giorno"></div>
+      <div class="slots" id="slots" role="group" aria-label="Orario"></div>
+      <div class="form">
+        <input class="inp" id="pName" type="text" autocomplete="name" placeholder="Il tuo nome" required>
+        <input class="inp" id="pMail" type="email" autocomplete="email" placeholder="Email" required>
+        <input class="inp" id="pTel" type="tel" autocomplete="tel" placeholder="Telefono / WhatsApp" required>
+      </div>
+      <label class="chk"><input type="checkbox" id="pOk" required><span>Ho letto l'informativa privacy e acconsento a essere ricontattato per la consegna del test.</span></label>
+      <div class="sum"><button class="btn btn-stud" id="confirm" type="submit" disabled><span class="t">Conferma l'appuntamento →</span></button><span id="sum">Scegli giorno e orario.</span></div>
+    </form></section>
+
+    <!-- 6 · confermato -->
+    <section class="scr" data-s="ok"><div class="in ok">
+      <svg class="tick" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><path d="M30 52 L44 65 L70 37"/></svg>
+      <p class="k" style="margin-top:22px">Appuntamento confermato</p>
+      <h2>Ci vediamo presto, <em id="okName">!</em></h2>
+      <div class="ticket" id="ticket"></div>
+      <p class="sub">Ti abbiamo inviato il link della videochiamata via email e WhatsApp. Il giorno prima ti mandiamo un promemoria.</p>
+      <div class="act" style="justify-content:center"><a class="btn btn-ghost" href="studenti.html"><span class="t">Torna al sito</span></a><a class="lnk" href="storia.html">Intanto, guarda la storia</a></div>
+    </div></section>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/lambda.js?v=17"></script>
+<script>
+gsap.set('#logo', { autoAlpha: 1 });
+(() => {
+  const L = window.Lambda, reduced = L.reduced, $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  // le 7 aree del Lambda Performance Test (scala da -100 a +100): 5 abilità di studio + 2 dell'area emotiva
+  const NAMES = ['Organizzazione', 'Elaborazione', 'Strategie', 'Metacognizione', 'Autovalutazione', 'Ansia', 'Resilienza'];
+  const EMO = (i) => i >= 5, N = NAMES.length;
+
+  /* ================= radar del profilo ================= */
+  const C = 150, R = 112, ang = (i) => -Math.PI / 2 + (i * 2 * Math.PI) / N;
+  const pt = (i, v) => { const k = (v + 100) / 200; return [C + R * k * Math.cos(ang(i)), C + R * k * Math.sin(ang(i))]; };
+  function radar(svg, vals, labels = true) {
+    svg.setAttribute('viewBox', '-95 -40 490 370');
+    const ring = (v) => NAMES.map((_, i) => pt(i, v).join(',')).join(' ');
+    svg.innerHTML = `${[-50, 50, 100].map((v) => `<polygon class="grid" points="${ring(v)}"/>`).join('')}<polygon class="grid zero" points="${ring(0)}"/>
+      ${NAMES.map((_, i) => `<line class="axis ax" data-i="${i}" x1="${C}" y1="${C}" x2="${pt(i, 100)[0]}" y2="${pt(i, 100)[1]}"/>`).join('')}
+      <polygon class="shape"/>${NAMES.map((_, i) => `<circle class="dot${EMO(i) ? ' emo' : ''}" r="5"/>`).join('')}
+      ${labels ? NAMES.map((n, i) => { const [x, y] = pt(i, 128); return `<text class="lbl${EMO(i) ? ' emo' : ''}" data-i="${i}" x="${x}" y="${y}" text-anchor="${x < C - 20 ? 'end' : x > C + 20 ? 'start' : 'middle'}">${n}</text>`; }).join('') : ''}`;
+    const st = { v: vals.map(() => -100) }, shape = $('.shape', svg), dots = $$('.dot', svg);
+    const draw = () => { const p = st.v.map((v, i) => pt(i, v)); shape.setAttribute('points', p.map((q) => q.join(',')).join(' ')); dots.forEach((d, i) => { d.setAttribute('cx', p[i][0]); d.setAttribute('cy', p[i][1]); }); };
+    draw();
+    return {
+      to(v, dur = 1.4) { gsap.to(st.v, { ...Object.fromEntries(v.map((x, i) => [i, x])), duration: reduced ? 0 : dur, ease: 'expo.out', onUpdate: draw }); },
+      hi(i) { $$('.lbl,.ax', svg).forEach((el) => el.classList.toggle('hi', +el.dataset.i === i)); },
+    };
+  }
+  const sgn = (v) => (v > 0 ? '+' : '') + v;
+
+  // hero: il profilo "respira" passando tra esempi diversi
+  const hero = radar($('#heroRadar'), NAMES.map(() => 0));
+  const EX = [[-33, -50, -83, 0, 50, -100, 75], [40, 20, -30, 10, -20, 30, 60], [-60, 50, 20, -40, 0, -50, 10], [20, -20, 50, 40, 30, 10, -30]];
+  let ei = 0; hero.to(EX[0], 2);
+  if (!reduced) setInterval(() => { if (document.hidden) return; ei = (ei + 1) % EX.length; hero.to(EX[ei], 2.2); }, 3600);
+
+  // esempio interattivo: barre divergenti, come nel report vero
+  const SAMPLE = [-33, -50, -83, 0, 50, -100, 75];
+  const SNOTE = ['Studia spesso all\'ultimo momento.', 'Ripete a memoria, senza rielaborare.', 'Non usa ancora mappe, schemi o tecniche.', 'Non sempre si accorge di quando non capisce.', 'Sa valutare bene la propria preparazione.', 'L\'ansia da verifica lo blocca.', 'Dopo un brutto voto si rimette in gioco.'];
+  const sample = radar($('#sampleRadar'), SAMPLE), bars = $('#bars');
+  bars.innerHTML = NAMES.map((n, i) => `<li class="bar${EMO(i) ? ' emo' : ''}" data-i="${i}" tabindex="0"><div><b>${n}</b><small>${SNOTE[i]}</small><div class="meter2"><i data-v="${SAMPLE[i]}"></i></div></div><span class="v">${sgn(SAMPLE[i])}</span></li>`).join('');
+  const hiBar = (i) => { sample.hi(i); $$('.bar', bars).forEach((b) => b.classList.toggle('hi', +b.dataset.i === i)); };
+  bars.addEventListener('mouseover', (e) => { const b = e.target.closest('.bar'); if (b) hiBar(+b.dataset.i); });
+  bars.addEventListener('focusin', (e) => { const b = e.target.closest('.bar'); if (b) hiBar(+b.dataset.i); });
+  bars.addEventListener('click', (e) => { const b = e.target.closest('.bar'); if (b) hiBar(+b.dataset.i); });
+  bars.addEventListener('mouseleave', () => hiBar(-1));
+  new IntersectionObserver((en, o) => en.forEach((x) => { if (!x.isIntersecting) return; sample.to(SAMPLE, 1.8);
+    $$('.meter2 i', bars).forEach((m) => { const v = +m.dataset.v; m.style.left = v < 0 ? 50 + v / 2 + '%' : '50%'; m.style.width = Math.abs(v) / 2 + '%'; }); o.disconnect(); }), { threshold: 0.35 }).observe($('.sample .grid'));
+
+  /* ================= IL TEST ================= */
+  // r = 1: frase "al contrario" (Sempre = punteggio basso)
+  // l = area (indice di NAMES) · r = 1: frase "al contrario" (Sempre = punteggio basso)
+  const Q = [
+    { l: 0, t: 'So già a inizio settimana cosa devo studiare e quando.' },
+    { l: 5, t: 'Prima di una verifica penso che andrà male, anche se ho studiato.', r: 1 },
+    { l: 1, t: 'Dopo aver letto una pagina, riesco a ripeterla con parole mie.' },
+    { l: 2, t: 'Per ripassare uso schemi, mappe o riassunti fatti da me.' },
+    { l: 3, t: 'Mentre studio, mi accorgo quando non sto capendo e cambio modo.' },
+    { l: 0, t: 'Mi riduco a studiare tutto il giorno prima.', r: 1 },
+    { l: 6, t: 'Dopo un brutto voto, mi rimetto a studiare con più impegno.' },
+    { l: 4, t: 'Prima di una verifica so dire se sono davvero preparato.' },
+    { l: 2, t: 'Ripeto le cose a memoria, sempre allo stesso modo.', r: 1 },
+    { l: 5, t: 'All\'interrogazione mi blocco, anche quando so le cose.', r: 1 },
+  ];
+  const A = ['Mai', 'A volte', 'Spesso', 'Sempre'];
+  const S = { kid: '', level: '', i: 0, ans: [], day: null, slot: null, scores: null };
+  const tx = $('#tx'), prog = $('#txProg'), body = document.body;
+  const kid = () => S.kid || 'tuo figlio';
+  const show = (name) => {
+    $$('.scr', tx).forEach((s) => s.classList.toggle('on', s.dataset.s === name));
+    $('.tx-body', tx).scrollTop = 0;
+    const steps = { parent: 4, hand: 8, q: 10 + (S.i / Q.length) * 66, calc: 80, res: 86, book: 93, ok: 100 };
+    prog.style.width = steps[name] + '%';
+    const f = $(`.scr[data-s="${name}"]`, tx).querySelector('input,button.opt,.an,button.btn:not([disabled])');
+    if (f && innerWidth > 640) setTimeout(() => f.focus({ preventScroll: true }), 350);
+  };
+  const setKid = () => $$('[data-kid]', tx).forEach((el) => (el.textContent = el.closest('[data-s="calc"]') ? (S.kid || 'campione') : kid()));
+
+  function open(e) {
+    const b = e?.currentTarget?.getBoundingClientRect?.(), at = b ? `${b.left + b.width / 2}px ${b.top + b.height / 2}px` : '50% 50%';
+    tx.classList.add('open');
+    gsap.fromTo(tx, { clipPath: `circle(0% at ${at})` }, { clipPath: `circle(150% at ${at})`, duration: reduced ? 0 : 0.9, ease: 'expo.inOut', clearProps: 'clipPath' }); tx.setAttribute('aria-hidden', 'false'); body.classList.add('tx-on'); L.lenis?.stop();
+    if (!$('.scr.on', tx)) show('parent');
+    history.replaceState(null, '', '#inizia');
+  }
+  function close() {
+    gsap.to(tx, { opacity: 0, duration: reduced ? 0 : 0.35, onComplete: () => { tx.classList.remove('open'); gsap.set(tx, { clearProps: 'opacity' }); } });
+    tx.setAttribute('aria-hidden', 'true'); body.classList.remove('tx-on'); L.lenis?.start(); history.replaceState(null, '', location.pathname);
+  }
+  // ogni "Inizia il test" della pagina (e la CTA dell'header) apre il test
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-start], .hdr-cta, .menu .mt a[href^="test.html"]'); if (!a) return;
+    e.preventDefault(); $('#menu')?.classList.remove('open'); open({ currentTarget: a });
+  });
+  $('#txClose').addEventListener('click', close);
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && tx.classList.contains('open')) close(); });
+  if (location.hash === '#inizia') setTimeout(() => open(), 400);
+
+  // 0 · genitore
+  const kidIn = $('#kidName'), levels = $('#levels'), toHand = $('#toHand');
+  const okParent = () => (toHand.disabled = !S.level);
+  kidIn.addEventListener('input', () => { const v = kidIn.value.trim(); S.kid = v ? v[0].toUpperCase() + v.slice(1) : ''; });
+  levels.addEventListener('click', (e) => { const b = e.target.closest('.opt'); if (!b) return; S.level = b.dataset.v; $$('.opt', levels).forEach((o) => o.setAttribute('aria-pressed', String(o === b))); okParent(); });
+  toHand.addEventListener('click', () => {
+    setKid();
+    $('#handSub').textContent = S.level === 'primaria'
+      ? `Siediti accanto a ${kid()} e leggete insieme le 10 frasi: per ognuna sceglie quanto gli somiglia. Non ci sono risposte giuste o sbagliate.`
+      : `Passa il telefono a ${kid()}, o chiamalo al computer. Sono 10 frasi: per ognuna sceglie quanto gli somiglia. Non ci sono risposte giuste o sbagliate.`;
+    show('hand');
+  });
+
+  // 2 · domande
+  const qBox = $('#qBox');
+  function renderQ() {
+    const q = Q[S.i];
+    qBox.innerHTML = `<div class="qslide"><div class="qhead"><span>DOMANDA <b>${String(S.i + 1).padStart(2, '0')}</b> / ${Q.length}</span><span>QUANTO TI SOMIGLIA?</span></div>
+      <p class="qtext">${q.t}</p>
+      <div class="ans">${A.map((a, k) => `<button class="an${S.ans[S.i] === k ? ' sel' : ''}" type="button" data-k="${k}"><small>${k + 1}</small>${a}<span class="pips">${[0, 1, 2, 3].map((p) => `<i class="${p <= k ? 'f' : ''}"></i>`).join('')}</span></button>`).join('')}</div>
+      <div class="qfoot">${S.i ? '<button class="lnk" type="button" id="qBack">← Indietro</button>' : '<span></span>'}<span>${innerWidth > 640 ? 'Puoi usare i tasti 1 · 2 · 3 · 4' : 'Rispondi d\'istinto'}</span></div></div>`;
+    show('q');
+  }
+  $('#startQ').addEventListener('click', () => { S.i = 0; renderQ(); });
+  let busy = false;
+  const answer = (k) => {
+    if (busy) return; busy = true; S.ans[S.i] = k;
+    $$('.an', qBox).forEach((b) => b.classList.toggle('sel', +b.dataset.k === k));
+    setTimeout(() => { busy = false; if (S.i < Q.length - 1) { S.i++; renderQ(); } else finish(); }, reduced ? 120 : 380);
+  };
+  qBox.addEventListener('click', (e) => { const b = e.target.closest('.an'); if (b) return answer(+b.dataset.k); if (e.target.closest('#qBack')) { S.i--; renderQ(); } });
+  addEventListener('keydown', (e) => { if (!$('.scr[data-s="q"]', tx).classList.contains('on') || !tx.classList.contains('open')) return; const k = '1234'.indexOf(e.key); if (k >= 0) answer(k); });
+
+  // 3 · calcolo
+  function finish() {
+    S.scores = NAMES.map((_, l) => { const its = Q.map((q, j) => [q, S.ans[j]]).filter(([q]) => q.l === l); return Math.round((its.reduce((s, [q, a]) => s + (q.r ? 3 - a : a), 0) / (its.length * 3)) * 200 - 100); });
+    setKid(); show('calc');
+    const ls = $$('#calcL span'), btn = $('#toRes'); ls.forEach((s) => s.classList.remove('on')); btn.disabled = true; btn.querySelector('.t').textContent = 'Sto elaborando il profilo…';
+    ls.forEach((s, i) => setTimeout(() => s.classList.add('on'), (reduced ? 0 : 450) * (i + 1)));
+    setTimeout(() => { btn.disabled = false; btn.querySelector('.t').textContent = 'Sono il genitore: vedi il risultato →'; if (innerWidth > 640) btn.focus(); }, reduced ? 50 : 2700);
+  }
+
+  // 4 · risultato
+  const TRAIN = [
+    'lo studio arriva all\'ultimo momento. Un piano settimanale semplice cambia le serate di tutta la famiglia.',
+    'ripete senza rielaborare. Si lavora su lettura attiva, sintesi e collegamenti.',
+    'studia sempre allo stesso modo. Mappe, schemi e tecniche di memoria possono dimezzare i tempi.',
+    'fatica ad accorgersi di quando non sta capendo. Si allena a fermarsi, verificarsi e cambiare strategia.',
+    'non sa ancora dire se è pronto. Con domande guida e simulazioni impara a valutarsi.',
+    'l\'ansia pesa su verifiche e interrogazioni. Si lavora con simulazioni e una scaletta per esporre.',
+    'dopo un brutto voto si scoraggia. Piccoli successi misurabili lo aiutano a rimettersi in gioco.',
+  ];
+  let resR = null;
+  $('#toRes').addEventListener('click', () => {
+    show('res');
+    resR = resR || radar($('#resRadar'), NAMES.map(() => 0));
+    resR.to(S.scores, 2);
+    const ord = S.scores.map((v, i) => [v, i]).sort((a, b) => a[0] - b[0]), low = ord.slice(0, 2), top = ord[N - 1];
+    const flat = ord[N - 1][0] - ord[0][0] < 30;
+    $('#resTitle').innerHTML = flat ? `Un profilo equilibrato.<br>Ora si tratta di <em>alzarlo.</em>` : `Ecco da dove <em>parte ${kid()}.</em>`;
+    $('#verdict').innerHTML = `
+      <div><b>Punto di forza · ${sgn(top[0])}</b><p><strong>${NAMES[top[1]]}.</strong> ${kid()} parte già bene qui: è la base su cui costruire.</p></div>
+      ${low.map(([v, i]) => `<div class="w"><b>Da allenare · ${sgn(v)}</b><p><strong>${NAMES[i]}:</strong> ${TRAIN[i]}</p></div>`).join('')}`;
+    resR.hi(low[0][1]);
+  });
+
+  // 5 · prenotazione (prototipo: nessun dato viene inviato)
+  const daysEl = $('#days'), slotsEl = $('#slots'), DN = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'], MN = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+  const DAYS = []; for (let d = new Date(), n = 0; DAYS.length < 6 && n < 14; n++) { d = new Date(d.getTime() + 864e5); if (d.getDay() !== 0) DAYS.push(new Date(d)); }
+  const SLOTS = ['15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30'];
+  daysEl.innerHTML = DAYS.map((d, i) => `<button class="day" type="button" aria-pressed="false" data-i="${i}"><small>${DN[d.getDay()]}</small><b>${d.getDate()}</b><span>${MN[d.getMonth()]}</span></button>`).join('');
+  const busySlots = (i) => SLOTS.map((_, k) => ((i * 7 + k * 3) % 5 === 0)); // finti posti occupati, per realismo
+  const fmt = () => `${DN[DAYS[S.day].getDay()]} ${DAYS[S.day].getDate()} ${MN[DAYS[S.day].getMonth()]} · ore ${S.slot}`;
+  const validate = () => {
+    const ok = S.day !== null && S.slot && $('#pName').value.trim() && /\S+@\S+\.\S+/.test($('#pMail').value) && $('#pTel').value.replace(/\D/g, '').length >= 8 && $('#pOk').checked;
+    $('#confirm').disabled = !ok;
+    $('#sum').innerHTML = S.day !== null && S.slot ? `Videochiamata: <b>${fmt()}</b>` : S.day !== null ? 'Ora scegli un orario.' : 'Scegli giorno e orario.';
+  };
+  daysEl.addEventListener('click', (e) => {
+    const b = e.target.closest('.day'); if (!b) return; S.day = +b.dataset.i; S.slot = null;
+    $$('.day', daysEl).forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    const bz = busySlots(S.day); slotsEl.innerHTML = SLOTS.map((s, k) => `<button class="slot" type="button" aria-pressed="false" ${bz[k] ? 'disabled aria-label="' + s + ' occupato"' : ''}>${s}</button>`).join('');
+    validate();
+  });
+  slotsEl.addEventListener('click', (e) => { const b = e.target.closest('.slot'); if (!b || b.disabled) return; S.slot = b.textContent; $$('.slot', slotsEl).forEach((x) => x.setAttribute('aria-pressed', String(x === b))); validate(); });
+  $('#bookForm').addEventListener('input', validate);
+  $('#bookForm').addEventListener('change', validate);
+  $('#toBook').addEventListener('click', () => { show('book'); validate(); });
+  $('#bookForm').addEventListener('submit', (e) => {
+    e.preventDefault(); if ($('#confirm').disabled) return;
+    // TODO: qui il collegamento a CRM e calendario dei tutor (nome, contatti, profilo S.scores, livello, appuntamento)
+    $('#okName').textContent = $('#pName').value.trim().split(' ')[0] + '!';
+    $('#ticket').innerHTML = `<div><small>Quando</small><b>${fmt()}</b></div><div><small>Dove</small><b>Videochiamata, da casa</b></div><div><small>Con</small><b>Un tutor Lambda</b></div>`;
+    show('ok');
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Centro Studi Lambda · Metodo di studio, tutor e lezioni online</title>
+<meta name="description" content="Tuo figlio ha già tutto quello che serve: gli manca il metodo. Performance Test gratuito, Metodo FOCUS, tutor dedicato e lezioni live online in tutta Italia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=8">
+<style>
+/* =================== LAMBDA · home del ramo studenti =================== */
+
+/* ---------- HERO ---------- */
+.lhero{position:relative;min-height:100svh;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 74% 55%, #16475a 0%, var(--navy) 55%, var(--deep) 100%)}
+.lhero .content{position:relative;z-index:4;max-width:720px;padding:calc(var(--hdr) + clamp(40px,8vh,100px)) 0 clamp(60px,9vh,100px) var(--gutter)}
+.lhero .eyebrow{color:var(--warm)}
+.lhero h1{margin-top:20px;font:700 clamp(44px,5vw,84px)/.95 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.lhero h1 em{display:block;font-style:normal;color:var(--warm);margin-top:.12em}
+.lhero .lead{margin-top:24px;font-size:clamp(17px,1.5vw,21px);line-height:1.45;color:rgba(255,255,255,.74);max-width:44ch}
+.lhero .ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:34px}
+.play{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:16px;color:#fff}
+.play i{width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:grid;place-items:center;font-style:normal;font-size:14px;transition:background .3s,border-color .3s,transform .4s var(--ease)}
+.play:hover i{background:rgba(255,255,255,.1);border-color:#fff;transform:scale(1.08)}
+.play small{display:block;font-weight:500;font-size:13px;color:rgba(255,255,255,.55)}
+.trust{list-style:none;display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;margin-top:34px;font-size:14.5px;color:rgba(255,255,255,.72)}
+.trust li{display:flex;align-items:center;gap:10px}
+.trust b{color:#fff}
+.field{position:absolute;inset:0;pointer-events:none;z-index:2}
+.field .w{position:absolute;white-space:nowrap;font-weight:500;letter-spacing:-.01em;line-height:1;transform:translate(-50%,-50%)}
+.field .w.note{font-family:var(--mono);letter-spacing:0}
+.blurred{filter:blur(6px);opacity:.5}
+.blurred .w{color:var(--slate)}
+.sharp{background:radial-gradient(ellipse 70% 60% at 74% 55%, #1d5b73 0%, #11303f 55%, #0b1f2a 100%);
+  -webkit-mask-image:radial-gradient(circle var(--r,0px) at var(--x1,0) var(--y,0),#000 98%,transparent 100%),radial-gradient(circle var(--r,0px) at var(--x2,0) var(--y,0),#000 98%,transparent 100%),linear-gradient(#000,#000);
+  mask-image:radial-gradient(circle var(--r,0px) at var(--x1,0) var(--y,0),#000 98%,transparent 100%),radial-gradient(circle var(--r,0px) at var(--x2,0) var(--y,0),#000 98%,transparent 100%),linear-gradient(#000,#000);
+  -webkit-mask-size:100% 100%,100% 100%,var(--bw,0) var(--bh,0);mask-size:100% 100%,100% 100%,var(--bw,0) var(--bh,0);
+  -webkit-mask-position:0 0,0 0,var(--bx,0) var(--by,0);mask-position:0 0,0 0,var(--bx,0) var(--by,0);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.sharp .w{color:#fff;font-weight:700}
+.sharp .w.on{color:var(--warm);animation:pop .5s var(--ease)}
+.sharp .w.note{color:rgba(255,255,255,.55);font-weight:500}
+@keyframes pop{0%{transform:translate(-50%,-50%) scale(.8)}60%{transform:translate(-50%,-50%) scale(1.08)}100%{transform:translate(-50%,-50%) scale(1)}}
+.lens{position:absolute;left:0;top:0;z-index:5;pointer-events:none;overflow:visible;will-change:transform;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+.lens .ring,.lens .bridge{fill:none;stroke:#fff;stroke-width:7;stroke-linecap:round}
+.lens .glint{fill:none;stroke:rgba(255,255,255,.55);stroke-width:4;stroke-linecap:round}
+.lhero .split .word>span,.lhero [data-reveal]{transition-delay:.15s}
+
+/* ---------- DIAGNOSI ---------- */
+.diag{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.diag .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:start}
+.diag .eyebrow{color:var(--teal)}
+.signs{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.sign{display:flex;align-items:center;gap:12px;padding:16px 20px;border-radius:18px;background:#fff;border:2px solid transparent;box-shadow:0 14px 30px -20px rgba(14,33,46,.35);
+  font:700 17px/1.1 var(--font);text-align:left;color:var(--navy);transition:border-color .3s,background .3s,transform .4s var(--ease),box-shadow .3s}
+.sign i{width:22px;height:22px;border-radius:7px;border:2px solid rgba(14,33,46,.25);display:grid;place-items:center;font-style:normal;font-size:13px;color:transparent;transition:background .3s,border-color .3s,color .3s}
+.sign:hover{transform:translateY(-2px)}
+.sign[aria-pressed="true"]{border-color:var(--aqua);background:#f2fbfb}
+.sign[aria-pressed="true"] i{background:var(--aqua);border-color:var(--aqua);color:#fff}
+.dcard{position:sticky;top:calc(var(--hdr) + 30px);background:var(--navy);color:#fff;border-radius:32px;padding:clamp(26px,3vw,40px);box-shadow:0 50px 90px -40px rgba(14,33,46,.6);overflow:hidden}
+.dcard .k{font:500 12px/1 var(--mono);letter-spacing:.18em;color:rgba(255,255,255,.5)}
+.dletters{display:flex;gap:10px;margin:22px 0 10px}
+.dletters span{flex:1;aspect-ratio:1;max-width:84px;border-radius:18px;display:grid;place-items:center;font:700 clamp(30px,3.4vw,46px)/1 var(--font);background:rgba(255,255,255,.05);color:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.08);
+  transition:background .5s,color .5s,transform .6s var(--ease),box-shadow .5s}
+.dletters span.on{background:var(--warm);color:var(--navy);transform:translateY(-6px);box-shadow:0 18px 30px -12px rgba(255,214,107,.6)}
+.dres{min-height:170px}
+.dres .empty{font-size:17px;line-height:1.45;color:rgba(255,255,255,.6);margin-top:16px}
+.dres h3{margin-top:14px;font:700 clamp(22px,2vw,30px)/1.1 var(--font);letter-spacing:-.03em}
+.dres h3 b{color:var(--warm)}
+.dres p{margin-top:10px;font-size:15.5px;line-height:1.45;color:rgba(255,255,255,.72)}
+.dlinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.dlinks a{font:700 13px/1 var(--font);padding:9px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.25);transition:background .3s}
+.dlinks a:hover{background:rgba(255,255,255,.1)}
+.dcard .btn{margin-top:24px}
+.dcard .fade{animation:fadeIn .5s var(--ease)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}}
+
+
+/* ---------- LA DIFFERENZA: ripetizioni + metodo ---------- */
+.duo{position:relative;height:260vh;background:#fff;color:var(--navy)}
+.duo .stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:calc(var(--hdr) + 10px) 0 40px}
+.duo .head{text-align:center;max-width:980px;margin:0 auto;padding:0 var(--gutter)}
+.duo .eyebrow{color:var(--teal)}
+.duo h2{margin-top:14px;font:700 clamp(34px,4.2vw,66px)/1 var(--font);letter-spacing:-.045em;text-wrap:balance}
+.duo h2 em{font-style:normal;color:var(--aqua)}
+.eq{position:relative;height:clamp(300px,40vh,380px);margin-top:clamp(28px,5vh,56px);width:min(1100px,calc(100% - 2*var(--gutter)));margin-inline:auto}
+.dc{position:absolute;top:0;width:min(400px,40%);height:100%;padding:clamp(22px,2.4vw,32px);border-radius:30px;display:flex;flex-direction:column;will-change:transform,opacity}
+.dc .k{font:500 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.dc h3{margin-top:12px;font:700 clamp(26px,2.6vw,38px)/1 var(--font);letter-spacing:-.035em}
+.dc ul{list-style:none;display:grid;gap:10px;margin-top:20px}
+.dc li{display:flex;gap:10px;font-size:clamp(15px,1.2vw,17px);line-height:1.35}
+.dc li::before{content:"";flex-shrink:0;width:8px;height:8px;margin-top:7px;border-radius:50%;background:currentColor;opacity:.5}
+.dc .when{margin-top:auto;padding-top:16px;border-top:1px solid currentColor;font:700 clamp(17px,1.5vw,21px)/1.2 var(--font);letter-spacing:-.02em}
+.dc.rip{left:0;background:var(--light)} .dc.rip .k{color:var(--teal)} .dc.rip .when{border-color:rgba(14,33,46,.12)}
+.dc.met{right:0;background:var(--navy);color:#fff} .dc.met .k{color:var(--warm)} .dc.met .when{border-color:rgba(255,255,255,.14);color:var(--warm)}
+.op{position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;display:grid;place-items:center;font:700 38px/1 var(--font);background:var(--warm);color:var(--navy);box-shadow:0 20px 40px -16px rgba(255,214,107,.8);z-index:3}
+.op span{position:absolute;transition:opacity .3s,transform .4s var(--ease)}
+.dc.res{left:50%;width:min(620px,92%);transform:translateX(-50%);background:linear-gradient(140deg,var(--navy),#16475a);color:#fff;text-align:center;align-items:center;justify-content:center;opacity:0;z-index:4;box-shadow:0 50px 90px -40px rgba(14,33,46,.7)}
+.dc.res .k{color:var(--warm)}
+.dc.res h3{font-size:clamp(30px,3.4vw,52px);max-width:16ch;text-wrap:balance}
+.dc.res h3 em{font-style:normal;color:var(--warm)}
+.dc.res p{margin-top:14px;max-width:44ch;font-size:clamp(15px,1.25vw,18px);line-height:1.45;color:rgba(255,255,255,.75)}
+.dc.res .pair{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;justify-content:center}
+.dc.res .pair span{padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.08);font:700 14px/1 var(--font)}
+@media (max-width: 860px){
+  .duo{height:auto} .duo .stage{position:relative;height:auto;padding:110px 0 100px}
+  .eq{height:auto;display:grid;gap:12px} .dc{position:relative;width:auto;height:auto;left:auto!important;right:auto!important;transform:none!important;opacity:1!important}
+  .dc .when{margin-top:18px} .op{position:relative;left:auto;top:auto;margin:0 auto} .op .eqs{display:none}
+  .dc.rip{order:1} .op{order:2} .dc.met{order:3} .dc.res{order:4;margin-top:12px}
+}
+
+/* ---------- METODO FOCUS ---------- */
+.focus{height:280vh;background:var(--deep)}
+.focus .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-content:center;justify-items:center;text-align:center;padding:calc(var(--hdr) + 20px) 24px 40px;
+  background:radial-gradient(ellipse 70% 60% at 50% 55%, #143f50 0%, var(--navy) 55%, var(--deep) 100%)}
+.focus .eyebrow{color:var(--warm)}
+.focus h2{margin-top:14px;font:700 clamp(34px,4.2vw,64px)/.98 var(--font);letter-spacing:-.045em}
+.fletters{display:flex;gap:clamp(8px,1.4vw,22px);margin-top:clamp(28px,5vh,56px);perspective:900px}
+.fl{font:700 clamp(84px,12vw,190px)/1 var(--font);letter-spacing:-.02em;color:#fff;transition:color .5s,transform .7s var(--ease),opacity .5s;
+  text-shadow:1px 1px 0 #1d5b73,2px 2px 0 #1a5366,3px 3px 0 #174a5c,4px 4px 0 #144253,5px 5px 0 #113a49,6px 6px 0 #0f3340,12px 18px 30px rgba(0,0,0,.4)}
+.fl.on{color:var(--warm)} .fl.dim{opacity:.3}
+.fdesc{position:relative;height:120px;width:min(640px,92vw);margin-top:26px}
+.fdesc div{position:absolute;inset:0;opacity:0;transform:translateY(14px);transition:opacity .5s,transform .6s var(--ease)}
+.fdesc div.on{opacity:1;transform:none}
+.fdesc b{display:block;font:700 clamp(24px,2.4vw,34px)/1.1 var(--font);letter-spacing:-.03em;color:var(--warm)}
+.fdesc span{display:block;margin-top:10px;font-size:clamp(16px,1.4vw,19px);line-height:1.45;color:rgba(255,255,255,.75)}
+.focus .ctas{margin-top:10px}
+
+/* ---------- LA STORIA (invito) ---------- */
+.story{background:#050d12;padding:clamp(120px,15vh,170px) 0 clamp(130px,16vh,180px);text-align:center}
+.story .eyebrow{color:rgba(255,255,255,.5)}
+.story h2{margin-top:16px;font:700 clamp(38px,5vw,78px)/.98 var(--font);letter-spacing:-.045em;text-wrap:balance}
+.story h2 em{font-style:normal;color:var(--warm)}
+.story .sec-lead{margin-inline:auto}
+.clocks{display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,40px);margin-top:48px}
+.mclock{display:flex;gap:6px;font:700 clamp(40px,5.4vw,78px)/1 var(--font);letter-spacing:-.02em}
+.mclock span{width:.7em;height:1.1em;border-radius:.1em;display:grid;place-items:center;box-shadow:0 .06em .1em rgba(0,0,0,.4)}
+.mclock.night span{background:linear-gradient(180deg,#22343e,#131f26);color:#f3ede2}
+.mclock.dusk span{background:linear-gradient(180deg,#fffdf8,#f1e4d1);color:var(--navy)}
+.mclock .c{width:auto;background:none!important;box-shadow:none}
+.clocks .arrow{font-size:clamp(26px,3vw,40px);color:rgba(255,255,255,.4)}
+.story .ctas{margin-top:48px;display:flex;justify-content:center}
+.btn-play{background:#fff;color:var(--navy)}
+.btn-play:hover{box-shadow:0 14px 40px -10px rgba(255,255,255,.5)}
+
+/* ---------- PERCORSI ---------- */
+.paths{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.paths .eyebrow{color:var(--teal)}
+.pgroup{margin-top:52px}
+.pgroup h3{font:500 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#6b7f88;margin-bottom:18px}
+.ages{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.age{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:230px;padding:22px 20px;border-radius:24px;background:var(--light);overflow:hidden;transition:transform .5s var(--ease),background .4s,color .4s}
+.age:hover{transform:translateY(-6px);background:var(--navy);color:#fff}
+.age .n{font:700 44px/1 var(--font);letter-spacing:-.04em;color:var(--aqua)}
+.age b{display:block;font:700 21px/1.1 var(--font);letter-spacing:-.02em}
+.age p{margin-top:8px;font-size:14.5px;line-height:1.4;opacity:.72}
+.age .go{margin-top:14px;font-weight:700;font-size:14px}
+.needs{display:flex;flex-wrap:wrap;gap:10px}
+.needs a{padding:14px 18px;border-radius:999px;border:1.5px solid rgba(14,33,46,.15);font:700 15px/1 var(--font);transition:background .3s,border-color .3s,color .3s}
+.needs a:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* ---------- NUMERI ---------- */
+.numbers{position:relative;background:var(--deep);padding:clamp(80px,12vh,130px) 0 clamp(110px,15vh,160px)}
+.numbers .eyebrow{text-align:center;color:rgba(255,255,255,.55)}
+.numbers .eyebrow b{color:var(--warm);font-weight:500}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px}
+.stat{position:relative;padding:34px 28px 10px;text-align:left}
+.stat::before{content:"";position:absolute;left:28px;right:28px;top:0;height:1px;background:rgba(255,255,255,.18);transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease)}
+.stat.in::before{transform:scaleX(1)}
+.stat .v{font:700 clamp(52px,6vw,96px)/1 var(--font);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:.45em;letter-spacing:-.02em;color:rgba(255,255,255,.6);margin-left:4px}
+.stat .l{margin-top:12px;font-size:16px;line-height:1.4;color:rgba(255,255,255,.66);max-width:22ch}
+.stat .stars{margin-top:14px}
+.stat:nth-child(2) .v{color:var(--warm)}
+
+/* ---------- METODI ---------- */
+.methods{position:relative;height:300vh;background:var(--deep)}
+.methods .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.mhalf{position:relative;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--hdr) + 90px) clamp(20px,4.5vw,72px) 60px}
+.mhalf.stud{background:radial-gradient(ellipse 80% 70% at 40% 60%, #143f50 0%, var(--navy) 55%, var(--deep) 100%)}
+.mhalf.conc{background:radial-gradient(ellipse 80% 70% at 60% 60%, #283220 0%, #111410 55%, var(--ink) 100%)}
+.mtitle{position:absolute;left:0;right:0;top:calc(var(--hdr) + 24px);z-index:3;text-align:center;padding:0 24px}
+.mtitle h2{font:700 clamp(34px,4.4vw,68px)/.95 var(--font);letter-spacing:-.045em}
+.mtitle p{margin-top:10px;font-size:clamp(16px,1.5vw,21px);color:rgba(255,255,255,.7)}
+.mletters{display:flex;gap:clamp(6px,1vw,14px);perspective:900px}
+.ml{font:700 clamp(64px,8.4vw,132px)/1 var(--font);letter-spacing:-.02em;transform-style:preserve-3d;transition:color .5s,transform .7s var(--ease),opacity .5s;will-change:transform}
+.stud .ml{color:#fff;text-shadow:1px 1px 0 #1d5b73,2px 2px 0 #1a5366,3px 3px 0 #174a5c,4px 4px 0 #144253,5px 5px 0 #113a49,10px 16px 26px rgba(0,0,0,.4)}
+.conc .ml{color:var(--bone);text-shadow:1px 1px 0 #4b5a2b,2px 2px 0 #465427,3px 3px 0 #404d23,4px 4px 0 #3a461f,5px 5px 0 #33401b,10px 16px 26px rgba(0,0,0,.5)}
+.stud .ml.on{color:var(--warm)} .conc .ml.on{color:var(--red)}
+.ml.dim{opacity:.35}
+.mwords{list-style:none;margin-top:30px;display:grid;gap:10px;font-size:clamp(16px,1.35vw,20px)}
+.mwords li{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,.55);transition:color .5s,transform .6s var(--ease)}
+.mwords li b{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font:700 14px var(--font);border:1px solid rgba(255,255,255,.2);transition:background .5s,color .5s,border-color .5s}
+.mwords li.on{color:#fff;transform:translateX(8px)}
+.stud .mwords li.on b{background:var(--warm);border-color:var(--warm);color:var(--navy)}
+.conc .mwords li.on b{background:var(--red);border-color:var(--red);color:#fff}
+.mhalf .desc{margin-top:26px;max-width:40ch;font-size:16px;line-height:1.5;color:rgba(255,255,255,.72)}
+.mhalf .ctas{margin-top:26px}
+.mhalf .lbl{margin-bottom:22px}
+
+/* ---------- COME LAVORIAMO ---------- */
+.how{height:340vh;background:var(--light);color:var(--navy)}
+.how .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--hdr) + 20px) 0 40px;
+  background:radial-gradient(ellipse 80% 70% at 50% 40%, #f6fafb 0%, var(--light) 60%, #d9e7ec 100%)}
+.how .eyebrow{color:var(--teal)}
+.how .sec-title{margin-top:14px}
+.how .top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+.track5{position:relative;margin-top:clamp(40px,7vh,80px)}
+.rail5{position:absolute;left:10%;right:10%;top:22px;height:4px;border-radius:4px;background:rgba(14,33,46,.1)}
+.rail5 i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:4px;background:var(--aqua);box-shadow:0 0 14px rgba(0,148,158,.55)}
+.steps5{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.step{position:relative;text-align:left;padding-top:60px;transition:opacity .6s,transform .7s var(--ease)}
+.step .node{position:absolute;left:50%;top:10px;width:28px;height:28px;margin-left:-14px;border-radius:50%;background:#fff;border:3px solid rgba(14,33,46,.2);transition:background .5s,border-color .5s,transform .6s var(--ease)}
+.step.done .node,.step.on .node{background:var(--aqua);border-color:#fff;transform:scale(1.15)}
+.step .card{background:#fff;border-radius:24px;padding:24px 22px 26px;box-shadow:0 30px 60px -36px rgba(14,33,46,.4);min-height:250px;transition:box-shadow .6s,transform .7s var(--ease)}
+.step.on .card{transform:translateY(-10px);box-shadow:0 40px 70px -30px rgba(14,33,46,.45)}
+.step:not(.on):not(.done){opacity:.5}
+.step .n{font:500 12px/1 var(--mono);letter-spacing:.18em;color:var(--aqua)}
+.step svg{display:block;width:54px;height:54px;margin:16px 0 14px;stroke:var(--navy);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.step.on svg{stroke:var(--aqua)}
+.step h3{font:700 clamp(20px,1.7vw,26px)/1.05 var(--font);letter-spacing:-.03em}
+.step p{margin-top:10px;font-size:15px;line-height:1.45;color:#3b5563}
+.guide5{position:absolute;left:0;top:-44px;width:64px;overflow:visible;pointer-events:none;will-change:transform}
+.guide5 .ring,.guide5 .bridge{fill:none;stroke:var(--navy);stroke-width:5;stroke-linecap:round}
+
+/* ---------- RISULTATI (anteprima) ---------- */
+.results{background:#fbf5ea;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.results .bgl{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 30%, #fffaf0 0%, #f3efe6 60%, #e5ebe8 100%);z-index:-1}
+.results .top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+.results .eyebrow{color:var(--teal)}
+.tpbadge{display:flex;align-items:center;gap:16px;padding:16px 22px;border-radius:20px;background:#fff;box-shadow:0 20px 40px -24px rgba(14,33,46,.35)}
+.tpbadge .big{font:700 44px/1 var(--font);letter-spacing:-.04em}
+.tpbadge small{display:block;font-size:13px;color:#5a6f78;margin-top:4px}
+.marquee{margin-top:clamp(40px,6vh,64px);display:grid;gap:18px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mrow{display:flex;gap:18px;width:max-content;animation:slide 60s linear infinite}
+.mrow.rev{animation-direction:reverse;animation-duration:70s;animation-delay:-23s}
+.marquee:hover .mrow{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.rv{width:clamp(280px,30vw,400px);padding:24px 24px 22px;border-radius:22px;background:#fff;box-shadow:0 24px 50px -30px rgba(14,33,46,.35)}
+.rv q{display:block;margin-top:14px;font:700 clamp(17px,1.4vw,20px)/1.3 var(--font);letter-spacing:-.02em;quotes:"“" "”"}
+.rv .who{margin-top:14px;font-size:14px;color:#5a6f78}
+.rv .who b{color:var(--navy)}
+.results .more{margin-top:40px;display:flex;justify-content:center}
+.link-dark{font-weight:700;font-size:16px;color:var(--navy);border-bottom:2px solid var(--warm);padding-bottom:4px}
+
+/* ---------- SEDI ---------- */
+.sedi{background:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.sedi .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.sedi .eyebrow{color:var(--warm)}
+.sedi .sec-lead{opacity:.75}
+.cities{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.cities a{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);font-weight:700;transition:background .3s,border-color .3s}
+.cities a:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
+.cities a i{width:8px;height:8px;border-radius:50%;background:var(--warm);box-shadow:0 0 10px var(--warm)}
+.cities a.soon{border-style:dashed} .cities a.soon i{background:none;border:1.5px solid var(--warm);box-shadow:none}
+.cities a em{font-style:normal;font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.sedi .ctas{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
+.modes{list-style:none;display:grid;gap:8px;margin-top:26px}
+.modes li{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:baseline;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.modes b{color:var(--warm);font-size:15px}
+.modes span{font-size:15px;line-height:1.4;color:rgba(255,255,255,.72)}
+@media (max-width:560px){ .modes li{grid-template-columns:1fr;gap:4px} }
+.net{position:relative;aspect-ratio:1/1.05;max-width:560px;width:100%;justify-self:center}
+.net svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.net .flow{fill:none;stroke:var(--aqua);stroke-width:1.6;stroke-dasharray:4 8;animation:flow 1.6s linear infinite;opacity:.8}
+@keyframes flow{to{stroke-dashoffset:-24}}
+.net .stud-dot{fill:#9fc7cf}
+.net .core circle.halo{fill:rgba(0,148,158,.18);transform-origin:center;transform-box:fill-box;animation:halo 2.6s ease-out infinite}
+@keyframes halo{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.8);opacity:0}}
+.net text{font-family:var(--font);font-weight:700;fill:#fff}
+.net .city circle{fill:var(--warm)}
+.net .city.soon circle{fill:none}
+.net .city text{font-size:15px}
+.net .sub{font:500 10px var(--mono);letter-spacing:.12em;fill:rgba(255,255,255,.55)}
+
+/* ---------- INVITO FINALE ---------- */
+.final{position:relative;padding:clamp(130px,17vh,190px) 0 clamp(150px,18vh,200px);text-align:center;
+  background:linear-gradient(100deg,var(--navy) 0%,#0c1c26 48%,#141810 52%,#0f120c 100%)}
+.final .glass9{width:120px;margin:0 auto 34px;display:block;overflow:visible;animation:bob 3.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.final .glass9 .ring,.final .glass9 .bridge{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round}
+.final h2{font:700 clamp(40px,6vw,96px)/.95 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.final h2 .l2{display:block;color:rgba(255,255,255,.55)}
+.final .ctas{margin-top:44px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.final .note{margin-top:22px;font-size:15px;color:rgba(255,255,255,.55)}
+
+
+
+.final{background:radial-gradient(ellipse 70% 60% at 50% 45%, #16475a 0%, var(--navy) 55%, var(--deep) 100%)}
+.final h2 .l2{color:var(--warm)}
+
+@media (max-width: 1100px){ .ages{grid-template-columns:repeat(3,1fr)} }
+@media (max-width: 980px){ .stats{grid-template-columns:1fr 1fr;row-gap:20px} .sedi .grid,.diag .grid{grid-template-columns:1fr} .dcard{position:relative;top:auto} }
+@media (max-width: 860px){
+  .lhero .content{padding-right:var(--gutter);padding-bottom:290px}
+  .focus{height:auto} .focus .stage{position:relative;height:auto;padding:120px 24px 100px}
+  .fl.dim{opacity:1} .fdesc{height:auto} .fdesc div{position:relative;opacity:1;transform:none;margin-bottom:22px}
+  .how{height:auto} .how .stage{position:relative;height:auto;padding:110px 0 90px}
+  .rail5,.guide5{display:none} .steps5{grid-template-columns:1fr} .step{padding-top:0;opacity:1!important} .step .node{display:none} .step .card{min-height:0}
+  .ages{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 560px){
+  .lhero .ctas .btn,.final .ctas .btn,.sedi .ctas .btn,.dcard .btn{width:100%;justify-content:center}
+  .stat{padding:26px 8px 6px} .stat::before{left:8px;right:8px}
+  .mclock{font-size:8.4vw;gap:4px} .clocks{gap:10px}
+  .ages{grid-template-columns:1fr} .age{min-height:0;gap:16px}
+}
+</style>
+</head>
+<body data-page="studenti" data-branch="stud">
+<div data-lambda-header></div>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="lhero" id="hero" data-theme="dark" aria-labelledby="lTitle">
+    <div class="field blurred" aria-hidden="true"></div><div class="field sharp" aria-hidden="true"></div>
+    <div class="content">
+      <p class="eyebrow" data-reveal>Centro Studi Lambda · per genitori</p>
+      <h1 class="split" id="lTitle">Tuo figlio ha già tutto quello che serve. <em>Gli manca il metodo per tirarlo fuori.</em></h1>
+      <p class="lead" data-reveal>Ripetizioni e metodo di studio, insieme: un tutor dedicato, lezioni live e il Metodo FOCUS. Tutto online, in tutta Italia, dal lunedì al sabato.</p>
+      <div class="ctas" data-reveal>
+        <a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a>
+        <a class="play" href="storia.html?play=1"><i>▶</i><span>Guarda la storia<small>2 minuti</small></span></a>
+      </div>
+      <ul class="trust" data-reveal>
+        <li><span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span><b>4,9</b> su Trustpilot</span></li>
+        <li><span><b>5000+</b> studenti aiutati</span></li>
+      </ul>
+    </div>
+    <svg class="lens" id="lens" aria-hidden="true"></svg>
+  </section>
+
+  <!-- ============ NUMERI ============ -->
+  <section class="numbers" aria-label="Lambda in numeri" data-theme="dark">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal><b>●</b> 100% online · in tutta Italia · dal lunedì al sabato</p>
+      <div class="stats">
+        <div class="stat" data-reveal><div class="v" data-count="5000" data-pre="+">+0</div><p class="l">studenti aiutati a trovare il loro metodo</p></div>
+        <div class="stat" data-reveal><div class="v"><span data-count="4.9" data-dec="1">0</span><small>/5</small></div><div class="stars"><i></i><i></i><i></i><i></i><i></i></div><p class="l">su Trustpilot</p></div>
+        <div class="stat" data-reveal><div class="v">N°1</div><p class="l">in Italia per recensioni certificate</p></div>
+        <div class="stat" data-reveal><div class="v" data-count="100" data-suf="%">0%</div><p class="l">garanzia: vi accompagniamo fino all'obiettivo</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COSA STA BLOCCANDO LO STUDIO? ============ -->
+  <section class="diag sheet" id="diagnosi" data-theme="light" aria-labelledby="dTitle">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow" data-reveal>Parti da qui</p>
+        <h2 class="sec-title split" id="dTitle">Cosa sta bloccando <em>lo studio?</em></h2>
+        <p class="sec-lead" data-reveal>Tocca quello che riconosci in tuo figlio. Ti mostriamo su cosa lavorare e da dove partire.</p>
+        <div class="signs" id="signs" data-reveal role="group" aria-label="Segnali"></div>
+      </div>
+      <aside class="dcard" data-reveal aria-live="polite">
+        <div class="k">IL METODO FOCUS · SU COSA LAVORARE</div>
+        <div class="dletters" id="dLetters" aria-hidden="true"><span>F</span><span>O</span><span>C</span><span>U</span><span>S</span></div>
+        <div class="dres" id="dRes"><p class="empty">Seleziona uno o più segnali qui a fianco.<br>Qui comparirà il suo punto di partenza.</p></div>
+        <a class="btn btn-stud magnetic" href="test.html"><span class="t">Verificalo con il test gratuito →</span></a>
+      </aside>
+    </div>
+  </section>
+
+
+  <!-- ============ LA DIFFERENZA LAMBDA: ripetizioni + metodo ============ -->
+  <section class="duo sheet" id="differenza" data-theme="light" aria-labelledby="duoTitle">
+    <div class="stage">
+      <div class="head">
+        <p class="eyebrow" data-reveal>La differenza Lambda · i primi a unirli</p>
+        <h2 class="split" id="duoTitle">Le ripetizioni sistemano l'oggi. <em>Il metodo sistema il domani.</em></h2>
+      </div>
+      <div class="eq" id="eq">
+        <article class="dc rip"><span class="k">Ripetizioni</span><h3>Recuperare e approfondire</h3>
+          <ul><li>Colmano le lacune nella materia</li><li>Approfondiscono gli argomenti difficili</li><li>Preparano la prossima verifica</li></ul>
+          <div class="when">Risolvono il problema di oggi.</div></article>
+        <article class="dc met"><span class="k">Metodo di studio</span><h3>Non restare più indietro</h3>
+          <ul><li>Evita di ritrovarsi di nuovo con le lacune</li><li>Lo rende autonomo nello studio</li><li>Gli fa studiare più velocemente</li></ul>
+          <div class="when">Evita il problema di domani.</div></article>
+        <div class="op" aria-hidden="true"><span class="plus">+</span><span class="eqs" style="opacity:0">=</span></div>
+        <article class="dc res" aria-label="Lambda: ripetizioni e metodo insieme"><span class="k">Lambda</span>
+          <h3>Recupera oggi. <em>Vola da solo domani.</em></h3>
+          <p>Siamo la prima realtà che unisce alle ripetizioni tradizionali il metodo di studio: lo stesso tutor lavora sulla materia e, insieme, su come studiarla.</p>
+          <div class="pair"><span>Ripetizioni</span><span>+</span><span>Metodo FOCUS</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ METODO FOCUS ============ -->
+  <section class="focus sheet" id="focus" data-theme="dark" aria-labelledby="fTitle">
+    <div class="stage">
+      <p class="eyebrow" data-reveal>Il metodo</p>
+      <h2 class="split" id="fTitle">Cinque abilità. Per tutta la vita.</h2>
+      <div class="fletters" id="fLetters" aria-hidden="true"><span class="fl">F</span><span class="fl">O</span><span class="fl">C</span><span class="fl">U</span><span class="fl">S</span></div>
+      <div class="fdesc" id="fDesc">
+        <div><b>Fiducia</b><span>Smette di dire "non ce la faccio" e affronta lo studio con sicurezza.</span></div>
+        <div><b>Organizzazione</b><span>Sa cosa studiare, quando e per quanto. Niente più pomeriggi infiniti.</span></div>
+        <div><b>Comprensione</b><span>Legge, comprende e sintetizza anche i testi più complessi.</span></div>
+        <div><b>Uso consapevole degli strumenti</b><span>Mappe mentali, lettura veloce, memoria efficace: gli strumenti giusti.</span></div>
+        <div><b>Sicurezza nell'esposizione</b><span>All'interrogazione parla con calma, in ordine, senza bloccarsi.</span></div>
+      </div>
+      <div class="ctas" data-reveal><a class="btn btn-ghost magnetic" href="metodo-focus.html"><span class="t">Scopri il Metodo FOCUS →</span></a></div>
+    </div>
+  </section>
+
+  <!-- ============ COME FUNZIONA ============ -->
+  <section class="how sheet" id="come" aria-labelledby="howTitle" data-theme="light">
+    <div class="stage">
+      <div class="wrap">
+        <div class="top">
+          <div><p class="eyebrow" data-reveal>Come funziona</p><h2 class="sec-title split" id="howTitle">Dalla prima analisi <em>al risultato.</em></h2></div>
+          <p class="sec-lead" data-reveal style="max-width:38ch">Un percorso chiaro e guidato, uguale nel metodo e diverso per ogni ragazzo.</p>
+        </div>
+        <div class="track5" id="track5">
+          <div class="rail5"><i id="rail5fill"></i></div>
+          <svg class="guide5" id="guide5" viewBox="0 0 64 28" aria-hidden="true"><circle class="ring" cx="16" cy="14" r="11"/><circle class="ring" cx="48" cy="14" r="11"/><path class="bridge" d="M27 12 Q32 8 37 12"/></svg>
+          <div class="steps5" id="steps5">
+            <div class="step"><span class="node"></span><div class="card"><div class="n">01</div><svg viewBox="0 0 54 54"><polygon points="27,6 47,21 40,45 14,45 7,21"/><polygon points="27,16 37,23 33,36 20,34 17,23" style="fill:rgba(0,148,158,.18)"/></svg><h3>Analisi</h3><p>Il Performance Test fotografa come studia oggi: punti di forza e blocchi.</p></div></div>
+            <div class="step"><span class="node"></span><div class="card"><div class="n">02</div><svg viewBox="0 0 54 54"><rect x="7" y="10" width="40" height="36" rx="6"/><path d="M7 20 H47 M17 6 V14 M37 6 V14 M15 28 H22 M26 28 H33 M15 36 H22"/></svg><h3>Piano</h3><p>Un tutor costruisce il programma su misura, settimana per settimana.</p></div></div>
+            <div class="step"><span class="node"></span><div class="card"><div class="n">03</div><svg viewBox="0 0 54 54"><rect x="5" y="10" width="44" height="30" rx="6"/><path d="M23 19 L33 25 L23 31 Z M18 47 H36"/></svg><h3>Allenamento</h3><p>Lezioni live, aule studio e laboratori online: il metodo diventa abitudine.</p></div></div>
+            <div class="step"><span class="node"></span><div class="card"><div class="n">04</div><svg viewBox="0 0 54 54"><path d="M7 45 H47 M7 45 V9 M13 36 L23 26 L30 32 L44 16 M38 16 H44 V22"/></svg><h3>Monitoraggio</h3><p>Il tutor segue i progressi dal lunedì al sabato e aggiusta il piano.</p></div></div>
+            <div class="step"><span class="node"></span><div class="card"><div class="n">05</div><svg viewBox="0 0 54 54"><path d="M17 8 H37 V20 A10 10 0 0 1 17 20 Z M17 12 H9 A8 8 0 0 0 17 22 M37 12 H45 A8 8 0 0 1 37 22 M27 30 V38 M19 46 H35 M21 46 L23 38 H31 L33 46"/></svg><h3>Risultato</h3><p>Più sicurezza, più autonomia, meno fatica. E un metodo che resta.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LA STORIA ============ -->
+  <section class="story sheet" data-theme="dark" aria-labelledby="sTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>La storia</p>
+      <h2 class="split" id="sTitle">Ogni sera, <em>la stessa scena?</em></h2>
+      <p class="sec-lead" data-reveal>In due minuti, il percorso di tante famiglie: dalla sera dei compiti infiniti alla sera in cui, a cena, si parla d'altro.</p>
+      <div class="clocks" data-reveal aria-hidden="true">
+        <div class="mclock night"><span>2</span><span>1</span><span class="c">:</span><span>3</span><span>0</span></div>
+        <div class="arrow">→</div>
+        <div class="mclock dusk"><span>1</span><span>8</span><span class="c">:</span><span>0</span><span>0</span></div>
+      </div>
+      <div class="ctas" data-reveal><a class="btn btn-play magnetic" href="storia.html?play=1"><span class="t">▶ Guarda la storia</span></a></div>
+    </div>
+  </section>
+
+  <!-- ============ RISULTATI ============ -->
+  <section class="results sheet" id="risultati" aria-labelledby="resTitle" data-theme="light">
+    <div class="bgl"></div>
+    <div class="wrap">
+      <div class="top">
+        <div><p class="eyebrow" data-reveal>Risultati</p><h2 class="sec-title split" id="resTitle">Storie vere. <em>Famiglie reali.</em></h2></div>
+        <div class="tpbadge" data-reveal><div class="big" data-count="4.9" data-dec="1">0</div><div><div class="stars"><i></i><i></i><i></i><i></i><i></i></div><small>su Trustpilot · N°1 per recensioni certificate</small></div></div>
+      </div>
+    </div>
+    <div class="marquee" id="marquee" aria-label="Recensioni dei genitori su Trustpilot"></div>
+    <div class="more"><a class="link-dark" href="risultati.html">Tutti i risultati e le storie →</a></div>
+  </section>
+
+  <!-- ============ TROVA IL PERCORSO GIUSTO ============ -->
+  <section class="paths sheet" id="percorsi" data-theme="light" aria-labelledby="pTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>I percorsi</p>
+      <h2 class="sec-title split" id="pTitle">Trova il percorso <em>giusto per lui.</em></h2>
+      <div class="pgroup">
+        <h3 data-reveal>Per età</h3>
+        <div class="ages" data-reveal>
+          <a class="age" href="percorso.html?p=primaria"><div><div class="n">6–10</div><b>Scuola primaria</b><p>Imparare a studiare prima che studiare diventi difficile.</p></div><span class="go">Scopri →</span></a>
+          <a class="age" href="percorso.html?p=media"><div><div class="n">11–13</div><b>Scuola media</b><p>Alle medie cambia tutto. È qui che si costruisce il metodo.</p></div><span class="go">Scopri →</span></a>
+          <a class="age" href="percorso.html?p=superiore"><div><div class="n">14–18</div><b>Scuola superiore</b><p>Non basta studiare di più. Serve studiare meglio.</p></div><span class="go">Scopri →</span></a>
+          <a class="age" href="percorso.html?p=universita"><div><div class="n">19+</div><b>Università</b><p>Più autonomia, più organizzazione, un metodo per gli esami.</p></div><span class="go">Scopri →</span></a>
+          <a class="age" href="percorso.html?p=test-universitari"><div><div class="n">Test</div><b>Test universitari</b><p>Preparazione mirata ai test d'accesso.</p></div><span class="go">Scopri →</span></a>
+        </div>
+      </div>
+      <div class="pgroup">
+        <h3 data-reveal>Per esigenza</h3>
+        <div class="needs" data-reveal>
+          <a href="percorso.html?p=metodo-di-studio">Metodo di studio</a><a href="percorso.html?p=ripetizioni">Ripetizioni</a><a href="percorso.html?p=recupero-insufficienze">Recupero insufficienze</a><a href="percorso.html?p=dsa-bes">DSA/BES</a><a href="percorso.html?p=autonomia">Autonomia nello studio</a><a href="percorso.html?p=memoria-concentrazione">Memoria e concentrazione</a><a href="percorso.html?p=organizzazione">Organizzazione</a><a href="percorso.html?p=ansia-scolastica">Ansia scolastica</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SEDI ============ -->
+  <section class="sedi sheet" id="sedi" aria-labelledby="sediTitle" data-theme="dark">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow" data-reveal>Online, e anche in sede</p>
+        <h2 class="sec-title split" id="sediTitle">Si studia online, <em>da tutta Italia.</em></h2>
+        <p class="sec-lead" data-reveal>Tutti i percorsi sono 100% online, e anche la prima consulenza si fa in videochiamata. Se c'è una sede vicino a voi, in più potete incontrare il tutor di persona e usare una postazione studio collegata a tutta Lambda.</p>
+        <ul class="modes" data-reveal>
+          <li><b>Da casa</b><span>Lezioni live, tutor, aule studio e laboratori: tutto online, dal lunedì al sabato.</span></li>
+          <li><b>In sede</b><span>Il tutor in presenza, assistenza e una postazione attrezzata per studiare.</span></li>
+          <li><b>Nessuna sede vicina?</b><span>Consulenza e percorso sono gli stessi, online, ovunque in Italia.</span></li>
+        </ul>
+        <div class="cities" data-reveal><a href="sede.html?c=messina"><i></i>Messina</a><a href="sede.html?c=lecco"><i></i>Lecco</a><a href="sede.html?c=monza"><i></i>Monza</a><a href="sede.html?c=cagliari"><i></i>Cagliari</a><a class="soon" href="sede.html?c=catania"><i></i>Catania <em>da novembre</em></a><a class="soon" href="sede.html?c=foggia"><i></i>Foggia <em>da novembre</em></a></div>
+        <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Inizia online: il test →</span></a><a class="btn btn-ghost" href="sedi.html">Scopri le sedi</a></div>
+      </div>
+      <div class="net" data-reveal><svg id="netSvg" viewBox="0 0 500 525" aria-label="La rete Lambda: lezioni online in tutta Italia e sedi a Messina, Lecco, Monza e Cagliari; Catania e Foggia in apertura a novembre" role="img"></svg></div>
+    </div>
+  </section>
+
+  <!-- ============ INVITO FINALE ============ -->
+  <section class="final" aria-labelledby="finalTitle" data-theme="dark">
+    <div class="wrap">
+      <svg class="glass9" viewBox="0 0 144 60" aria-hidden="true"><circle class="ring" cx="36" cy="30" r="26"/><circle class="ring" cx="108" cy="30" r="26"/><path class="bridge" d="M62 26 Q72 18 82 26"/></svg>
+      <h2 class="split" id="finalTitle">Prima scopri da dove parte. <span class="l2">Poi costruiamo dove può arrivare.</span></h2>
+      <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a></div>
+      <p class="note" data-reveal>Gratuito · online · 10 minuti · poi un tutor ti spiega i risultati</p>
+    </div>
+  </section>
+</main>
+
+<div data-lambda-footer></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/lambda.js?v=17"></script>
+<script>
+(() => {
+  gsap.set('#logo', { autoAlpha: 1 });
+  const L = window.Lambda, reduced = L.reduced, $ = (s) => document.querySelector(s), mob = () => innerWidth < 860;
+
+  /* ================= HERO: gli occhiali mettono a fuoco le parole ================= */
+  const hero = $('#hero'), lens = $('#lens');
+  const PAIRS = [['ansia', 'fiducia'], ['compiti infiniti', 'organizzazione'], ['non capisco', 'comprensione'], ['evidenzio tutto', 'mappe mentali'], ['interrogazione', 'sicurezza'], ['debiti', 'promosso']];
+  const NOTES = ['a² + b² = c²', '1492', 'Past Simple', 'Inferno, I', 'H₂O'];
+  let targets = [], seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const baseR = () => (innerWidth < 560 ? 40 : Math.max(56, Math.min(84, innerWidth * 0.05)));
+  function build() {
+    const w = hero.clientWidth, h = hero.clientHeight, r = baseR(), content = hero.querySelector('.content');
+    const A = mob() ? { x: w * 0.14, y: content.offsetTop + content.offsetHeight - 250, w: w * 0.72, h: 220 }
+                    : { x: w * 0.58, y: h * 0.2, w: w * 0.34, h: h * 0.62 };
+    seed = 7; const colW = A.w / 2, maxW = Math.min(4.3 * r - 20, colW * 0.92), items = [];
+    PAIRS.forEach(([a, b], i) => { const row = Math.floor(i / 2), c = i % 2, len = Math.max(a.length, b.length); items.push({ t: 1, a, b, size: Math.min(30, maxW / (len * 0.56)), x: A.x + colW * (c + 0.5) + (row % 2 ? 1 : -1) * colW * 0.08, y: A.y + (A.h / 3) * (row + 0.5), rot: (rnd() - 0.5) * 16 }); });
+    NOTES.forEach((n) => items.push({ t: 0, a: n, b: n, size: 13, x: A.x + rnd() * A.w, y: A.y + rnd() * A.h, rot: (rnd() - 0.5) * 16 }));
+    const html = (s) => items.map((it) => `<span class="w${it.t ? ' target' : ' note'}" style="left:${it.x}px;top:${it.y}px;font-size:${it.size}px;${s ? '' : `transform:translate(-50%,-50%) rotate(${it.rot}deg)`}">${s ? it.b : it.a}</span>`).join('');
+    hero.querySelector('.blurred').innerHTML = html(false); const sh = hero.querySelector('.sharp'); sh.innerHTML = html(true);
+    targets = [0, 1, 3, 2, 4, 5].map((i) => ({ x: items[i].x, y: items[i].y, s: sh.querySelectorAll('.target')[i] }));
+    const g = r * 0.36, lw = r * 4 + g * 2 + 20, lh = r * 2 + 20, cy = lh / 2, c1 = 10 + r, c2 = lw - 10 - r;
+    lens.setAttribute('width', lw); lens.setAttribute('height', lh); lens.setAttribute('viewBox', `0 0 ${lw} ${lh}`);
+    lens.innerHTML = `<circle class="ring" cx="${c1}" cy="${cy}" r="${r}"/><circle class="ring" cx="${c2}" cy="${cy}" r="${r}"/><path class="bridge" d="M${c1 + r} ${cy - r * .15} Q${lw / 2} ${cy - r * .5} ${c2 - r} ${cy - r * .15}"/><path class="glint" d="M${c1 - r * .55} ${cy - r * .35} A${r * .7} ${r * .7} 0 0 1 ${c1 - r * .1} ${cy - r * .68}"/>`;
+    lens._w = lw; lens._h = lh; lens._off = (c2 - c1) / 2;
+  }
+  build(); addEventListener('resize', build);
+  const Lp = { x: targets[0].x, y: targets[0].y - 160, vis: 0 }, scan = { i: -1, next: performance.now() + 900, t0: 0, from: null };
+  gsap.to(Lp, { vis: 1, duration: 1.2, delay: 0.7, ease: 'elastic.out(1, 0.55)' });
+  const logo = $('#logo'), logoIcon = $('#logoIcon');
+  L.onFrame((now, sy) => {
+    const hb = hero.getBoundingClientRect(); if (hb.bottom < -50) return;
+    if (!reduced) {
+      if (now >= scan.next) { scan.i = (scan.i + 1) % targets.length; if (scan.i === 0) targets.forEach((t) => t.s.classList.remove('on')); scan.from = { x: Lp.x, y: Lp.y }; scan.t0 = now; scan.next = now + 2250; scan.landed = false; }
+      if (scan.from) { const t = targets[scan.i], p = Math.min(1, (now - scan.t0) / 750), e = L.easeIO(p);
+        Lp.x = scan.from.x + (t.x - scan.from.x) * e; Lp.y = scan.from.y + (t.y - scan.from.y) * e + Math.sin(Math.PI * p) * -30;
+        if (p >= 1 && !scan.landed) { scan.landed = true; t.s.classList.add('on'); } }
+    } else { Lp.vis = 1; targets.forEach((t) => t.s.classList.add('on')); }
+    // scorrendo, gli occhiali volano nel logo
+    const R = baseR(), k = mob() ? 0 : L.clamp01(sy / (hb.height * 0.55)), e = k * k * (3 - 2 * k);
+    const lg = logoIcon.getBoundingClientRect(), gx = lg.left + lg.width / 2 - hb.left, gy = lg.top + lg.height * 0.24 - hb.top;
+    const cx = Lp.x + (gx - Lp.x) * e, cy = Lp.y + (gy - Lp.y) * e, rr = (R * (1 - e) + lg.width * 0.15 * e) * Lp.vis, of = lens._off * (rr / R), s = hero.querySelector('.sharp').style;
+    s.setProperty('--r', rr + 'px'); s.setProperty('--x1', (cx - of) + 'px'); s.setProperty('--x2', (cx + of) + 'px'); s.setProperty('--y', cy + 'px');
+    s.setProperty('--bx', (cx - of) + 'px'); s.setProperty('--by', (cy - rr * 0.55) + 'px'); s.setProperty('--bw', of * 2 + 'px'); s.setProperty('--bh', rr * 1.1 + 'px');
+    lens.style.transform = `translate(${cx - lens._w / 2}px, ${cy - lens._h / 2}px) scale(${rr / R})`;
+    lens.style.opacity = e > 0.92 ? String(1 - (e - 0.92) / 0.08) : '1';
+    logo.classList.toggle('lit', e > 0.9);
+  });
+  // il logo si disegna all'arrivo nella pagina
+  if (!reduced) { const icon = logoIcon.querySelectorAll('.st'); icon.forEach((p) => { const len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.strokeDashoffset = len; });
+    gsap.to(icon, { strokeDashoffset: 0, duration: 1.1, stagger: 0.07, ease: 'power2.inOut', delay: 0.1 }); gsap.from('.wordmark', { clipPath: 'inset(0 100% 0 0)', duration: 1, ease: 'power3.inOut', delay: 0.4 }); }
+
+  /* ================= DIAGNOSI ================= */
+  const SIGNS = [
+    { t: 'Studia tanto ma non ricorda', l: [2, 3], why: 'memorizzazione e strumenti di studio', go: ['Memoria e concentrazione', 'Metodo di studio'] },
+    { t: 'Studia lentamente', l: [1, 3], why: 'organizzazione e tecniche come la lettura veloce', go: ['Metodo di studio', 'Organizzazione'] },
+    { t: 'Si distrae facilmente', l: [1], why: 'concentrazione e gestione del tempo', go: ['Memoria e concentrazione'] },
+    { t: 'Non si organizza', l: [1], why: 'pianificazione della settimana e dello studio', go: ['Organizzazione', 'Autonomia nello studio'] },
+    { t: 'Ha ansia per verifiche e interrogazioni', l: [0, 4], why: 'fiducia in sé e sicurezza nell\'esposizione', go: ['Ansia scolastica'] },
+    { t: 'Ha voti insufficienti', l: [0, 2], why: 'comprensione e fiducia, con un piano di recupero', go: ['Recupero insufficienze', 'Ripetizioni'] },
+  ];
+  const NAMES = ['Fiducia', 'Organizzazione', 'Comprensione', 'Uso degli strumenti', 'Sicurezza'];
+  const SLUG = {"Scuola primaria": "primaria", "Scuola media": "media", "Scuola superiore": "superiore", "Università": "universita", "Test universitari": "test-universitari", "Metodo di studio": "metodo-di-studio", "Ripetizioni": "ripetizioni", "Recupero insufficienze": "recupero-insufficienze", "DSA/BES": "dsa-bes", "Autonomia nello studio": "autonomia", "Memoria e concentrazione": "memoria-concentrazione", "Organizzazione": "organizzazione", "Ansia scolastica": "ansia-scolastica"};
+  const signs = $('#signs'), dL = [...$('#dLetters').children], dRes = $('#dRes'), sel = new Set();
+  signs.innerHTML = SIGNS.map((s, i) => `<button class="sign" type="button" aria-pressed="false" data-i="${i}"><i>✓</i>${s.t}</button>`).join('');
+  signs.addEventListener('click', (e) => {
+    const b = e.target.closest('.sign'); if (!b) return;
+    const i = +b.dataset.i; sel.has(i) ? sel.delete(i) : sel.add(i); b.setAttribute('aria-pressed', String(sel.has(i)));
+    const letters = new Set(), links = new Set(), whys = [];
+    sel.forEach((k) => { SIGNS[k].l.forEach((x) => letters.add(x)); SIGNS[k].go.forEach((g) => links.add(g)); whys.push(SIGNS[k].why); });
+    dL.forEach((el, j) => el.classList.toggle('on', letters.has(j)));
+    if (!sel.size) { dRes.innerHTML = '<p class="empty">Seleziona uno o più segnali qui a fianco.<br>Qui comparirà il suo punto di partenza.</p>'; return; }
+    const names = [...letters].sort().map((j) => NAMES[j]);
+    dRes.innerHTML = `<div class="fade"><h3>Lavoreremo soprattutto su <b>${names.join(', ').replace(/, ([^,]*)$/, ' e $1')}</b>.</h3>
+      <p>Quello che descrivi riguarda ${whys.join('; ')}. È normale: sono abilità che si allenano, con il metodo giusto.</p>
+      <div class="dlinks">${[...links].map((g) => `<a href="percorso.html?p=${SLUG[g]}">${g} →</a>`).join('')}</div></div>`;
+  });
+
+
+  /* ================= LA DIFFERENZA: le due schede si uniscono ================= */
+  const duo = $('#differenza'), rip = $('.dc.rip'), met = $('.dc.met'), res = $('.dc.res'), plus = $('.op .plus'), eqs = $('.op .eqs'), op = $('.op');
+  L.onFrame(() => {
+    if (mob() || reduced) return; const p = L.prog(duo); if (p < -0.4 || p > 1.4) return;
+    const a = L.ease(L.clamp01(p / 0.28));                  // entrano dai lati
+    const m = L.easeIO(L.clamp01((p - 0.38) / 0.26));       // si avvicinano e si fondono
+    const r = L.ease(L.clamp01((p - 0.58) / 0.2));          // compare il risultato
+    const W = $('#eq').clientWidth, cw = rip.offsetWidth, gap = (W - cw * 2) / 2 + cw * 0.18;
+    rip.style.transform = `translateX(${(1 - a) * -120 + m * gap}px) rotate(${(1 - a) * -6 + m * 4}deg) scale(${1 - m * 0.12})`;
+    met.style.transform = `translateX(${(1 - a) * 120 - m * gap}px) rotate(${(1 - a) * 6 - m * 4}deg) scale(${1 - m * 0.12})`;
+    rip.style.opacity = met.style.opacity = String(a * (1 - r));
+    op.style.transform = `scale(${0.4 + a * 0.6 - r * 0.4}) rotate(${m * 180}deg)`; op.style.opacity = String(a * (1 - r));
+    plus.style.opacity = String(1 - m); eqs.style.opacity = String(m);
+    res.style.opacity = String(r); res.style.transform = `translateX(-50%) translateY(${(1 - r) * 40}px) scale(${0.92 + r * 0.08})`;
+  });
+
+  /* ================= METODO FOCUS: una lettera alla volta ================= */
+  const focus = $('#focus'), fl = [...$('#fLetters').children], fd = [...$('#fDesc').children];
+  L.onFrame((now) => {
+    if (mob()) return; const p = L.prog(focus); if (p < -0.3 || p > 1.3) return;
+    const act = p < 0.06 ? -1 : p > 0.94 ? 5 : Math.min(4, Math.floor((p - 0.06) / 0.176));
+    fl.forEach((el, i) => { const on = i === act || act === 5; el.classList.toggle('on', on); el.classList.toggle('dim', act >= 0 && act < 5 && i !== act);
+      el.style.transform = on && act < 5 ? `translateY(-14px) rotateY(${Math.sin(now / 900) * 10}deg) scale(1.08)` : 'none'; });
+    fd.forEach((el, i) => el.classList.toggle('on', i === act || (act === 5 && i === 4)));
+  });
+
+  /* ================= COME FUNZIONA ================= */
+  const how = $('#come'), steps = [...document.querySelectorAll('#steps5 .step')], fill = $('#rail5fill'), g5 = $('#guide5'), track = $('#track5');
+  let gx5 = null;
+  L.onFrame((now) => {
+    if (mob()) return; const p = L.prog(how); if (p < -0.3 || p > 1.3) return;
+    const raw = L.clamp01((p - 0.1) / 0.78) * 4, i0 = Math.min(4, Math.floor(raw)), f = raw - i0, pos = raw >= 4 ? 4 : i0 + L.easeIO(L.clamp01((f - 0.45) / 0.55)), act = Math.round(pos);
+    steps.forEach((s, i) => { s.classList.toggle('on', i === act && p > 0.05); s.classList.toggle('done', i < pos - 0.02); });
+    const tb = track.getBoundingClientRect(), nodes = steps.map((s) => { const b = s.querySelector('.node').getBoundingClientRect(); return b.left + b.width / 2 - tb.left; });
+    const k = Math.min(3, Math.floor(pos)), x = nodes[k] + (nodes[Math.min(4, k + 1)] - nodes[k]) * (pos - k);
+    fill.style.width = Math.max(0, x - tb.width * 0.1) + 'px';
+    gx5 = gx5 === null ? x : gx5 + (x - gx5) * 0.2;
+    g5.style.transform = `translateX(${gx5 - 32}px) translateY(${Math.sin(now / 450) * 3}px)`; g5.style.opacity = p > 0.05 ? 1 : 0;
+  });
+
+  /* ================= RISULTATI ================= */
+  const REV = [['La vedo più tranquilla, motivata ed organizzata nello studio.', 'Silvia'], ['Mio figlio aveva tre debiti, in 2 mesi ha superato i debiti.', 'Elisabetta V.'],
+    ['Ho visto in mio figlio una scintilla di entusiasmo.', 'Fabio T.'], ['Ha superato i debiti in modo soddisfacente e recuperato autostima.', 'Simona'], ['Mio figlio non solo è cresciuto scolasticamente ma anche come persona.', 'Irene L. M.']];
+  const card = ([q, n]) => `<figure class="rv"><div class="stars"><i></i><i></i><i></i><i></i><i></i></div><q>${q}</q><figcaption class="who"><b>${n}</b> · genitore, su Trustpilot</figcaption></figure>`;
+  const r2 = [...REV.slice(2), ...REV.slice(0, 2)];
+  $('#marquee').innerHTML = `<div class="mrow">${[...REV, ...REV].map(card).join('')}</div><div class="mrow rev">${[...r2, ...r2].map(card).join('')}</div>`;
+  L.stars($('#marquee'));
+
+  /* ================= SEDI: la rete Lambda ================= */
+  const CORE = [285, 190], CITIES = [['Lecco', 160, 62], ['Monza', 128, 104], ['Cagliari', 92, 372], ['Messina', 330, 470], ['Foggia', 385, 300, 1], ['Catania', 296, 505, 1]];
+  let s2 = 11; const q = () => (s2 = (s2 * 16807) % 2147483647) / 2147483647;
+  const dots = [...Array(90)].map(() => { const t = q(), x = 120 + t * 250 + (q() - 0.5) * 120, y = 30 + t * 450 + (q() - 0.5) * 60; return `<circle class="stud-dot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(1.2 + q() * 2).toFixed(1)}" style="opacity:${(0.25 + q() * 0.5).toFixed(2)}"><animate attributeName="opacity" values="0.15;0.8;0.15" dur="${(2 + q() * 3).toFixed(1)}s" begin="${(q() * 3).toFixed(1)}s" repeatCount="indefinite"/></circle>`; }).join('');
+  const flows = CITIES.filter((c) => !c[3]).map(([, x, y]) => `<path class="flow" d="M${CORE[0]} ${CORE[1]} Q${(CORE[0] + x) / 2 + 40} ${(CORE[1] + y) / 2 - 30} ${x} ${y}"/>`).join('');
+  const cities = CITIES.map(([n, x, y, soon]) => soon ? `<g class="city soon"><circle cx="${x}" cy="${y}" r="7" fill="none" stroke="#FFD66B" stroke-width="2" stroke-dasharray="3 3"/><text x="${x + 16}" y="${y + 5}" opacity=".75">${n} · nov</text></g>` : `<g class="city"><circle cx="${x}" cy="${y}" r="7"/><circle cx="${x}" cy="${y}" r="14" fill="none" stroke="rgba(255,214,107,.4)"/><text x="${x + 20}" y="${y + 5}">${n}</text></g>`).join('');
+  $('#netSvg').innerHTML = `${dots}${flows}<g class="core"><circle class="halo" cx="${CORE[0]}" cy="${CORE[1]}" r="46"/><circle cx="${CORE[0]}" cy="${CORE[1]}" r="30" fill="#00949E"/><text x="${CORE[0]}" y="${CORE[1] + 5}" text-anchor="middle" font-size="14">Lambda</text><text class="sub" x="${CORE[0]}" y="${CORE[1] - 58}" text-anchor="middle">ONLINE · TUTTA ITALIA</text></g>${cities}`;
+})();
+</script>
+</body>
+</html>

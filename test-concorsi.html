@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%231d2a18%22/%3E%3Cpath%20d%3D%22M32%208l6.5%2017.5H57L42%2036.5l5.5%2018L32%2043.5%2016.5%2054.5%2022%2036.5%207%2025.5h18.5z%22%20fill%3D%22%23CD141F%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Test Concorsi · Quale concorso fa per te? · Concorsi Militari Academy</title>
+<meta name="description" content="In 3 minuti scopri quali concorsi delle Forze Armate e di Polizia sono compatibili con il tuo profilo, e ricevi il tuo piano concorsi. Gratuito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=8">
+<style>
+/* =================== CMA · Test Concorsi (il fascicolo) =================== */
+body{background:var(--ink)}
+:root{--cma-green:#284C31;--cma-red:#CD141F;--cma-grey:#DADBDA;--hud:#a9b97a}
+.scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.016) 0 1px,transparent 1px 4px)}
+
+/* ---------- HERO ---------- */
+.thero{position:relative;min-height:100svh;overflow:hidden;display:grid;align-items:center;background:radial-gradient(ellipse 60% 70% at 70% 50%, #22301d 0%, #121710 50%, var(--ink) 100%)}
+.thero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,70px);align-items:center;padding-top:calc(var(--hdr) + 40px);padding-bottom:70px}
+.k{font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)}
+.thero h1{margin-top:18px;font:700 clamp(44px,5.4vw,90px)/.93 var(--font);letter-spacing:-.05em;color:var(--bone)}
+.thero h1 em{font-style:normal;color:var(--cma-red)}
+.thero .lead{margin-top:22px;max-width:44ch;font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:rgba(242,241,236,.72)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chips span{padding:10px 14px;border-radius:999px;border:1px solid rgba(169,185,122,.3);font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(242,241,236,.8)}
+.thero .ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:30px}
+.btn-red{background:var(--cma-red);color:#fff}
+.btn-red:hover{box-shadow:0 14px 40px -10px rgba(205,20,31,.7)}
+.btn-line{border:1.5px solid rgba(218,219,218,.35);color:var(--bone)}
+.small{font-size:14px;color:rgba(242,241,236,.5)}
+/* il fascicolo in copertina */
+.dossier{position:relative;justify-self:center;width:min(100%,440px);aspect-ratio:3/3.6;transform:rotate(-4deg)}
+.dossier .sheet2,.dossier .cover{position:absolute;inset:0;border-radius:14px}
+.dossier .sheet2{background:#d9d4c3;transform:translate(14px,10px) rotate(3deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.dossier .cover{background:linear-gradient(160deg,#2e3a24,#1a2215);border:1px solid rgba(169,185,122,.25);box-shadow:0 40px 80px -30px #000;padding:28px;display:flex;flex-direction:column;overflow:hidden}
+.dossier .cover::after{content:"";position:absolute;right:-30px;top:40px;width:180px;height:180px;background:radial-gradient(circle,rgba(169,185,122,.08),transparent 70%)}
+.dossier .tab{position:absolute;top:-14px;left:30px;padding:6px 14px;border-radius:8px 8px 0 0;background:#2e3a24;font:500 10px/1 var(--mono);letter-spacing:.16em;color:var(--hud)}
+.dossier .ttl{font:700 13px/1.3 'Space Mono',var(--mono);letter-spacing:.14em;color:rgba(242,241,236,.85)}
+.dossier .seal{width:110px;margin:26px 0 0}
+.dossier .lines{margin-top:auto;display:grid;gap:12px}
+.dossier .lines div{display:flex;justify-content:space-between;gap:10px;padding-bottom:8px;border-bottom:1px dashed rgba(169,185,122,.3);font:500 11px/1 var(--mono);letter-spacing:.1em;color:rgba(242,241,236,.55);text-transform:uppercase}
+.dossier .lines b{color:var(--bone);font-weight:500}
+.stamp{position:absolute;right:22px;top:46%;padding:10px 16px;border:3px solid var(--cma-red);border-radius:8px;font:700 18px/1 'Space Mono',var(--mono);letter-spacing:.14em;color:var(--cma-red);transform:rotate(-14deg);opacity:.85;mix-blend-mode:screen}
+
+/* ---------- COME FUNZIONA ---------- */
+.how{background:#0d100b;padding:clamp(100px,13vh,150px) 0}
+.how h2,.faq h2{margin-top:14px;font:700 clamp(32px,3.6vw,56px)/1 var(--font);letter-spacing:-.045em;color:var(--bone)}
+.how h2 em,.faq h2 em{font-style:normal;color:var(--cma-red)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.st{position:relative;padding:26px;border-radius:22px;background:rgba(242,241,236,.04);border:1px solid rgba(169,185,122,.18)}
+.st .n{font:700 44px/1 'Space Mono',var(--mono);color:rgba(169,185,122,.35)}
+.st b{display:block;margin-top:16px;font:700 22px/1.1 var(--font);color:var(--bone)}
+.st p{margin-top:10px;font-size:15px;line-height:1.5;color:rgba(242,241,236,.65)}
+.areas{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.areas span{padding:9px 13px;border-radius:10px;background:rgba(205,20,31,.1);border:1px solid rgba(205,20,31,.35);font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#f3c9cc}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--ink);padding:clamp(100px,13vh,150px) 0}
+.faq .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px)}
+.qa{border-top:1px solid rgba(169,185,122,.2)} .qa:last-child{border-bottom:1px solid rgba(169,185,122,.2)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font:700 clamp(17px,1.4vw,20px)/1.25 var(--font);color:var(--bone)}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary i{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid rgba(169,185,122,.4);display:grid;place-items:center;font-style:normal;color:var(--hud);transition:transform .4s var(--ease)}
+.qa[open] summary i{transform:rotate(45deg);color:var(--cma-red);border-color:var(--cma-red)}
+.qa p{padding:0 40px 22px 0;font-size:16px;line-height:1.55;color:rgba(242,241,236,.65)}
+
+/* =================== IL FASCICOLO (esperienza a schermo intero) =================== */
+.fx{position:fixed;inset:0;z-index:80;display:flex;flex-direction:column;visibility:hidden;background:radial-gradient(ellipse 80% 70% at 50% 40%, #1f2a1a 0%, #0f130d 55%, #060705 100%);color:var(--bone)}
+.fx.open{visibility:visible}
+.fx-top{position:relative;z-index:2;display:flex;align-items:center;gap:16px;padding:16px var(--gutter);border-bottom:1px solid rgba(169,185,122,.15)}
+.fx-top .brand{display:flex;align-items:center;gap:10px;font:500 11px/1 var(--mono);letter-spacing:.16em;color:var(--hud)}
+.fx-top .brand svg{width:30px;height:auto}
+.fx-steps{flex:1;display:flex;gap:4px;max-width:560px;margin-inline:auto}
+.fx-steps i{flex:1;height:4px;border-radius:2px;background:rgba(169,185,122,.18);transition:background .4s}
+.fx-steps i.done{background:var(--hud)} .fx-steps i.on{background:var(--cma-red)}
+.fx-close{width:40px;height:40px;border-radius:50%;border:1px solid rgba(218,219,218,.25);color:var(--bone)}
+.fx-body{position:relative;flex:1;overflow-y:auto;overscroll-behavior:contain}
+.scr{position:absolute;inset:0;display:none;padding:28px var(--gutter) 40px}
+.scr.on{display:flex}
+.scr .in{width:min(860px,100%);margin:auto}
+.phase{display:flex;align-items:center;gap:12px;font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)}
+.phase b{color:var(--cma-red);font-weight:500}
+.scr h2{margin-top:14px;font:700 clamp(30px,3.8vw,56px)/1 var(--font);letter-spacing:-.045em;text-wrap:balance}
+.scr h2 em{font-style:normal;color:var(--cma-red)}
+.scr .sub{margin-top:12px;font-size:clamp(15px,1.25vw,18px);line-height:1.5;color:rgba(242,241,236,.65);max-width:56ch}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:28px}
+.opts.three{grid-template-columns:repeat(3,1fr)}
+.op{position:relative;display:flex;align-items:center;gap:14px;padding:18px 18px;border-radius:16px;border:1.5px solid rgba(169,185,122,.22);background:rgba(242,241,236,.03);color:var(--bone);text-align:left;font:700 16px/1.25 var(--font);transition:border-color .25s,background .25s,transform .35s var(--ease)}
+.op small{display:block;margin-top:4px;font:500 13px/1.35 var(--font);color:rgba(242,241,236,.55)}
+.op .ck{flex-shrink:0;width:24px;height:24px;border-radius:6px;border:1.5px solid rgba(169,185,122,.45);display:grid;place-items:center;font-size:13px;color:transparent;transition:background .25s,border-color .25s,color .25s}
+.op.radio .ck{border-radius:50%}
+.op:hover{border-color:rgba(242,241,236,.4);transform:translateY(-2px)}
+.op[aria-pressed="true"]{border-color:var(--cma-red);background:rgba(205,20,31,.1)}
+.op[aria-pressed="true"] .ck{background:var(--cma-red);border-color:var(--cma-red);color:#fff}
+.fnav{display:flex;align-items:center;gap:14px;margin-top:30px}
+.fnav .back{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(242,241,236,.55)}
+.fnav .back:hover{color:#fff}
+.fnav .btn{margin-left:auto}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.inp{width:100%;max-width:420px;margin-top:24px;padding:18px 20px;border-radius:14px;border:1.5px solid rgba(169,185,122,.3);background:rgba(242,241,236,.04);color:#fff;font:700 20px/1 var(--font);outline:none}
+.inp:focus{border-color:var(--cma-red)}
+.inp::placeholder{color:rgba(242,241,236,.3);font-weight:500}
+/* età: grande contatore */
+.age{display:flex;align-items:center;gap:26px;margin-top:30px;flex-wrap:wrap}
+.age .num{font:700 clamp(84px,11vw,150px)/1 'Space Mono',var(--mono);color:var(--bone);min-width:2.2ch}
+.age .num small{font-size:.22em;color:var(--hud);letter-spacing:.14em;margin-left:8px}
+.age input{flex:1;min-width:220px;accent-color:var(--cma-red);height:30px}
+.age .pm{display:flex;gap:8px}
+.age .pm button{width:52px;height:52px;border-radius:14px;border:1.5px solid rgba(169,185,122,.3);color:var(--bone);font:700 24px/1 var(--font)}
+.slide{animation:sin .5s var(--ease)} @keyframes sin{from{opacity:0;transform:translateY(20px)}}
+/* elaborazione */
+.calc{display:flex;flex-direction:column;align-items:center;text-align:center}
+.calc .rd{width:180px;height:180px;margin:0 auto 26px;border-radius:50%;border:1px solid rgba(169,185,122,.35);position:relative;background:radial-gradient(circle,rgba(40,76,49,.3),transparent 70%)}
+.calc .rd::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 80%,rgba(169,185,122,.45) 100%);animation:spin 1.6s linear infinite}
+.calc .rd::after{content:"";position:absolute;inset:30%;border-radius:50%;border:1px solid rgba(169,185,122,.3)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.calc .log{margin-top:20px;font:500 12px/1.9 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--hud);min-height:6em}
+/* risultato */
+.res{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(20px,4vw,50px);align-items:center;width:min(1080px,100%);margin:auto}
+.res svg.mini{width:100%;max-width:400px;margin:auto;display:block}
+.match{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:18px 20px;border-radius:18px;border:1px solid rgba(169,185,122,.22);background:rgba(242,241,236,.03);margin-top:10px}
+.match .r{font:700 14px/1 'Space Mono',var(--mono);color:var(--hud)}
+.match b{display:block;font:700 19px/1.15 var(--font)}
+.match small{display:block;margin-top:5px;font-size:13.5px;line-height:1.4;color:rgba(242,241,236,.6)}
+.match .pc{font:700 26px/1 'Space Mono',var(--mono)}
+.match .bar{grid-column:2/4;height:4px;border-radius:2px;background:rgba(169,185,122,.15);overflow:hidden}
+.match .bar i{display:block;height:100%;width:0;background:var(--hud);transition:width 1.2s var(--ease)}
+.match.first{border-color:var(--cma-red);background:rgba(205,20,31,.08)}
+.match.first .pc{color:var(--cma-red)} .match.first .bar i{background:var(--cma-red)}
+.match .stamp2{position:absolute;right:16px;top:-16px;left:auto;width:max-content;justify-self:end;padding:6px 10px;border:2.5px solid var(--cma-red);border-radius:6px;background:#1a1f15;font:700 12px/1 'Space Mono',var(--mono);letter-spacing:.14em;color:var(--cma-red);transform:rotate(-8deg) scale(1);opacity:0}
+.match .stamp2.in{animation:stamp .5s cubic-bezier(.2,1.6,.4,1) forwards}
+@keyframes stamp{from{opacity:0;transform:rotate(-8deg) scale(2.4)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
+.warn{margin-top:14px;padding:14px 16px;border-radius:14px;border:1px solid rgba(255,214,107,.4);background:rgba(255,214,107,.06);font-size:14px;line-height:1.45;color:#f6e3b0}
+.disc{margin-top:14px;font-size:13px;line-height:1.5;color:rgba(242,241,236,.5)}
+/* contatto */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px;max-width:640px}
+.form .inp{max-width:none;margin:0;font-size:17px;padding:16px 18px}
+.form .full{grid-column:1/-1}
+.chk{display:flex;gap:12px;align-items:flex-start;margin-top:14px;font-size:14px;line-height:1.4;color:rgba(242,241,236,.65);cursor:pointer;max-width:640px}
+.chk input{width:20px;height:20px;accent-color:var(--cma-red);flex-shrink:0;margin-top:1px}
+.ok{display:flex;flex-direction:column;align-items:center;text-align:center}
+.ok .badge{width:110px}
+body.fx-on{overflow:hidden}
+
+@media (max-width: 900px){ .thero .wrap,.faq .grid,.res{grid-template-columns:1fr} .dossier{max-width:320px;order:-1} .steps{grid-template-columns:1fr} }
+@media (max-width: 600px){ .opts,.opts.three{grid-template-columns:1fr} .form{grid-template-columns:1fr} .thero .ctas .btn{width:100%;justify-content:center} .dossier{max-width:250px} .scr{align-items:flex-start} .qa p{padding-right:0} }
+</style>
+</head>
+<body data-page="test-concorsi" data-branch="conc">
+<div data-lambda-header></div>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="thero" data-theme="dark" aria-labelledby="tTitle">
+    <div class="scan"></div>
+    <div class="wrap">
+      <div>
+        <p class="k" data-reveal>Test Concorsi · gratuito</p>
+        <h1 class="split" id="tTitle">Quale concorso <em>fa per te?</em></h1>
+        <p class="lead" data-reveal>Sei domande su di te: età, studi, requisiti, preferenze, obiettivi e attitudini. Il risultato ti mostra i concorsi delle Forze Armate e di Polizia più compatibili con il tuo profilo, e perché.</p>
+        <div class="chips" data-reveal><span>3 minuti</span><span>6 fasi</span><span>8 corpi analizzati</span><span>Piano concorsi gratuito</span></div>
+        <div class="ctas" data-reveal><a class="btn btn-red magnetic" href="#inizia" data-start><span class="t">Apri il tuo fascicolo →</span></a><span class="small">Nessun impegno.</span></div>
+      </div>
+      <div class="dossier" data-reveal aria-hidden="true">
+        <div class="sheet2"></div>
+        <div class="cover"><span class="tab">FASCICOLO N. ___</span>
+          <p class="ttl">CANDIDATO<br>FORZE ARMATE E DI POLIZIA</p>
+          <div class="seal" id="seal"></div>
+          <div class="lines"><div>Età<b>—</b></div><div>Titolo di studio<b>—</b></div><div>Obiettivo<b>da definire</b></div></div>
+          <span class="stamp">IN ATTESA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COME FUNZIONA ============ -->
+  <section class="how sheet" data-theme="dark" aria-labelledby="hTitle">
+    <div class="wrap">
+      <p class="k" data-reveal>Come funziona</p>
+      <h2 class="split" id="hTitle">Tre passi <em>verso la divisa.</em></h2>
+      <div class="steps" data-reveal>
+        <div class="st"><span class="n">01</span><b>Compili il fascicolo</b><p>Sei fasi, risposte semplici. Nessuna domanda trabocchetto.</p></div>
+        <div class="st"><span class="n">02</span><b>Il radar fa i suoi calcoli</b><p>Incrociamo il tuo profilo con le caratteristiche di otto corpi e percorsi.</p></div>
+        <div class="st"><span class="n">03</span><b>Ricevi il piano concorsi</b><p>I concorsi più adatti, i requisiti da controllare e da dove partire, con un tutor CMA.</p></div>
+      </div>
+      <div class="areas" data-reveal><span>Polizia di Stato</span><span>Carabinieri</span><span>Guardia di Finanza</span><span>Esercito</span><span>Marina Militare</span><span>Aeronautica Militare</span><span>Polizia Penitenziaria</span><span>Accademie</span></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq sheet" data-theme="dark" aria-labelledby="fqTitle">
+    <div class="wrap grid">
+      <div><p class="k" data-reveal>Domande frequenti</p><h2 class="split" id="fqTitle">Prima di <em>iniziare.</em></h2></div>
+      <div data-reveal>
+        <details class="qa" open><summary>Il risultato vale come verifica dei requisiti?<i>+</i></summary><p>No. Il test indica i concorsi più compatibili con il tuo profilo, ma requisiti, limiti di età e prove cambiano a ogni bando: vanno sempre verificati sul bando ufficiale. Un tutor CMA ti aiuta a farlo.</p></details>
+        <details class="qa"><summary>È gratuito?<i>+</i></summary><p>Sì, il test e il piano concorsi sono gratuiti e senza impegno.</p></details>
+        <details class="qa"><summary>Cosa succede dopo?<i>+</i></summary><p>Lasci il tuo contatto e un tutor CMA ti invia il piano concorsi: i bandi da seguire, le prove da preparare e come allenarti con il Metodo EAGLE e il simulatore.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+<div data-lambda-footer></div>
+
+<!-- ============ IL FASCICOLO ============ -->
+<div class="fx" id="fx" role="dialog" aria-modal="true" aria-label="Test Concorsi" aria-hidden="true">
+  <div class="scan"></div>
+  <div class="fx-top">
+    <div class="brand" id="fxBrand"><span>FASCICOLO CANDIDATO</span></div>
+    <div class="fx-steps" id="fxSteps" aria-hidden="true"></div>
+    <button class="fx-close" id="fxClose" type="button" aria-label="Chiudi il test">✕</button>
+  </div>
+  <div class="fx-body" data-lenis-prevent>
+    <section class="scr" data-s="q"><div class="in" id="qBox"></div></section>
+    <section class="scr" data-s="calc"><div class="in calc"><div class="rd" aria-hidden="true"></div><p class="phase">Elaborazione del fascicolo</p><h2>Il radar sta <em>incrociando i dati.</em></h2><p class="log" id="calcLog"></p></div></section>
+    <section class="scr" data-s="res"><div class="res" id="resBox"></div></section>
+    <section class="scr" data-s="lead"><form class="in" id="leadForm" novalidate>
+      <p class="phase">Ultimo passo</p><h2>Ricevi il tuo <em>piano concorsi.</em></h2>
+      <p class="sub">Un tutor CMA ti invia i bandi da seguire per i corpi che ti interessano, le prove da preparare e da dove iniziare. Gratis.</p>
+      <div class="form">
+        <input class="inp" id="lName" type="text" autocomplete="name" placeholder="Nome e cognome" required>
+        <input class="inp" id="lTel" type="tel" autocomplete="tel" placeholder="Telefono / WhatsApp" required>
+        <input class="inp full" id="lMail" type="email" autocomplete="email" placeholder="Email" required>
+      </div>
+      <label class="chk"><input type="checkbox" id="lOk"><span>Ho letto l'informativa privacy e acconsento a essere ricontattato da Concorsi Militari Academy.</span></label>
+      <div class="fnav"><button class="back" type="button" data-go="res">← Torna al risultato</button><button class="btn btn-red" id="lSend" type="submit" disabled><span class="t">Ricevi il piano concorsi →</span></button></div>
+    </form></section>
+    <section class="scr" data-s="ok"><div class="in ok">
+      <div class="badge" id="okSeal"></div>
+      <p class="phase" style="margin-top:22px">Fascicolo inviato</p>
+      <h2>Missione avviata, <em id="okName"></em></h2>
+      <p class="sub" style="margin-inline:auto">Un tutor Concorsi Militari Academy ti contatta a breve con il tuo piano concorsi. Intanto puoi allenarti sul simulatore.</p>
+      <div class="fnav" style="justify-content:center"><a class="btn btn-line" href="concorsi.html"><span class="t">Torna a CMA</span></a></div>
+    </div></section>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/cma-mark.js?v=1"></script>
+<script src="assets/lambda.js?v=17"></script>
+<script>
+gsap.set('#logo', { autoAlpha: 1 });
+(() => {
+  const L = window.Lambda, M = window.CMA_MARK, $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  $('#seal').innerHTML = M.svg({ ring: true }); $('#okSeal').innerHTML = M.svg({ ring: true }); $('#fxBrand').insertAdjacentHTML('afterbegin', M.svg({ ring: false }));
+
+  /* ---------- i corpi e il loro "profilo" (indicativo: requisiti e limiti vanno verificati sul bando) ---------- */
+  const CORPI = {
+    polizia: { n: 'Polizia di Stato', a: -62, d: 0.72 },
+    carabinieri: { n: 'Carabinieri', a: -18, d: 0.5 },
+    gdf: { n: 'Guardia di Finanza', a: 24, d: 0.8 },
+    esercito: { n: 'Esercito', a: 70, d: 0.58 },
+    marina: { n: 'Marina Militare', a: 118, d: 0.78 },
+    aeronautica: { n: 'Aeronautica Militare', a: 160, d: 0.52 },
+    penitenziaria: { n: 'Polizia Penitenziaria', a: 205, d: 0.76 },
+    accademie: { n: 'Accademie (ufficiali)', a: 248, d: 0.4 },
+  };
+  // le sei fasi del fascicolo. w: quanto ogni risposta avvicina a ciascun corpo; why: la motivazione mostrata nel risultato
+  const STEPS = [
+    { k: 'eta', t: 'Quanti anni hai?', sub: 'I limiti di età cambiano da concorso a concorso: è il primo dato che incrociamo.', type: 'age' },
+    { k: 'studio', t: 'Il tuo titolo di studio', sub: 'Quello che hai già, o che otterrai entro l\'anno.', type: 'radio', o: [
+      ['media', 'Licenza media', '', { polizia: -15, accademie: -40, gdf: -6 }],
+      ['diploma', 'Diploma di scuola superiore', '', { accademie: 8 }],
+      ['triennale', 'Laurea triennale', '', { accademie: 6, polizia: 4, gdf: 4 }],
+      ['magistrale', 'Laurea magistrale', '', { accademie: 4, polizia: 6, gdf: 6 }]] },
+    { k: 'req', t: 'Requisiti di base', sub: 'Seleziona quelli che possiedi. Ti serve solo per capire da dove partire.', type: 'multi', o: [
+      ['citt', 'Cittadinanza italiana', 'Richiesta per tutti i concorsi', {}],
+      ['fedina', 'Nessuna condanna penale', 'Richiesto per tutti i concorsi', {}],
+      ['forma', 'Sono in buona forma fisica', 'Ci saranno prove fisiche e visite mediche', { esercito: 6, marina: 4, carabinieri: 3 }],
+      ['patente', 'Ho la patente B', '', { polizia: 3, carabinieri: 3, gdf: 2 }],
+      ['nuoto', 'So nuotare bene', '', { marina: 8 }],
+      ['vfp', 'Sono o sono stato volontario (VFP / VFI)', '', { esercito: 6, carabinieri: 6, polizia: 4, gdf: 4, penitenziaria: 4 }]] },
+    { k: 'pref', t: 'Dove ti vedi?', sub: 'Scegli uno o più ambienti in cui ti piacerebbe lavorare.', type: 'multi', o: [
+      ['territorio', 'Sul territorio, tra i cittadini', 'Sicurezza, controllo, pronto intervento', { polizia: 18, carabinieri: 18 }],
+      ['mare', 'In mare', 'Navi, porti, soccorso', { marina: 22, gdf: 6 }],
+      ['volo', 'In volo e negli aeroporti', 'Aerei, controllo, tecnologia', { aeronautica: 22 }],
+      ['campo', 'Sul campo, all\'aperto', 'Missioni, addestramento, spirito di corpo', { esercito: 22 }],
+      ['indagini', 'Indagini e controlli economici', 'Frodi, contrabbando, finanza', { gdf: 22, polizia: 4 }],
+      ['istituti', 'Negli istituti penitenziari', 'Sicurezza e rieducazione', { penitenziaria: 22 }]] },
+    { k: 'obiettivo', t: 'Il tuo obiettivo', sub: 'Scegli quello che senti più tuo.', type: 'radio', o: [
+      ['presto', 'Entrare il prima possibile', 'Ruoli di agente, carabiniere, volontario', { esercito: 8, marina: 6, aeronautica: 6, carabinieri: 8, polizia: 8, penitenziaria: 8, gdf: 6 }],
+      ['ufficiale', 'Diventare ufficiale', 'Un percorso di comando, con l\'accademia', { accademie: 30 }],
+      ['carriera', 'Un ruolo da ispettore o sottufficiale', 'Più responsabilità, crescita interna', { polizia: 8, gdf: 8, carabinieri: 6, aeronautica: 4, marina: 4 }],
+      ['stabile', 'Stabilità e un lavoro che conta', 'Il posto fisso, al servizio dello Stato', { polizia: 4, penitenziaria: 6, gdf: 4, carabinieri: 4 }]] },
+    { k: 'att', t: 'Le tue attitudini', sub: 'Scegli fino a tre cose in cui ti riconosci.', type: 'multi', max: 3, o: [
+      ['squadra', 'Lavoro di squadra', '', { esercito: 7, marina: 7, carabinieri: 5 }],
+      ['regole', 'Disciplina e rispetto delle regole', '', { esercito: 5, accademie: 5, carabinieri: 5, penitenziaria: 5 }],
+      ['sport', 'Sport e resistenza fisica', '', { esercito: 8, marina: 6 }],
+      ['stress', 'Mantenere la calma sotto pressione', '', { polizia: 7, penitenziaria: 7, carabinieri: 5 }],
+      ['numeri', 'Precisione, numeri, analisi', '', { gdf: 9 }],
+      ['tech', 'Tecnologia e strumenti', '', { aeronautica: 9, marina: 3 }],
+      ['persone', 'Aiutare le persone', '', { polizia: 6, carabinieri: 6, penitenziaria: 6 }],
+      ['guida', 'Guidare e prendere decisioni', '', { accademie: 9 }]] },
+  ];
+  const A = { eta: 20, studio: null, req: new Set(['citt', 'fedina']), pref: new Set(), obiettivo: null, att: new Set() };
+  let si = 0;
+
+  const fx = $('#fx'), qBox = $('#qBox'), body = document.body;
+  $('#fxSteps').innerHTML = STEPS.map(() => '<i></i>').join('');
+  const show = (name) => { $$('.scr', fx).forEach((s) => s.classList.toggle('on', s.dataset.s === name)); $('.fx-body', fx).scrollTop = 0; };
+  const paintSteps = () => $$('#fxSteps i').forEach((b, i) => { b.classList.toggle('done', i < si); b.classList.toggle('on', i === si); });
+
+  function open(e) {
+    fx.classList.add('open'); fx.setAttribute('aria-hidden', 'false'); body.classList.add('fx-on'); L.lenis?.stop();
+    const b = e?.currentTarget?.getBoundingClientRect?.(), at = b ? `${b.left + b.width / 2}px ${b.top + b.height / 2}px` : '50% 50%';
+    gsap.fromTo(fx, { clipPath: `circle(0% at ${at})` }, { clipPath: `circle(150% at ${at})`, duration: L.reduced ? 0 : 0.9, ease: 'expo.inOut', clearProps: 'clipPath' });
+    if (!$('.scr.on', fx)) { si = 0; render(); }
+  }
+  function close() { gsap.to(fx, { opacity: 0, duration: 0.3, onComplete: () => { fx.classList.remove('open'); gsap.set(fx, { clearProps: 'opacity' }); } }); fx.setAttribute('aria-hidden', 'true'); body.classList.remove('fx-on'); L.lenis?.start(); }
+  document.addEventListener('click', (e) => { const a = e.target.closest('[data-start], .hdr-cta'); if (!a) return; e.preventDefault(); open({ currentTarget: a }); });
+  $('#fxClose').addEventListener('click', close);
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && fx.classList.contains('open')) close(); });
+  if (location.hash === '#inizia') setTimeout(() => open(), 300);
+
+  /* ---------- una fase alla volta ---------- */
+  const valid = () => { const S = STEPS[si]; return S.type === 'age' ? true : S.type === 'radio' ? !!A[S.k] : S.k === 'req' || A[S.k].size > 0; };
+  function render() {
+    const S = STEPS[si]; paintSteps();
+    let inner = '';
+    if (S.type === 'age') inner = `<div class="age"><div class="num" id="ageN">${A.eta}<small>ANNI</small></div><div class="pm"><button type="button" data-d="-1" aria-label="Meno un anno">−</button><button type="button" data-d="1" aria-label="Più un anno">+</button></div><input type="range" id="ageR" min="15" max="45" value="${A.eta}" aria-label="La tua età"></div>`;
+    else inner = `<div class="opts${S.o.length > 4 ? '' : ''}">${S.o.map(([v, t, s]) => { const on = S.type === 'radio' ? A[S.k] === v : A[S.k].has(v); return `<button class="op${S.type === 'radio' ? ' radio' : ''}" type="button" data-v="${v}" aria-pressed="${on}"><span class="ck">✓</span><span>${t}${s ? `<small>${s}</small>` : ''}</span></button>`; }).join('')}</div>`;
+    qBox.innerHTML = `<div class="slide"><p class="phase">Fase <b>${String(si + 1).padStart(2, '0')}</b> / 0${STEPS.length} · ${['Età', 'Studi', 'Requisiti', 'Preferenze', 'Obiettivo', 'Attitudini'][si]}</p>
+      <h2>${S.t}</h2><p class="sub">${S.sub}</p>${inner}
+      <div class="fnav">${si ? '<button class="back" type="button" id="qBack">← Indietro</button>' : '<span></span>'}<button class="btn btn-red" type="button" id="qNext" ${valid() ? '' : 'disabled'}><span class="t">${si === STEPS.length - 1 ? 'Elabora il fascicolo →' : 'Avanti →'}</span></button></div></div>`;
+    show('q');
+    if (S.type === 'age') {
+      const set = (v) => { A.eta = Math.max(15, Math.min(45, v)); $('#ageN').firstChild.nodeValue = A.eta; $('#ageR').value = A.eta; };
+      $('#ageR').addEventListener('input', (e) => set(+e.target.value));
+      $$('.pm button', qBox).forEach((b) => b.addEventListener('click', () => set(A.eta + +b.dataset.d)));
+    }
+  }
+  qBox.addEventListener('click', (e) => {
+    const S = STEPS[si], b = e.target.closest('.op');
+    if (b) {
+      const v = b.dataset.v;
+      if (S.type === 'radio') { A[S.k] = v; $$('.op', qBox).forEach((x) => x.setAttribute('aria-pressed', String(x === b))); }
+      else { const set = A[S.k]; if (set.has(v)) set.delete(v); else { if (S.max && set.size >= S.max) return; set.add(v); } b.setAttribute('aria-pressed', String(set.has(v))); }
+      $('#qNext').disabled = !valid(); return;
+    }
+    if (e.target.closest('#qBack')) { si--; render(); }
+    if (e.target.closest('#qNext')) { if (si < STEPS.length - 1) { si++; render(); } else compute(); }
+  });
+
+  /* ---------- il calcolo della compatibilità ---------- */
+  function compute() {
+    si = STEPS.length; paintSteps(); show('calc');
+    const sc = Object.fromEntries(Object.keys(CORPI).map((k) => [k, 38])), why = Object.fromEntries(Object.keys(CORPI).map((k) => [k, []]));
+    const add = (w, label) => Object.entries(w).forEach(([k, v]) => { sc[k] += v; if (v >= 6 && label) why[k].push(label); });
+    // età (indicativa: i limiti esatti sono nel bando)
+    const e = A.eta;
+    Object.keys(sc).forEach((k) => { if (e < 17) sc[k] -= 30; });
+    ['esercito', 'marina', 'aeronautica'].forEach((k) => { if (e > 25) sc[k] -= 22; else if (e <= 24) sc[k] += 6; });
+    ['polizia', 'carabinieri', 'gdf'].forEach((k) => { if (e > 28) sc[k] -= 20; else if (e >= 18 && e <= 26) sc[k] += 6; });
+    if (e > 30) sc.penitenziaria -= 14; else if (e >= 18 && e <= 28) sc.penitenziaria += 6;
+    if (e > 22) sc.accademie -= 30; else if (e >= 17) sc.accademie += 8;
+    STEPS.forEach((S) => { if (!S.o) return; S.o.forEach(([v, t, , w]) => { const on = S.type === 'radio' ? A[S.k] === v : A[S.k].has(v); if (on && S.k !== 'req') add(w, S.k === 'pref' ? `Ti vedi ${t.charAt(0).toLowerCase() + t.slice(1)}` : S.k === 'att' ? `Ti riconosci in: ${t.toLowerCase()}` : S.k === 'obiettivo' ? `Il tuo obiettivo: ${t.toLowerCase()}` : ''); else if (on) add(w, ''); }); });
+    const gate = !A.req.has('citt') || !A.req.has('fedina');
+    const list = Object.entries(sc).map(([k, v]) => [k, Math.max(8, Math.min(gate ? 40 : 96, Math.round(v)))]).sort((a, b) => b[1] - a[1]);
+    const log = $('#calcLog'), lines = ['Età e studi · verificati', 'Requisiti di base · registrati', 'Preferenze · 8 corpi confrontati', 'Obiettivo e attitudini · incrociati', 'Profilo di compatibilità · pronto'];
+    log.innerHTML = ''; lines.forEach((l, i) => setTimeout(() => (log.innerHTML += `> ${l}<br>`), (L.reduced ? 0 : 380) * (i + 1)));
+    setTimeout(() => result(list, why, gate), L.reduced ? 100 : 2400);
+  }
+
+  /* ---------- il risultato: il radar aggancia i corpi compatibili ---------- */
+  function result(list, why, gate) {
+    const top = list.slice(0, 3);
+    const R = 150, c = 170, pos = (k, rr = 1) => { const { a, d } = CORPI[k], th = (a * Math.PI) / 180; return [c + R * d * rr * Math.cos(th), c + R * d * rr * Math.sin(th)]; };
+    const mini = `<svg class="mini" viewBox="0 0 340 340" role="img" aria-label="Radar: i corpi più compatibili con il tuo profilo">
+      <circle cx="${c}" cy="${c}" r="${R}" fill="rgba(40,76,49,.25)" stroke="rgba(169,185,122,.35)"/>${[0.25, 0.5, 0.75].map((k) => `<circle cx="${c}" cy="${c}" r="${R * k}" fill="none" stroke="rgba(169,185,122,.2)"/>`).join('')}
+      <path d="M${c - R} ${c}H${c + R}M${c} ${c - R}V${c + R}" stroke="rgba(169,185,122,.2)"/>
+      ${Object.keys(CORPI).map((k) => { const [x, y] = pos(k), t = top.findIndex(([kk]) => kk === k); return t < 0 ? `<circle cx="${x}" cy="${y}" r="3" fill="rgba(218,219,218,.35)"/>`
+        : `<g class="tg" style="opacity:0"><line x1="${c}" y1="${c}" x2="${x}" y2="${y}" stroke="${t ? '#a9b97a' : '#CD141F'}" stroke-dasharray="4 5"/><circle cx="${x}" cy="${y}" r="${t ? 5 : 7}" fill="${t ? '#a9b97a' : '#CD141F'}"/><circle cx="${x}" cy="${y}" r="${t ? 12 : 16}" fill="none" stroke="${t ? '#a9b97a' : '#CD141F'}"/><text x="${x}" y="${y - 20}" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#F2F1EC">${t + 1}</text></g>`; }).join('')}
+      <g transform="translate(${c} ${c}) scale(.07) translate(-410 -425)"><path fill="#284C31" d="M${M.green.map((p) => p.join(' ')).join(' L')}Z"/><path fill="#DADBDA" d="M${M.grey.map((p) => p.join(' ')).join(' L')}Z"/><path fill="#CD141F" d="M${M.red.map((p) => p.join(' ')).join(' L')}Z"/></g></svg>`;
+    $('#resBox').innerHTML = `<div>${mini}</div><div>
+      <p class="phase">Esito del fascicolo</p><h2>I tuoi obiettivi <em>più compatibili.</em></h2>
+      ${top.map(([k, p], i) => `<div class="match${i ? '' : ' first'}">${i ? '' : '<span class="stamp2">COMPATIBILE</span>'}<span class="r">0${i + 1}</span><div><b>${CORPI[k].n}</b><small>${(why[k].slice(0, 2).join(' · ') || 'In linea con il tuo profilo generale')}</small></div><span class="pc">${p}%</span><div class="bar"><i data-w="${p}"></i></div></div>`).join('')}
+      ${gate ? '<div class="warn">Attenzione: cittadinanza italiana e assenza di condanne penali sono richieste per i concorsi delle Forze Armate e di Polizia. Parlane con un tutor prima di iniziare.</div>' : ''}
+      <p class="disc">Risultato indicativo: requisiti, limiti di età e prove cambiano a ogni bando e vanno sempre verificati sul bando ufficiale.</p>
+      <div class="fnav"><button class="back" type="button" id="redo">↺ Rifai il test</button><button class="btn btn-red" type="button" data-go="lead"><span class="t">Ricevi il tuo piano concorsi →</span></button></div></div>`;
+    show('res');
+    requestAnimationFrame(() => {
+      $$('.match .bar i', fx).forEach((b, i) => setTimeout(() => (b.style.width = b.dataset.w + '%'), 200 + i * 150));
+      gsap.to($$('.tg', fx), { opacity: 1, duration: 0.5, stagger: 0.2, delay: 0.3 });
+      setTimeout(() => $('.stamp2', fx)?.classList.add('in'), L.reduced ? 0 : 1000);
+    });
+  }
+  fx.addEventListener('click', (e) => {
+    const g = e.target.closest('[data-go]'); if (g) { show(g.dataset.go); if (g.dataset.go === 'lead') check(); }
+    if (e.target.closest('#redo')) { si = 0; render(); }
+  });
+
+  /* ---------- il contatto (prototipo: nessun dato viene inviato) ---------- */
+  const check = () => { $('#lSend').disabled = !($('#lName').value.trim() && $('#lTel').value.replace(/\D/g, '').length >= 8 && /\S+@\S+\.\S+/.test($('#lMail').value) && $('#lOk').checked); };
+  $('#leadForm').addEventListener('input', check); $('#leadForm').addEventListener('change', check);
+  $('#leadForm').addEventListener('submit', (e) => { e.preventDefault(); if ($('#lSend').disabled) return; /* TODO: collegare al CRM di CMA (contatti + risposte + compatibilità) */ $('#okName').textContent = $('#lName').value.trim().split(' ')[0] + '.'; show('ok'); });
+})();
+</script>
+</body>
+</html>

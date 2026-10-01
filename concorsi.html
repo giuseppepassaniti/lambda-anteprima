@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%231d2a18%22/%3E%3Cpath%20d%3D%22M32%208l6.5%2017.5H57L42%2036.5l5.5%2018L32%2043.5%2016.5%2054.5%2022%2036.5%207%2025.5h18.5z%22%20fill%3D%22%23CD141F%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Concorsi Militari Academy · Preparazione concorsi Forze Armate e di Polizia</title>
+<meta name="description" content="Preparati oggi per il tuo domani: orientamento, Metodo EAGLE, tutor dedicato, banca dati e simulatore per i concorsi delle Forze Armate e di Polizia. Online, in tutta Italia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=8">
+<style>
+/* =================== CONCORSI MILITARI ACADEMY · home =================== */
+body{background:var(--ink)}
+:root{--cma-green:#284C31;--cma-red:#CD141F;--cma-grey:#DADBDA;--hud:#a9b97a}
+
+/* ---------- intro 3D del logo ---------- */
+.cintro{position:fixed;inset:0;z-index:100}
+.cintro-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 45%, #1f2a1a 0%, #0f130d 55%, #060705 100%)}
+.cintro-bg::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0 1px,transparent 1px 4px);pointer-events:none}
+#cintro3d{position:absolute;inset:0;width:100%;height:100%}
+.cclaim{position:absolute;left:0;right:0;bottom:9vh;text-align:center;font:500 13px/1 var(--mono);letter-spacing:.32em;text-transform:uppercase;color:#DADBDA;opacity:0}
+.cskip{position:absolute;right:24px;bottom:24px;padding:10px 16px;border-radius:999px;border:1px solid rgba(218,219,218,.3);color:rgba(218,219,218,.75);font:500 11px/1 var(--mono);letter-spacing:.16em}
+.cskip:hover{color:#fff;border-color:#fff}
+body.intro-on{overflow:hidden}
+@media (max-width:560px){ .cclaim{font-size:10px;letter-spacing:.2em;bottom:13vh} .cskip{right:50%;transform:translateX(50%);bottom:20px} }
+
+/* ---------- HERO: il radar dei percorsi ---------- */
+.chero{position:relative;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;
+  background:radial-gradient(ellipse 60% 70% at 72% 48%, #22301d 0%, #121710 50%, var(--ink) 100%)}
+.chero::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.016) 0 1px,transparent 1px 4px)}
+.chero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,70px);align-items:center;padding-top:calc(var(--hdr) + 30px);padding-bottom:30px}
+.chero .copy,.chero .rwrap{transition:opacity 1s .2s,transform 1.2s .2s var(--ease)}
+body.intro-on .chero .copy{opacity:0;transform:translateY(24px)}
+body.intro-on .chero .rwrap{opacity:0;transform:scale(.94)}
+.lbl{display:flex;align-items:center;gap:12px;font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)}
+.tricolore{display:inline-flex;height:6px;width:36px;border-radius:3px;overflow:hidden}.tricolore i{flex:1}
+.chero h1{margin-top:22px;font:700 clamp(46px,5.8vw,98px)/.93 var(--font);letter-spacing:-.05em;color:var(--bone)}
+.chero h1 em{font-style:normal;color:var(--cma-red)}
+.chero .lead{margin-top:22px;max-width:44ch;font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:rgba(242,241,236,.72)}
+.chero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn-red{background:var(--cma-red);color:#fff}
+.btn-red:hover{box-shadow:0 14px 40px -10px rgba(205,20,31,.7)}
+.btn-line{border:1.5px solid rgba(218,219,218,.35);color:var(--bone)}
+.btn-line:hover{border-color:var(--bone);background:rgba(255,255,255,.05)}
+.btn-line .ic{display:inline-block;width:8px;height:8px;margin-right:4px;border-radius:50%;background:var(--hud);box-shadow:0 0 10px var(--hud)}
+.ctrust{list-style:none;display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;font-size:14px;color:rgba(242,241,236,.65)}
+.ctrust li{display:flex;align-items:center;gap:10px}
+.ctrust b{color:var(--bone)}
+
+/* il radar */
+.rwrap{position:relative;justify-self:center;width:min(100%,600px)}
+.radar{position:relative;aspect-ratio:1/1}
+#radar{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair}
+.hud{position:absolute;font:500 10.5px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(169,185,122,.8);pointer-events:none}
+.hud b{color:var(--bone);font-weight:500}
+.hud.tl{left:0;top:0} .hud.tr{right:0;top:0;text-align:right} .hud.bl{left:0;bottom:0} .hud.br{right:0;bottom:0;text-align:right}
+.hud .rec{display:inline-block;width:7px;height:7px;margin-right:6px;border-radius:50%;background:var(--cma-red);animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.hud.bl b#tgt{color:var(--cma-red)}
+.hud.br a{pointer-events:auto;color:var(--bone);border-bottom:1px solid currentColor}
+.corpi{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:16px}
+.corpi button{padding:8px 11px;border-radius:999px;border:1px solid rgba(169,185,122,.28);font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(242,241,236,.7);transition:background .3s,border-color .3s,color .3s}
+.corpi button:hover,.corpi button[aria-pressed="true"]{background:rgba(205,20,31,.16);border-color:var(--cma-red);color:#fff}
+
+/* nastro delle prove */
+.ticker{position:relative;z-index:2;margin-top:auto;border-top:1px solid rgba(169,185,122,.18);border-bottom:1px solid rgba(169,185,122,.18);overflow:hidden;background:rgba(0,0,0,.25)}
+.ticker .row{display:flex;width:max-content;animation:tick 38s linear infinite}
+.ticker span{display:flex;align-items:center;gap:18px;padding:14px 18px;font:700 13px/1 'Space Mono',var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(218,219,218,.8);white-space:nowrap}
+.ticker span::after{content:"";width:6px;height:6px;background:var(--cma-red);transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+.orient{position:relative;background:#0d100b;padding:clamp(100px,13vh,150px) 0;overflow:hidden}
+.orient .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.orient h2{margin-top:14px;font:700 clamp(34px,4vw,62px)/1 var(--font);letter-spacing:-.045em;color:var(--bone)}
+.orient h2 em{font-style:normal;color:var(--cma-red)}
+.orient .lead{margin-top:18px;max-width:46ch;font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:rgba(242,241,236,.7)}
+.orient .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.phases{list-style:none;display:grid;gap:8px;counter-reset:ph}
+.phases li{counter-increment:ph;display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;background:rgba(242,241,236,.03);border:1px solid rgba(169,185,122,.18);color:var(--bone);font:700 17px/1.2 var(--font);opacity:.45;transform:translateX(16px);transition:opacity .5s,transform .6s var(--ease),border-color .5s}
+.phases li::before{content:"0" counter(ph);font:700 14px/1 'Space Mono',var(--mono);color:var(--hud)}
+.phases li small{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(242,241,236,.45)}
+.phases.in li{opacity:1;transform:none}
+.phases li.on{border-color:var(--cma-red);background:rgba(205,20,31,.08)}
+.phases li.on::before{color:var(--cma-red)}
+@media (max-width: 980px){ .orient .grid{grid-template-columns:1fr} }
+.corps{position:relative;background:var(--ink);padding:clamp(100px,13vh,150px) 0;overflow:hidden}
+.corps .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.corps h2{margin-top:14px;font:700 clamp(34px,4vw,62px)/1 var(--font);letter-spacing:-.045em;color:var(--bone)}
+.corps h2 em{font-style:normal;color:var(--cma-red)}
+.corps .lead{max-width:40ch;font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:rgba(242,241,236,.7)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:12px;margin-top:44px;perspective:1000px}
+.cc{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:24px 16px 20px;border-radius:20px;background:linear-gradient(170deg,rgba(242,241,236,.06),rgba(242,241,236,.02));border:1.5px solid rgba(169,185,122,.18);color:var(--bone);transform-style:preserve-3d;transition:border-color .3s,background .3s,box-shadow .4s}
+.cc .patch{width:clamp(70px,7vw,96px);height:auto;filter:drop-shadow(0 12px 18px rgba(0,0,0,.5));transform:translateZ(30px);transition:transform .5s var(--ease)}
+.cc b{font:700 17px/1.15 var(--font);transform:translateZ(18px)}
+.cc small{font:500 10.5px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(242,241,236,.5);transform:translateZ(12px)}
+.cc:hover{border-color:rgba(242,241,236,.35)}
+.cc:hover .patch{transform:translateZ(40px) scale(1.05)}
+.cc[aria-selected="true"]{border-color:var(--cma-red);background:linear-gradient(170deg,rgba(205,20,31,.14),rgba(205,20,31,.03));box-shadow:0 30px 60px -30px rgba(205,20,31,.5)}
+.cc[aria-selected="true"] small{color:#f3c9cc}
+.cdetail{position:relative;display:grid;grid-template-columns:auto 1.2fr 1fr;gap:clamp(20px,3vw,44px);align-items:center;margin-top:14px;padding:clamp(24px,3vw,40px);border-radius:28px;background:linear-gradient(160deg,#1a2215,#0e120c);border:1px solid rgba(169,185,122,.22);overflow:hidden}
+.cdetail::before{content:attr(data-code);position:absolute;right:-10px;bottom:-40px;font:700 200px/1 'Space Mono',var(--mono);color:rgba(242,241,236,.03);pointer-events:none}
+.cdetail .big .patch{width:clamp(110px,11vw,160px);height:auto;filter:drop-shadow(0 20px 30px rgba(0,0,0,.6))}
+.cdetail .k2{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--hud)}
+.cdetail h3{margin-top:10px;font:700 clamp(28px,2.8vw,42px)/1 var(--font);letter-spacing:-.04em;color:var(--bone)}
+.cdetail p.w{margin-top:12px;font-size:16px;line-height:1.5;color:rgba(242,241,236,.72)}
+.cdetail .roles{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.cdetail .roles span{padding:8px 12px;border-radius:10px;background:rgba(205,20,31,.12);border:1px solid rgba(205,20,31,.4);font:700 13px/1 var(--font);color:#fff}
+.cdetail .env{margin-top:12px;font:500 11px/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(242,241,236,.5)}
+.cdetail .tests{list-style:none;display:grid;gap:8px}
+.cdetail .tests li{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(242,241,236,.04);font-size:15px;color:rgba(242,241,236,.85)}
+.cdetail .tests li i{font-style:normal;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:rgba(169,185,122,.15);font:700 12px/1 'Space Mono',var(--mono);color:var(--hud)}
+.cdetail .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.cdetail .soon{display:inline-flex;align-items:center;padding:12px 16px;border-radius:999px;border:1px dashed rgba(169,185,122,.35);font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(242,241,236,.5)}
+.cdetail.swap .big,.cdetail.swap .info,.cdetail.swap .side{animation:cds .55s var(--ease) both}
+.cdetail.swap .info{animation-delay:.05s} .cdetail.swap .side{animation-delay:.1s}
+.cdetail.swap .big{animation-name:cdp}
+@keyframes cds{from{opacity:0;transform:translateY(14px)}}
+@keyframes cdp{from{opacity:0;transform:rotate(-18deg) scale(.7)}}
+.note-b{margin-top:14px;font-size:13px;color:rgba(242,241,236,.45)}
+@media (max-width: 1100px){ .cdetail{grid-template-columns:auto 1fr} .cdetail .side{grid-column:1/-1} }
+@media (max-width: 760px){ .cgrid{grid-template-columns:1fr 1fr} .cdetail{grid-template-columns:1fr;text-align:left} .cdetail .big{display:none} }
+.eagle{position:relative;height:640vh;background:#0b0e0a}
+.eagle .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 50% 40%, #1c2618 0%, #0e120c 60%, #070906 100%)}
+.eagle .stage::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.014) 0 1px,transparent 1px 4px)}
+.eagle .lbl2{position:absolute;left:var(--gutter);top:calc(var(--hdr) + 18px);font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)}
+.eagle .open{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:0 24px;pointer-events:none}
+.eagle .open h2{font:700 clamp(36px,5vw,80px)/1 var(--font);letter-spacing:-.05em;color:var(--bone)}
+.eagle .open h2 em{font-style:normal;color:var(--cma-red)}
+.eagle .open p{margin-top:16px;font:500 13px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--hud)}
+.erow{position:absolute;left:50%;top:calc(var(--hdr) + 7vh);transform:translateX(-50%);display:flex;gap:clamp(14px,3.4vw,60px)}
+.el{font:700 clamp(64px,9.5vw,150px)/1 'Space Mono',var(--mono);color:transparent;-webkit-text-stroke:2px rgba(218,219,218,.28);transition:color .45s,-webkit-text-stroke-color .45s,transform .6s var(--ease),text-shadow .45s}
+.el.done{color:rgba(169,185,122,.35);-webkit-text-stroke-color:transparent}
+.el.on{color:var(--cma-red);-webkit-text-stroke-color:transparent;transform:translateY(-8px);text-shadow:1px 1px 0 #8e0d16,2px 2px 0 #8e0d16,3px 3px 0 #7a0b13,4px 4px 0 #6a0a10,10px 16px 30px rgba(0,0,0,.6)}
+#eRoute{position:absolute;left:0;right:0;top:calc(var(--hdr) + 7vh + clamp(64px,9.5vw,150px) + 18px);width:100%;height:60px;overflow:visible}
+#eRoute .base{fill:none;stroke:rgba(169,185,122,.25);stroke-width:2;stroke-dasharray:4 8}
+#eRoute .done{fill:none;stroke:var(--cma-red);stroke-width:2.5}
+#eRoute .wp{fill:#0e120c;stroke:rgba(169,185,122,.5);stroke-width:2}
+#eRoute .wp.on{fill:var(--cma-red);stroke:var(--cma-red)}
+#eRoute .jet{fill:var(--bone)}
+.epanels{position:absolute;left:50%;top:calc(var(--hdr) + 7vh + clamp(64px,9.5vw,150px) + 96px);width:min(1000px,92vw);transform:translateX(-50%)}
+.ep{position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(18px,3vw,44px);align-items:center;opacity:0;will-change:opacity,transform}
+.ep .k3{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--hud)}
+.ep h3{margin-top:10px;font:700 clamp(28px,3vw,46px)/1 var(--font);letter-spacing:-.04em;color:var(--bone)}
+.ep h3 span{color:var(--cma-red)}
+.ep p{margin-top:12px;font-size:clamp(15px,1.25vw,18px);line-height:1.5;color:rgba(242,241,236,.72)}
+.demo2{position:relative;height:clamp(190px,26vh,250px);border-radius:20px;background:rgba(242,241,236,.04);border:1px solid rgba(169,185,122,.2);overflow:hidden}
+.demo2 .cap{position:absolute;left:16px;top:14px;font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(169,185,122,.8)}
+/* E · memoria: le domande si condensano */
+.qc{position:absolute;left:50%;top:55%;width:150px;padding:10px 12px;margin:-28px 0 0 -75px;border-radius:10px;background:#1b2216;border:1px solid rgba(169,185,122,.3);font:500 10px/1.35 var(--mono);color:rgba(242,241,236,.7);will-change:transform,opacity}
+.qc.main{z-index:2;background:#22301d;border-color:var(--hud)}
+.qc.main.ok{border-color:var(--cma-red);box-shadow:0 0 0 4px rgba(205,20,31,.15),0 20px 40px -10px rgba(205,20,31,.4)}
+.memo{position:absolute;right:16px;bottom:14px;font:700 12px/1 'Space Mono',var(--mono);letter-spacing:.12em;color:var(--cma-red);opacity:0}
+/* A · richiamo: il cronometro */
+.recall{position:absolute;inset:44px 20px 20px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.recall .q{font:700 clamp(16px,1.4vw,20px)/1.3 var(--font);color:var(--bone)}
+.recall .ans{margin-top:10px;font:700 18px/1 'Space Mono',var(--mono);color:var(--cma-red);opacity:0}
+.watch{position:relative;width:110px;height:110px}
+.watch svg{width:100%;height:100%;transform:rotate(-90deg)}
+.watch .tr{fill:none;stroke:rgba(169,185,122,.18);stroke-width:8}
+.watch .fg{fill:none;stroke:var(--hud);stroke-width:8;stroke-linecap:round}
+.watch b{position:absolute;inset:0;display:grid;place-items:center;font:700 22px/1 'Space Mono',var(--mono);color:var(--bone)}
+/* G · gestione: il piano della settimana */
+.week{position:absolute;inset:48px 20px 34px;display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end}
+.week div{display:flex;flex-direction:column-reverse;gap:4px;height:100%}
+.week i{display:block;height:0;border-radius:4px;background:var(--hud);transition:none}
+.week i.r{background:var(--cma-red)}
+.week span{font:500 10px/1 var(--mono);color:rgba(242,241,236,.5);text-align:center;margin-top:6px}
+.wlab{position:absolute;right:16px;bottom:12px;font:500 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(242,241,236,.6)}
+/* L · leadership: dall'ansia alla lucidità */
+.pulse{position:absolute;inset:40px 0 30px;width:100%;height:calc(100% - 70px)}
+.pulse path{fill:none;stroke-width:3;stroke-linejoin:round}
+.plab{position:absolute;right:16px;bottom:12px;font:700 12px/1 'Space Mono',var(--mono);letter-spacing:.14em}
+/* E · esame: la simulazione */
+.exam{position:absolute;inset:44px 20px 20px;display:flex;align-items:center;gap:24px}
+.exam .sc{font:700 clamp(54px,6vw,84px)/1 'Space Mono',var(--mono);color:var(--bone)}
+.exam .sc small{font-size:.32em;color:rgba(242,241,236,.5)}
+.exam .rows{flex:1;display:grid;gap:7px}
+.exam .rows i{display:block;height:8px;border-radius:4px;background:rgba(169,185,122,.18);overflow:hidden}
+.exam .rows i b{display:block;height:100%;width:0;background:var(--hud)}
+.stampE{position:absolute;right:22px;top:20px;padding:8px 12px;border:3px solid var(--cma-red);border-radius:8px;font:700 16px/1 'Space Mono',var(--mono);letter-spacing:.16em;color:var(--cma-red);transform:rotate(-10deg) scale(2);opacity:0}
+.eagle .close{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:0 24px;pointer-events:none}
+.eagle .close p{font:700 clamp(30px,4.4vw,64px)/1.02 var(--font);letter-spacing:-.045em;color:var(--bone);opacity:0}
+.eagle .close p em{font-style:normal;color:var(--cma-red)}
+/* dopo la missione: il percorso, cosa cambia, i percorsi */
+.eafter{background:#0b0e0a;padding:clamp(70px,9vh,110px) 0 clamp(100px,13vh,150px)}
+.esteps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px;counter-reset:es}
+.es{position:relative;padding:20px 18px;border-radius:18px;background:rgba(242,241,236,.04);border:1px solid rgba(169,185,122,.18)}
+.es small{font:700 12px/1 'Space Mono',var(--mono);color:var(--cma-red)}
+.es b{display:block;margin-top:10px;font:700 18px/1.15 var(--font);color:var(--bone)}
+.es p{margin-top:8px;font-size:14px;line-height:1.45;color:rgba(242,241,236,.62)}
+.egrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);margin-top:60px;align-items:start}
+.egrid h3{font:700 clamp(24px,2.2vw,32px)/1.1 var(--font);letter-spacing:-.03em;color:var(--bone)}
+.change{list-style:none;display:grid;gap:8px;margin-top:18px}
+.change li{display:flex;gap:12px;padding:14px 16px;border-radius:14px;background:rgba(242,241,236,.04);font-size:15.5px;line-height:1.4;color:rgba(242,241,236,.82)}
+.change li::before{content:"✓";flex-shrink:0;width:22px;height:22px;border-radius:6px;display:grid;place-items:center;background:var(--cma-red);color:#fff;font-size:12px}
+.paths2{display:grid;gap:10px;margin-top:18px}
+.pth{display:block;padding:22px;border-radius:20px;background:linear-gradient(160deg,#1f2a1a,#11160e);border:1px solid rgba(169,185,122,.25);transition:border-color .3s,transform .4s var(--ease)}
+.pth:hover{border-color:var(--cma-red);transform:translateY(-3px)}
+.pth small{font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hud)}
+.pth b{display:block;margin-top:8px;font:700 21px/1.1 var(--font);color:var(--bone)}
+.pth p{margin-top:8px;font-size:14.5px;line-height:1.45;color:rgba(242,241,236,.65)}
+@media (max-width: 860px){ .ep{grid-template-columns:1fr} .esteps{grid-template-columns:1fr 1fr} .egrid{grid-template-columns:1fr} .demo2{height:170px} .epanels{top:calc(var(--hdr) + 7vh + 19vw + 70px)} }
+@media (max-width: 560px){ .eagle{height:560vh} .esteps{grid-template-columns:1fr} .ep p{font-size:14.5px} }
+@media (prefers-reduced-motion: reduce){ .eagle{height:auto} .eagle .stage{position:relative;height:auto;padding:140px 0 60px} .erow,#eRoute,.eagle .open,.eagle .close{display:none} .epanels{position:relative;left:auto;top:auto;transform:none;margin:0 auto;display:grid;gap:40px} .ep{position:relative;opacity:1} }
+.cres{position:relative;background:var(--ink);padding:clamp(100px,13vh,150px) 0;overflow:hidden}
+.cres .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.cres h2{margin-top:14px;font:700 clamp(34px,4vw,62px)/1 var(--font);letter-spacing:-.045em;color:var(--bone)}
+.cres h2 em{font-style:normal;color:var(--cma-red)}
+.cres .lead{max-width:42ch;font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:rgba(242,241,236,.7)}
+.rtop{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:44px}
+.big96{position:relative;display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,40px);align-items:center;padding:clamp(24px,3vw,40px);border-radius:28px;background:linear-gradient(160deg,#1c2618,#0e120c);border:1px solid rgba(169,185,122,.22);overflow:hidden}
+.ring96{position:relative;width:clamp(160px,15vw,220px);aspect-ratio:1}
+.ring96 svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring96 .tr{fill:none;stroke:rgba(169,185,122,.15);stroke-width:10}
+.ring96 .fg{fill:none;stroke:var(--cma-red);stroke-width:10;stroke-linecap:round;stroke-dasharray:578;stroke-dashoffset:578;transition:stroke-dashoffset 2s var(--ease)}
+.big96.in .ring96 .fg{stroke-dashoffset:23}
+.ring96 b{position:absolute;inset:0;display:grid;place-items:center;font:700 clamp(46px,4.6vw,66px)/1 'Space Mono',var(--mono);color:var(--bone)}
+.big96 .k2{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--hud)}
+.big96 p.s{margin-top:10px;font:700 clamp(22px,2.2vw,32px)/1.12 var(--font);letter-spacing:-.03em;color:var(--bone)}
+.big96 small{display:block;margin-top:12px;font-size:13px;color:rgba(242,241,236,.5)}
+.minis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.minis div{padding:14px 16px;border-radius:14px;background:rgba(242,241,236,.04)}
+.minis b{display:block;font:700 26px/1 'Space Mono',var(--mono);color:var(--bone)}
+.minis b small{display:inline;font-size:.5em;margin:0;color:rgba(242,241,236,.5)}
+.minis div>span{display:block;margin-top:6px;font-size:13px;color:rgba(242,241,236,.6)}
+.guar{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(24px,3vw,36px);border-radius:28px;background:var(--cma-red);color:#fff;overflow:hidden}
+.guar::after{content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border-radius:50%;border:2px dashed rgba(255,255,255,.25)}
+.guar .seal2{position:absolute;right:20px;top:20px;width:96px;opacity:.95;filter:drop-shadow(0 10px 20px rgba(0,0,0,.35));transform:rotate(-12deg) scale(1.6);opacity:0;transition:transform .6s cubic-bezier(.2,1.6,.4,1),opacity .3s}
+.guar.in .seal2{transform:rotate(-12deg) scale(1);opacity:1}
+.guar .k2{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.guar h3{margin-top:12px;max-width:12ch;font:700 clamp(30px,3vw,46px)/1 var(--font);letter-spacing:-.04em}
+.guar p{margin-top:14px;max-width:34ch;font-size:16px;line-height:1.45;color:rgba(255,255,255,.88)}
+.guar a{position:relative;z-index:1;align-self:flex-start;margin-top:22px;padding:12px 18px;border-radius:999px;background:#fff;color:var(--cma-red);font-weight:700;font-size:14px}
+.dossiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.dsr{position:relative;padding:22px;border-radius:22px;background:#d9d4c3;color:#1a1d16;overflow:hidden;box-shadow:0 30px 60px -30px #000}
+.dsr::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.025) 0 1px,transparent 1px 22px);pointer-events:none}
+.dsr .hd{display:flex;justify-content:space-between;font:700 11px/1 'Space Mono',var(--mono);letter-spacing:.12em;color:#5d6150}
+.dsr dl{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;margin-top:18px;font:500 11px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.dsr dt{color:#6b6e5e}
+.dsr dd{margin:0}
+.red{display:inline-block;height:12px;border-radius:2px;background:#1a1d16;vertical-align:middle}
+.dsr blockquote{margin-top:18px;display:grid;gap:7px}
+.dsr blockquote .red{height:11px;opacity:.85}
+.dsr .st3{position:absolute;right:18px;top:42%;padding:8px 12px;border:3px solid var(--cma-red);border-radius:8px;font:700 15px/1 'Space Mono',var(--mono);letter-spacing:.16em;color:var(--cma-red);transform:rotate(-14deg);background:rgba(217,212,195,.6)}
+.dsr.cta{background:linear-gradient(160deg,#1f2a1a,#11160e);color:var(--bone);display:flex;flex-direction:column;justify-content:center;border:1px dashed rgba(169,185,122,.35)}
+.dsr.cta::before{display:none}
+.dsr.cta b{font:700 22px/1.15 var(--font)}
+.dsr.cta p{margin-top:10px;font-size:14.5px;line-height:1.45;color:rgba(242,241,236,.65)}
+.dsr.cta a{margin-top:16px;align-self:flex-start;font-weight:700;color:var(--cma-red)}
+.rnote{margin-top:14px;font-size:13px;color:rgba(242,241,236,.45)}
+@media (max-width: 1000px){ .rtop{grid-template-columns:1fr} .dossiers{grid-template-columns:1fr 1fr} }
+@media (max-width: 640px){ .big96{grid-template-columns:1fr;justify-items:start} .dossiers{grid-template-columns:1fr} .guar .seal2{width:70px} }
+/* ---------- simulatore ---------- */
+.simsoon{background:#0b0e0a;padding:clamp(60px,8vh,90px) 0}
+.simsoon .box{transition:border-color .3s,background .3s;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:24px 28px;border-radius:22px;border:1px dashed rgba(169,185,122,.35);background:rgba(242,241,236,.03)}
+.simsoon b{display:block;font:700 22px/1.1 var(--font);color:var(--bone)}
+.simsoon small{display:block;margin-top:6px;font-size:14.5px;color:rgba(242,241,236,.6)}
+.simsoon a.box:hover{border-color:var(--hud);background:rgba(242,241,236,.06)}
+.simsoon a.box:hover .tag{background:var(--cma-red);border-color:var(--cma-red);color:#fff}
+.simsoon .tag{transition:background .3s,color .3s;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hud);padding:10px 14px;border-radius:999px;border:1px solid rgba(169,185,122,.35)}
+/* ---------- invito finale ---------- */
+.cfinal{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:clamp(110px,14vh,160px) 0;background:radial-gradient(ellipse 60% 60% at 50% 50%, #22301d 0%, #121710 55%, var(--ink) 100%)}
+.cfinal::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.016) 0 1px,transparent 1px 4px)}
+.sonar{position:absolute;left:50%;top:50%;width:min(130vw,1300px);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none}
+.sonar i{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(169,185,122,.35);transform:scale(.12);opacity:0;animation:sonar 6s cubic-bezier(.2,.6,.3,1) infinite}
+.sonar i:nth-child(2){animation-delay:1.5s} .sonar i:nth-child(3){animation-delay:3s} .sonar i:nth-child(4){animation-delay:4.5s}
+@keyframes sonar{0%{transform:scale(.12);opacity:.9}100%{transform:scale(1);opacity:0}}
+.sonar .grid{position:absolute;inset:18%;border-radius:50%;border:1px solid rgba(169,185,122,.12);background:radial-gradient(circle,transparent 49.6%,rgba(169,185,122,.12) 50%,transparent 50.4%)}
+.cfinal .in{position:relative;z-index:2;width:min(880px,calc(100% - 2*var(--gutter)))}
+.cfinal .seal3{width:clamp(120px,12vw,170px);margin:0 auto 28px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6))}
+.cfinal .seal3 svg{width:100%;height:auto;animation:spin3 40s linear infinite}
+@keyframes spin3{to{transform:rotate(360deg)}}
+.cfinal h2{font:700 clamp(46px,6.4vw,108px)/.92 var(--font);letter-spacing:-.055em;color:var(--bone);text-wrap:balance}
+.cfinal h2 em{font-style:normal;color:var(--cma-red)}
+.cfinal .lead{margin:22px auto 0;max-width:46ch;font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:rgba(242,241,236,.72)}
+.cfinal .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px}
+.checks{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:40px}
+.checks li{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid rgba(169,185,122,.25);font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(242,241,236,.55);transition:border-color .4s,color .4s}
+.checks li i{width:16px;height:16px;border-radius:4px;border:1.5px solid rgba(169,185,122,.5);display:grid;place-items:center;font-style:normal;font-size:10px;color:transparent;transition:background .3s,border-color .3s,color .3s}
+.checks li.ok{border-color:rgba(169,185,122,.6);color:var(--bone)}
+.checks li.ok i{background:var(--hud);border-color:var(--hud);color:#0b0e0a}
+.checks li.last.ok{border-color:var(--cma-red)} .checks li.last.ok i{background:var(--cma-red);border-color:var(--cma-red);color:#fff}
+.cfinal .micro{margin-top:22px;font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(242,241,236,.45)}
+@media (prefers-reduced-motion: reduce){ .sonar i,.cfinal .seal3 svg{animation:none} }
+@media (max-width: 980px){
+  .chero .wrap{grid-template-columns:1fr} .rwrap{width:min(100%,460px)}
+}
+@media (max-width: 560px){ .chero .ctas .btn{width:100%;justify-content:center} .hud{font-size:9px} .hud.tr,.hud.br{display:none} }
+@media (prefers-reduced-motion: reduce){ .ticker .row{animation:none} }
+</style>
+</head>
+<body class="intro-on" data-page="concorsi" data-branch="conc">
+<!-- ============ INTRO: il logo in 3D ============ -->
+<div class="cintro" id="cintro">
+  <div class="cintro-bg" id="cintroBg"></div>
+  <canvas id="cintro3d" aria-hidden="true"></canvas>
+  <p class="cclaim" id="cclaim">Preparati oggi per il tuo domani</p>
+  <button class="cskip" id="cskip" type="button">SALTA INTRO</button>
+</div>
+<div data-lambda-header></div>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="chero" data-theme="dark" aria-labelledby="cTitle">
+    <div class="wrap">
+      <div class="copy">
+        <div class="lbl"><span class="tricolore"><i style="background:#284C31"></i><i style="background:#DADBDA"></i><i style="background:#CD141F"></i></span>Forze Armate e di Polizia</div>
+        <h1 id="cTitle">Preparati oggi <em>per il tuo domani.</em></h1>
+        <p class="lead">Orientamento, Metodo EAGLE, tutor dedicato, banca dati e simulatore: un percorso completo per entrare in divisa. Online, in tutta Italia.</p>
+        <div class="ctas">
+          <a class="btn btn-red magnetic" href="test-concorsi.html#inizia"><span class="t">Scopri il concorso giusto per te →</span></a>
+          <a class="btn btn-line magnetic" href="simulatore.html"><span class="t"><i class="ic"></i>Prova il simulatore</span></a>
+        </div>
+        <ul class="ctrust">
+          <li><span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span><b>4,9</b> su Trustpilot</span></li>
+          <li><span><b>N°1</b> in Italia per recensioni certificate</span></li>
+        </ul>
+      </div>
+      <div class="rwrap">
+        <div class="radar">
+          <canvas id="radar" role="img" aria-label="Radar dei percorsi: Polizia di Stato, Carabinieri, Guardia di Finanza, Esercito, Marina Militare, Aeronautica Militare, Polizia Penitenziaria, Accademie"></canvas>
+          <p class="hud tl"><span class="rec"></span>Scansione percorsi<br><b id="scanN">8</b> corpi</p>
+          <p class="hud tr">Candidato<br><b>Tu</b></p>
+          <p class="hud bl">Obiettivo<br><b id="tgt">Da definire</b></p>
+          <p class="hud br">Compatibilità<br><a href="test-concorsi.html#inizia">Verifica →</a></p>
+        </div>
+        <div class="corpi" id="corpi" role="group" aria-label="Scegli un corpo"></div>
+      </div>
+    </div>
+    <div class="ticker" aria-hidden="true"><div class="row" id="ticker"></div></div>
+  </section>
+
+  <!-- ============ QUAL È IL CONCORSO GIUSTO PER TE? ============ -->
+  <section class="orient sheet" id="orientamento" data-theme="dark" aria-labelledby="oTitle">
+    <div class="wrap grid">
+      <div>
+        <p class="k" style="font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)" data-reveal>Test Concorsi · orientamento</p>
+        <h2 class="split" id="oTitle">Qual è il concorso <em>giusto per te?</em></h2>
+        <p class="lead" data-reveal>Prima di studiare, serve un obiettivo. In tre minuti apri il tuo fascicolo: incrociamo età, studi, requisiti, preferenze e attitudini con otto corpi e percorsi, e ti mostriamo i più compatibili.</p>
+        <div class="ctas" data-reveal><a class="btn btn-red magnetic" href="test-concorsi.html#inizia"><span class="t">Apri il tuo fascicolo →</span></a><a class="btn btn-line" href="test-concorsi.html"><span class="t">Come funziona</span></a></div>
+      </div>
+      <ol class="phases" id="phases" aria-label="Le sei fasi del test">
+        <li>Età<small>limiti del bando</small></li><li>Titolo di studio<small>ruoli accessibili</small></li><li>Requisiti di base<small>da dove partire</small></li>
+        <li>Preferenze<small>dove ti vedi</small></li><li>Obiettivo<small>agente, ufficiale…</small></li><li>Attitudini<small>i tuoi punti di forza</small></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ SCEGLI IL TUO CORPO ============ -->
+  <section class="corps sheet" id="corpi-sec" data-theme="dark" aria-labelledby="cpTitle">
+    <div class="wrap">
+      <div class="top"><div><p class="k" style="font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)" data-reveal>Scegli il concorso che vuoi preparare</p><h2 class="split" id="cpTitle">Scegli il tuo <em>obiettivo.</em></h2></div>
+        <p class="lead" data-reveal>Nove strade per entrare in divisa. Apri il dossier di ogni corpo: cosa fai, i concorsi principali e le prove da preparare.</p></div>
+      <div class="cgrid" id="cgrid" role="tablist" aria-label="I corpi" data-reveal></div>
+      <div class="cdetail" id="cdetail" role="tabpanel" aria-live="polite" data-reveal></div>
+      <p class="note-b" data-reveal>Le grafiche dei corpi sono di Concorsi Militari Academy e non riproducono stemmi ufficiali. Requisiti e prove vanno sempre verificati sul bando.</p>
+    </div>
+  </section>
+
+  <!-- ============ METODO EAGLE: la missione in 5 fasi ============ -->
+  <section class="eagle sheet" id="eagle" data-theme="dark" aria-labelledby="eaTitle">
+    <div class="stage">
+      <p class="lbl2">Metodo EAGLE · missione in 5 fasi</p>
+      <div class="open" id="eOpen"><h2 id="eaTitle">Studi meno. <em>Ricordi di più.</em></h2><p>Il Metodo EAGLE · scorri per iniziare la missione</p></div>
+      <div class="erow" id="erow" aria-hidden="true"><span class="el">E</span><span class="el">A</span><span class="el">G</span><span class="el">L</span><span class="el">E</span></div>
+      <svg id="eRoute" aria-hidden="true"></svg>
+      <div class="epanels" id="epanels">
+        <div class="ep"><div><p class="k3">Fase 1 · E</p><h3><span>E</span>fficienza della memoria</h3><p>Con tecniche avanzate fissi le informazioni della banca dati leggendole una sola volta: grandi quantità di nozioni diventano ricordi stabili, pronti al richiamo.</p></div>
+          <div class="demo2" id="dE"><span class="cap">Banca dati</span><span class="memo" id="memo">Memorizzato · 1 lettura</span></div></div>
+        <div class="ep"><div><p class="k3">Fase 2 · A</p><h3><span>A</span>llenamento al richiamo</h3><p>Sapere non basta: serve ricordare in fretta. Con esercizi mirati alleni la mente a recuperare le informazioni in pochi secondi, anche sotto pressione.</p></div>
+          <div class="demo2"><span class="cap">Richiamo attivo</span><div class="recall"><div><p class="q">In quante regioni è suddivisa l'Italia?</p><p class="ans" id="aAns">→ 20</p></div><div class="watch"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="42"/><circle class="fg" id="aRing" cx="50" cy="50" r="42" stroke-dasharray="264" stroke-dashoffset="264"/></svg><b id="aTime">0,0s</b></div></div></div></div>
+        <div class="ep"><div><p class="k3">Fase 3 · G</p><h3><span>G</span>estione strategica</h3><p>Ogni minuto conta. Studi con cicli mirati e un piano personalizzato che ti guida passo dopo passo, anche se hai poche ore al giorno.</p></div>
+          <div class="demo2"><span class="cap">Il tuo piano · settimana 1</span><div class="week" id="gWeek"></div><span class="wlab">Cicli mirati · anche con poco tempo</span></div></div>
+        <div class="ep"><div><p class="k3">Fase 4 · L</p><h3><span>L</span>eadership emotiva</h3><p>La preparazione è anche mentale. Con il supporto delle nostre psicologhe sviluppi resilienza, disciplina e controllo emotivo: l'ansia diventa lucidità.</p></div>
+          <div class="demo2"><span class="cap">Controllo emotivo</span><svg class="pulse" viewBox="0 0 600 120" preserveAspectRatio="none"><path id="lPath"/></svg><span class="plab" id="lLab">ANSIA</span></div></div>
+        <div class="ep"><div><p class="k3">Fase 5 · E</p><h3><span>E</span>same sicuro</h3><p>La differenza la fa il giorno della prova. Con simulazioni realistiche e feedback mirati arrivi sereno, concentrato e sicuro di dare il massimo.</p></div>
+          <div class="demo2"><span class="cap">Simulazione d'esame</span><div class="exam"><div class="sc"><span id="xSc">0</span><small>/40</small></div><div class="rows" id="xRows"></div></div><span class="stampE" id="xStamp">PRONTO</span></div></div>
+      </div>
+      <div class="close" id="eClose"><p>Cinque fasi. <em>Un solo obiettivo: la divisa.</em></p></div>
+    </div>
+  </section>
+  <section class="eafter" data-theme="dark" aria-labelledby="eaf">
+    <div class="wrap">
+      <p class="k" style="font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)" id="eaf" data-reveal>Come funziona, step by step</p>
+      <div class="esteps" data-reveal>
+        <div class="es"><small>STEP 1</small><b>Test iniziale</b><p>Punti di forza e aree da rinforzare, per un percorso su misura.</p></div>
+        <div class="es"><small>STEP 2</small><b>Piano personalizzato</b><p>Tempi, tecniche e obiettivi chiari, calibrati su di te.</p></div>
+        <div class="es"><small>STEP 3</small><b>Allenamento mirato</b><p>Memorizzazione, richiamo attivo e simulazioni: ogni ora rende.</p></div>
+        <div class="es"><small>STEP 4</small><b>Supporto costante</b><p>Tutor ed esperti dal lunedì al sabato, one to one e in gruppo.</p></div>
+        <div class="es"><small>STEP 5</small><b>Simulazioni finali</b><p>Scritti, orali e psicoattitudinali, come nella prova ufficiale.</p></div>
+      </div>
+      <div class="egrid">
+        <div data-reveal><h3>Cosa cambia davvero</h3><ul class="change">
+          <li>Memorizzi la banca dati leggendo ogni domanda una sola volta.</li>
+          <li>Organizzi lo studio con un piano strategico, anche se hai poco tempo.</li>
+          <li>Superi dubbi e difficoltà con incontri individuali con i tutor.</li>
+          <li>Ti alleni in aule studio e simulazioni che riproducono l'esame reale.</li>
+          <li>Arrivi al concorso lucido, sicuro e pronto a dare il massimo.</li></ul></div>
+        <div data-reveal><h3>Due percorsi, un metodo</h3><div class="paths2">
+          <a class="pth" href="#"><small>Prima prova · cultura generale</small><b>Preparazione Concorsi SMART</b><p>Incontri one to one e di gruppo con i tutor, metodo di studio su misura e percorso personalizzato per superare la prima prova.</p></a>
+          <a class="pth" href="#"><small>Prove psicoattitudinali</small><b>Percorso Psicoattitudinale</b><p>Incontri con psicologhe cliniche, metodo su misura e percorso personalizzato per affrontare le prove psicoattitudinali.</p></a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RISULTATI ============ -->
+  <section class="cres sheet" id="risultati" data-theme="dark" aria-labelledby="crTitle">
+    <div class="wrap">
+      <div class="top"><div><p class="k" style="font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)" data-reveal>Risultati</p><h2 class="split" id="crTitle">Storie vere. <em>Obiettivi raggiunti.</em></h2></div>
+        <p class="lead" data-reveal>Numeri, garanzia e, presto, le storie dei nostri allievi: dal primo giorno di studio alla divisa.</p></div>
+      <div class="rtop">
+        <div class="big96" id="big96" data-reveal>
+          <div class="ring96"><svg viewBox="0 0 200 200"><circle class="tr" cx="100" cy="100" r="92"/><circle class="fg" cx="100" cy="100" r="92"/></svg><b><span data-count="96" data-suf="%">0%</span></b></div>
+          <div><p class="k2">Prima prova preselettiva</p><p class="s">dei nostri allievi supera la prima prova preselettiva.</p><small>Dato Concorsi Militari Academy.</small>
+            <div class="minis" data-count-group><div><b data-count="5000" data-pre="+">+0</b><span>allievi aiutati</span></div><div><b><span data-count="4.9" data-dec="1">0</span><small>/5</small></b><span>su Trustpilot · N°1 per recensioni certificate</span></div></div></div>
+        </div>
+        <div class="guar" id="guar" data-reveal>
+          <div class="seal2" id="seal2"></div>
+          <div><p class="k2">Garanzia 100%</p><h3>O superi il concorso, o ti riprepariamo.</h3><p>Gratis. Perché crediamo nel metodo, e lo mettiamo per iscritto.</p></div>
+          <a href="#">Come funziona la garanzia →</a>
+        </div>
+      </div>
+      <div class="dossiers" data-reveal>
+        <article class="dsr"><div class="hd"><span>FASCICOLO N. 017</span><span>CMA</span></div>
+          <dl><dt>Corpo</dt><dd>Carabinieri</dd><dt>Concorso</dt><dd>Allievi carabinieri</dd><dt>Percorso</dt><dd><span class="red" style="width:70%"></span></dd><dt>Risultato</dt><dd><span class="red" style="width:52%"></span></dd></dl>
+          <blockquote><span class="red" style="width:96%"></span><span class="red" style="width:88%"></span><span class="red" style="width:64%"></span></blockquote><span class="st3">IN ARRIVO</span></article>
+        <article class="dsr"><div class="hd"><span>FASCICOLO N. 042</span><span>CMA</span></div>
+          <dl><dt>Corpo</dt><dd>Polizia di Stato</dd><dt>Concorso</dt><dd>Agenti</dd><dt>Percorso</dt><dd><span class="red" style="width:70%"></span></dd><dt>Risultato</dt><dd><span class="red" style="width:52%"></span></dd></dl>
+          <blockquote><span class="red" style="width:96%"></span><span class="red" style="width:88%"></span><span class="red" style="width:64%"></span></blockquote><span class="st3">IN ARRIVO</span></article>
+        <article class="dsr cta"><b>Sei un allievo CMA?</b><p>La tua storia può essere il prossimo fascicolo: corpo, concorso, percorso e risultato, raccontati da te.</p><a href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">Racconta la tua storia →</a></article>
+      </div>
+      <p class="rnote" data-reveal>Le storie degli allievi saranno pubblicate con il loro consenso.</p>
+    </div>
+  </section>
+
+  <!-- ============ SIMULATORE (in arrivo) ============ -->
+  <section class="simsoon" id="simulatore" data-theme="dark" aria-label="Simulatore CMA">
+    <div class="wrap"><a class="box" href="simulatore.html"><div><b>Simulatore CMA</b><small>Le banche dati dei concorsi, quiz per materia, simulazioni d’esame a tempo. Da PC e da smartphone.</small></div><span class="tag">Scopri il simulatore →</span></a></div>
+  </section>
+
+  <!-- ============ INVITO FINALE ============ -->
+  <section class="cfinal" data-theme="dark" aria-labelledby="cfTitle">
+    <div class="sonar" aria-hidden="true"><span class="grid"></span><i></i><i></i><i></i><i></i></div>
+    <div class="in">
+      <div class="seal3" id="seal3" aria-hidden="true"></div>
+      <h2 class="split" id="cfTitle">Il tuo domani <em>inizia oggi.</em></h2>
+      <p class="lead" data-reveal>Tre minuti per capire quale concorso fa per te. Poi un tutor CMA costruisce con te il piano per arrivarci, con il Metodo EAGLE.</p>
+      <div class="ctas" data-reveal><a class="btn btn-red magnetic" href="test-concorsi.html#inizia"><span class="t">Apri il tuo fascicolo →</span></a><a class="btn btn-line magnetic" href="tel:+393514206823"><span class="t">Parla con un tutor</span></a></div>
+      <ol class="checks" id="checks" aria-label="La tua missione"><li><i>✓</i>Obiettivo</li><li><i>✓</i>Piano</li><li><i>✓</i>Allenamento</li><li class="last"><i>✓</i>Divisa</li></ol>
+      <p class="micro" data-reveal>Gratuito · online · in tutta Italia · Garanzia 100%</p>
+    </div>
+  </section>
+</main>
+<div data-lambda-footer></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/cma-mark.js?v=1"></script>
+<script src="assets/cma-corpi.js?v=2"></script>
+<script src="assets/lambda.js?v=17"></script>
+<script>
+(() => {
+  const L = window.Lambda, M = window.CMA_MARK, $ = (s) => document.querySelector(s);
+
+  /* ---------- nastro delle prove ---------- */
+  const T = ['Banca dati', 'Quiz per materia', 'Simulazioni', 'Psicoattitudinali', 'Prove fisiche', 'Orale', 'Tutor dedicato', 'Metodo EAGLE'];
+  $('#ticker').innerHTML = [...T, ...T, ...T, ...T].map((t) => `<span>${t}</span>`).join('');
+
+  /* ---------- il radar dei percorsi ---------- */
+  // angolo (gradi, 0 = destra, senso orario) e distanza dal centro (0..1) di ogni "obiettivo"
+  const CORPI = [['Polizia di Stato', -62, 0.72], ['Carabinieri', -18, 0.5], ['Guardia di Finanza', 24, 0.8], ['Esercito', 70, 0.58], ['Marina Militare', 118, 0.78], ['Aeronautica Militare', 160, 0.52], ['Polizia Penitenziaria', 205, 0.76], ['Accademie', 248, 0.4]];
+  const SHORT = ['Polizia', 'Carabinieri', 'GdF', 'Esercito', 'Marina', 'Aeronautica', 'Penitenziaria', 'Accademie'];
+  const cv = $('#radar'), ctx = cv.getContext('2d'), box = cv.parentElement;
+  const hits = CORPI.map(() => -9), corpiEl = $('#corpi');
+  corpiEl.innerHTML = CORPI.map(([n], i) => `<button type="button" aria-pressed="false" data-i="${i}">${n}</button>`).join('');
+  let W = 0, R = 0, dpr = 1, topo = null, locked = -1, hover = -1, lockT = 0;
+  const star = (() => { const p = new Path2D(); const add = (pts) => { const q = new Path2D(); pts.forEach(([x, y], i) => (i ? q.lineTo(x, y) : q.moveTo(x, y))); q.closePath(); return q; }; return { g: add(M.green), w: add(M.grey), r: add(M.red) }; })();
+
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2); W = box.clientWidth; cv.width = cv.height = W * dpr; R = W * (W < 440 ? 0.33 : 0.42);
+    // sfondo topografico, disegnato una volta sola
+    topo = document.createElement('canvas'); topo.width = topo.height = W * dpr; const t = topo.getContext('2d'); t.scale(dpr, dpr);
+    t.strokeStyle = 'rgba(169,185,122,.07)'; t.lineWidth = 1;
+    for (let k = 0; k < 3; k++) { const ox = W * (0.3 + 0.25 * k), oy = W * (0.35 + 0.18 * ((k * 7) % 3));
+      for (let i = 1; i < 9; i++) { t.beginPath(); for (let a = 0; a <= 64; a++) { const th = (a / 64) * Math.PI * 2, rr = i * W * 0.035 * (1 + 0.18 * Math.sin(th * 3 + k) + 0.1 * Math.sin(th * 5 + i)); const x = ox + rr * Math.cos(th), y = oy + rr * Math.sin(th); a ? t.lineTo(x, y) : t.moveTo(x, y); } t.stroke(); } }
+  }
+  resize(); addEventListener('resize', resize);
+  const pos = (i) => { const [, a, d] = CORPI[i], th = (a * Math.PI) / 180; return [W / 2 + R * d * Math.cos(th), W / 2 + R * d * Math.sin(th)]; };
+
+  function lock(i) {
+    locked = i; lockT = performance.now();
+    $('#tgt').textContent = i < 0 ? 'Da definire' : CORPI[i][0];
+    [...corpiEl.children].forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
+  }
+  corpiEl.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) lock(+b.dataset.i === locked ? -1 : +b.dataset.i); });
+  corpiEl.addEventListener('mouseover', (e) => { const b = e.target.closest('button'); hover = b ? +b.dataset.i : -1; });
+  corpiEl.addEventListener('mouseleave', () => (hover = -1));
+  const near = (e) => { const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top; let best = -1, bd = 28; CORPI.forEach((_, i) => { const [px, py] = pos(i), d = Math.hypot(px - x, py - y); if (d < bd) { bd = d; best = i; } }); return best; };
+  cv.addEventListener('pointermove', (e) => { hover = near(e); cv.style.cursor = hover >= 0 ? 'pointer' : 'crosshair'; });
+  cv.addEventListener('pointerleave', () => (hover = -1));
+  cv.addEventListener('click', (e) => { const i = near(e); if (i >= 0) lock(i === locked ? -1 : i); });
+
+  const SPEED = (Math.PI * 2) / 5.5;   // un giro ogni 5,5 secondi
+  let last = 0;
+  function draw(now) {
+    const t = now / 1000, c = W / 2;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, W);
+    ctx.drawImage(topo, 0, 0, W, W);
+    // disco
+    const g = ctx.createRadialGradient(c, c, 0, c, c, R); g.addColorStop(0, 'rgba(40,76,49,.28)'); g.addColorStop(1, 'rgba(10,14,9,.55)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(c, c, R, 0, 7); ctx.fill();
+    // cerchi, croce, tacche
+    ctx.strokeStyle = 'rgba(169,185,122,.28)'; ctx.lineWidth = 1;
+    [0.25, 0.5, 0.75, 1].forEach((k) => { ctx.beginPath(); ctx.arc(c, c, R * k, 0, 7); ctx.stroke(); });
+    ctx.beginPath(); ctx.moveTo(c - R, c); ctx.lineTo(c + R, c); ctx.moveTo(c, c - R); ctx.lineTo(c, c + R); ctx.stroke();
+    for (let a = 0; a < 360; a += 5) { const th = (a * Math.PI) / 180, l = a % 30 === 0 ? 10 : 4; ctx.beginPath(); ctx.moveTo(c + (R + 2) * Math.cos(th), c + (R + 2) * Math.sin(th)); ctx.lineTo(c + (R + 2 + l) * Math.cos(th), c + (R + 2 + l) * Math.sin(th)); ctx.stroke(); }
+    ctx.fillStyle = 'rgba(169,185,122,.55)'; ctx.font = `500 ${Math.max(8, W * 0.016)}px "JetBrains Mono", monospace`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    for (let a = 0; a < 360; a += 30) { const th = ((a - 90) * Math.PI) / 180; ctx.fillText(String(a).padStart(3, '0'), c + (R + 24) * Math.cos(th), c + (R + 24) * Math.sin(th)); }
+    // fascio che ruota
+    const sw = L.reduced ? -Math.PI / 2 : t * SPEED, prev = (last / 1000) * SPEED;
+    if (ctx.createConicGradient) {
+      const cg = ctx.createConicGradient(sw - 0.9, c, c); cg.addColorStop(0, 'rgba(169,185,122,0)'); cg.addColorStop(0.142, 'rgba(169,185,122,.30)'); cg.addColorStop(0.1433, 'rgba(169,185,122,0)');
+      ctx.fillStyle = cg; ctx.beginPath(); ctx.moveTo(c, c); ctx.arc(c, c, R, sw - 0.9, sw); ctx.closePath(); ctx.fill();
+    }
+    ctx.strokeStyle = 'rgba(218,219,218,.75)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(c, c); ctx.lineTo(c + R * Math.cos(sw), c + R * Math.sin(sw)); ctx.stroke();
+    // gli obiettivi: si accendono quando il fascio ci passa sopra
+    CORPI.forEach(([n, a], i) => {
+      const th = (a * Math.PI) / 180, norm = (x) => ((x % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+      if (!L.reduced && norm(th - prev) <= norm(sw - prev) && last) hits[i] = t;
+      const [x, y] = pos(i), f = L.reduced ? 0.6 : Math.exp(-(t - hits[i]) / 1.6), on = i === locked || i === hover;
+      ctx.fillStyle = on ? '#CD141F' : `rgba(218,219,218,${0.25 + 0.75 * f})`;
+      ctx.beginPath(); ctx.arc(x, y, on ? 5 : 3 + 2 * f, 0, 7); ctx.fill();
+      if (f > 0.05 || on) { ctx.strokeStyle = on ? 'rgba(205,20,31,.7)' : `rgba(218,219,218,${0.5 * f})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(x, y, 8 + (on ? 4 * Math.sin(t * 4) + 6 : 10 * (1 - f)), 0, 7); ctx.stroke(); }
+      const la = on ? 1 : f; if (la > 0.08) { ctx.fillStyle = on ? `rgba(242,241,236,${la})` : `rgba(218,219,218,${la * 0.9})`; ctx.font = `500 ${Math.max(9, W * 0.019)}px "JetBrains Mono", monospace`; ctx.textAlign = x > c ? 'left' : 'right'; ctx.fillText((W < 440 ? SHORT[i] : n).toUpperCase(), x + (x > c ? 14 : -14), y - 12); }
+    });
+    // obiettivo agganciato: mirino a staffe e linea dal centro
+    if (locked >= 0) {
+      const [x, y] = pos(locked), k = Math.min(1, (now - lockT) / 400), s = 26 - 10 * k;
+      ctx.strokeStyle = '#CD141F'; ctx.lineWidth = 2; ctx.setLineDash([4, 5]); ctx.beginPath(); ctx.moveTo(c, c); ctx.lineTo(x, y); ctx.stroke(); ctx.setLineDash([]);
+      [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(([sx, sy]) => { ctx.beginPath(); ctx.moveTo(x + sx * s, y + sy * (s - 7)); ctx.lineTo(x + sx * s, y + sy * s); ctx.lineTo(x + sx * (s - 7), y + sy * s); ctx.stroke(); });
+      ctx.fillStyle = 'rgba(205,20,31,.9)'; ctx.font = `500 ${Math.max(8, W * 0.016)}px "JetBrains Mono", monospace`; ctx.textAlign = x > c ? 'left' : 'right'; ctx.fillText(W < 440 ? 'AGGANCIATO' : 'OBIETTIVO AGGANCIATO', x + (x > c ? 14 : -14), y + 16);
+    }
+    // al centro, la stella
+    const sc = (R * 0.2) / 276; ctx.save(); ctx.translate(c, c); ctx.scale(sc, sc); ctx.translate(-410, -425);
+    ctx.fillStyle = M.colors.green; ctx.fill(star.g); ctx.fillStyle = M.colors.grey; ctx.fill(star.w); ctx.fillStyle = M.colors.red; ctx.fill(star.r); ctx.restore();
+    last = now;
+  }
+  L.onFrame((now) => { const r = box.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; draw(now); });
+  L.stars();
+  // le fasi del test si accendono una dopo l'altra
+  const ph = $('#phases'); new IntersectionObserver((e, o) => e.forEach((x) => { if (!x.isIntersecting) return; o.disconnect(); ph.classList.add('in'); const li = [...ph.children]; let i = 0;
+    if (!L.reduced) setInterval(() => { li.forEach((l, j) => l.classList.toggle('on', j === i)); i = (i + 1) % li.length; }, 1100); }), { threshold: 0.4 }).observe(ph);
+  /* ---------- scegli il tuo corpo: i patch e il dossier ---------- */
+  const C = window.CMA_CORPI, grid = $('#cgrid'), det = $('#cdetail');
+  const TESTS = [['01', 'Prova scritta o preselettiva (quiz)'], ['02', 'Prove di efficienza fisica'], ['03', 'Accertamenti psicofisici e attitudinali'], ['04', 'Prova orale e graduatoria']];
+  grid.innerHTML = C.map((c, i) => `<button class="cc" type="button" role="tab" aria-selected="${!i}" data-i="${i}">${window.CMA_PATCH(c)}<b>${c.n}</b><small>${c.tag}</small></button>`).join('');
+  const cards = [...grid.children];
+  function pick(i) {
+    const c = C[i]; cards.forEach((b, j) => b.setAttribute('aria-selected', String(j === i)));
+    det.dataset.code = c.code;
+    det.innerHTML = `<div class="big">${window.CMA_PATCH(c, 160)}</div>
+      <div class="info"><p class="k2">Dossier · ${c.code}</p><h3>${c.n}</h3><p class="w">${c.what}</p>
+        <div class="roles">${c.roles.map((r) => `<span>${r}</span>`).join('')}</div><p class="env">${c.env.join(' · ')}</p></div>
+      <div class="side"><p class="k2" style="margin-bottom:10px">Le fasi tipiche</p><ul class="tests">${TESTS.map(([n, t]) => `<li><i>${n}</i>${t}</li>`).join('')}</ul>
+        <div class="acts"><a class="btn btn-red" href="test-concorsi.html#inizia"><span class="t">Verifica la compatibilità →</span></a><a class="btn btn-line" href="corpo.html?c=${c.k}"><span class="t">Pagina del corpo →</span></a></div></div>`;
+    det.classList.remove('swap'); void det.offsetWidth; det.classList.add('swap');
+  }
+  grid.addEventListener('click', (e) => { const b = e.target.closest('.cc'); if (!b) return; pick(+b.dataset.i); if (innerWidth < 760) L.lenis ? L.lenis.scrollTo(det, { offset: -90, duration: 1 }) : det.scrollIntoView({ behavior: 'smooth' }); });
+  // inclinazione 3D dei patch seguendo il mouse
+  if (!L.reduced && matchMedia('(pointer: fine)').matches) cards.forEach((b) => {
+    b.addEventListener('pointermove', (e) => { const r = b.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5; gsap.to(b, { rotateY: x * 18, rotateX: -y * 18, duration: 0.4, ease: 'power3.out' }); });
+    b.addEventListener('pointerleave', () => gsap.to(b, { rotateY: 0, rotateX: 0, duration: 0.8, ease: 'elastic.out(1, .5)' }));
+  });
+  pick(0);
+  // dal radar dell'hero: scegliere un corpo apre anche il suo dossier
+  const RADAR2CORPI = ['polizia', 'carabinieri', 'gdf', 'esercito', 'marina', 'aeronautica', 'penitenziaria', 'accademie'];
+  $('#corpi').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) pick(C.findIndex((c) => c.k === RADAR2CORPI[+b.dataset.i])); });
+
+  /* ---------- Metodo EAGLE: la missione in 5 fasi, guidata dallo scroll ---------- */
+  (() => {
+    const sec = $('#eagle'), els = [...document.querySelectorAll('#erow .el')], eps = [...document.querySelectorAll('#epanels .ep')], route = $('#eRoute');
+    const cl = (v) => Math.min(1, Math.max(0, v)), win = (p, a, b, f = 0.025) => cl((p - a) / f) * cl((b - p) / f);
+    // E: le domande sparse
+    const dE = $('#dE'), QS = ['Art. 1 Cost.: l\'Italia è…', 'Capitale del Molise?', 'Anno dell\'Unità d\'Italia?', 'Sinonimo di "celere"', '15% di 240 = ?', 'Chi elegge il PdR?', 'Plurale di "capoufficio"', 'Fiume più lungo d\'Italia?', 'Organo del CSM'];
+    const qn = QS.map((t, i) => { const d = document.createElement('div'); d.className = 'qc'; d.textContent = t; dE.appendChild(d); return { d, x: (Math.sin(i * 2.3) * 0.5) * 300, y: (Math.cos(i * 1.7) * 0.5) * 120, r: (Math.sin(i * 3.1)) * 18 }; });
+    const main = document.createElement('div'); main.className = 'qc main'; main.textContent = 'Banca dati · 1 lettura'; dE.appendChild(main);
+    // G: la settimana
+    const gw = $('#gWeek'), DAYS = ['L', 'M', 'M', 'G', 'V', 'S', 'D'], PLAN = [[1, 1, 0], [1, 0, 1], [1, 1, 0], [0, 1, 1], [1, 1, 0], [1, 1, 1], [0, 0, 0]];
+    gw.innerHTML = DAYS.map((d, i) => `<div>${PLAN[i].map((x, j) => `<i class="${j === 2 ? 'r' : ''}" data-h="${x}"></i>`).join('')}<span>${d}</span></div>`).join('');
+    const gBlocks = [...gw.querySelectorAll('i')];
+    // E finale: righe della simulazione
+    $('#xRows').innerHTML = [92, 85, 100, 78, 95].map((w) => `<i><b data-w="${w}"></b></i>`).join('');
+    const xr = [...document.querySelectorAll('#xRows b')];
+    function routeDraw(p) {
+      const r = sec.querySelector('.stage').getBoundingClientRect(), w = r.width, xs = els.map((e) => { const b = e.getBoundingClientRect(); return b.left + b.width / 2 - r.left; });
+      const y = 30, d = `M${xs[0] - 60} ${y} ` + xs.map((x, i) => (i ? `C${(xs[i - 1] + x) / 2} ${i % 2 ? 6 : 54} ${(xs[i - 1] + x) / 2} ${i % 2 ? 6 : 54} ${x} ${y}` : `L${x} ${y}`)).join(' ') + ` L${xs[4] + 60} ${y}`;
+      route.setAttribute('viewBox', `0 0 ${w} 60`);
+      if (!route._d || route._d !== d) { route._d = d; route.innerHTML = `<path class="base" d="${d}"/><path class="done" id="eDone" d="${d}"/>${xs.map((x, i) => `<circle class="wp" data-i="${i}" cx="${x}" cy="${y}" r="7"/>`).join('')}<path class="jet" id="eJet" d="M0 -9 L7 8 L0 4 L-7 8 Z"/>`; route._len = route.querySelector('#eDone').getTotalLength(); }
+      const L0 = route._len, k = cl((p - 0.1) / 0.8), done = route.querySelector('#eDone'), jet = route.querySelector('#eJet');
+      done.style.strokeDasharray = L0; done.style.strokeDashoffset = L0 * (1 - k);
+      const pt = done.getPointAtLength(L0 * k), pt2 = done.getPointAtLength(Math.min(L0, L0 * k + 2)), a = Math.atan2(pt2.y - pt.y, pt2.x - pt.x) * 180 / Math.PI + 90;
+      jet.setAttribute('transform', `translate(${pt.x} ${pt.y}) rotate(${a})`);
+    }
+    L.onFrame(() => {
+      const p = L.prog(sec); if (p < -0.3 || p > 1.3 || L.reduced) return;
+      const o = cl(1 - (p - 0.02) / 0.06); $('#eOpen').style.opacity = o;
+      const act = p < 0.1 ? -1 : Math.min(4, Math.floor((p - 0.1) / 0.16));
+      els.forEach((e, i) => { e.classList.toggle('on', i === act); e.classList.toggle('done', i < act); e.style.opacity = cl((p - 0.06) / 0.04); });
+      route.style.opacity = cl((p - 0.06) / 0.04);
+      routeDraw(p); route.querySelectorAll('.wp').forEach((w, i) => w.classList.toggle('on', i <= act));
+      eps.forEach((ep, i) => { const a = 0.1 + i * 0.16, v = win(p, a + 0.01, a + 0.16); ep.style.opacity = v; ep.style.transform = `translateY(${(1 - v) * 20}px)`; });
+      const t = (i) => cl((p - (0.1 + i * 0.16)) / 0.13);
+      // E · memoria
+      const tE = L.ease(t(0)); qn.forEach((q, i) => { const k = 1 - tE; q.d.style.transform = `translate(${q.x * k}px, ${q.y * k}px) rotate(${q.r * k}deg)`; q.d.style.opacity = tE > 0.85 ? 1 - (tE - 0.85) / 0.15 : 1; });
+      main.classList.toggle('ok', tE > 0.92); $('#memo').style.opacity = cl((tE - 0.85) / 0.15);
+      // A · richiamo
+      const tA = t(1), sec2 = Math.min(2.1, tA * 3); $('#aTime').textContent = sec2.toFixed(1).replace('.', ',') + 's';
+      $('#aRing').style.strokeDashoffset = 264 * (1 - Math.min(1, tA * 1.43)); $('#aAns').style.opacity = cl((tA - 0.62) / 0.15);
+      $('#aRing').style.stroke = tA > 0.7 ? '#CD141F' : '';
+      // G · gestione
+      const tG = t(2); gBlocks.forEach((b, i) => { const on = +b.dataset.h; b.style.height = on ? `${Math.max(0, Math.min(1, tG * 1.6 - (i % 21) / 21 * 0.6)) * 30}%` : '0'; });
+      // L · leadership: la linea si calma
+      const tL = t(3), amp = 46 * (1 - tL) + 3, pts = []; for (let x = 0; x <= 600; x += 10) { const n = Math.sin(x * 0.11) * Math.sin(x * 0.037 + 1) + (x % 70 < 10 ? 1.4 : 0); pts.push(`${x},${60 - n * amp}`); }
+      const lp = $('#lPath'); lp.setAttribute('d', 'M' + pts.join(' L')); lp.style.stroke = tL > 0.6 ? '#a9b97a' : '#CD141F';
+      const ll = $('#lLab'); ll.textContent = tL > 0.6 ? 'LUCIDITÀ' : 'ANSIA'; ll.style.color = tL > 0.6 ? '#a9b97a' : '#CD141F';
+      // E · esame
+      const tX = t(4); $('#xSc').textContent = Math.round(38 * L.ease(tX)); xr.forEach((b) => (b.style.width = +b.dataset.w * L.ease(tX) + '%'));
+      const st = $('#xStamp'), sk = cl((tX - 0.85) / 0.12); st.style.opacity = sk; st.style.transform = `rotate(-10deg) scale(${2 - sk})`;
+      const c = cl((p - 0.93) / 0.04); $('#eClose p').style.opacity = c; $('#eClose p').style.transform = `translateY(${(1 - c) * 20}px)`;
+      eps.forEach((ep) => ep.style.visibility = p > 0.92 ? 'hidden' : '');
+    });
+  })();
+
+  /* ---------- risultati: anello del 96% e timbro della garanzia ---------- */
+  $('#seal2').innerHTML = M.svg({ ring: true, ringColor: '#ffffff' });
+  ['#big96', '#guar'].forEach((sel) => new IntersectionObserver((e, o) => e.forEach((x) => { if (x.isIntersecting) { x.target.classList.add('in'); o.disconnect(); } }), { threshold: 0.45 }).observe($(sel)));
+
+  /* ---------- invito finale: il sigillo e la checklist della missione ---------- */
+  $('#seal3').innerHTML = M.svg({ ring: true });
+  const ck = [...document.querySelectorAll('#checks li')];
+  new IntersectionObserver((e, o) => e.forEach((x) => { if (!x.isIntersecting) return; o.disconnect(); ck.forEach((li, i) => setTimeout(() => li.classList.add('ok'), (L.reduced ? 0 : 450) * (i + 1))); }), { threshold: 0.6 }).observe($('#checks'));
+
+  // se l'intro non c'è (già vista o disattivata), il logo dell'header resta visibile
+  if (!document.getElementById('cintro')) gsap.set('#logo', { autoAlpha: 1 });
+})();
+</script>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+<script type="module" src="assets/cma-intro3d.js?v=4"></script>
+</body>
+</html>

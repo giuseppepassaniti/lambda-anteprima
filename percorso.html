@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Percorsi · Centro Studi Lambda</title>
+<meta name="description" content="Metodo di studio, tutor dedicato e lezioni live online, in tutta Italia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=8">
+<style>
+/* =================== LAMBDA · template sottopagina (età / esigenza) =================== */
+body{--acc:var(--aqua);--acc-l:#3fc8d1}
+body[data-acc="coral"]{--acc:#E9764A;--acc-l:var(--coral)}
+body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
+
+/* ---------- HERO ---------- */
+.phero{position:relative;min-height:100svh;display:grid;align-items:center;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 75% 50%, #16475a 0%, var(--navy) 55%, var(--deep) 100%)}
+.phero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,80px);align-items:center;padding-top:calc(var(--hdr) + 40px);padding-bottom:90px}
+.crumb{display:flex;gap:10px;align-items:center;font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.crumb a:hover{color:#fff}
+.crumb b{color:var(--acc-l);font-weight:500}
+.phero h1{margin-top:22px;font:700 clamp(42px,5vw,84px)/.96 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.phero h1 em{font-style:normal;color:var(--warm)}
+.phero .lead{margin-top:22px;font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:rgba(255,255,255,.74);max-width:48ch}
+.phero .ctas{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;margin-top:32px}
+.phero .small{font-size:14px;color:rgba(255,255,255,.55)}
+/* la lente: dalla parola sfocata a quella nitida */
+.vis{position:relative}
+.lcard{position:relative;height:clamp(240px,26vw,340px);border-radius:32px;overflow:hidden;background:linear-gradient(160deg,#123747,#0a1c26);border:1px solid rgba(255,255,255,.08);box-shadow:0 50px 90px -50px #000}
+.lcard .w{position:absolute;inset:0;display:grid;place-items:center;padding:0 6% 6%;font-weight:700;letter-spacing:-.045em;line-height:.92;text-align:center;text-wrap:balance}
+.lcard .wf{color:#8fa7b2;filter:blur(4px)}
+.lcard .wt{color:var(--warm);background:linear-gradient(160deg,#17465a,#0e2a37);
+  -webkit-mask-image:radial-gradient(circle var(--r) at var(--x1) 47%,#000 98%,transparent 100%),radial-gradient(circle var(--r) at var(--x2) 47%,#000 98%,transparent 100%);
+  mask-image:radial-gradient(circle var(--r) at var(--x1) 47%,#000 98%,transparent 100%),radial-gradient(circle var(--r) at var(--x2) 47%,#000 98%,transparent 100%)}
+.lcard svg{position:absolute;left:0;top:47%;overflow:visible;filter:drop-shadow(0 16px 30px rgba(0,0,0,.5));will-change:transform}
+.lcard svg .ring,.lcard svg .bridge{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round}
+.lcard .k{position:absolute;left:22px;top:20px;font:500 11px/1 var(--mono);letter-spacing:.16em;color:rgba(255,255,255,.4)}
+.mquote{position:relative;margin:-22px 0 0 auto;width:min(84%,420px);padding:22px 24px;border-radius:24px;background:var(--light);color:var(--navy);box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.mquote::before{content:"“";position:absolute;left:18px;top:-30px;font:700 84px/1 var(--font);color:var(--acc)}
+.mquote p{font:700 clamp(18px,1.5vw,21px)/1.3 var(--font);letter-spacing:-.02em}
+.mquote small{display:block;margin-top:10px;font:500 11px/1 var(--mono);letter-spacing:.14em;color:#6b7f88;text-transform:uppercase}
+
+/* ---------- TI RICONOSCI? ---------- */
+.signs{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.signs .eyebrow,.meth .eyebrow,.faq .eyebrow{color:var(--teal)}
+.signs .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:start}
+.slist{display:grid;gap:10px}
+.srow{display:flex;align-items:center;gap:16px;width:100%;padding:20px 22px;border-radius:20px;background:#fff;border:2px solid transparent;text-align:left;font:700 clamp(16px,1.3vw,19px)/1.25 var(--font);color:var(--navy);box-shadow:0 14px 30px -22px rgba(14,33,46,.4);transition:border-color .3s,transform .4s var(--ease),background .3s}
+.srow i{flex-shrink:0;width:28px;height:28px;border-radius:9px;border:2px solid rgba(14,33,46,.2);display:grid;place-items:center;font-style:normal;font-size:15px;color:transparent;transition:background .3s,border-color .3s,color .3s}
+.srow:hover{transform:translateX(4px)}
+.srow[aria-pressed="true"]{border-color:var(--acc);background:#fbfefe}
+.srow[aria-pressed="true"] i{background:var(--acc);border-color:var(--acc);color:#fff}
+.sres{margin-top:20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:22px 24px;border-radius:22px;background:var(--navy);color:#fff;min-height:92px}
+.sres .n{font:700 44px/1 var(--font);letter-spacing:-.04em;color:var(--warm);min-width:2.4ch}
+.sres p{flex:1;min-width:200px;font-size:16px;line-height:1.45;color:rgba(255,255,255,.8)}
+.sres .btn{display:none}
+.sres.go .btn{display:inline-flex}
+
+/* ---------- PRIMA / DOPO ---------- */
+.ba-sec{background:var(--deep);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.ba-sec .eyebrow{color:var(--warm)}
+.ba-sec .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.ba{position:relative;margin-top:46px;height:clamp(380px,38vw,480px);border-radius:32px;overflow:hidden;touch-action:pan-y;user-select:none;cursor:ew-resize;--x:50%}
+.pane{position:absolute;inset:0;padding:clamp(26px,3.4vw,48px);display:flex;flex-direction:column;justify-content:space-between}
+.pa{background:linear-gradient(160deg,#1a2a33,#0d171d);color:#c8d3d8}
+.pd{background:linear-gradient(160deg,#fffaf0,#f2e6d2);color:var(--navy);align-items:flex-end;text-align:right;clip-path:inset(0 0 0 var(--x))}
+.pane .lab{font:500 12px/1 var(--mono);letter-spacing:.2em}
+.pa .lab{color:rgba(255,255,255,.45)} .pd .lab{color:var(--teal)}
+.pane ul{list-style:none;display:grid;gap:clamp(10px,1.4vw,16px)}
+.pane li{font:700 clamp(18px,1.9vw,28px)/1.15 var(--font);letter-spacing:-.025em;max-width:16ch}
+.pa li{text-decoration:line-through;text-decoration-color:rgba(255,138,91,.6);text-decoration-thickness:2px}
+.pane .clk{display:flex;gap:5px;font:700 clamp(30px,3.2vw,46px)/1 var(--font)}
+.pane .clk span{width:.72em;height:1.1em;border-radius:.1em;display:grid;place-items:center}
+.pa .clk span{background:linear-gradient(180deg,#22343e,#131f26);color:#f3ede2}
+.pd .clk span{background:#fff;color:var(--navy);box-shadow:0 4px 10px rgba(14,33,46,.12)}
+.pane .clk .c{width:auto;background:none!important;box-shadow:none!important}
+.handle{position:absolute;top:0;bottom:0;left:var(--x);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
+.handle b{position:absolute;top:50%;left:50%;width:58px;height:58px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;transform:translate(-50%,-50%);box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:20px}
+.ba-hint{margin-top:16px;text-align:center;font-size:14px;color:rgba(255,255,255,.5)}
+
+/* ---------- METODO + COSA COMPRENDE ---------- */
+.meth{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.frow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:46px}
+.fx{position:relative;border-radius:24px;padding:20px 18px 22px;background:var(--light);min-height:230px;display:flex;flex-direction:column;transition:transform .5s var(--ease)}
+.fx .L{font:700 clamp(54px,5.4vw,84px)/1 var(--font);letter-spacing:-.04em;color:rgba(14,33,46,.14)}
+.fx b{display:block;margin-top:auto;font-size:16px;color:rgba(14,33,46,.4)}
+.fx p{margin-top:8px;font-size:14.5px;line-height:1.42;color:#4a6370}
+.fx.on{background:var(--navy);color:#fff;transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(14,33,46,.6)}
+.fx.on .L{color:var(--warm)} .fx.on b{color:#fff} .fx.on p{color:rgba(255,255,255,.72)}
+.fx.on::after{content:"PRIORITÀ";position:absolute;right:16px;top:18px;font:500 10px/1 var(--mono);letter-spacing:.16em;color:var(--acc-l)}
+.incl-h{margin-top:clamp(70px,9vh,110px);font:700 clamp(26px,2.4vw,36px)/1.05 var(--font);letter-spacing:-.035em}
+.incl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.inc{display:flex;gap:16px;padding:22px;border-radius:22px;border:1.5px solid rgba(14,33,46,.1);transition:border-color .3s,transform .4s var(--ease)}
+.inc:hover{border-color:var(--acc);transform:translateY(-3px)}
+.inc svg{flex-shrink:0;width:30px;height:30px;fill:none;stroke:var(--acc);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.inc b{display:block;font-size:17px}
+.inc p{margin-top:6px;font-size:14.5px;line-height:1.42;color:#4a6370}
+
+/* ---------- RECENSIONE ---------- */
+.rev{background:radial-gradient(ellipse 70% 70% at 50% 50%, #14404f 0%, var(--navy) 60%, var(--deep) 100%);padding:clamp(110px,14vh,160px) 0;text-align:center}
+.rev blockquote{max-width:20ch;margin:26px auto 0;font:700 clamp(32px,4vw,62px)/1.04 var(--font);letter-spacing:-.045em;text-wrap:balance}
+.rev .who{margin-top:22px;font-size:15px;color:rgba(255,255,255,.6)}
+.rev .who b{color:#fff}
+.rev .stars{justify-content:center}
+.rev .more{margin-top:26px;display:inline-block;font-weight:700;color:var(--warm);border-bottom:1.5px solid currentColor;padding-bottom:3px}
+
+/* ---------- FAQ ---------- */
+.faq{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.faq .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px)}
+.qa{border-top:1px solid rgba(14,33,46,.12)}
+.qa:last-child{border-bottom:1px solid rgba(14,33,46,.12)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font:700 clamp(18px,1.5vw,21px)/1.25 var(--font);letter-spacing:-.02em}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary i{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;transition:transform .4s var(--ease),background .3s}
+.qa[open] summary i{transform:rotate(45deg);background:var(--warm)}
+.qa p{padding:0 50px 24px 0;font-size:16.5px;line-height:1.55;color:#4a6370}
+
+/* ---------- FINALE + CORRELATI ---------- */
+.final{background:radial-gradient(ellipse 70% 60% at 50% 45%, #16475a 0%, var(--navy) 55%, var(--deep) 100%);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px);text-align:center}
+.final h2{font:700 clamp(40px,5vw,80px)/.98 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.final h2 em{font-style:normal;color:var(--warm)}
+.final .ctas{display:flex;justify-content:center;margin-top:38px}
+.final .note{margin-top:18px;font-size:14px;color:rgba(255,255,255,.55)}
+.rel{margin-top:clamp(70px,10vh,110px);padding-top:40px;border-top:1px solid rgba(255,255,255,.1)}
+.rel h3{font:500 12px/1 var(--mono);letter-spacing:.2em;color:rgba(255,255,255,.5);text-transform:uppercase}
+.rlist{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px;text-align:left}
+.rl{display:flex;flex-direction:column;justify-content:space-between;gap:16px;padding:20px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:background .3s,transform .4s var(--ease),border-color .3s}
+.rl:hover{background:rgba(255,255,255,.08);transform:translateY(-4px);border-color:rgba(255,214,107,.4)}
+.rl small{font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--acc-l);text-transform:uppercase}
+.rl b{display:block;margin-top:8px;font-size:18px}
+.rl p{margin-top:6px;font-size:14px;line-height:1.4;color:rgba(255,255,255,.6)}
+.rl span{font-weight:700;font-size:14px;color:var(--warm)}
+
+/* ---------- anteprima (pagina senza contenuti) ---------- */
+.soon{margin-top:30px;display:inline-flex;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;border:1px dashed rgba(255,255,255,.25);font:500 12px/1.4 var(--mono);letter-spacing:.08em;color:rgba(255,255,255,.65)}
+.soon i{width:8px;height:8px;border-radius:50%;background:var(--warm);box-shadow:0 0 12px var(--warm)}
+
+@media (max-width: 1100px){ .frow{grid-template-columns:repeat(3,1fr)} .incl{grid-template-columns:1fr 1fr} .rlist{grid-template-columns:1fr 1fr} }
+@media (max-width: 980px){ .phero .wrap,.signs .grid,.faq .grid{grid-template-columns:1fr} .vis{max-width:560px} }
+@media (max-width: 640px){
+  .phero .wrap{padding-top:calc(var(--hdr) + 20px)}
+  .phero .ctas .btn,.final .ctas .btn,.sres .btn{width:100%;justify-content:center}
+  .frow{grid-template-columns:1fr 1fr} .fx{min-height:0} .fx b{margin-top:18px}
+  .incl,.rlist{grid-template-columns:1fr}
+  /* prima/dopo: su telefono le due schede una sotto l'altra */
+  .ba{height:auto;cursor:auto;display:grid;gap:12px;overflow:visible;border-radius:0}
+  .pane{position:relative;border-radius:26px;gap:26px;min-height:0}
+  .pd{clip-path:none;align-items:flex-start;text-align:left}
+  .handle,.ba-hint{display:none}
+  .qa p{padding-right:0}
+  .mquote{width:92%;margin-top:-30px}
+}
+</style>
+</head>
+<body data-page="percorsi" data-branch="stud">
+<div data-lambda-header></div>
+<main id="main"></main>
+<div data-lambda-footer></div>
+
+<script src="assets/percorsi.js?v=2"></script>
+<script src="assets/percorsi-pagine.js?v=2"></script>
+<script>
+/* ---------- costruzione della pagina dai dati (prima del motore, così animazioni e titoli funzionano) ---------- */
+(() => {
+  const { REG, PAGES, INCLUDES } = window.PERCORSI;
+  const slug = new URLSearchParams(location.search).get('p') || 'superiore';
+  if (!REG[slug]) { location.replace('studenti.html#percorsi'); return; }
+  const R = REG[slug], D = PAGES[slug], url = (s) => `percorso.html?p=${s}`;
+  document.title = `${R.name} · Centro Studi Lambda`;
+  document.querySelector('meta[name="description"]').content = `${R.tag} Metodo FOCUS, tutor dedicato e lezioni live online in tutta Italia.`;
+  if (D?.accent) document.body.dataset.acc = D.accent;
+  window.__P = { slug, R, D };
+
+  const clock = (t) => t.split('').map((c) => `<span${c === ':' ? ' class="c"' : ''}>${c}</span>`).join('');
+  const NAMES = ['Fiducia', 'Organizzazione', 'Comprensione', 'Uso degli strumenti', 'Sicurezza nell\'esposizione'];
+  const rel = (list) => `<div class="rel"><h3 data-reveal>Potrebbe interessarti anche</h3><div class="rlist" data-reveal>${list.map((s) => `<a class="rl" href="${url(s)}"><div><small>${REG[s].kind === 'età' ? REG[s].age : 'Esigenza'}</small><b>${REG[s].name}</b><p>${REG[s].tag}</p></div><span>Scopri →</span></a>`).join('')}</div></div>`;
+  const lens = D?.lens || ['studiare', 'metodo'];
+
+  const hero = `
+  <section class="phero" data-theme="dark" aria-labelledby="pTitle">
+    <div class="wrap">
+      <div>
+        <nav class="crumb" aria-label="Sei qui" data-reveal><a href="studenti.html#percorsi">Percorsi</a><span>/</span><b>${R.name}</b></nav>
+        <h1 class="split" id="pTitle">${D ? D.title : R.tag}</h1>
+        <p class="lead" data-reveal>${D ? D.lead : 'Metodo FOCUS, un tutor dedicato e lezioni live. Tutto online, in tutta Italia, dal lunedì al sabato.'}</p>
+        <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a><span class="small">Gratuito · 10 minuti</span></div>
+        ${D ? '' : '<div class="soon" data-reveal><i></i>PAGINA COMPLETA IN PREPARAZIONE</div>'}
+      </div>
+      <div class="vis" data-reveal aria-hidden="true">
+        <div class="lcard" id="lcard"><span class="k">METTI A FUOCO</span><div class="w wf">${lens[0]}</div><div class="w wt">${lens[1]}</div>
+          <svg id="lglass"><circle class="ring"/><circle class="ring"/><path class="bridge"/></svg></div>
+        ${D ? `<figure class="mquote"><p>${D.quote}</p><small>— la voce di tante mamme</small></figure>` : ''}
+      </div>
+    </div>
+  </section>`;
+
+  if (!D) {
+    const others = Object.keys(REG).filter((s) => s !== slug && REG[s].kind === R.kind).slice(0, 4);
+    document.getElementById('main').innerHTML = hero + `
+    <section class="final sheet" data-theme="dark"><div class="wrap">
+      <h2 class="split">Intanto, il primo passo è lo stesso: <em>capire da dove parte.</em></h2>
+      <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a></div>
+      <p class="note" data-reveal>Gratuito · online · 10 minuti · poi un tutor vi spiega i risultati</p>${rel(others)}</div></section>`;
+    return;
+  }
+
+  document.getElementById('main').innerHTML = hero + `
+  <section class="signs sheet" data-theme="light" aria-labelledby="sgTitle">
+    <div class="wrap grid">
+      <div><p class="eyebrow" data-reveal>Ti riconosci?</p><h2 class="sec-title split" id="sgTitle">Se succede anche a voi, <em>non siete i soli.</em></h2>
+        <p class="sec-lead" data-reveal>Tocca le frasi che descrivono tuo figlio.</p></div>
+      <div>
+        <div class="slist" id="slist" data-reveal>${D.signs.map((s) => `<button class="srow" type="button" aria-pressed="false"><i>✓</i>${s}</button>`).join('')}</div>
+        <div class="sres" id="sres" data-reveal aria-live="polite"><span class="n" id="sN">0/${D.signs.length}</span><p id="sP">Tocca le frasi in cui lo riconosci.</p><a class="btn btn-stud" href="test.html"><span class="t">Fai il test gratuito →</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ba-sec sheet" data-theme="dark" aria-labelledby="baTitle">
+    <div class="wrap">
+      <div class="top"><div><p class="eyebrow" data-reveal>Cosa cambia</p><h2 class="sec-title split" id="baTitle">Prima e dopo <em>Lambda.</em></h2></div>
+        <p class="sec-lead" data-reveal style="max-width:36ch">Non promettiamo miracoli. Promettiamo un metodo, e le serate cambiano di conseguenza.</p></div>
+      <div class="ba" id="ba" data-reveal role="slider" aria-label="Confronto prima e dopo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+        <div class="pane pa"><span class="lab">PRIMA</span><ul>${D.before.items.map((t) => `<li>${t}</li>`).join('')}</ul><div class="clk">${clock(D.before.time)}</div></div>
+        <div class="pane pd"><span class="lab">DOPO</span><ul>${D.after.items.map((t) => `<li>${t}</li>`).join('')}</ul><div class="clk">${clock(D.after.time)}</div></div>
+        <div class="handle"><b>⇆</b></div>
+      </div>
+      <p class="ba-hint" data-reveal>Trascina per confrontare</p>
+    </div>
+  </section>
+
+  <section class="meth sheet" data-theme="light" aria-labelledby="mTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Il percorso</p>
+      <h2 class="sec-title split" id="mTitle">Su cosa lavoriamo, <em>prima di tutto.</em></h2>
+      <p class="sec-lead" data-reveal>Il Metodo FOCUS allena cinque abilità. Per ${R.kind === 'età' ? 'questa età' : 'questa esigenza'} partiamo da qui; il Performance Test ci dice il resto.</p>
+      <div class="frow" data-reveal>${'FOCUS'.split('').map((l, i) => `<div class="fx${D.focus[i] ? ' on' : ''}"><span class="L">${l}</span><b>${NAMES[i]}</b>${D.focus[i] ? `<p>${D.focus[i]}</p>` : ''}</div>`).join('')}</div>
+      <h3 class="incl-h" data-reveal>Cosa comprende</h3>
+      <div class="incl" data-reveal>${D.includes.map((k) => { const [t, p, d] = INCLUDES[k]; return `<div class="inc"><svg viewBox="0 0 28 28"><path d="${d}"/></svg><div><b>${t}</b><p>${p}</p></div></div>`; }).join('')}</div>
+    </div>
+  </section>
+
+  <section class="rev sheet" data-theme="dark" aria-label="Una recensione">
+    <div class="wrap">
+      <div class="stars" data-reveal><i></i><i></i><i></i><i></i><i></i></div>
+      <blockquote class="split">“${D.review[0]}”</blockquote>
+      <p class="who" data-reveal><b>${D.review[1]}</b> · genitore, su Trustpilot · 4,9 su 5</p>
+      <a class="more" data-reveal href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">Leggi tutte le recensioni →</a>
+    </div>
+  </section>
+
+  <section class="faq sheet" data-theme="light" aria-labelledby="qTitle">
+    <div class="wrap grid">
+      <div><p class="eyebrow" data-reveal>Domande frequenti</p><h2 class="sec-title split" id="qTitle">Le domande <em>che ci fanno i genitori.</em></h2></div>
+      <div data-reveal>${D.faq.map(([q, a], i) => `<details class="qa"${i ? '' : ' open'}><summary>${q}<i>+</i></summary><p>${a}</p></details>`).join('')}</div>
+    </div>
+  </section>
+
+  <section class="final sheet" data-theme="dark" aria-labelledby="fTitle">
+    <div class="wrap">
+      <h2 class="split" id="fTitle">Il primo passo è capire <em>da dove parte.</em></h2>
+      <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a></div>
+      <p class="note" data-reveal>Gratuito · online · 10 minuti · poi un tutor vi spiega i risultati</p>
+      ${rel(D.related)}
+    </div>
+  </section>`;
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/lambda.js?v=17"></script>
+<script>
+gsap.set('#logo', { autoAlpha: 1 });
+(() => {
+  const L = window.Lambda, reduced = L.reduced, $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
+  if (!window.__P) return;
+  const { D } = window.__P;
+
+  /* ---------- la lente: gli occhiali scorrono e mettono a fuoco la parola giusta ---------- */
+  const card = $('#lcard'), g = $('#lglass'), wf = $('.wf', card), wt = card.querySelector('.wt');
+  let W = 0, r = 0, off = 0;
+  function size() {
+    W = card.clientWidth; const H = card.clientHeight; r = Math.min(H * 0.19, W * 0.1); off = r * 1.18;
+    const longest = Math.max(...(wf.textContent + ' ' + wt.textContent).split(' ').map((w) => w.length)), fs = Math.min(H * 0.38, (W * 0.84) / (longest * 0.58));
+    [wf, wt].forEach((el) => (el.style.fontSize = fs + 'px'));
+    const lw = off * 2 + r * 2 + 12, lh = r * 2 + 12, c1 = 6 + r, c2 = lw - 6 - r, cy = lh / 2;
+    g.setAttribute('width', lw); g.setAttribute('height', lh); g.setAttribute('viewBox', `0 0 ${lw} ${lh}`);
+    const [a, b] = g.querySelectorAll('circle'); a.setAttribute('cx', c1); a.setAttribute('cy', cy); a.setAttribute('r', r); b.setAttribute('cx', c2); b.setAttribute('cy', cy); b.setAttribute('r', r);
+    g.querySelector('path').setAttribute('d', `M${c1 + r} ${cy - r * 0.15} Q${lw / 2} ${cy - r * 0.5} ${c2 - r} ${cy - r * 0.15}`);
+    g._w = lw; g._h = lh;
+  }
+  size(); addEventListener('resize', size);
+  L.onFrame((now) => {
+    const b = card.getBoundingClientRect(); if (b.bottom < 0 || b.top > innerHeight) return;
+    // va avanti e indietro e si ferma un attimo al centro, dove la parola è tutta a fuoco
+    const t = reduced ? 0 : now / 1000, s = Math.sin(t * 0.9), x = W / 2 + Math.sign(s) * Math.pow(Math.abs(s), 1.6) * Math.max(0, W / 2 - off - r - 14);
+    wt.style.setProperty('--r', r + 'px'); wt.style.setProperty('--x1', x - off + 'px'); wt.style.setProperty('--x2', x + off + 'px');
+    g.style.transform = `translate(${x - g._w / 2}px, ${-g._h / 2 + Math.sin(t * 2.1) * 3}px)`;
+  });
+
+  if (!D) return;
+
+  /* ---------- ti riconosci? ---------- */
+  const rows = $$('.srow'), sN = $('#sN'), sP = $('#sP'), sres = $('#sres'), tot = rows.length;
+  $('#slist').addEventListener('click', (e) => {
+    const b = e.target.closest('.srow'); if (!b) return;
+    b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true'));
+    const n = rows.filter((x) => x.getAttribute('aria-pressed') === 'true').length;
+    sN.textContent = `${n}/${tot}`;
+    sP.textContent = !n ? 'Tocca le frasi in cui lo riconosci.'
+      : n < 3 ? 'Qualche segnale. Il Performance Test vi dirà con precisione da dove partire.'
+      : 'Non è un caso isolato: è il metodo che va costruito. E si può fare, a qualsiasi punto dell\'anno.';
+    sres.classList.toggle('go', n > 0);
+    if (!reduced) gsap.fromTo(sN, { scale: 1.25 }, { scale: 1, duration: 0.5, ease: 'back.out(3)' });
+  });
+
+  /* ---------- prima / dopo ---------- */
+  const ba = $('#ba'); let pos = 50, drag = false;
+  const set = (p) => { pos = Math.max(4, Math.min(96, p)); ba.style.setProperty('--x', pos + '%'); ba.setAttribute('aria-valuenow', Math.round(pos)); };
+  const fromEv = (e) => { const b = ba.getBoundingClientRect(); set(((e.clientX - b.left) / b.width) * 100); };
+  ba.addEventListener('pointerdown', (e) => { if (innerWidth <= 640) return; drag = true; ba.setPointerCapture(e.pointerId); gsap.killTweensOf(hint); fromEv(e); });
+  ba.addEventListener('pointermove', (e) => { if (drag) fromEv(e); });
+  ba.addEventListener('pointerup', () => (drag = false));
+  ba.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') set(pos - 5); if (e.key === 'ArrowRight') set(pos + 5); });
+  // al primo ingresso la maniglia "respira" per far capire che si può trascinare
+  const hint = { p: 50 };
+  new IntersectionObserver((en, o) => en.forEach((x) => { if (!x.isIntersecting || reduced || innerWidth <= 640) return; o.disconnect();
+    gsap.timeline({ delay: 0.4 }).to(hint, { p: 78, duration: 1.1, ease: 'power2.inOut', onUpdate: () => set(hint.p) }).to(hint, { p: 22, duration: 1.4, ease: 'power2.inOut', onUpdate: () => set(hint.p) }).to(hint, { p: 50, duration: 1, ease: 'power2.inOut', onUpdate: () => set(hint.p) });
+  }), { threshold: 0.5 }).observe(ba);
+})();
+</script>
+</body>
+</html>

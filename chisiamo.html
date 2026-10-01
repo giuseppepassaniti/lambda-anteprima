@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chi siamo · Centro Studi Lambda</title>
+<meta name="description" content="Centro Studi Lambda: insegniamo a studiare, dalla primaria all'università e ai concorsi. Visione, missione, valori, metodi FOCUS ed EAGLE, il team e la rete delle sedi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=8">
+<style>
+/* =================== LAMBDA · Chi siamo =================== */
+
+/* ---------- HERO: il simbolo Lambda che si disegna ---------- */
+.ahero{position:relative;min-height:100svh;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 72% 50%, #16475a 0%, var(--navy) 55%, var(--deep) 100%);display:grid;align-items:center}
+.ahero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px);align-items:center;padding-top:calc(var(--hdr) + 40px);padding-bottom:80px}
+.ahero .eyebrow{color:var(--warm)}
+.ahero h1{margin-top:18px;font:700 clamp(46px,5.6vw,94px)/.94 var(--font);letter-spacing:-.055em;text-wrap:balance}
+.ahero h1 em{font-style:normal;color:var(--warm)}
+.ahero .lead{margin-top:22px;max-width:46ch;font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:rgba(255,255,255,.74)}
+.ahero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.sym{position:relative;justify-self:center;width:min(100%,460px)}
+.sym svg{width:100%;height:auto;overflow:visible}
+.sym .st{fill:none;stroke:#fff;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+.sym .glass{fill:rgba(255,214,107,0);transition:fill 1s}
+.sym.lit .glass{fill:rgba(255,214,107,.22)}
+.sym .halo{position:absolute;inset:-10%;border-radius:50%;background:radial-gradient(circle,rgba(255,214,107,.18),transparent 62%);filter:blur(10px);opacity:0;transition:opacity 1.2s}
+.sym.lit .halo{opacity:1}
+.sym .words{position:absolute;inset:0;pointer-events:none}
+.sym .words span{position:absolute;font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);white-space:nowrap;opacity:0;transition:opacity .8s,transform .8s var(--ease);transform:translateY(8px)}
+.sym.lit .words span{opacity:1;transform:none}
+
+/* ---------- VISIONE E MISSIONE ---------- */
+.vm{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.vm .eyebrow,.story .eyebrow,.team .eyebrow{color:var(--teal)}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:46px}
+.vcard{position:relative;padding:clamp(28px,3.4vw,46px);border-radius:32px;background:#fff;overflow:hidden;box-shadow:0 40px 80px -60px rgba(14,33,46,.6)}
+.vcard.dark{background:var(--navy);color:#fff}
+.vcard .k{font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--aqua)}
+.vcard.dark .k{color:var(--warm)}
+.vcard h3{margin-top:14px;font:700 clamp(28px,2.8vw,44px)/1.02 var(--font);letter-spacing:-.04em;text-wrap:balance}
+.vcard h3 em{font-style:normal;color:var(--aqua)} .vcard.dark h3 em{color:var(--warm)}
+.vcard p{margin-top:18px;font-size:16.5px;line-height:1.55;color:#4a6370}
+.vcard.dark p{color:rgba(255,255,255,.72)}
+.vcard .big{position:absolute;right:-10px;bottom:-40px;font:700 180px/1 var(--font);letter-spacing:-.06em;color:rgba(14,33,46,.04);pointer-events:none}
+.vcard.dark .big{color:rgba(255,255,255,.04)}
+
+/* ---------- LA NOSTRA STORIA ---------- */
+.story{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.tl{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:56px}
+.tl::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:linear-gradient(90deg,var(--aqua),var(--warm));transform-origin:left;transform:scaleX(var(--tl,0));transition:transform 1.8s var(--ease)}
+.tl.in{--tl:1}
+.ch{position:relative}
+.ch .dot{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;background:var(--navy);color:var(--warm);display:grid;place-items:center;font:700 20px/1 var(--font);box-shadow:0 0 0 6px #fff}
+.ch.now .dot{background:var(--warm);color:var(--navy)}
+.ch small{display:block;margin-top:20px;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--aqua)}
+.ch b{display:block;margin-top:8px;font:700 21px/1.1 var(--font);letter-spacing:-.02em}
+.ch p{margin-top:8px;font-size:15px;line-height:1.45;color:#4a6370}
+
+/* ---------- VALORI ---------- */
+.values{background:var(--deep);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.values .eyebrow{color:var(--warm)}
+.vagrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:46px}
+.va{padding:26px;border-radius:26px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:background .4s,border-color .4s,transform .5s var(--ease)}
+.va:hover{background:rgba(255,255,255,.07);border-color:rgba(255,214,107,.35);transform:translateY(-4px)}
+.va svg{width:34px;height:34px;fill:none;stroke:var(--warm);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.va b{display:block;margin-top:18px;font:700 22px/1.1 var(--font);letter-spacing:-.02em}
+.va p{margin-top:10px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.68)}
+
+/* ---------- DUE METODI ---------- */
+.methods{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.methods .eyebrow{color:var(--teal)}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:46px}
+.mc{display:flex;flex-direction:column;padding:clamp(26px,3vw,40px);border-radius:32px;min-height:440px;transition:transform .5s var(--ease)}
+.mc:hover{transform:translateY(-6px)}
+.mc.lam{background:var(--navy);color:#fff}
+.mc.cma{background:radial-gradient(ellipse 80% 70% at 70% 80%, #2c3620 0%, #121510 60%, var(--ink) 100%);color:var(--bone)}
+.mc .k{font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+.mc.lam .k{color:var(--warm)} .mc.cma .k{color:var(--mil-l)}
+.mc h3{margin-top:12px;font:700 clamp(28px,2.6vw,40px)/1 var(--font);letter-spacing:-.04em}
+.mc .acr{display:grid;gap:8px;margin-top:26px}
+.mc .acr div{display:flex;align-items:center;gap:14px;font-size:16px}
+.mc .acr i{font-style:normal;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font:700 20px/1 var(--font);flex-shrink:0}
+.mc.lam .acr i{background:var(--warm);color:var(--navy)}
+.mc.cma .acr i{background:var(--red);color:#fff}
+.mc .go{margin-top:auto;padding-top:24px;font-weight:700}
+.mc.lam .go{color:var(--warm)} .mc.cma .go{color:var(--red)}
+
+/* ---------- TEAM ---------- */
+.team{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.tm{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:14px;margin-top:46px}
+.pc{display:flex;flex-direction:column;padding:22px;border-radius:26px;background:var(--light)}
+.pc .av{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;font:700 26px/1 var(--font);background:var(--navy);color:var(--warm)}
+.pc.cma .av{background:var(--ink);color:var(--red)}
+.pc b{display:block;margin-top:16px;font:700 22px/1.1 var(--font);letter-spacing:-.02em}
+.pc small{display:block;margin-top:6px;font-size:14px;line-height:1.35;color:#4a6370}
+.pc.lead{grid-row:1/3;background:var(--navy);color:#fff;padding:clamp(26px,3vw,38px)}
+.pc.lead .av{width:96px;height:96px;font-size:34px;background:var(--warm);color:var(--navy)}
+.pc.lead b{font-size:clamp(26px,2.4vw,34px)} .pc.lead small{color:var(--warm);font:500 12px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.pc.lead p{margin-top:18px;font-size:16px;line-height:1.55;color:rgba(255,255,255,.75)}
+.pc.lead ul{list-style:none;display:grid;gap:8px;margin-top:20px}
+.pc.lead li{display:flex;gap:10px;font-size:15px;color:rgba(255,255,255,.85)}
+.pc.lead li::before{content:"";flex-shrink:0;width:8px;height:8px;margin-top:7px;border-radius:50%;background:var(--warm)}
+.pc.more{justify-content:center;background:transparent;border:1.5px dashed rgba(14,33,46,.2)}
+.pc.more b{margin-top:0}
+
+/* ---------- CASA MADRE E RETE ---------- */
+.net{background:radial-gradient(ellipse 70% 70% at 50% 50%, #14404f 0%, var(--navy) 60%, var(--deep) 100%);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.net .eyebrow{color:var(--warm)}
+.net .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.net .pts{list-style:none;display:grid;gap:10px;margin-top:26px}
+.net .pts li{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font-size:15px;line-height:1.4;color:rgba(255,255,255,.75)}
+.net .pts b{color:var(--warm)}
+.net .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.orb svg{width:100%;height:auto}
+.orb .ln{fill:none;stroke-width:1.5;stroke-dasharray:5 7;animation:dash 1.6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-24}}
+.orb text{font-family:var(--font);font-weight:700}
+
+/* ---------- NUMERI + FINALE ---------- */
+.nums{background:var(--deep);padding:clamp(70px,9vh,100px) 0}
+.ngrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.nb{padding:24px;border-radius:24px;border:1px solid rgba(255,255,255,.1)}
+.nb b{display:block;font:700 clamp(40px,4vw,62px)/1 var(--font);letter-spacing:-.045em}
+.nb b small{font-size:.45em;color:rgba(255,255,255,.55)}
+.nb>span{display:block;margin-top:10px;font-size:14.5px;color:rgba(255,255,255,.65)}
+.nums .more{display:block;margin-top:26px;text-align:center;font-weight:700;color:var(--warm)}
+.final{background:radial-gradient(ellipse 70% 60% at 50% 45%, #16475a 0%, var(--navy) 55%, var(--deep) 100%);padding:clamp(110px,14vh,160px) 0;text-align:center}
+.final h2{font:700 clamp(40px,5vw,80px)/.98 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.final h2 em{font-style:normal;color:var(--warm)}
+.final .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:38px}
+
+@media (max-width: 1100px){ .tl{grid-template-columns:repeat(3,1fr);row-gap:34px} .tl::before{display:none} .tm{grid-template-columns:1fr 1fr} .pc.lead{grid-row:auto;grid-column:1/3} }
+@media (max-width: 860px){
+  .ahero .wrap,.vgrid,.mgrid,.net .grid{grid-template-columns:1fr}
+  .sym{max-width:300px;order:-1}
+  .vagrid{grid-template-columns:1fr 1fr} .ngrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 560px){ .tl,.vagrid,.tm{grid-template-columns:1fr} .pc.lead{grid-column:auto} .net .pts li{grid-template-columns:1fr;gap:4px} .ahero .ctas .btn{width:100%;justify-content:center} }
+</style>
+</head>
+<body data-page="chisiamo" data-branch="stud">
+<div data-lambda-header></div>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="ahero" data-theme="dark" aria-labelledby="aTitle">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" data-reveal>Chi siamo</p>
+        <h1 class="split" id="aTitle">Insegniamo a studiare. <em>Per tutta la vita.</em></h1>
+        <p class="lead" data-reveal>Centro Studi Lambda accompagna studenti di ogni età, dalla scuola primaria all'università e ai concorsi, perché sviluppino un metodo di studio autonomo ed efficace. E sostiene le famiglie nel loro ruolo di guida.</p>
+        <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="#visione"><span class="t">La nostra visione ↓</span></a><a class="btn btn-ghost" href="#team"><span class="t">Conosci il team</span></a></div>
+      </div>
+      <div class="sym" id="sym" aria-hidden="true">
+        <div class="halo"></div>
+        <svg viewBox="0 0 120 100"><circle class="st glass" cx="38" cy="24" r="17"/><circle class="st glass" cx="82" cy="24" r="17"/><path class="st" d="M55 22 Q60 17 65 22"/><path class="st" d="M34 50 H92 V62 H34 Z M40 56 H86"/><path class="st" d="M30 66 H86 V76 H30 Z"/><path class="st" d="M22 80 H98 V94 H22 Z M30 87 H92"/></svg>
+        <div class="words"><span style="left:2%;top:-6%">Visione</span><span style="right:0;top:-2%;transition-delay:.15s">Metodo</span><span style="left:-6%;top:58%;transition-delay:.3s">Tutor</span><span style="right:-4%;top:62%;transition-delay:.45s">Famiglie</span><span style="left:40%;bottom:-10%;transition-delay:.6s">Futuro</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VISIONE E MISSIONE ============ -->
+  <section class="vm sheet" id="visione" data-theme="light" aria-labelledby="vmTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Visione e missione</p>
+      <h2 class="sec-title split" id="vmTitle">Dove vogliamo arrivare, <em>e come.</em></h2>
+      <div class="vgrid" data-reveal>
+        <article class="vcard dark"><span class="k">La visione</span><h3>Una comunità educativa dove <em>ogni studente può crescere.</em></h3>
+          <p>Vogliamo creare una comunità inclusiva e stimolante, in cui ogni studente possa dare il meglio, qualunque siano le sue esigenze e il suo punto di partenza. Ed essere un punto di riferimento nell'educazione personalizzata, con le tecnologie e i metodi didattici più efficaci.</p><span class="big">V</span></article>
+        <article class="vcard"><span class="k">La missione</span><h3>Un'educazione su misura, <em>che rende autonomi.</em></h3>
+          <p>Offriamo un percorso personalizzato e di alta qualità, perché ogni studente sviluppi il suo potenziale, scolastico e personale. Con strumenti e strategie innovative lo aiutiamo a diventare autonomo nello studio, e sosteniamo le famiglie nel loro ruolo di guida educativa.</p><span class="big">M</span></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LA NOSTRA STORIA ============ -->
+  <section class="story sheet" data-theme="light" aria-labelledby="stTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>La nostra storia</p>
+      <h2 class="sec-title split" id="stTitle">Da un'idea semplice <em>a una rete in tutta Italia.</em></h2>
+      <div class="tl" id="tl" data-reveal>
+        <div class="ch"><span class="dot">1</span><small>L'idea</small><b>Studiare si impara</b><p>Nessuno nasce con un metodo: si costruisce. Da qui parte Lambda, mettendo insieme psicologia dell'apprendimento e didattica.</p></div>
+        <div class="ch"><span class="dot">2</span><small>Il metodo</small><b>Nasce FOCUS</b><p>Cinque abilità che si allenano: fiducia, organizzazione, comprensione, strumenti, esposizione. Poi EAGLE, per chi prepara un concorso.</p></div>
+        <div class="ch"><span class="dot">3</span><small>La rete</small><b>Tutto online</b><p>Lezioni live, aule studio e laboratori arrivano in ogni città d'Italia, con un tutor dedicato per ogni studente.</p></div>
+        <div class="ch"><span class="dot">4</span><small>Le sedi</small><b>Anche di persona</b><p>Messina, Lecco, Monza e Cagliari: spazi dove incontrare il tutor e studiare, collegati a tutta la rete.</p></div>
+        <div class="ch now"><span class="dot">5</span><small>Oggi</small><b>+5000 studenti</b><p>N°1 in Italia per recensioni certificate. E a novembre aprono Catania e Foggia.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALORI ============ -->
+  <section class="values sheet" data-theme="dark" aria-labelledby="vaTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>I nostri valori</p>
+      <h2 class="sec-title split" id="vaTitle">Ciò di cui <em>potete fidarvi.</em></h2>
+      <div class="vagrid" data-reveal>
+        <article class="va"><svg viewBox="0 0 34 34"><path d="M17 4l3.8 7.8 8.6 1.2-6.2 6 1.5 8.5L17 23.4l-7.7 4.1 1.5-8.5-6.2-6 8.6-1.2z"/></svg><b>Eccellenza educativa</b><p>Programmi personalizzati e tutor esperti che seguono ogni studente, passo dopo passo.</p></article>
+        <article class="va"><svg viewBox="0 0 34 34"><path d="M17 4l11 4v8c0 7-4.8 12-11 14C10.8 28 6 23 6 16V8z M12 17l4 4 7-8"/></svg><b>Integrità e trasparenza</b><p>Un rapporto basato sulla fiducia: accompagniamo studenti e famiglie con chiarezza, in ogni fase.</p></article>
+        <article class="va"><svg viewBox="0 0 34 34"><path d="M17 4v4M17 26v4M4 17h4M26 17h4M8 8l3 3M23 23l3 3M26 8l-3 3M11 23l-3 3"/><circle cx="17" cy="17" r="5"/></svg><b>Innovazione</b><p>Nuove tecnologie e metodi didattici, per un apprendimento più efficace e coinvolgente.</p></article>
+        <article class="va"><svg viewBox="0 0 34 34"><circle cx="17" cy="11" r="5"/><path d="M8 29c1-6 4.5-9 9-9s8 3 9 9"/></svg><b>Personalizzazione</b><p>Ogni studente è unico: adattiamo il percorso alle sue esigenze e al suo modo di imparare.</p></article>
+        <article class="va"><svg viewBox="0 0 34 34"><circle cx="11" cy="12" r="4"/><circle cx="23" cy="12" r="4"/><path d="M3 28c.8-5 3.8-8 8-8s7.2 3 8 8M15 28c.8-5 3.8-8 8-8s7.2 3 8 8"/></svg><b>Collaborazione</b><p>Lavoriamo insieme a famiglie, scuole e studenti, per un percorso davvero integrato.</p></article>
+        <article class="va"><svg viewBox="0 0 34 34"><path d="M17 29s-11-7-11-15a6 6 0 0 1 11-3.3A6 6 0 0 1 28 14c0 8-11 15-11 15z"/></svg><b>Inclusione</b><p>Un ambiente dove ogni studente si sente accolto e valorizzato, con un supporto specifico per i DSA.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DUE METODI ============ -->
+  <section class="methods sheet" data-theme="light" aria-labelledby="meTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>I nostri metodi</p>
+      <h2 class="sec-title split" id="meTitle">Due percorsi. <em>La stessa filosofia.</em></h2>
+      <div class="mgrid" data-reveal>
+        <a class="mc lam" href="metodo-focus.html"><span class="k">Centro Studi Lambda · per studenti</span><h3>Metodo FOCUS</h3>
+          <div class="acr"><div><i>F</i>Fiducia</div><div><i>O</i>Organizzazione</div><div><i>C</i>Comprensione</div><div><i>U</i>Uso consapevole degli strumenti</div><div><i>S</i>Sicurezza nell'esposizione</div></div>
+          <span class="go">Scopri FOCUS →</span></a>
+        <a class="mc cma" href="concorsi.html"><span class="k">Concorsi Militari Academy · per concorsi</span><h3>Metodo EAGLE</h3>
+          <div class="acr"><div><i>E</i>Efficienza della memoria</div><div><i>A</i>Allenamento al richiamo</div><div><i>G</i>Gestione strategica</div><div><i>L</i>Leadership emotiva</div><div><i>E</i>Esame sicuro</div></div>
+          <span class="go">Scopri EAGLE →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="team sheet" id="team" data-theme="light" aria-labelledby="tmTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Il team</p>
+      <h2 class="sec-title split" id="tmTitle">Le persone <em>dietro il metodo.</em></h2>
+      <p class="sec-lead" data-reveal>Tutor qualificati che accompagnano studenti di ogni grado e aspiranti concorsisti, con percorsi personalizzati e un supporto costante.</p>
+      <div class="tm" data-reveal>
+        <article class="pc lead"><span class="av">FB</span><b>Floriana Bitto</b><small>Co-fondatrice e responsabile docenti</small>
+          <p>Laureata in Psicologia Clinica con 110 e lode, ha costruito la sua esperienza su tecniche di apprendimento avanzate, gestione dello stress e motivazione, pubblicando diverse ricerche scientifiche.</p>
+          <ul><li>Esperta nel trasformare le difficoltà scolastiche in successi</li><li>Ha aiutato oltre 200 studenti a costruire il proprio metodo</li></ul></article>
+        <article class="pc"><span class="av">D</span><b>Daniele</b><small>Tutor specializzato · Centro Studi Lambda</small></article>
+        <article class="pc cma"><span class="av">M</span><b>Mirko</b><small>Tutor specializzato · Concorsi Militari Academy</small></article>
+        <article class="pc"><span class="av">S</span><b>Simona</b><small>Tutor specializzata · Lambda Messina</small></article>
+        <article class="pc"><span class="av">R</span><b>Rosi</b><small>Tutor specializzata · Lambda Messina</small></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CASA MADRE E RETE ============ -->
+  <section class="net sheet" data-theme="dark" aria-labelledby="ntTitle">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow" data-reveal>La Casa Madre e la rete</p>
+        <h2 class="sec-title split" id="ntTitle">Un cuore online. <em>Le sedi sul territorio.</em></h2>
+        <p class="sec-lead" data-reveal>La Casa Madre è il centro della Rete Lambda: da qui arrivano docenti, laboratori e aule studio, ovunque. Le sedi aggiungono il contatto di persona.</p>
+        <ul class="pts" data-reveal>
+          <li><b>Casa Madre</b><span>Didattica, docenti e laboratori, erogati online in tutta Italia.</span></li>
+          <li><b>Sedi</b><span id="sediList">Messina, Lecco, Monza, Cagliari.</span></li>
+          <li><b>Ovunque</b><span>Chi non ha una sede vicina segue lo stesso percorso, da casa.</span></li>
+        </ul>
+        <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="sedi.html"><span class="t">Esplora la rete in 3D →</span></a></div>
+      </div>
+      <div class="orb" data-reveal><svg id="orb" viewBox="0 0 520 460" role="img" aria-label="La Casa Madre al centro, collegata alle sedi e a chi studia da casa"></svg></div>
+    </div>
+  </section>
+
+  <!-- ============ NUMERI ============ -->
+  <section class="nums" data-theme="dark" aria-label="Lambda in numeri">
+    <div class="wrap">
+      <div class="ngrid" data-reveal data-count-group>
+        <div class="nb"><b data-count="5000" data-pre="+">+0</b><span>studenti aiutati</span></div>
+        <div class="nb"><b><span data-count="4.9" data-dec="1">0</span><small>/5</small></b><span>su Trustpilot</span></div>
+        <div class="nb"><b>N°1</b><span>in Italia per recensioni certificate</span></div>
+        <div class="nb"><b data-count="100" data-suf="%">0%</b><span>Garanzia</span></div>
+      </div>
+      <a class="more" href="risultati.html">Le storie e i risultati →</a>
+    </div>
+  </section>
+
+  <section class="final" data-theme="dark" aria-labelledby="fTitle">
+    <div class="wrap">
+      <h2 class="split" id="fTitle">Il modo migliore per conoscerci <em>è iniziare.</em></h2>
+      <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a><a class="btn btn-ghost" href="concorsi.html"><span class="t">Prepari un concorso?</span></a></div>
+    </div>
+  </section>
+</main>
+
+<div data-lambda-footer></div>
+
+<script src="assets/sedi-info.js?v=3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/lambda.js?v=17"></script>
+<script>
+gsap.set('#logo', { autoAlpha: 1 });
+(() => {
+  const L = window.Lambda, $ = (s) => document.querySelector(s);
+  /* ---------- hero: il simbolo si disegna, poi si accende ---------- */
+  const sym = $('#sym'), st = sym.querySelectorAll('.st');
+  if (L.reduced) sym.classList.add('lit');
+  else { st.forEach((p) => { const l = p.getTotalLength(); p.style.strokeDasharray = l; p.style.strokeDashoffset = l; });
+    gsap.to(st, { strokeDashoffset: 0, duration: 1.6, stagger: 0.12, ease: 'power2.inOut', delay: 0.4, onComplete: () => sym.classList.add('lit') }); }
+  /* ---------- la linea della storia si disegna quando entra ---------- */
+  new IntersectionObserver((e, o) => e.forEach((x) => { if (x.isIntersecting) { x.target.classList.add('in'); o.disconnect(); } }), { threshold: 0.4 }).observe($('#tl'));
+  /* ---------- la rete: Casa Madre al centro, sedi intorno ---------- */
+  const I = window.SEDI_INFO || {}, keys = Object.keys(I), cx = 260, cy = 220, R = 180;
+  const open = keys.filter((k) => !I[k].opening), soon = keys.filter((k) => I[k].opening);
+  $('#sediList').innerHTML = open.map((k) => I[k].name).join(', ') + (soon.length ? `. In apertura a novembre: ${soon.map((k) => I[k].name).join(' e ')}.` : '.');
+  const nodes = [...keys.map((k) => ({ t: I[k].name, soon: !!I[k].opening })), { t: 'Da casa', home: true }];
+  $('#orb').innerHTML = nodes.map((n, i) => { const a = -Math.PI / 2 + (i * 2 * Math.PI) / nodes.length, x = cx + R * Math.cos(a), y = cy + R * 0.92 * Math.sin(a);
+      return `<path class="ln" d="M${cx} ${cy} L${x} ${y}" stroke="${n.home ? '#3fc8d1' : '#FFD66B'}" opacity="${n.soon ? .35 : .8}"/>
+        <g><rect x="${x - 58}" y="${y - 22}" width="116" height="44" rx="14" fill="${n.home ? 'rgba(63,200,209,.12)' : n.soon ? 'rgba(255,255,255,.04)' : 'rgba(255,214,107,.14)'}" stroke="${n.home ? '#3fc8d1' : '#FFD66B'}" stroke-opacity="${n.soon ? .4 : .7}" ${n.soon ? 'stroke-dasharray="4 4"' : ''}/>
+        <text x="${x}" y="${y + (n.soon ? -1 : 6)}" text-anchor="middle" font-size="16" fill="#fff" opacity="${n.soon ? .7 : 1}">${n.t}</text>${n.soon ? `<text x="${x}" y="${y + 15}" text-anchor="middle" font-size="10" fill="#FFD66B" opacity=".8">NOVEMBRE</text>` : ''}</g>`; }).join('')
+    + `<circle cx="${cx}" cy="${cy}" r="86" fill="rgba(63,200,209,.10)"/><circle cx="${cx}" cy="${cy}" r="62" fill="#00949E"/><text x="${cx}" y="${cy - 6}" text-anchor="middle" font-size="13" fill="#fff" letter-spacing="2">CASA MADRE</text><text x="${cx}" y="${cy + 18}" text-anchor="middle" font-size="20" fill="#fff">Rete Lambda</text>`;
+})();
+</script>
+</body>
+</html>
