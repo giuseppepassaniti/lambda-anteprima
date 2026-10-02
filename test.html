@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=8">
+<link rel="stylesheet" href="assets/lambda.css?v=16">
 <style>
 /* =================== LAMBDA PERFORMANCE TEST =================== */
 
@@ -281,15 +281,24 @@ body.tx-on{overflow:hidden}
 
   <!-- ============ FAQ ============ -->
   <section class="faq sheet" data-theme="light" aria-labelledby="qTitle">
-    <div class="wrap grid">
-      <div><p class="eyebrow" data-reveal>Domande frequenti</p><h2 class="sec-title split" id="qTitle">Prima di <em>iniziare.</em></h2></div>
-      <div data-reveal>
+    <div class="wrap grid fq-side">
+      <div class="qcol"><p class="eyebrow" data-reveal>Domande frequenti</p><h2 class="sec-title split" id="qTitle">Prima di <em>iniziare.</em></h2>
+        <div class="qlist" data-reveal>
         <details class="qa" open><summary>È davvero gratuito?<i>+</i></summary><p>Sì. Il test e la consegna dei risultati con il tutor sono gratuiti e senza impegno. Se poi vorrete iniziare un percorso, ve lo proporremo su misura: decidete voi.</p></details>
         <details class="qa"><summary>Chi deve rispondere, io o mio figlio?<i>+</i></summary><p>Entrambi, per un minuto tu e per il resto lui. All'inizio ti chiediamo il nome e la classe, poi gli passi il telefono: le domande parlano a lui, in modo semplice.</p></details>
         <details class="qa"><summary>Da che età si può fare?<i>+</i></summary><p>Dalla scuola primaria all'università. Per i più piccoli è normale che un genitore legga le domande ad alta voce insieme a loro.</p></details>
         <details class="qa"><summary>Va bene anche se ha un DSA o un BES?<i>+</i></summary><p>Sì. Il test non misura l'intelligenza né i voti, ma il modo di studiare. Durante la consegna il tutor terrà conto di eventuali certificazioni.</p></details>
         <details class="qa"><summary>Cosa succede dopo il test?<i>+</i></summary><p>Scegli giorno e ora per la videochiamata, dal lunedì al sabato. Un tutor vi spiega il profilo, risponde alle vostre domande e, se serve, vi propone un piano.</p></details>
+        </div>
       </div>
+      <aside class="tutor-box" data-reveal>
+        <svg class="glass9" viewBox="0 0 144 60" aria-hidden="true"><circle class="ring" cx="36" cy="30" r="26"/><circle class="ring" cx="108" cy="30" r="26"/><path class="bridge" d="M62 26 Q72 18 82 26"/></svg>
+        <h3>Preferisci parlarne prima?</h3>
+        <p>Un tutor ti richiama, ti spiega come funziona il test e cosa succede dopo, e risponde ai tuoi dubbi.</p>
+        <button class="btn btn-stud magnetic" type="button" data-lead><span class="t">Parla con un tutor →</span></button>
+        <a class="tutor-link" href="#inizia" data-start>Oppure inizia subito il test →</a>
+        <small>Gratuito · senza impegno</small>
+      </aside>
     </div>
   </section>
 
@@ -387,7 +396,7 @@ body.tx-on{overflow:hidden}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=17"></script>
+<script src="assets/lambda.js?v=23"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {
@@ -477,7 +486,7 @@ gsap.set('#logo', { autoAlpha: 1 });
   }
   // ogni "Inizia il test" della pagina (e la CTA dell'header) apre il test
   document.addEventListener('click', (e) => {
-    const a = e.target.closest('[data-start], .hdr-cta, .menu .mt a[href^="test.html"]'); if (!a) return;
+    const a = e.target.closest('[data-start], .hdr-cta, .menu .mt a[href^="test.html"]'); if (!a || a.matches('[data-lead]')) return;
     e.preventDefault(); $('#menu')?.classList.remove('open'); open({ currentTarget: a });
   });
   $('#txClose').addEventListener('click', close);

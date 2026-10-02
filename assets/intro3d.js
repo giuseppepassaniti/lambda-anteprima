@@ -1,12 +1,21 @@
-// LAMBDA · intro 3D: i libri si impilano, gli occhiali si posano, il logo vola nell'header.
+// LAMBDA · intro 3D della home studenti: i libri si impilano, gli occhiali si posano, il logo vola nell'header.
 // Richiede un importmap per 'three' nella pagina e chiama window.__startHero(true) all'uscita.
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 
 const intro = document.getElementById('intro');
-if (!intro || matchMedia('(prefers-reduced-motion: reduce)').matches) throw new Error('intro saltata');
+// solo alla prima visita (localStorage 'lambda-intro'); ?intro nell'indirizzo la fa rivedere
+let seen = null; try { seen = localStorage.getItem('lambda-intro'); } catch (e) {}
+if (/[?&]intro\b/.test(location.search)) seen = null;
+const webglOK = () => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; } };
+if (!intro) { /* nessuna intro in questa pagina */ }
+else if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches || !webglOK()) { intro.remove(); window.__startHero?.(false); }
+else run();
+
+function run() {
 window.__introRunning = true;
+try { localStorage.setItem('lambda-intro', '1'); } catch (e) {}
 
 const canvas = document.getElementById('intro3d');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -122,7 +131,7 @@ function exit() {
   // il canvas vola nell'header, lo sfondo si dissolve e rivela l'hero
   window.__startHero(true);
   gsap.set(document.getElementById('logo'), { autoAlpha: 0 });
-  const out = gsap.timeline({ onComplete: () => { running = false; renderer.dispose(); intro.remove(); } });
+  const out = gsap.timeline({ onComplete: () => { running = false; window.__introRunning = false; renderer.dispose(); intro.remove(); } });
   out.to(canvas, { x: tx, y: ty, scale: sc, duration: 1.1, ease: 'expo.inOut' }, 0)
      .to(logo.rotation, { y: 0, duration: 1.1, ease: 'expo.inOut' }, 0)
      .to(word, { autoAlpha: 0, y: 20, duration: 0.4, ease: 'power2.in' }, 0)
@@ -146,3 +155,4 @@ function loop() {
 }
 loop();
 addEventListener('resize', () => { renderer.setSize(innerWidth, innerHeight, false); fitCamera(); });
+}

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=8">
+<link rel="stylesheet" href="assets/lambda.css?v=16">
 <style>
 /* =================== LAMBDA · home del ramo studenti =================== */
 
@@ -307,9 +307,43 @@
   .mclock{font-size:8.4vw;gap:4px} .clocks{gap:10px}
   .ages{grid-template-columns:1fr} .age{min-height:0;gap:16px}
 }
+
+/* percorsi per esigenza: card ben visibili */
+.needs2{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.need{position:relative;display:flex;flex-direction:column;min-height:220px;padding:22px;border-radius:24px;background:var(--light);border:1px solid rgba(14,33,46,.06);transition:transform .5s var(--ease),background .35s,color .35s,box-shadow .5s}
+.need .ic{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--navy);transition:background .35s}
+.need .ic svg{width:26px;height:26px;fill:none;stroke:var(--warm);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.need b{margin-top:18px;font-size:19px;letter-spacing:-.02em}
+.need p{margin-top:6px;font-size:14.5px;line-height:1.45;color:#4a6370;transition:color .35s}
+.need .go{margin-top:auto;padding-top:14px;font-weight:700;font-size:14px;color:var(--teal);transition:color .35s}
+.need:hover{transform:translateY(-6px);background:var(--navy);color:#fff;box-shadow:0 30px 60px -30px rgba(14,33,46,.6)}
+.need:hover .ic{background:var(--warm)} .need:hover .ic svg{stroke:var(--navy)} .need:hover p{color:rgba(255,255,255,.7)} .need:hover .go{color:var(--warm)}
+@media (max-width: 1100px){ .needs2{grid-template-columns:repeat(2,1fr)} }
+@media (max-width: 560px){ .needs2{grid-template-columns:1fr} .need{min-height:0} }
+
+
+/* ---------- sedi: la cartina 3D (la stessa della pagina Sedi) ---------- */
+.map3d{position:relative;aspect-ratio:1/1.08;max-width:600px;width:100%;justify-self:center;border-radius:32px;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 50% 45%, #123a4a 0%, var(--navy) 70%);border:1px solid rgba(255,255,255,.08)}
+.map3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1s}
+.map3d.ready canvas{opacity:1}
+.mlabels{position:absolute;inset:0;pointer-events:none}
+.ml{position:absolute;left:0;top:0;padding:7px 11px;border-radius:999px;background:rgba(8,22,31,.78);border:1px solid rgba(63,200,209,.4);font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap;pointer-events:auto;transition:opacity .4s,background .3s,color .3s,border-color .3s;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ml:hover,.ml.hot,.ml:focus-visible{background:var(--warm);color:var(--navy);border-color:var(--warm)}
+.ml.soon{border-style:dashed;color:rgba(255,255,255,.8)}
+.ml.core{background:none;border:0;color:rgba(255,255,255,.6);pointer-events:none;backdrop-filter:none}
+.mhint{position:absolute;left:0;right:0;bottom:16px;text-align:center;font:500 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);pointer-events:none}
+.map3d.nogl{display:none}
 </style>
 </head>
-<body data-page="studenti" data-branch="stud">
+<body class="intro-on" data-page="studenti" data-branch="stud">
+
+<!-- ============ INTRO: il logo Lambda in 3D (solo alla prima visita) ============ -->
+<div class="intro" id="intro">
+  <div class="intro-bg" id="introBg"></div>
+  <canvas id="intro3d" aria-hidden="true"></canvas>
+  <div class="intro-word" id="introWord"><img src="assets/wordmark-white.png" alt=""></div>
+  <button class="skip" id="skip">SALTA INTRO</button>
+</div>
 <div data-lambda-header></div>
 
 <main>
@@ -318,15 +352,15 @@
     <div class="field blurred" aria-hidden="true"></div><div class="field sharp" aria-hidden="true"></div>
     <div class="content">
       <p class="eyebrow" data-reveal>Centro Studi Lambda · per genitori</p>
-      <h1 class="split" id="lTitle">Tuo figlio ha già tutto quello che serve. <em>Gli manca il metodo per tirarlo fuori.</em></h1>
-      <p class="lead" data-reveal>Ripetizioni e metodo di studio, insieme: un tutor dedicato, lezioni live e il Metodo FOCUS. Tutto online, in tutta Italia, dal lunedì al sabato.</p>
+      <h1 class="split" data-manual id="lTitle">Tuo figlio ha già tutto quello che serve. <em>Gli manca il metodo per tirarlo fuori.</em></h1>
+      <p class="lead" data-reveal>Ripetizioni e metodo di studio, insieme: lezioni individuali con docenti certificati, una tutor personale e il Metodo FOCUS. Tutto online, in tutta Italia, dal lunedì al sabato.</p>
       <div class="ctas" data-reveal>
         <a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a>
-        <a class="play" href="storia.html?play=1"><i>▶</i><span>Guarda la storia<small>2 minuti</small></span></a>
+        <a class="btn btn-ghost" href="#percorsi" data-scroll><span class="t">Scopri i percorsi ↓</span></a>
       </div>
       <ul class="trust" data-reveal>
         <li><span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span><b>4,9</b> su Trustpilot</span></li>
-        <li><span><b>5000+</b> studenti aiutati</span></li>
+        <li><span><b>6000+</b> studenti aiutati</span></li>
       </ul>
     </div>
     <svg class="lens" id="lens" aria-hidden="true"></svg>
@@ -337,7 +371,7 @@
     <div class="wrap">
       <p class="eyebrow" data-reveal><b>●</b> 100% online · in tutta Italia · dal lunedì al sabato</p>
       <div class="stats">
-        <div class="stat" data-reveal><div class="v" data-count="5000" data-pre="+">+0</div><p class="l">studenti aiutati a trovare il loro metodo</p></div>
+        <div class="stat" data-reveal><div class="v" data-count="6000" data-pre="+">+0</div><p class="l">studenti aiutati a trovare il loro metodo</p></div>
         <div class="stat" data-reveal><div class="v"><span data-count="4.9" data-dec="1">0</span><small>/5</small></div><div class="stars"><i></i><i></i><i></i><i></i><i></i></div><p class="l">su Trustpilot</p></div>
         <div class="stat" data-reveal><div class="v">N°1</div><p class="l">in Italia per recensioni certificate</p></div>
         <div class="stat" data-reveal><div class="v" data-count="100" data-suf="%">0%</div><p class="l">garanzia: vi accompagniamo fino all'obiettivo</p></div>
@@ -345,44 +379,38 @@
     </div>
   </section>
 
-  <!-- ============ COSA STA BLOCCANDO LO STUDIO? ============ -->
-  <section class="diag sheet" id="diagnosi" data-theme="light" aria-labelledby="dTitle">
-    <div class="wrap grid">
-      <div>
-        <p class="eyebrow" data-reveal>Parti da qui</p>
-        <h2 class="sec-title split" id="dTitle">Cosa sta bloccando <em>lo studio?</em></h2>
-        <p class="sec-lead" data-reveal>Tocca quello che riconosci in tuo figlio. Ti mostriamo su cosa lavorare e da dove partire.</p>
-        <div class="signs" id="signs" data-reveal role="group" aria-label="Segnali"></div>
-      </div>
-      <aside class="dcard" data-reveal aria-live="polite">
-        <div class="k">IL METODO FOCUS · SU COSA LAVORARE</div>
-        <div class="dletters" id="dLetters" aria-hidden="true"><span>F</span><span>O</span><span>C</span><span>U</span><span>S</span></div>
-        <div class="dres" id="dRes"><p class="empty">Seleziona uno o più segnali qui a fianco.<br>Qui comparirà il suo punto di partenza.</p></div>
-        <a class="btn btn-stud magnetic" href="test.html"><span class="t">Verificalo con il test gratuito →</span></a>
-      </aside>
+  <section class="press" data-press data-theme="dark" aria-label="Hanno parlato di noi"></section>
+
+  <!-- ============ COSA STA BLOCCANDO LO STUDIO? (consapevolezza, non vendita) ============ -->
+  <section class="pain sheet" id="diagnosi" data-theme="dark" aria-labelledby="dTitle">
+    <div class="wrap ptop">
+      <div><p class="eyebrow" data-reveal>Riconosci tuo figlio?</p>
+        <h2 class="sec-title split" id="dTitle">Non è pigrizia. <em>È qualcosa che si può capire.</em></h2></div>
+      <div><p class="sec-lead" data-reveal>Dietro ogni difficoltà c'è un meccanismo preciso. Tocca quella che riconosci: ti spieghiamo cosa succede davvero, e perché "studiare di più" spesso non basta.</p>
+        <div class="pnav" data-reveal><button type="button" id="pPrev" aria-label="Problemi precedenti">←</button><button type="button" id="pNext" aria-label="Problemi successivi">→</button></div></div>
     </div>
+    <div class="ptrack" id="pTrack" role="list" aria-label="Le difficoltà più comuni"></div>
+    <div class="wrap pend" data-reveal><p>Ogni difficoltà ha una causa diversa, e richiede un percorso diverso.</p><a href="#percorsi" data-scroll>Scopri i percorsi ↓</a></div>
   </section>
 
-
-  <!-- ============ LA DIFFERENZA LAMBDA: ripetizioni + metodo ============ -->
-  <section class="duo sheet" id="differenza" data-theme="light" aria-labelledby="duoTitle">
-    <div class="stage">
-      <div class="head">
-        <p class="eyebrow" data-reveal>La differenza Lambda · i primi a unirli</p>
-        <h2 class="split" id="duoTitle">Le ripetizioni sistemano l'oggi. <em>Il metodo sistema il domani.</em></h2>
+  <!-- ============ TROVA IL PERCORSO GIUSTO ============ -->
+  <section class="paths sheet" id="percorsi" data-theme="light" aria-labelledby="pTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>I percorsi</p>
+      <h2 class="sec-title split" id="pTitle">Trova il percorso <em>giusto per lui.</em></h2>
+      <div class="pgroup">
+        <h3 data-reveal>Per età</h3>
+        <div class="ages" data-reveal>
+          <a class="age" href="percorso.html?p=primaria"><div><div class="n">6–10</div><b>Scuola primaria</b><p>Imparare a studiare prima che studiare diventi difficile.</p></div><span class="go">Scopri →</span></a>
+          <a class="age" href="percorso.html?p=media"><div><div class="n">11–13</div><b>Scuola media</b><p>Alle medie cambia tutto. È qui che si costruisce il metodo.</p></div><span class="go">Scopri →</span></a>
+          <a class="age" href="percorso.html?p=superiore"><div><div class="n">14–18</div><b>Scuola superiore</b><p>Non basta studiare di più. Serve studiare meglio.</p></div><span class="go">Scopri →</span></a>
+          <a class="age" href="percorso.html?p=universita"><div><div class="n">19+</div><b>Università</b><p>Più autonomia, più organizzazione, un metodo per gli esami.</p></div><span class="go">Scopri →</span></a>
+          <a class="age" href="percorso.html?p=test-universitari"><div><div class="n">Test</div><b>Test universitari</b><p>Preparazione mirata ai test d'accesso.</p></div><span class="go">Scopri →</span></a>
+        </div>
       </div>
-      <div class="eq" id="eq">
-        <article class="dc rip"><span class="k">Ripetizioni</span><h3>Recuperare e approfondire</h3>
-          <ul><li>Colmano le lacune nella materia</li><li>Approfondiscono gli argomenti difficili</li><li>Preparano la prossima verifica</li></ul>
-          <div class="when">Risolvono il problema di oggi.</div></article>
-        <article class="dc met"><span class="k">Metodo di studio</span><h3>Non restare più indietro</h3>
-          <ul><li>Evita di ritrovarsi di nuovo con le lacune</li><li>Lo rende autonomo nello studio</li><li>Gli fa studiare più velocemente</li></ul>
-          <div class="when">Evita il problema di domani.</div></article>
-        <div class="op" aria-hidden="true"><span class="plus">+</span><span class="eqs" style="opacity:0">=</span></div>
-        <article class="dc res" aria-label="Lambda: ripetizioni e metodo insieme"><span class="k">Lambda</span>
-          <h3>Recupera oggi. <em>Vola da solo domani.</em></h3>
-          <p>Siamo la prima realtà che unisce alle ripetizioni tradizionali il metodo di studio: lo stesso tutor lavora sulla materia e, insieme, su come studiarla.</p>
-          <div class="pair"><span>Ripetizioni</span><span>+</span><span>Metodo FOCUS</span></div></article>
+      <div class="pgroup">
+        <h3 data-reveal>Per esigenza</h3>
+        <div class="needs2" data-reveal><a class="need" href="percorso.html?p=metodo-di-studio"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h12a4 4 0 0 1 4 4v10H8a4 4 0 0 1-4-4zM8 6v14M12 10h4M12 14h4"/></svg></span><b>Metodo di studio</b><p>Meno ore sui libri, più risultati.</p><span class="go">Scopri il percorso →</span></a><a class="need" href="percorso.html?p=ripetizioni"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM8 20h8M12 16v4M8 9h8M8 12h5"/></svg></span><b>Ripetizioni</b><p>Recuperare la materia, e intanto imparare a studiarla.</p><span class="go">Scopri il percorso →</span></a><a class="need" href="percorso.html?p=recupero-insufficienze"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 18l5-5 4 3 7-8M15 8h5v5"/></svg></span><b>Recupero insufficienze</b><p>Un piano chiaro per tornare alla sufficienza, e restarci.</p><span class="go">Scopri il percorso →</span></a><a class="need" href="percorso.html?p=dsa-bes"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 1 6 6c0 3-2 4-3 6v2H9v-2c-1-2-3-3-3-6a6 6 0 0 1 6-6zM9 21h6"/></svg></span><b>DSA/BES</b><p>Strumenti su misura per chi impara in modo diverso.</p><span class="go">Scopri il percorso →</span></a><a class="need" href="percorso.html?p=autonomia"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4-8 4-8-4zM6 9v5c3 3 9 3 12 0V9M20 7v6"/></svg></span><b>Autonomia nello studio</b><p>Studiare da solo, senza un genitore accanto.</p><span class="go">Scopri il percorso →</span></a><a class="need" href="percorso.html?p=memoria-concentrazione"><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a3 3 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></svg></span><b>Memoria e concentrazione</b><p>Ricordare di più, distrarsi di meno.</p><span class="go">Scopri il percorso →</span></a><a class="need" href="percorso.html?p=organizzazione"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16v14H4zM4 10h16M9 3v5M15 3v5M8 14h3M13 14h3M8 17h3"/></svg></span><b>Organizzazione</b><p>Un piano per la settimana, e pomeriggi che finiscono.</p><span class="go">Scopri il percorso →</span></a><a class="need" href="percorso.html?p=ansia-scolastica"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></span><b>Ansia scolastica</b><p>Sa le cose, ma quando conta si blocca.</p><span class="go">Scopri il percorso →</span></a></div>
       </div>
     </div>
   </section>
@@ -418,7 +446,7 @@
           <div class="steps5" id="steps5">
             <div class="step"><span class="node"></span><div class="card"><div class="n">01</div><svg viewBox="0 0 54 54"><polygon points="27,6 47,21 40,45 14,45 7,21"/><polygon points="27,16 37,23 33,36 20,34 17,23" style="fill:rgba(0,148,158,.18)"/></svg><h3>Analisi</h3><p>Il Performance Test fotografa come studia oggi: punti di forza e blocchi.</p></div></div>
             <div class="step"><span class="node"></span><div class="card"><div class="n">02</div><svg viewBox="0 0 54 54"><rect x="7" y="10" width="40" height="36" rx="6"/><path d="M7 20 H47 M17 6 V14 M37 6 V14 M15 28 H22 M26 28 H33 M15 36 H22"/></svg><h3>Piano</h3><p>Un tutor costruisce il programma su misura, settimana per settimana.</p></div></div>
-            <div class="step"><span class="node"></span><div class="card"><div class="n">03</div><svg viewBox="0 0 54 54"><rect x="5" y="10" width="44" height="30" rx="6"/><path d="M23 19 L33 25 L23 31 Z M18 47 H36"/></svg><h3>Allenamento</h3><p>Lezioni live, aule studio e laboratori online: il metodo diventa abitudine.</p></div></div>
+            <div class="step"><span class="node"></span><div class="card"><div class="n">03</div><svg viewBox="0 0 54 54"><rect x="5" y="10" width="44" height="30" rx="6"/><path d="M23 19 L33 25 L23 31 Z M18 47 H36"/></svg><h3>Lezioni</h3><p>Lezioni individuali live, aule studio e laboratori online: il metodo diventa abitudine.</p></div></div>
             <div class="step"><span class="node"></span><div class="card"><div class="n">04</div><svg viewBox="0 0 54 54"><path d="M7 45 H47 M7 45 V9 M13 36 L23 26 L30 32 L44 16 M38 16 H44 V22"/></svg><h3>Monitoraggio</h3><p>Il tutor segue i progressi dal lunedì al sabato e aggiusta il piano.</p></div></div>
             <div class="step"><span class="node"></span><div class="card"><div class="n">05</div><svg viewBox="0 0 54 54"><path d="M17 8 H37 V20 A10 10 0 0 1 17 20 Z M17 12 H9 A8 8 0 0 0 17 22 M37 12 H45 A8 8 0 0 1 37 22 M27 30 V38 M19 46 H35 M21 46 L23 38 H31 L33 46"/></svg><h3>Risultato</h3><p>Più sicurezza, più autonomia, meno fatica. E un metodo che resta.</p></div></div>
           </div>
@@ -430,7 +458,7 @@
   <!-- ============ LA STORIA ============ -->
   <section class="story sheet" data-theme="dark" aria-labelledby="sTitle">
     <div class="wrap">
-      <p class="eyebrow" data-reveal>La storia</p>
+      <p class="eyebrow" data-reveal>Vuoi vederlo dal vivo? · 2 minuti</p>
       <h2 class="split" id="sTitle">Ogni sera, <em>la stessa scena?</em></h2>
       <p class="sec-lead" data-reveal>In due minuti, il percorso di tante famiglie: dalla sera dei compiti infiniti alla sera in cui, a cena, si parla d'altro.</p>
       <div class="clocks" data-reveal aria-hidden="true">
@@ -455,30 +483,6 @@
     <div class="more"><a class="link-dark" href="risultati.html">Tutti i risultati e le storie →</a></div>
   </section>
 
-  <!-- ============ TROVA IL PERCORSO GIUSTO ============ -->
-  <section class="paths sheet" id="percorsi" data-theme="light" aria-labelledby="pTitle">
-    <div class="wrap">
-      <p class="eyebrow" data-reveal>I percorsi</p>
-      <h2 class="sec-title split" id="pTitle">Trova il percorso <em>giusto per lui.</em></h2>
-      <div class="pgroup">
-        <h3 data-reveal>Per età</h3>
-        <div class="ages" data-reveal>
-          <a class="age" href="percorso.html?p=primaria"><div><div class="n">6–10</div><b>Scuola primaria</b><p>Imparare a studiare prima che studiare diventi difficile.</p></div><span class="go">Scopri →</span></a>
-          <a class="age" href="percorso.html?p=media"><div><div class="n">11–13</div><b>Scuola media</b><p>Alle medie cambia tutto. È qui che si costruisce il metodo.</p></div><span class="go">Scopri →</span></a>
-          <a class="age" href="percorso.html?p=superiore"><div><div class="n">14–18</div><b>Scuola superiore</b><p>Non basta studiare di più. Serve studiare meglio.</p></div><span class="go">Scopri →</span></a>
-          <a class="age" href="percorso.html?p=universita"><div><div class="n">19+</div><b>Università</b><p>Più autonomia, più organizzazione, un metodo per gli esami.</p></div><span class="go">Scopri →</span></a>
-          <a class="age" href="percorso.html?p=test-universitari"><div><div class="n">Test</div><b>Test universitari</b><p>Preparazione mirata ai test d'accesso.</p></div><span class="go">Scopri →</span></a>
-        </div>
-      </div>
-      <div class="pgroup">
-        <h3 data-reveal>Per esigenza</h3>
-        <div class="needs" data-reveal>
-          <a href="percorso.html?p=metodo-di-studio">Metodo di studio</a><a href="percorso.html?p=ripetizioni">Ripetizioni</a><a href="percorso.html?p=recupero-insufficienze">Recupero insufficienze</a><a href="percorso.html?p=dsa-bes">DSA/BES</a><a href="percorso.html?p=autonomia">Autonomia nello studio</a><a href="percorso.html?p=memoria-concentrazione">Memoria e concentrazione</a><a href="percorso.html?p=organizzazione">Organizzazione</a><a href="percorso.html?p=ansia-scolastica">Ansia scolastica</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ SEDI ============ -->
   <section class="sedi sheet" id="sedi" aria-labelledby="sediTitle" data-theme="dark">
     <div class="wrap grid">
@@ -494,26 +498,46 @@
         <div class="cities" data-reveal><a href="sede.html?c=messina"><i></i>Messina</a><a href="sede.html?c=lecco"><i></i>Lecco</a><a href="sede.html?c=monza"><i></i>Monza</a><a href="sede.html?c=cagliari"><i></i>Cagliari</a><a class="soon" href="sede.html?c=catania"><i></i>Catania <em>da novembre</em></a><a class="soon" href="sede.html?c=foggia"><i></i>Foggia <em>da novembre</em></a></div>
         <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Inizia online: il test →</span></a><a class="btn btn-ghost" href="sedi.html">Scopri le sedi</a></div>
       </div>
-      <div class="net" data-reveal><svg id="netSvg" viewBox="0 0 500 525" aria-label="La rete Lambda: lezioni online in tutta Italia e sedi a Messina, Lecco, Monza e Cagliari; Catania e Foggia in apertura a novembre" role="img"></svg></div>
+      <div class="map3d" data-map3d data-reveal role="img" aria-label="La Rete Lambda in tutta Italia: sedi a Messina, Lecco, Monza e Cagliari; Catania e Foggia in apertura a novembre"><canvas aria-hidden="true"></canvas><div class="mlabels"></div><p class="mhint">Tocca una sede per scoprirla</p></div>
     </div>
   </section>
 
-  <!-- ============ INVITO FINALE ============ -->
-  <section class="final" aria-labelledby="finalTitle" data-theme="dark">
-    <div class="wrap">
-      <svg class="glass9" viewBox="0 0 144 60" aria-hidden="true"><circle class="ring" cx="36" cy="30" r="26"/><circle class="ring" cx="108" cy="30" r="26"/><path class="bridge" d="M62 26 Q72 18 82 26"/></svg>
-      <h2 class="split" id="finalTitle">Prima scopri da dove parte. <span class="l2">Poi costruiamo dove può arrivare.</span></h2>
-      <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a></div>
-      <p class="note" data-reveal>Gratuito · online · 10 minuti · poi un tutor ti spiega i risultati</p>
+  <!-- ============ DOMANDE FREQUENTI + PARLA CON UN TUTOR ============ -->
+  <section class="lfaq sheet" id="faq" data-theme="light" aria-labelledby="qTitle">
+    <div class="wrap grid">
+      <div class="qcol">
+        <p class="eyebrow" data-reveal>Domande frequenti</p>
+        <h2 class="sec-title split" id="qTitle">Le domande <em>di ogni genitore.</em></h2>
+        <div class="qlist" data-reveal>
+          <details class="qa" open><summary>Da dove si comincia?<i>+</i></summary><p>Dal Performance Test: dieci minuti online, gratuito. Poi un tutor vi spiega i risultati in videochiamata e, se serve, vi propone un percorso su misura. Senza impegno.</p></details>
+          <details class="qa"><summary>È tutto online?<i>+</i></summary><p>Sì. Lezioni live, tutor, aule studio e laboratori sono 100% online, dal lunedì al sabato, in tutta Italia. Se c'è una sede vicino a voi, potete anche incontrare il tutor di persona.</p></details>
+          <details class="qa"><summary>Chi segue mio figlio?<i>+</i></summary><p>Due figure. I docenti certificati Lambda fanno con lui le lezioni individuali: ripetizioni nelle materie e metodo applicato allo studio. La tutor personale, una psicologa esperta in apprendimento, costruisce il piano, segue i progressi ed è il vostro punto di riferimento.</p></details>
+          <details class="qa"><summary>Fate anche ripetizioni?<i>+</i></summary><p>Sì. Le ripetizioni recuperano le lacune nella materia; il Metodo FOCUS insegna come studiarla, così non ci si ritrova indietro. Da noi le due cose vanno insieme, nelle stesse lezioni.</p></details>
+          <details class="qa"><summary>Per quali età sono i percorsi?<i>+</i></summary><p>Dalla scuola primaria all'università, compresa la preparazione ai test universitari.</p></details>
+          <details class="qa"><summary>Funziona anche con DSA o BES?<i>+</i></summary><p>Sì: il percorso si adatta, a partire dagli strumenti compensativi previsti dal PDP. Il test misura il modo di studiare, non l'intelligenza.</p></details>
+          <details class="qa"><summary>In quanto tempo si vedono i primi cambiamenti?<i>+</i></summary><p>Le prime tecniche si usano già dalle prime settimane, soprattutto nell'organizzazione. Perché il metodo diventi un'abitudine serve qualche mese di allenamento costante.</p></details>
+        </div>
+      </div>
+      <aside class="tutor-box" data-reveal>
+        <svg class="glass9" viewBox="0 0 144 60" aria-hidden="true"><circle class="ring" cx="36" cy="30" r="26"/><circle class="ring" cx="108" cy="30" r="26"/><path class="bridge" d="M62 26 Q72 18 82 26"/></svg>
+        <h3>Hai un'altra domanda?</h3>
+        <p>Raccontaci la situazione di tuo figlio: un tutor ti richiama e ti consiglia da dove partire. Gratis e senza impegno.</p>
+        <button class="btn btn-stud magnetic" type="button" data-lead><span class="t">Parla con un tutor →</span></button>
+        <a class="tutor-link" href="test.html">Oppure inizia dal Performance Test →</a>
+        <small>Gratuito · online · 10 minuti</small>
+      </aside>
     </div>
   </section>
+
 </main>
 
 <div data-lambda-footer></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=17"></script>
+<script src="assets/lambda.js?v=23"></script>
+<script src="assets/pains.js?v=1"></script>
+<script src="assets/lead.js?v=3"></script>
 <script>
 (() => {
   gsap.set('#logo', { autoAlpha: 1 });
@@ -542,7 +566,11 @@
   }
   build(); addEventListener('resize', build);
   const Lp = { x: targets[0].x, y: targets[0].y - 160, vis: 0 }, scan = { i: -1, next: performance.now() + 900, t0: 0, from: null };
-  gsap.to(Lp, { vis: 1, duration: 1.2, delay: 0.7, ease: 'elastic.out(1, 0.55)' });
+  // l'hero parte quando finisce l'intro (o subito, se l'intro non c'è)
+  let heroOn = false;
+  window.__startHero = () => { if (heroOn) return; heroOn = true; L.release(); $('#lTitle').classList.add('in'); gsap.to(Lp, { vis: 1, duration: 1.2, delay: 0.5, ease: 'elastic.out(1, 0.55)' }); };
+  if (!$('#intro')) window.__startHero();
+  else setTimeout(() => { if (!heroOn && !window.__introRunning) { $('#intro')?.remove(); window.__startHero(); } }, 4000);
   const logo = $('#logo'), logoIcon = $('#logoIcon');
   L.onFrame((now, sy) => {
     const hb = hero.getBoundingClientRect(); if (hb.bottom < -50) return;
@@ -566,48 +594,47 @@
   if (!reduced) { const icon = logoIcon.querySelectorAll('.st'); icon.forEach((p) => { const len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.strokeDashoffset = len; });
     gsap.to(icon, { strokeDashoffset: 0, duration: 1.1, stagger: 0.07, ease: 'power2.inOut', delay: 0.1 }); gsap.from('.wordmark', { clipPath: 'inset(0 100% 0 0)', duration: 1, ease: 'power3.inOut', delay: 0.4 }); }
 
-  /* ================= DIAGNOSI ================= */
-  const SIGNS = [
-    { t: 'Studia tanto ma non ricorda', l: [2, 3], why: 'memorizzazione e strumenti di studio', go: ['Memoria e concentrazione', 'Metodo di studio'] },
-    { t: 'Studia lentamente', l: [1, 3], why: 'organizzazione e tecniche come la lettura veloce', go: ['Metodo di studio', 'Organizzazione'] },
-    { t: 'Si distrae facilmente', l: [1], why: 'concentrazione e gestione del tempo', go: ['Memoria e concentrazione'] },
-    { t: 'Non si organizza', l: [1], why: 'pianificazione della settimana e dello studio', go: ['Organizzazione', 'Autonomia nello studio'] },
-    { t: 'Ha ansia per verifiche e interrogazioni', l: [0, 4], why: 'fiducia in sé e sicurezza nell\'esposizione', go: ['Ansia scolastica'] },
-    { t: 'Ha voti insufficienti', l: [0, 2], why: 'comprensione e fiducia, con un piano di recupero', go: ['Recupero insufficienze', 'Ripetizioni'] },
+  /* ================= COSA STA BLOCCANDO LO STUDIO: consapevolezza, non vendita ================= */
+  // per ogni difficoltà: la frase del genitore, cosa succede davvero, perché "di più" non basta, una curiosità.
+  // Le animazioni sono provvisorie: andranno sostituite dai motion graphic.
+  const PAINS = [
+    { a: 'curve', t: 'Studia tanto ma non ricorda', q: 'Passa ore sui libri e il giorno dopo non ricorda niente.',
+      real: 'Rileggere dà la sensazione di conoscere un argomento perché diventa familiare, ma familiarità non è memoria. Se le informazioni non vengono richiamate attivamente, il cervello le lascia andare: in pochi giorni gran parte di ciò che si è letto svanisce.',
+      mythT: 'Perché "ripassa ancora" non basta', myth: 'Più riletture con lo stesso metodo rafforzano l\'illusione di sapere, non il ricordo. Il giorno dopo, la pagina è di nuovo "nuova".',
+      fact: 'Già nell\'Ottocento lo psicologo Hermann Ebbinghaus descrisse la "curva dell\'oblio": senza ripasso, il ricordo di ciò che si è appreso cala rapidamente nei primi giorni.' },
+    { a: 'read', t: 'Legge ma non capisce', q: 'Legge il capitolo, ma non sa dire di cosa parla.',
+      real: 'Leggere non è capire. Senza individuare i concetti chiave e i collegamenti tra loro, il testo resta un insieme di frasi, e l\'unica strategia rimasta è ripeterlo a memoria, parola per parola.',
+      mythT: 'Perché "rileggilo" non basta', myth: 'Rileggere lo stesso testo nello stesso modo porta allo stesso risultato: più tempo, stessa confusione.',
+      fact: 'Riformulare con parole proprie, o in uno schema, è uno dei modi più efficaci per capire se un testo è stato davvero compreso.' },
+    { a: 'slow', t: 'Studia lentamente', q: 'Per una pagina ci mette un\'ora.',
+      real: 'Spesso non è lentezza nel capire, ma un modo di leggere poco efficace: parola per parola, tornando indietro, sottolineando tutto senza un obiettivo. Ogni pagina diventa una salita.',
+      mythT: 'Perché "mettici più impegno" non basta', myth: 'Con lo stesso modo di leggere, più tempo vuol dire solo più fatica e meno tempo libero. E la stanchezza rende tutto ancora più lento.',
+      fact: 'Leggere sapendo cosa si sta cercando mantiene l\'attenzione più alta e riduce i "ritorni" degli occhi sulle stesse righe.' },
+    { a: 'focus', t: 'Si distrae facilmente', q: 'Si siede a studiare e dopo cinque minuti è sul telefono.',
+      real: 'La concentrazione non è un interruttore: funziona come un muscolo, e oggi è messa alla prova da notifiche e stimoli continui. Ogni interruzione costringe il cervello a ripartire da capo.',
+      mythT: 'Perché "stai concentrato!" non basta', myth: 'Chiedere attenzione senza dare un modo per gestirla genera solo frustrazione, in lui e in voi.',
+      fact: 'Dopo un\'interruzione servono diversi minuti per tornare al livello di concentrazione di prima. Poche notifiche bastano a spezzare un intero pomeriggio.' },
+    { a: 'week', t: 'Non si organizza', q: 'Si ricorda della verifica la sera prima.',
+      real: 'Organizzarsi è un\'abilità, non un tratto del carattere: va insegnata. Senza un modo per vedere la settimana, tutto sembra urgente o lontanissimo, e lo studio si accumula fino all\'ultimo momento.',
+      mythT: 'Perché "usa il diario" non basta', myth: 'Il diario è lo strumento, ma manca il metodo per trasformare i compiti in un piano: cosa fare oggi, cosa domani, quanto tempo serve.',
+      fact: 'Distribuire lo studio su più giorni fa ricordare molto di più che concentrarlo tutto in una sera: è uno degli effetti più studiati in psicologia dell\'apprendimento.' },
+    { a: 'heart', t: 'Si blocca a verifiche e interrogazioni', q: 'A casa sa tutto, poi all\'interrogazione si blocca.',
+      real: 'Sotto pressione il corpo reagisce come davanti a un pericolo: il cuore accelera, la mente si annebbia e anche ciò che si sa diventa difficile da recuperare. Non è mancanza di studio: è una reazione che va riconosciuta.',
+      mythT: 'Perché "stai tranquillo, sai tutto" non basta', myth: 'Rassicurare non insegna a gestire la tensione: il blocco si ripresenta alla prova successiva, e ogni volta pesa di più.',
+      fact: 'Un po\' di tensione aiuta a dare il meglio; è quando diventa troppa che la prestazione crolla, anche se la preparazione c\'è.' },
+    { a: 'grades', t: 'Ha voti insufficienti', q: 'I voti scendono, anche se dice di aver studiato.',
+      real: 'Un\'insufficienza è quasi sempre un segnale, non una sentenza: dietro ci sono lacune che si accumulano, o un metodo che non regge più il carico di lavoro. Se non si capisce il perché, ogni voto basso prepara il successivo.',
+      mythT: 'Perché "deve solo studiare di più" non basta', myth: 'Se il problema è il come, più ore portano più stanchezza e lo stesso risultato. E la motivazione scende insieme ai voti.',
+      fact: 'Il passaggio alle medie e alle superiori è il momento più critico: aumentano materie e quantità, e il metodo che bastava prima smette di funzionare.' },
+    { a: 'battery', t: 'Ha perso fiducia in sé', q: 'Dice "tanto non ci arrivo", e smette di provarci.',
+      real: 'Dopo tante delusioni, un ragazzo inizia a pensare che il problema sia lui. Smettere di provarci diventa un modo per proteggersi: se non ci provo, non posso fallire. Ma così le difficoltà crescono.',
+      mythT: 'Perché "ce la puoi fare" non basta', myth: 'La fiducia non nasce dalle parole, ma dall\'esperienza di riuscire, un piccolo passo alla volta.',
+      fact: 'La convinzione di potercela fare influisce su quanto impegno si mette e su quanto si resiste davanti agli ostacoli: è uno dei fattori più legati ai risultati scolastici.' },
   ];
-  const NAMES = ['Fiducia', 'Organizzazione', 'Comprensione', 'Uso degli strumenti', 'Sicurezza'];
-  const SLUG = {"Scuola primaria": "primaria", "Scuola media": "media", "Scuola superiore": "superiore", "Università": "universita", "Test universitari": "test-universitari", "Metodo di studio": "metodo-di-studio", "Ripetizioni": "ripetizioni", "Recupero insufficienze": "recupero-insufficienze", "DSA/BES": "dsa-bes", "Autonomia nello studio": "autonomia", "Memoria e concentrazione": "memoria-concentrazione", "Organizzazione": "organizzazione", "Ansia scolastica": "ansia-scolastica"};
-  const signs = $('#signs'), dL = [...$('#dLetters').children], dRes = $('#dRes'), sel = new Set();
-  signs.innerHTML = SIGNS.map((s, i) => `<button class="sign" type="button" aria-pressed="false" data-i="${i}"><i>✓</i>${s.t}</button>`).join('');
-  signs.addEventListener('click', (e) => {
-    const b = e.target.closest('.sign'); if (!b) return;
-    const i = +b.dataset.i; sel.has(i) ? sel.delete(i) : sel.add(i); b.setAttribute('aria-pressed', String(sel.has(i)));
-    const letters = new Set(), links = new Set(), whys = [];
-    sel.forEach((k) => { SIGNS[k].l.forEach((x) => letters.add(x)); SIGNS[k].go.forEach((g) => links.add(g)); whys.push(SIGNS[k].why); });
-    dL.forEach((el, j) => el.classList.toggle('on', letters.has(j)));
-    if (!sel.size) { dRes.innerHTML = '<p class="empty">Seleziona uno o più segnali qui a fianco.<br>Qui comparirà il suo punto di partenza.</p>'; return; }
-    const names = [...letters].sort().map((j) => NAMES[j]);
-    dRes.innerHTML = `<div class="fade"><h3>Lavoreremo soprattutto su <b>${names.join(', ').replace(/, ([^,]*)$/, ' e $1')}</b>.</h3>
-      <p>Quello che descrivi riguarda ${whys.join('; ')}. È normale: sono abilità che si allenano, con il metodo giusto.</p>
-      <div class="dlinks">${[...links].map((g) => `<a href="percorso.html?p=${SLUG[g]}">${g} →</a>`).join('')}</div></div>`;
-  });
+  LambdaPains.mount({ track: '#pTrack', prev: '#pPrev', next: '#pNext', data: PAINS });
 
-
-  /* ================= LA DIFFERENZA: le due schede si uniscono ================= */
-  const duo = $('#differenza'), rip = $('.dc.rip'), met = $('.dc.met'), res = $('.dc.res'), plus = $('.op .plus'), eqs = $('.op .eqs'), op = $('.op');
-  L.onFrame(() => {
-    if (mob() || reduced) return; const p = L.prog(duo); if (p < -0.4 || p > 1.4) return;
-    const a = L.ease(L.clamp01(p / 0.28));                  // entrano dai lati
-    const m = L.easeIO(L.clamp01((p - 0.38) / 0.26));       // si avvicinano e si fondono
-    const r = L.ease(L.clamp01((p - 0.58) / 0.2));          // compare il risultato
-    const W = $('#eq').clientWidth, cw = rip.offsetWidth, gap = (W - cw * 2) / 2 + cw * 0.18;
-    rip.style.transform = `translateX(${(1 - a) * -120 + m * gap}px) rotate(${(1 - a) * -6 + m * 4}deg) scale(${1 - m * 0.12})`;
-    met.style.transform = `translateX(${(1 - a) * 120 - m * gap}px) rotate(${(1 - a) * 6 - m * 4}deg) scale(${1 - m * 0.12})`;
-    rip.style.opacity = met.style.opacity = String(a * (1 - r));
-    op.style.transform = `scale(${0.4 + a * 0.6 - r * 0.4}) rotate(${m * 180}deg)`; op.style.opacity = String(a * (1 - r));
-    plus.style.opacity = String(1 - m); eqs.style.opacity = String(m);
-    res.style.opacity = String(r); res.style.transform = `translateX(-50%) translateY(${(1 - r) * 40}px) scale(${0.92 + r * 0.08})`;
-  });
+  /* scorrimento morbido verso i percorsi */
+  document.querySelectorAll('[data-scroll]').forEach((a) => a.addEventListener('click', (e) => { const t = document.querySelector(a.getAttribute('href')); if (!t) return; e.preventDefault(); L.lenis ? L.lenis.scrollTo(t, { offset: -20, duration: 1.4 }) : t.scrollIntoView({ behavior: 'smooth' }); }));
 
   /* ================= METODO FOCUS: una lettera alla volta ================= */
   const focus = $('#focus'), fl = [...$('#fLetters').children], fd = [...$('#fDesc').children];
@@ -641,14 +668,11 @@
   $('#marquee').innerHTML = `<div class="mrow">${[...REV, ...REV].map(card).join('')}</div><div class="mrow rev">${[...r2, ...r2].map(card).join('')}</div>`;
   L.stars($('#marquee'));
 
-  /* ================= SEDI: la rete Lambda ================= */
-  const CORE = [285, 190], CITIES = [['Lecco', 160, 62], ['Monza', 128, 104], ['Cagliari', 92, 372], ['Messina', 330, 470], ['Foggia', 385, 300, 1], ['Catania', 296, 505, 1]];
-  let s2 = 11; const q = () => (s2 = (s2 * 16807) % 2147483647) / 2147483647;
-  const dots = [...Array(90)].map(() => { const t = q(), x = 120 + t * 250 + (q() - 0.5) * 120, y = 30 + t * 450 + (q() - 0.5) * 60; return `<circle class="stud-dot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(1.2 + q() * 2).toFixed(1)}" style="opacity:${(0.25 + q() * 0.5).toFixed(2)}"><animate attributeName="opacity" values="0.15;0.8;0.15" dur="${(2 + q() * 3).toFixed(1)}s" begin="${(q() * 3).toFixed(1)}s" repeatCount="indefinite"/></circle>`; }).join('');
-  const flows = CITIES.filter((c) => !c[3]).map(([, x, y]) => `<path class="flow" d="M${CORE[0]} ${CORE[1]} Q${(CORE[0] + x) / 2 + 40} ${(CORE[1] + y) / 2 - 30} ${x} ${y}"/>`).join('');
-  const cities = CITIES.map(([n, x, y, soon]) => soon ? `<g class="city soon"><circle cx="${x}" cy="${y}" r="7" fill="none" stroke="#FFD66B" stroke-width="2" stroke-dasharray="3 3"/><text x="${x + 16}" y="${y + 5}" opacity=".75">${n} · nov</text></g>` : `<g class="city"><circle cx="${x}" cy="${y}" r="7"/><circle cx="${x}" cy="${y}" r="14" fill="none" stroke="rgba(255,214,107,.4)"/><text x="${x + 20}" y="${y + 5}">${n}</text></g>`).join('');
-  $('#netSvg').innerHTML = `${dots}${flows}<g class="core"><circle class="halo" cx="${CORE[0]}" cy="${CORE[1]}" r="46"/><circle cx="${CORE[0]}" cy="${CORE[1]}" r="30" fill="#00949E"/><text x="${CORE[0]}" y="${CORE[1] + 5}" text-anchor="middle" font-size="14">Lambda</text><text class="sub" x="${CORE[0]}" y="${CORE[1] - 58}" text-anchor="middle">ONLINE · TUTTA ITALIA</text></g>${cities}`;
 })();
 </script>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+<script type="module" src="assets/intro3d.js?v=2"></script>
+<script src="assets/sedi-info.js?v=6"></script>
+<script type="module" src="assets/sedi-map3d.js?v=2"></script>
 </body>
 </html>

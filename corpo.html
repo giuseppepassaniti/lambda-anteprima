@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=8">
+<link rel="stylesheet" href="assets/lambda.css?v=16">
 <style>
 /* =================== CMA · template della pagina di un corpo =================== */
 body{background:var(--ink)}
@@ -244,20 +244,29 @@ body{background:var(--ink)}
       <div class="tgrid" data-reveal>
         <div class="tb"><small>Il metodo</small><b>Metodo EAGLE</b><p>Memoria, richiamo, strategia, leadership emotiva ed esame sicuro: le cinque fasi della preparazione.</p><div class="eag"><span>E</span><span>A</span><span>G</span><span>L</span><span>E</span></div><a href="concorsi.html#eagle">Scopri la missione →</a></div>
         <div class="tb"><small>Allenamento</small><b>Simulatore ${C.n}</b><p>Banca dati, quiz per materia e simulazioni della prova preselettiva, con le statistiche dei tuoi progressi.</p><a href="simulatore.html">Scopri il simulatore →</a></div>
-        <div class="tb red"><small>Risultati</small><div class="big96">96%</div><p>dei nostri allievi supera la prima prova preselettiva. E con la Garanzia 100%: o superi il concorso, o ti riprepariamo gratis.</p><a href="concorsi.html#risultati">Le storie →</a></div>
+        <div class="tb red"><small>Risultati</small><div class="big96">95%</div><p>dei nostri allievi supera la prima prova preselettiva. E con la Garanzia 100%: o superi il concorso, o ti riprepariamo gratis.</p><a href="concorsi.html#risultati">Le storie →</a></div>
       </div>
     </div>
   </section>
 
   <section class="faq sheet" data-theme="dark" aria-labelledby="fqTitle">
-    <div class="wrap grid">
-      <div><p class="k" data-reveal>Domande frequenti</p><h2 class="h2 split" id="fqTitle">${C.n}, <em>in pratica.</em></h2></div>
-      <div data-reveal>
+    <div class="wrap grid fq-side">
+      <div class="qcol"><p class="k" data-reveal>Domande frequenti</p><h2 class="h2 split" id="fqTitle">${C.n}, <em>in pratica.</em></h2>
+        <div class="qlist" data-reveal>
         <details class="qa" open><summary>Questi requisiti sono quelli definitivi?<i>+</i></summary><p>Sono i requisiti in breve degli ultimi bandi. Età, titoli e prove possono cambiare a ogni nuovo concorso: verifica sempre il bando ufficiale. Il tutor CMA ti aiuta a leggerlo e a capire se puoi partecipare.</p></details>
         <details class="qa"><summary>Da quale prova conviene iniziare a prepararsi?<i>+</i></summary><p>Quasi sempre dalla prova preselettiva, che è il primo filtro: con il Metodo EAGLE impari a memorizzare la banca dati e a richiamare le risposte in fretta. In parallelo si preparano le prove psicoattitudinali e, se serve, quelle fisiche.</p></details>
         <details class="qa"><summary>Posso prepararmi online?<i>+</i></summary><p>Sì. Tutto il percorso è online, in tutta Italia: incontri one to one con il tutor, aule studio, simulazioni e il supporto delle nostre psicologhe per le prove attitudinali.</p></details>
         <details class="qa"><summary>Quanto tempo serve per prepararsi?<i>+</i></summary><p>Dipende dal concorso, dal punto di partenza e dal tempo che hai ogni giorno. Il tutor costruisce un piano su misura, anche se puoi studiare poche ore al giorno.</p></details>
+        </div>
       </div>
+      <aside class="tutor-box cma" data-reveal>
+        <svg class="tb-star" viewBox="0 0 200 200" aria-hidden="true"><path fill="#CD141F" d="M100 8 L124 76 L196 76 L138 118 L160 188 L100 146 L40 188 L62 118 L4 76 L76 76 Z"/></svg>
+        <h3>Hai un'altra domanda?</h3>
+        <p>Raccontaci a che punto sei: un tutor CMA ti richiama, ti aiuta a leggere il bando e a capire da dove partire.</p>
+        <button class="btn btn-red magnetic" type="button" data-lead="${C.n}"><span class="t">Parla con un tutor →</span></button>
+        <a class="tutor-link" href="test-concorsi.html#inizia">Oppure fai il Test Concorsi →</a>
+        <small>Gratuito · senza impegno</small>
+      </aside>
     </div>
   </section>
 
@@ -272,7 +281,7 @@ body{background:var(--ink)}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=17"></script>
+<script src="assets/lambda.js?v=23"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {

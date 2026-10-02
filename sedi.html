@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=8">
+<link rel="stylesheet" href="assets/lambda.css?v=16">
 <style>
 /* =================== LAMBDA · Sedi immersive =================== */
 .journey{position:relative;height:1100vh;background:#050d12}
@@ -236,14 +236,23 @@ body.nogl .jfallback{display:block}
 
   <!-- ============ FAQ ============ -->
   <section class="faq sheet" data-theme="light" aria-labelledby="qTitle">
-    <div class="wrap grid">
-      <div><p class="eyebrow" data-reveal>Domande frequenti</p><h2 class="sec-title split" id="qTitle">Online, in sede, <em>o tutti e due?</em></h2></div>
-      <div data-reveal>
+    <div class="wrap grid fq-side">
+      <div class="qcol"><p class="eyebrow" data-reveal>Domande frequenti</p><h2 class="sec-title split" id="qTitle">Online, in sede, <em>o tutti e due?</em></h2>
+        <div class="qlist" data-reveal>
         <details class="qa" open><summary>Devo venire in sede per seguire il percorso?<i>+</i></summary><p>No. Tutti i percorsi Lambda sono 100% online: lezioni, tutor, aule studio e laboratori. La sede è un'opzione in più per chi ce l'ha vicina.</p></details>
         <details class="qa"><summary>Cosa trovo in sede?<i>+</i></summary><p>Il tutor in presenza, per conoscervi e avere assistenza, e una postazione attrezzata con tablet e cuffie per studiare in tranquillità.</p></details>
         <details class="qa"><summary>Le lezioni in sede sono diverse da quelle online?<i>+</i></summary><p>No: anche in sede la lezione arriva dalla Rete Lambda. Stessi docenti, stessi laboratori, stesse aule studio. Cambia solo il luogo da cui ti colleghi.</p></details>
         <details class="qa"><summary>Non c'è una sede vicino a me. Posso fare la consulenza?<i>+</i></summary><p>Certo. Si parte dal Performance Test online, poi un tutor vi spiega i risultati in videochiamata, da qualsiasi città d'Italia.</p></details>
+        </div>
       </div>
+      <aside class="tutor-box" data-reveal>
+        <svg class="glass9" viewBox="0 0 144 60" aria-hidden="true"><circle class="ring" cx="36" cy="30" r="26"/><circle class="ring" cx="108" cy="30" r="26"/><path class="bridge" d="M62 26 Q72 18 82 26"/></svg>
+        <h3>Hai un'altra domanda?</h3>
+        <p>Un tutor ti richiama e ti spiega come funziona il percorso, online o nella sede più vicina a voi.</p>
+        <button class="btn btn-stud magnetic" type="button" data-lead><span class="t">Parla con un tutor →</span></button>
+        <a class="tutor-link" href="test.html">Oppure inizia dal Performance Test →</a>
+        <small>Gratuito · senza impegno</small>
+      </aside>
     </div>
   </section>
 
@@ -260,8 +269,8 @@ body.nogl .jfallback{display:block}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=17"></script>
-<script src="assets/sedi-info.js?v=3"></script>
+<script src="assets/lambda.js?v=23"></script>
+<script src="assets/sedi-info.js?v=6"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 /* schede delle sedi (indirizzi e orari da inserire) */
@@ -275,6 +284,6 @@ gsap.set('#logo', { autoAlpha: 1 });
 })();
 </script>
 <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
-<script type="module" src="assets/sedi3d.js?v=12"></script>
+<script type="module" src="assets/sedi3d.js?v=21"></script>
 </body>
 </html>

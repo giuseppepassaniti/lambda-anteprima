@@ -3,7 +3,7 @@
    I tre pezzi della stella (smalto rosso, smalto verde, banda in metallo)
    arrivano da direzioni diverse e si incastrano come in una medaglia;
    l'anello di testo ruota in posizione, una luce passa sulle superfici,
-   poi il logo vola nell'header. Una volta per sessione.
+   poi il logo vola nell'header. Solo alla prima visita (?intro la fa rivedere).
    ===================================================================== */
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
@@ -11,7 +11,8 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 const M = window.CMA_MARK, L = window.Lambda;
 const intro = document.getElementById('cintro'), canvas = document.getElementById('cintro3d'), skipBtn = document.getElementById('cskip'), claim = document.getElementById('cclaim');
 const webglOK = () => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; } };
-let seen = null; try { seen = sessionStorage.getItem('cma-intro'); } catch (e) {}
+let seen = null; try { seen = localStorage.getItem('cma-intro'); } catch (e) {}
+if (/[?&]intro\b/.test(location.search)) seen = null;
 
 function done() {
   intro?.remove(); document.body.classList.remove('intro-on'); L?.release?.();
@@ -22,7 +23,7 @@ else if (!M || L.reduced || seen || !webglOK()) done();
 else run();
 
 function run() {
-  try { sessionStorage.setItem('cma-intro', '1'); } catch (e) {}
+  try { localStorage.setItem('cma-intro', '1'); } catch (e) {}
   gsap.set('#logo', { autoAlpha: 0 });
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));

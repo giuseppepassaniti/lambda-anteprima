@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=8">
+<link rel="stylesheet" href="assets/lambda.css?v=16">
 <style>
 /* =================== HOME · stili specifici della pagina =================== */
 
@@ -85,16 +85,126 @@
   .door .ctas .btn{width:100%;justify-content:center}
   .hero-title h1{font-size:13vw}
 }
+
+/* ---------- INTRO DEI DUE MARCHI ---------- */
+.gintro{position:fixed;inset:0;z-index:100}
+#gintroBg{position:absolute;inset:0;background:#020304}
+.ghalf{position:absolute;top:0;bottom:0;width:50%;opacity:0;visibility:hidden}
+.ghalf.l{left:0;background:radial-gradient(ellipse 90% 70% at 30% 60%, #16475a 0%, var(--navy) 55%, var(--deep) 100%)}
+.ghalf.r{right:0;background:radial-gradient(ellipse 90% 70% at 70% 60%, #2c3620 0%, #121510 55%, var(--ink) 100%)}
+#gseam{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,rgba(255,255,255,.3) 30%,rgba(255,255,255,.3) 70%,transparent);transform:scaleY(0)}
+#gintro3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.glbl{position:absolute;left:0;top:0;transform:translateX(-50%);text-align:center;white-space:nowrap;font:700 clamp(13px,1.1vw,16px)/1.2 var(--font);letter-spacing:.2em;text-transform:uppercase;color:#fff;opacity:0;visibility:hidden;pointer-events:none}
+.glbl small{display:block;margin-top:8px;font:500 11px/1 var(--mono);letter-spacing:.22em}
+.glbl.l small{color:var(--warm)} .glbl.r small{color:var(--mil-l)}
+.gtag{position:absolute;left:0;right:0;bottom:11vh;padding:0 20px;text-align:center;font:500 clamp(20px,2.3vw,34px)/1.25 var(--font);letter-spacing:-.03em;color:rgba(255,255,255,.88);pointer-events:none}
+.gtag .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:8px;margin-bottom:-8px}
+.gtag .w>span{display:inline-block}
+.gtag em{font-style:normal;font-weight:700;color:#fff;padding-bottom:6px;background:linear-gradient(90deg,var(--warm) 0 50%,var(--red) 50% 100%) no-repeat 0 100%/0% 4px}
+@media (max-aspect-ratio: 17/20){
+  .ghalf{width:100%;height:50%;bottom:auto}
+  .ghalf.l{top:0;background:radial-gradient(ellipse 110% 90% at 50% 60%, #16475a 0%, var(--navy) 55%, var(--deep) 100%)}
+  .ghalf.r{top:50%;right:auto;left:0;background:radial-gradient(ellipse 110% 90% at 50% 40%, #2c3620 0%, #121510 55%, var(--ink) 100%)}
+  #gseam{left:8%;right:8%;top:50%;bottom:auto;width:auto;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3) 30%,rgba(255,255,255,.3) 70%,transparent)}
+  .gtag{top:calc(env(safe-area-inset-top,0px) + 7vh);bottom:auto;font-size:19px}
+  .glbl{font-size:12px} .glbl small{font-size:10px;margin-top:6px}
+}
+
+/* ================= SEZIONI DELLA HOME: la pagina resta divisa in due ================= */
+.dual{position:relative;padding:clamp(100px,13vh,150px) 0;overflow:hidden}
+.dbg{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;z-index:0}
+.dbg .stud{background:radial-gradient(ellipse 90% 70% at 30% 50%, #123a4a 0%, var(--navy) 55%, var(--deep) 100%)}
+.dbg .conc{background:radial-gradient(ellipse 90% 70% at 70% 50%, #252e1b 0%, #121510 55%, var(--ink) 100%)}
+.dcols{position:relative}
+.dseam{position:absolute;left:50%;top:-30px;bottom:-30px;width:1px;z-index:1;pointer-events:none;background:linear-gradient(transparent,rgba(255,255,255,.16) 15%,rgba(255,255,255,.16) 85%,transparent)}
+.dual>.wrap,.dual .dhead,.dual .dcols{position:relative;z-index:2}
+.dk{font:500 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;text-align:center;color:rgba(255,255,255,.55)}
+.dh{margin-top:16px;text-align:center;font:700 clamp(36px,4.6vw,72px)/.98 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.dh em{font-style:normal;background:linear-gradient(90deg,var(--warm),#ff9a6b 50%,var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.dcols{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(50px,7vh,80px)}
+.dcol{padding:0 clamp(20px,4vw,64px)}
+.dcol .lbl2{font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+.dcol.stud .lbl2{color:var(--warm)} .dcol.conc .lbl2{color:var(--mil-l)}
+.dcol.stud{display:flex;flex-direction:column;align-items:flex-end} .dcol.stud>*{width:min(100%,540px)}
+.dcol.conc>*{max-width:540px}
+/* numeri */
+.nums{padding:clamp(90px,12vh,130px) 0 clamp(70px,9vh,100px)}
+.nrow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(40px,6vh,64px)}
+.nrow .n{padding:26px 22px;border-radius:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+.nrow .n>b{font:700 clamp(44px,4.6vw,70px)/1 var(--font);letter-spacing:-.05em;color:#fff}
+.nrow .n>b small{font-size:.42em;color:rgba(255,255,255,.55);letter-spacing:0}
+.nrow .n>span:last-child{font-size:14.5px;line-height:1.4;color:rgba(255,255,255,.7);max-width:22ch}
+.nrow .n:nth-child(1){border-color:rgba(255,214,107,.35)} .nrow .n:nth-child(4){border-color:rgba(169,185,122,.35)}
+.nrow .stars{display:flex;gap:3px} .nrow .stars i{width:20px;height:20px}
+/* metodi */
+.letters{list-style:none;display:grid;gap:8px;margin-top:26px}
+.letters li{display:grid;grid-template-columns:54px 1fr;gap:16px;align-items:center;padding:14px 18px 14px 14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:background .35s,border-color .35s,transform .45s var(--ease)}
+.letters li:hover{transform:translateX(6px);background:rgba(255,255,255,.08)}
+.dcol.conc .letters li:hover{transform:translateX(-6px)}
+.letters i{display:grid;place-items:center;width:54px;height:54px;border-radius:14px;font:700 28px/1 var(--font);font-style:normal}
+.dcol.stud .letters i{background:linear-gradient(150deg,#ffe08a,var(--warm));color:var(--navy)}
+.dcol.conc .letters i{background:linear-gradient(150deg,#e8343f,var(--red));color:#fff;font-family:'Space Mono',var(--mono)}
+.letters b{display:block;font-size:17px;color:#fff} .letters span{display:block;margin-top:3px;font-size:14px;line-height:1.4;color:rgba(255,255,255,.65)}
+.dcol h3{margin-top:14px;font:700 clamp(30px,3vw,46px)/1 var(--font);letter-spacing:-.04em}
+.lead2{margin-top:12px;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.75)}
+.dgo{display:inline-block;margin-top:26px;width:auto!important;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:3px;align-self:flex-start}
+.dcol.stud .dgo{align-self:flex-start;margin-left:max(0px,calc(100% - 540px))}
+.dcol.stud .dgo:hover{color:var(--warm);border-color:var(--warm)} .dcol.conc .dgo:hover{color:var(--mil-l);border-color:var(--mil-l)}
+/* recensioni */
+.rvs{display:grid;gap:12px;margin-top:22px}
+.rv2{padding:22px 22px 20px;border-radius:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.rv2 .stars{display:flex;gap:3px} .rv2 .stars i{width:18px;height:18px}
+.rv2 q{display:block;margin-top:14px;font:700 18px/1.35 var(--font);letter-spacing:-.015em;color:#fff;quotes:"“" "”"}
+.rv2 .who{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:13.5px;color:rgba(255,255,255,.6)}
+.rv2 .who b{color:#fff}
+.rv2 .who i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font:700 12px/1 var(--font);font-style:normal}
+.dcol.stud .rv2 .who i{background:var(--warm);color:var(--navy)} .dcol.conc .rv2 .who i{background:var(--red);color:#fff}
+.dcol.conc .rv2{border-color:rgba(169,185,122,.2)}
+.tpall{display:flex;justify-content:center;margin-top:44px}
+.tpall a{display:inline-flex;align-items:center;gap:12px;padding:14px 22px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);font-weight:700;color:#fff;transition:background .3s}
+.tpall a:hover{background:rgba(255,255,255,.12)} .tpall .stars{display:flex;gap:2px} .tpall .stars i{width:16px;height:16px}
+/* test */
+.tcard{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center;padding:26px;border-radius:28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+.dcol.conc .tcard{border-color:rgba(169,185,122,.25)}
+.tprev{aspect-ratio:1;border-radius:20px;background:rgba(0,0,0,.25);display:grid;place-items:center;padding:12px}
+.tprev svg{width:100%;height:auto}
+.tbody h3{margin-top:10px;font-size:clamp(26px,2.4vw,36px)}
+.tbody>p:not(.lbl2){margin-top:10px;font-size:15px;line-height:1.5;color:rgba(255,255,255,.72)}
+.tmeta{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 20px}
+.tmeta li{padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.2);font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.fasc{position:relative;display:flex;flex-direction:column;justify-content:center;gap:12px;place-items:stretch;padding:18px;background:#f2ecd9;color:#1a1a1a;font-family:var(--font)}
+.fasc small{font:700 10px/1 'Space Mono',var(--mono);letter-spacing:.12em;color:var(--red)}
+.fasc .fb{display:grid;grid-template-columns:1fr auto;gap:4px 8px;font-size:12px;font-weight:700}
+.fasc .fb span{display:flex;align-items:center;gap:6px}
+.fasc .fb span i{display:grid;place-items:center;width:22px;height:18px;border-radius:4px;color:#fff;font:700 8px/1 var(--mono);font-style:normal}
+.fasc .fb em{grid-column:1/2;height:6px;border-radius:3px;background:linear-gradient(90deg,#2a2a2a var(--v),rgba(0,0,0,.12) var(--v))}
+.fasc .fb:first-of-type em{background:linear-gradient(90deg,var(--red) var(--v),rgba(0,0,0,.12) var(--v))}
+.fasc .fb b{grid-row:1/3;grid-column:2;align-self:center;font:700 13px/1 'Space Mono',var(--mono)}
+.fasc .stamp{position:absolute;right:10px;bottom:14px;padding:5px 8px;border:2px solid var(--red);border-radius:5px;transform:rotate(-10deg);font:700 10px/1 'Space Mono',var(--mono);letter-spacing:.08em;color:var(--red)}
+@media (max-width: 1100px){ .tcard{grid-template-columns:1fr} .tprev{max-width:240px} .nrow{grid-template-columns:1fr 1fr} }
+@media (max-width: 860px){
+  .dbg{grid-template-columns:1fr;grid-template-rows:1fr 1fr} .dseam{display:none}
+  .nums .dbg{grid-template-rows:1fr} .nums .dbg .conc{display:none} .nums .dbg .stud{background:linear-gradient(160deg,#123a4a 0%,var(--navy) 45%,#1a2014 75%,var(--ink) 100%)}
+  .dcols{grid-template-columns:1fr;gap:0}
+  .dcol{padding:0 20px}
+  .dcol.stud{align-items:stretch;padding-bottom:clamp(80px,10vh,110px)} .dcol.stud>*{width:auto}
+  .dcol.conc{padding-top:clamp(70px,9vh,100px)}
+  .dcol.stud .dgo{margin-left:0}
+  .letters li:hover,.dcol.conc .letters li:hover{transform:none}
+}
+@media (max-width: 560px){ .nrow{grid-template-columns:1fr 1fr;gap:10px} .nrow .n{padding:20px 12px} .nrow .n>span:last-child{font-size:13px} .tcard{padding:20px} }
 </style>
 </head>
 <body class="intro-on" data-page="soglia" data-branch="gate">
 
-<!-- ============ INTRO: logo 3D ============ -->
-<div class="intro" id="intro">
-  <div class="intro-bg" id="introBg"></div>
-  <canvas id="intro3d" aria-hidden="true"></canvas>
-  <div class="intro-word" id="introWord"><img src="assets/wordmark-white.png" alt=""></div>
-  <button class="skip" id="skip">SALTA INTRO</button>
+<!-- ============ INTRO: i due marchi, un'origine e due strade ============ -->
+<div class="gintro" id="gintro">
+  <div id="gintroBg"><div class="ghalf l"></div><div class="ghalf r"></div><i id="gseam"></i></div>
+  <canvas id="gintro3d" aria-hidden="true"></canvas>
+  <div class="glbl l" id="glblL" aria-hidden="true">Centro Studi Lambda<small>Studenti e genitori</small></div>
+  <div class="glbl r" id="glblR" aria-hidden="true">Concorsi Militari Academy<small>Forze Armate e di Polizia</small></div>
+  <p class="gtag" id="gtag"><span class="w"><span>Un</span></span> <span class="w"><span>unico</span></span> <span class="w"><span>metodo:</span></span> <em><span class="w"><span>farti</span></span> <span class="w"><span>arrivare</span></span> <span class="w"><span>lontano.</span></span></em></p>
+  <button class="skip" id="gskip">SALTA INTRO</button>
 </div>
 
 <div data-lambda-header></div>
@@ -131,13 +241,118 @@
     <div class="hint" id="hint" aria-hidden="true">SCEGLI LA TUA STRADA</div>
   </section>
 
+  <!-- ============ 1 · I NUMERI DEL GRUPPO ============ -->
+  <section class="dual nums" aria-labelledby="nTitle" data-theme="dark">
+    <div class="dbg"><i class="stud"></i><i class="conc"></i></div>
+    <div class="wrap">
+      <p class="dk" data-reveal>Centro Studi Lambda · Concorsi Militari Academy</p>
+      <h2 class="dh split" id="nTitle">Sette anni. <em>Oltre seimila studenti.</em></h2>
+      <div class="nrow" data-count-group>
+        <div class="n" data-reveal><b data-count="6000" data-pre="+">+0</b><span>studenti seguiti, tra scuola e concorsi</span></div>
+        <div class="n" data-reveal><b><span data-count="4.9" data-dec="1">0</span><small>/5</small></b><span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>su Trustpilot, su <span data-count="323">0</span> recensioni</span></div>
+        <div class="n" data-reveal><b>N°1</b><span>in Italia per recensioni certificate</span></div>
+        <div class="n" data-reveal><b data-count="7">0</b><span>anni di attività</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="press" data-press data-theme="dark" aria-label="Hanno parlato di noi"></section>
+
+  <!-- ============ 2 · I NOSTRI METODI ============ -->
+  <section class="dual meth" aria-labelledby="mTitle" data-theme="dark">
+    <div class="dbg"><i class="stud"></i><i class="conc"></i></div>
+    <div class="dhead wrap"><p class="dk" data-reveal>I nostri metodi</p><h2 class="dh split" id="mTitle">Due metodi. <em>Una stessa idea: studiare si impara.</em></h2></div>
+    <div class="dcols"><span class="dseam" aria-hidden="true"></span>
+      <div class="dcol stud">
+        <p class="lbl2" data-reveal>Centro Studi Lambda · per studenti</p>
+        <h3 data-reveal>Metodo FOCUS</h3>
+        <p class="lead2" data-reveal>Cinque abilità che rendono tuo figlio autonomo nello studio, in ogni materia.</p>
+        <ol class="letters" data-reveal>
+          <li><i>F</i><div><b>Fiducia</b><span>Smette di dire "non ce la faccio" e affronta lo studio con sicurezza.</span></div></li>
+          <li><i>O</i><div><b>Organizzazione</b><span>Sa cosa studiare, quando e per quanto.</span></div></li>
+          <li><i>C</i><div><b>Comprensione</b><span>Legge, comprende e sintetizza anche i testi più complessi.</span></div></li>
+          <li><i>U</i><div><b>Uso consapevole degli strumenti</b><span>Mappe mentali, lettura veloce, memoria efficace.</span></div></li>
+          <li><i>S</i><div><b>Sicurezza nell'esposizione</b><span>All'interrogazione parla con calma, senza bloccarsi.</span></div></li>
+        </ol>
+        <a class="dgo" data-reveal href="metodo-focus.html">Scopri il Metodo FOCUS →</a>
+      </div>
+      <div class="dcol conc">
+        <p class="lbl2" data-reveal>Concorsi Militari Academy · per concorsi</p>
+        <h3 data-reveal>Metodo EAGLE</h3>
+        <p class="lead2" data-reveal>Cinque fasi per memorizzare la banca dati e arrivare sicuro al giorno della prova.</p>
+        <ol class="letters" data-reveal>
+          <li><i>E</i><div><b>Efficienza della memoria</b><span>Fissi le informazioni della banca dati leggendole una sola volta.</span></div></li>
+          <li><i>A</i><div><b>Allenamento al richiamo</b><span>Ricordi in pochi secondi, anche sotto pressione.</span></div></li>
+          <li><i>G</i><div><b>Gestione strategica</b><span>Un piano su misura, anche con poche ore al giorno.</span></div></li>
+          <li><i>L</i><div><b>Leadership emotiva</b><span>Con le nostre psicologhe, l'ansia diventa lucidità.</span></div></li>
+          <li><i>E</i><div><b>Esame sicuro</b><span>Simulazioni realistiche: il giorno della prova arrivi sereno.</span></div></li>
+        </ol>
+        <a class="dgo" data-reveal href="concorsi.html#eagle">Scopri il Metodo EAGLE →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 · RECENSIONI TRUSTPILOT ============ -->
+  <section class="dual revs" aria-labelledby="rTitle" data-theme="dark">
+    <div class="dbg"><i class="stud"></i><i class="conc"></i></div>
+    <div class="dhead wrap"><p class="dk" data-reveal>Recensioni verificate su Trustpilot</p><h2 class="dh split" id="rTitle">Lo raccontano loro. <em>4,9 su 323 recensioni.</em></h2></div>
+    <div class="dcols"><span class="dseam" aria-hidden="true"></span>
+      <div class="dcol stud">
+        <p class="lbl2" data-reveal>I genitori · Centro Studi Lambda</p>
+        <div class="rvs" id="rvStud"></div>
+      </div>
+      <div class="dcol conc">
+        <p class="lbl2" data-reveal>Gli allievi · Concorsi Militari Academy</p>
+        <div class="rvs" id="rvConc"></div>
+      </div>
+    </div>
+    <div class="wrap tpall" data-reveal><a href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener"><span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Leggi tutte le 323 recensioni su Trustpilot →</a></div>
+  </section>
+
+  <!-- ============ 4 · I TEST ============ -->
+  <section class="dual tests" aria-labelledby="tTitle" data-theme="dark">
+    <div class="dbg"><i class="stud"></i><i class="conc"></i></div>
+    <div class="dhead wrap"><p class="dk" data-reveal>Il primo passo</p><h2 class="dh split" id="tTitle">Da dove si parte? <em>Lo scopri in pochi minuti.</em></h2></div>
+    <div class="dcols"><span class="dseam" aria-hidden="true"></span>
+      <div class="dcol stud">
+        <div class="tcard" data-reveal>
+          <div class="tprev"><svg viewBox="0 0 240 220" id="radarMini" aria-label="Esempio di profilo del Performance Test: sette aree, da -100 a +100" role="img"></svg></div>
+          <div class="tbody">
+            <p class="lbl2">Centro Studi Lambda</p>
+            <h3>Performance Test</h3>
+            <p>Fotografa come studia oggi tuo figlio: organizzazione, comprensione, strategie, ansia e altre aree. Poi un tutor vi spiega i risultati in videochiamata.</p>
+            <ul class="tmeta"><li>Gratuito</li><li>Online</li><li>10 minuti</li></ul>
+            <a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="dcol conc">
+        <div class="tcard" data-reveal>
+          <div class="tprev fasc"><small>FASCICOLO · ESEMPIO</small>
+            <div class="fb"><span><i style="background:#B3243A">CC</i>Carabinieri</span><em style="--v:92%"></em><b>92%</b></div>
+            <div class="fb"><span><i style="background:#6B7F3A">EI</i>Esercito</span><em style="--v:84%"></em><b>84%</b></div>
+            <div class="fb"><span><i style="background:#2D5DA8">PS</i>Polizia di Stato</span><em style="--v:77%"></em><b>77%</b></div>
+            <span class="stamp">COMPATIBILE</span></div>
+          <div class="tbody">
+            <p class="lbl2">Concorsi Militari Academy</p>
+            <h3>Test Concorsi</h3>
+            <p>Età, titolo di studio, requisiti e attitudini: scopri per quali concorsi delle Forze Armate e di Polizia sei compatibile, e da quale partire.</p>
+            <ul class="tmeta"><li>Online</li><li>Pochi minuti</li><li>Risultato subito</li></ul>
+            <a class="btn btn-conc magnetic" href="test-concorsi.html"><span class="t">Fai il Test Concorsi →</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <div data-lambda-footer></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=17"></script>
+<script src="assets/cma-mark.js?v=1"></script>
+<script src="assets/lambda.js?v=23"></script>
 
 <!-- ======================= HOME · comportamenti della pagina ======================= -->
 <script>
@@ -214,7 +429,8 @@
     $('#heroTitleWrap').classList.add('in');
     if (reduced) { gsap.set(['.door .content > *', '.field', '#hint', '.seam', '.star-bg', logo], { autoAlpha: 1 }); Lp.vis = 1; Lp.x = o.x + t0.x; Lp.y = o.y + t0.y; return; }
     const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
-    if (fromIntro) tl.set(logo, { autoAlpha: 1 }, 0);
+    if (fromIntro === 'gate') { /* il logo lo accende l'intro, all'atterraggio */ }
+    else if (fromIntro) tl.set(logo, { autoAlpha: 1 }, 0);
     else { const icon = logoIcon.querySelectorAll('.st'); icon.forEach((p) => { const len = p.getTotalLength(); p.style.strokeDasharray = len; p.style.strokeDashoffset = len; });
       tl.set(logo, { autoAlpha: 1 }, 0).to(icon, { strokeDashoffset: 0, duration: 1.1, stagger: 0.07, ease: 'power2.inOut' }, 0).from('.wordmark', { clipPath: 'inset(0 100% 0 0)', duration: 1, ease: 'power3.inOut' }, 0.3); }
     tl.fromTo('.seam', { scaleY: 0, autoAlpha: 0 }, { scaleY: 1, autoAlpha: 1, duration: 1.4, ease: 'power3.inOut' }, 0)
@@ -228,8 +444,8 @@
       .fromTo('#hint', { autoAlpha: 0 }, { autoAlpha: 1, duration: 1 }, 1.4);
   }
   window.__startHero = startHero;
-  if (reduced) { $('#intro').remove(); startHero(false); }
-  else setTimeout(() => { if (!started && !window.__introRunning) { $('#intro')?.remove(); startHero(false); } }, 4000);
+  // se l'intro non parte (modulo non caricato), la pagina si avvia comunque
+  setTimeout(() => { if (!started && !window.__introRunning) { $('#gintro')?.remove(); startHero(false); } }, 4000);
 
   /* ================= LA SCELTA: la porta si espande e porta nel suo mondo ================= */
   const go = (door) => {
@@ -248,10 +464,46 @@
 })();
 </script>
 
-<!-- ======================= INTRO 3D ======================= -->
+
+<!-- ======================= HOME · recensioni e anteprima del test ======================= -->
+<script>
+(() => {
+  /* recensioni vere da Trustpilot (estratti, senza modifiche al testo) */
+  const REV = {
+    stud: [
+      { q: 'Mio figlio aveva tre debiti, in 2 mesi ha superato i debiti e ha capito come studiare in meno tempo.', n: 'Elisabetta V.', r: 'genitore' },
+      { q: 'La vedo più tranquilla, motivata ed organizzata nello studio.', n: 'Silvia', r: 'genitore' },
+      { q: 'Ho visto in mio figlio una scintilla di entusiasmo e un atteggiamento diverso.', n: 'Fabio T.', r: 'genitore' },
+    ],
+    conc: [
+      { q: 'Sono riuscita a superare la prima prova per la Polizia di Stato (civili) con un ottimo punteggio. L\'anno scorso non l\'avevo superata, la differenza quest\'anno l\'ha fatta proprio il vostro metodo.', n: 'Iman A.', r: 'allieva · Polizia di Stato' },
+      { q: 'È stata un\'esperienza davvero positiva, che mi ha permesso di superare tutte le prove scritte.', n: 'Valentina S.', r: 'allieva · Forze Armate' },
+      { q: 'Ho superato la prova preselettiva con un buon punteggio, cosa che all\'inizio non avrei pensato possibile.', n: 'Luca P.', r: 'allievo · prova preselettiva' },
+    ],
+  };
+  const card = (x) => `<figure class="rv2" data-reveal><span class="stars" aria-label="5 stelle su 5"><i></i><i></i><i></i><i></i><i></i></span><q>${x.q}</q><figcaption class="who"><i aria-hidden="true">${x.n[0]}</i><span><b>${x.n}</b> · ${x.r}, su Trustpilot</span></figcaption></figure>`;
+  document.getElementById('rvStud').innerHTML = REV.stud.map(card).join('');
+  document.getElementById('rvConc').innerHTML = REV.conc.map(card).join('');
+  window.Lambda.stars(); window.Lambda.observe(document.querySelector('.revs'));
+
+  /* anteprima del Performance Test: le 7 aree, scala da -100 a +100 (profilo di esempio) */
+  const A = [['ORG', -33], ['ELA', -50], ['STR', -83], ['MET', 0], ['AUT', 50], ['ANS', -100, 1], ['RES', 75, 1]];
+  const cx = 120, cy = 112, R = 84, pt = (i, v) => { const k = (v + 100) / 200, a = -Math.PI / 2 + (i * 2 * Math.PI) / A.length; return [cx + R * k * Math.cos(a), cy + R * k * Math.sin(a)]; };
+  const poly = (v) => A.map((_, i) => pt(i, typeof v === 'number' ? v : A[i][1]).join(',')).join(' ');
+  document.getElementById('radarMini').innerHTML =
+    [100, 50, 0, -50].map((v) => `<polygon points="${poly(v)}" fill="none" stroke="rgba(255,255,255,${v === 0 ? .35 : .14})" ${v === 0 ? 'stroke-dasharray="4 4"' : ''}/>`).join('')
+    + `<polygon class="rp" points="${poly()}" fill="rgba(255,214,107,.25)" stroke="#FFD66B" stroke-width="2.5" stroke-linejoin="round"/>`
+    + A.map(([l, v, e], i) => { const [x, y] = pt(i, v), [lx, ly] = pt(i, 128); return `<circle cx="${x}" cy="${y}" r="4" fill="${e ? '#b48ad6' : '#FFD66B'}"/><text x="${lx}" y="${ly + 4}" text-anchor="middle" font-size="10" font-family="JetBrains Mono, monospace" fill="${e ? '#c3a6e0' : 'rgba(255,255,255,.7)'}">${l}</text>`; }).join('');
+  // il profilo si "disegna" quando la sezione entra in vista
+  const rp = document.querySelector('#radarMini .rp');
+  if (!window.Lambda.reduced && rp) { rp.style.transformOrigin = `${cx}px ${cy}px`; rp.style.transform = 'scale(0)'; rp.style.transition = 'transform 1.2s cubic-bezier(.2,.8,.2,1)';
+    new IntersectionObserver((e, o) => { if (e[0].isIntersecting) { rp.style.transform = 'scale(1)'; o.disconnect(); } }, { threshold: 0.4 }).observe(rp.closest('svg')); }
+})();
+</script>
+<!-- ======================= INTRO DEI DUE MARCHI ======================= -->
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
 </script>
-<script type="module" src="assets/intro3d.js"></script>
+<script type="module" src="assets/intro-gate.js?v=4"></script>
 </body>
 </html>

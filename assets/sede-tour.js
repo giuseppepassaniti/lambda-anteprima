@@ -12,12 +12,22 @@ const CMA = !!window.SEDI_THEME, BR = CMA ? 'CMA' : 'Lambda';
 const box = $('#tBox'), canvas = $('#tCanvas'), hot = $('#tHot');
 const info = window.SEDI_INFO?.[document.body.dataset.sede];
 const webglOK = () => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; } };
-if (box && info && !document.body.classList.contains('nogl') && !L.reduced && webglOK()) init();
+if (box && info && !document.body.classList.contains('nogl') && !L.reduced && webglOK()) start();
 else document.body.classList.add('nogl');
 
-function init() {
+// le sedi ricostruite dalle foto reali hanno il loro modello e le loro tappe
+async function start() {
+  let custom = null;
+  const sk = document.body.dataset.sede;
+  if (sk === 'messina') { try { custom = (await import('./sede-messina.js?v=6')).buildMessina({ cma: CMA }); } catch (e) { custom = null; } }
+  if (sk === 'monza') { try { custom = (await import('./sede-monza.js?v=3')).buildMonza({ cma: CMA }); } catch (e) { console.error(e); custom = null; } }
+  if (sk === 'cagliari') { try { custom = (await import('./sede-cagliari.js?v=4')).buildCagliari({ cma: CMA }); } catch (e) { console.error(e); custom = null; } }
+  init(custom);
+}
+
+function init(custom) {
   const city = info.name, mob = matchMedia('(pointer: coarse)').matches || innerWidth < 760;
-  const STOPS = [
+  const STOPS = custom ? custom.stops : [
     { k: 'Ingresso', t: `Benvenuti a ${BR} ${city}.`, p: CMA ? 'Uno spazio silenzioso, pensato per studiare. Qui puoi fare anche il primo colloquio di persona.' : 'Uno spazio luminoso e silenzioso, pensato per studiare. Qui puoi anche fare la prima consulenza di persona.', cam: [0.4, 1.65, 5.0], tgt: [0.1, 1.15, -0.5], hot: [0.4, 2.35, 5.3] },
     { k: 'Accoglienza e tutor', t: 'Il tutor, in presenza.', p: 'Ti accoglie, fa il punto sul percorso con te e con la tua famiglia, e ti assiste quando serve.', cam: [-0.25, 1.62, 2.9], tgt: [-2.3, 1.42, 0.85], hot: [-2.4, 1.95, 0.85] },
     { k: 'Le postazioni', t: 'Tablet e cuffie, pronti per te.', p: CMA ? 'Ogni postazione è attrezzata per seguire le lezioni live e allenarti sul simulatore in tranquillità.' : 'Ogni postazione è attrezzata per seguire lezioni live, aule studio e laboratori in tranquillità.', cam: [1.75, 1.3, 1.05], tgt: [1.4, 0.86, -0.47], hot: [1.4, 1.25, -0.35] },
@@ -27,10 +37,10 @@ function init() {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(devicePixelRatio, mob ? 1.5 : 1.75));
   renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
-  const scene = new THREE.Scene(); scene.background = new THREE.Color('#dfe8ec');
+  const scene = new THREE.Scene(); scene.background = new THREE.Color(custom?.bg || '#dfe8ec');
   scene.add(new THREE.HemisphereLight('#ffffff', '#9fb6bf', 0.9));
   const camera = new THREE.PerspectiveCamera(mob ? 62 : 52, 1, 0.05, 60);
-  const room = buildSedeInterior({ city }); scene.add(room.group);
+  const room = custom || buildSedeInterior({ city }); scene.add(room.group);
 
   const controls = new OrbitControls(camera, canvas);
   controls.enableZoom = false; controls.enablePan = false; controls.enableDamping = true; controls.dampingFactor = 0.08; controls.rotateSpeed = 0.45;
@@ -53,8 +63,8 @@ function init() {
     gsap.to(o, { k: 1, duration: instant || L.reduced ? 0 : 1.6, ease: 'power3.inOut',
       onUpdate: () => { camera.position.lerpVectors(from.p, to.p, o.k); controls.target.lerpVectors(from.t, to.t, o.k); },
       onComplete: () => { moving = false; constrain(); } });
-    connectTo = cur === 3 ? 1 : 0;
-    $('#tN').textContent = cur + 1; $('#tK').textContent = S.k; $('#tT').textContent = S.t; $('#tP').textContent = S.p;
+    connectTo = (custom ? S.connect : cur === 3) ? 1 : 0;
+    $('#tN').textContent = cur + 1; if ($('#tTot')) $('#tTot').textContent = STOPS.length; $('#tK').textContent = S.k; $('#tT').textContent = S.t; $('#tP').textContent = S.p;
     $('#tNext').querySelector('span').textContent = cur === STOPS.length - 1 ? 'Ricomincia ↺' : 'Avanti →';
     $('#tPrev').disabled = cur === 0;
     dots.forEach((d, j) => d.setAttribute('aria-current', String(j === cur)));
@@ -69,6 +79,7 @@ function init() {
   $('#tPrev').addEventListener('click', () => go(cur - 1));
   canvas.addEventListener('pointerdown', () => box.classList.add('used'), { once: true });
 
+  window.__tourGo = (i) => go(i);
   camera.position.set(...STOPS[0].cam); controls.target.set(...STOPS[0].tgt); go(0, true);
 
   function resize() { const w = box.clientWidth, h = box.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
@@ -82,7 +93,7 @@ function init() {
     connectK += (connectTo - connectK) * 0.05; room.connect(connectK, t);
     hots.forEach((h, i) => {
       proj.copy(V(STOPS[i].hot)).project(camera);
-      const vis = proj.z < 1 && Math.abs(proj.x) < 0.95 && Math.abs(proj.y) < 0.9 && i !== cur;
+      const vis = proj.z < 1 && Math.abs(proj.x) < 0.95 && Math.abs(proj.y) < 0.9 && i !== cur && (!custom || Math.abs(i - cur) === 1);
       h.style.opacity = vis ? 1 : 0; h.style.pointerEvents = vis ? 'auto' : 'none';
       h.style.transform = `translate(${(proj.x * 0.5 + 0.5) * box.clientWidth}px, ${(-proj.y * 0.5 + 0.5) * box.clientHeight}px) translate(-50%, -50%)`;
     });

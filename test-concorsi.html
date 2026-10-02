@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=8">
+<link rel="stylesheet" href="assets/lambda.css?v=16">
 <style>
 /* =================== CMA · Test Concorsi (il fascicolo) =================== */
 body{background:var(--ink)}
@@ -192,13 +192,22 @@ body.fx-on{overflow:hidden}
 
   <!-- ============ FAQ ============ -->
   <section class="faq sheet" data-theme="dark" aria-labelledby="fqTitle">
-    <div class="wrap grid">
-      <div><p class="k" data-reveal>Domande frequenti</p><h2 class="split" id="fqTitle">Prima di <em>iniziare.</em></h2></div>
-      <div data-reveal>
+    <div class="wrap grid fq-side">
+      <div class="qcol"><p class="k" data-reveal>Domande frequenti</p><h2 class="split" id="fqTitle">Prima di <em>iniziare.</em></h2>
+        <div class="qlist" data-reveal>
         <details class="qa" open><summary>Il risultato vale come verifica dei requisiti?<i>+</i></summary><p>No. Il test indica i concorsi più compatibili con il tuo profilo, ma requisiti, limiti di età e prove cambiano a ogni bando: vanno sempre verificati sul bando ufficiale. Un tutor CMA ti aiuta a farlo.</p></details>
         <details class="qa"><summary>È gratuito?<i>+</i></summary><p>Sì, il test e il piano concorsi sono gratuiti e senza impegno.</p></details>
         <details class="qa"><summary>Cosa succede dopo?<i>+</i></summary><p>Lasci il tuo contatto e un tutor CMA ti invia il piano concorsi: i bandi da seguire, le prove da preparare e come allenarti con il Metodo EAGLE e il simulatore.</p></details>
+        </div>
       </div>
+      <aside class="tutor-box cma" data-reveal>
+        <svg class="tb-star" viewBox="0 0 200 200" aria-hidden="true"><path fill="#CD141F" d="M100 8 L124 76 L196 76 L138 118 L160 188 L100 146 L40 188 L62 118 L4 76 L76 76 Z"/></svg>
+        <h3>Preferisci parlarne prima?</h3>
+        <p>Un tutor CMA ti richiama, ti spiega come funziona il test e quali concorsi puoi preparare.</p>
+        <button class="btn btn-red magnetic" type="button" data-lead=""><span class="t">Parla con un tutor →</span></button>
+        <a class="tutor-link" href="#inizia" data-start>Oppure inizia subito il test →</a>
+        <small>Gratuito · senza impegno</small>
+      </aside>
     </div>
   </section>
 </main>
@@ -240,7 +249,7 @@ body.fx-on{overflow:hidden}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="assets/cma-mark.js?v=1"></script>
-<script src="assets/lambda.js?v=17"></script>
+<script src="assets/lambda.js?v=23"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {

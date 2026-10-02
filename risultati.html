@@ -6,11 +6,11 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Risultati · Centro Studi Lambda</title>
-<meta name="description" content="Storie vere, obiettivi reali: 4,9 su Trustpilot, N°1 in Italia per recensioni certificate, oltre 5000 studenti aiutati.">
+<meta name="description" content="Storie vere, obiettivi reali: 4,9 su Trustpilot, N°1 in Italia per recensioni certificate, oltre 6000 studenti seguiti.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=8">
+<link rel="stylesheet" href="assets/lambda.css?v=16">
 <style>
 /* =================== LAMBDA · Risultati =================== */
 
@@ -39,6 +39,33 @@
 .kpi b small{font-size:.5em;color:rgba(255,255,255,.55)}
 .kpi>span{display:block;margin-top:6px;font-size:13.5px;line-height:1.35;color:rgba(255,255,255,.6);max-width:16ch}
 .kpi .stars{margin-top:8px}
+
+
+/* ---------- RISULTATI PER PERCORSO: numeri + recensioni ---------- */
+.byp{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.byp .eyebrow{color:var(--teal)}
+.bgrid{display:grid;grid-template-columns:.62fr 1.38fr;gap:clamp(20px,3vw,44px);margin-top:46px;align-items:start}
+.btabs{display:grid;gap:8px;position:sticky;top:calc(var(--hdr) + 24px)}
+.btab{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:17px 20px;border-radius:18px;background:var(--light);text-align:left;color:var(--navy);font:700 17px/1.1 var(--font);letter-spacing:-.015em;transition:background .35s,color .35s,transform .4s var(--ease)}
+.btab small{font:500 11px/1 var(--mono);color:var(--teal);letter-spacing:.08em}
+.btab:hover{transform:translateX(4px)}
+.btab[aria-selected="true"]{background:var(--navy);color:#fff} .btab[aria-selected="true"] small{color:var(--warm)}
+.bpanel{position:relative;border-radius:34px;padding:clamp(26px,3.4vw,48px);background:radial-gradient(ellipse 80% 70% at 85% 0%,#16475a 0%,var(--navy) 55%,var(--deep) 100%);color:#fff;overflow:hidden;min-height:560px}
+.bpanel .bk{font:500 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--warm)}
+.bpanel h3{margin-top:14px;max-width:22ch;font:700 clamp(28px,2.8vw,42px)/1.05 var(--font);letter-spacing:-.04em}
+.bnums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.bn{padding:20px 18px;border-radius:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.bn b{display:block;font:700 clamp(36px,3.6vw,56px)/1 var(--font);letter-spacing:-.05em;color:var(--warm);white-space:nowrap}
+.bn b i{font-style:normal} .bn b small{font-size:.45em;letter-spacing:-.01em}
+.bn .bl{display:block;margin-top:10px;font-size:14px;line-height:1.35;color:rgba(255,255,255,.72)}
+.brh{margin-top:30px;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.brevs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.brv{padding:20px;border-radius:22px;background:#fff;color:var(--navy)}
+.brv q{display:block;font:700 16.5px/1.35 var(--font);letter-spacing:-.01em;quotes:"“" "”"}
+.brv .stars{margin-bottom:10px}
+.brv small{display:block;margin-top:12px;font-size:13px;color:#4a6370} .brv small b{color:var(--navy)}
+.bfoot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:26px}
+.bfoot a{font-weight:700;color:var(--warm)} .bfoot a.tp{color:rgba(255,255,255,.6);font-weight:500;font-size:14px}
 
 /* ---------- I 5 CAMBIAMENTI ---------- */
 .dims{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
@@ -96,7 +123,9 @@
 .filters button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
 .rgrid{columns:3;column-gap:14px;margin-top:26px}
 .rv{break-inside:avoid;margin:0 0 14px;padding:22px;border-radius:22px;background:#fff;box-shadow:0 20px 40px -34px rgba(14,33,46,.5);transition:opacity .4s,transform .5s var(--ease)}
-.rv.hide{display:none}
+.rv.hide,.rv.more{display:none}
+.rmore{display:flex;justify-content:center;margin-top:18px} .rmore[hidden]{display:none}
+.rmore .btn{border:1.5px solid rgba(14,33,46,.2);color:var(--navy);background:#fff}
 .rv q{display:block;font:700 19px/1.3 var(--font);letter-spacing:-.015em;quotes:"“" "”"}
 .rv .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .rv .tags span{padding:6px 9px;border-radius:999px;background:var(--light);font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
@@ -104,15 +133,6 @@
 .rv.tp{background:var(--navy);color:#fff}
 .rv.tp p{font-size:15px;line-height:1.5;color:rgba(255,255,255,.75)} .rv.tp b.big{display:block;font:700 26px/1.1 var(--font);margin-bottom:10px}
 .rv.tp a{display:inline-block;margin-top:14px;font-weight:700;color:var(--warm)}
-
-/* ---------- VIDEO ---------- */
-.videos{background:var(--deep);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
-.videos .eyebrow{color:var(--warm)}
-.vgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:14px;margin-top:44px}
-.vid{position:relative;aspect-ratio:9/12;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,#16475a,#0b1e28);display:flex;flex-direction:column;justify-content:flex-end;padding:22px}
-.vid:first-child{aspect-ratio:auto}
-.vid .play{position:absolute;left:50%;top:44%;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);display:grid;place-items:center;font-size:22px}
-.vid b{position:relative;font:700 20px/1.15 var(--font)} .vid small{position:relative;margin-top:6px;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warm)}
 
 /* ---------- RIMANDO A CMA + FINALE ---------- */
 .cma{background:var(--ink);padding:34px 0}
@@ -132,9 +152,10 @@
   .kpis{grid-template-columns:1fr 1fr}
   .dgrid{grid-template-columns:1fr} .dtabs{grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*var(--gutter));padding:0 var(--gutter)}
   .dtab{padding:16px} .dcard{min-height:420px}
-  .vgrid{grid-template-columns:1fr 1fr} .vid:first-child{grid-column:1/3;aspect-ratio:16/10}
+  .bgrid{grid-template-columns:1fr} .btabs{position:relative;top:auto;display:flex;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*var(--gutter));padding:0 var(--gutter)} .btab{flex:0 0 auto;width:auto} .btab small{display:none} .bpanel{min-height:0}
+
 }
-@media (max-width: 600px){ .cgrid{grid-template-columns:1fr} .rgrid{columns:1} .case .flow3{grid-template-columns:1fr;gap:6px} .case .arr{width:auto;transform:rotate(90deg);height:14px} }
+@media (max-width: 600px){ .bnums,.brevs{grid-template-columns:1fr} .bn{display:flex;align-items:baseline;gap:14px} .bn .bl{margin-top:0} .cgrid{grid-template-columns:1fr} .rgrid{columns:1} .case .flow3{grid-template-columns:1fr;gap:6px} .case .arr{width:auto;transform:rotate(90deg);height:14px} }
 @media (prefers-reduced-motion: reduce){ .wcol{animation:none} }
 </style>
 </head>
@@ -150,10 +171,25 @@
       <h1 class="split" id="rTitle">Storie vere. <em>Obiettivi reali.</em></h1>
       <p class="lead" data-reveal>Non promettiamo miracoli: raccontiamo quello che cambia, quando un ragazzo trova il suo metodo. Con le parole delle famiglie.</p>
       <div class="kpis" data-reveal data-count-group>
-        <div class="kpi"><b data-count="5000" data-pre="+">+0</b><span>studenti aiutati</span></div>
+        <div class="kpi"><b data-count="6000" data-pre="+">+0</b><span>studenti aiutati</span></div>
         <div class="kpi"><b><span data-count="4.9" data-dec="1">0</span><small>/5</small></b><span>su Trustpilot</span></div>
         <div class="kpi"><b>N°1</b><span>in Italia per recensioni certificate</span></div>
         <div class="kpi"><b data-count="100" data-suf="%">0%</b><span>Garanzia</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="press" data-press data-theme="dark" aria-label="Hanno parlato di noi"></section>
+
+  <!-- ============ RISULTATI PER PERCORSO ============ -->
+  <section class="byp sheet" data-theme="light" aria-labelledby="bTitle">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Per percorso</p>
+      <h2 class="sec-title split" id="bTitle">I numeri, <em>percorso per percorso.</em></h2>
+      <p class="sec-lead" data-reveal>Dalla primaria all'università: quanti ragazzi abbiamo seguito, cosa è cambiato e cosa ne dicono le famiglie.</p>
+      <div class="bgrid">
+        <div class="btabs" id="btabs" role="tablist" aria-label="Percorsi" data-reveal></div>
+        <div class="bpanel" id="bpanel" role="tabpanel" aria-live="polite" data-reveal></div>
       </div>
     </div>
   </section>
@@ -195,19 +231,7 @@
       </div>
       <div class="filters" id="filters" role="group" aria-label="Filtra per cambiamento" data-reveal></div>
       <div class="rgrid" id="rgrid" data-reveal></div>
-    </div>
-  </section>
-
-  <!-- ============ VIDEO ============ -->
-  <section class="videos sheet" data-theme="dark" aria-labelledby="vTitle">
-    <div class="wrap">
-      <p class="eyebrow" data-reveal>Videostorie</p>
-      <h2 class="sec-title split" id="vTitle">Ascoltale <em>dalla loro voce.</em></h2>
-      <div class="vgrid" data-reveal>
-        <div class="vid"><span class="play" aria-hidden="true">▶</span><b>La storia di una famiglia Lambda</b><small>Video in arrivo</small></div>
-        <div class="vid"><span class="play" aria-hidden="true">▶</span><b>Dalla parte dello studente</b><small>Video in arrivo</small></div>
-        <div class="vid"><span class="play" aria-hidden="true">▶</span><b>Il punto di vista del tutor</b><small>Video in arrivo</small></div>
-      </div>
+      <div class="rmore"><button class="btn" type="button" id="rmore"><span class="t">Mostra altre recensioni</span></button></div>
     </div>
   </section>
 
@@ -226,34 +250,58 @@
 
 <div data-lambda-footer></div>
 
-<script src="assets/recensioni.js?v=1"></script>
+<script src="assets/recensioni.js?v=10"></script>
 <script>
 /* costruzione dei contenuti (prima del motore, così animazioni e stelle funzionano) */
 (() => {
   const R = window.LAMBDA_REVIEWS, D = window.LAMBDA_DIMS;
   const stars = '<div class="stars"><i></i><i></i><i></i><i></i><i></i></div>';
   // muro dell'hero: recensioni vere + i numeri, in tre colonne che salgono
-  const items = [...R.map((r) => `<div class="wc">${stars}<q>${r.q}</q><small>${r.n} · genitore</small></div>`), '<div class="wc num"><b>4,9</b><small>su Trustpilot</small></div>', '<div class="wc num"><b>N°1</b><small>per recensioni certificate</small></div>', '<div class="wc num"><b>+5000</b><small>studenti aiutati</small></div>'];
+  const items = [...R.map((r) => `<div class="wc">${stars}<q>${r.q}</q><small>${r.n} · ${r.who || 'genitore'}</small></div>`), '<div class="wc num"><b>4,9</b><small>su Trustpilot</small></div>', '<div class="wc num"><b>N°1</b><small>per recensioni certificate</small></div>', '<div class="wc num"><b>+6000</b><small>studenti aiutati</small></div>'];
   const col = (o) => { const a = [...items.slice(o), ...items.slice(0, o)]; return `<div class="wcol">${[...a, ...a].join('')}</div>`; };
   document.getElementById('wall').innerHTML = col(0) + col(3) + col(6);
   // storie: solo quelle in cui la recensione dice com'era prima e com'è dopo
   document.getElementById('cases').innerHTML = R.filter((r) => r.prima).map((r) => `<article class="case">
       <div class="flow3"><div class="st"><small>Prima</small>${r.prima}</div><span class="arr">→</span><div class="st mid"><small>Percorso</small>Test, tutor, metodo + ripetizioni</div><span class="arr">→</span><div class="st end"><small>Dopo</small>${r.dopo}</div></div>
-      <blockquote>“${r.q}”</blockquote><div class="cwho">${stars}<b>${r.n}</b> · genitore, su Trustpilot</div></article>`).join('')
+      <blockquote>“${r.q}”</blockquote><div class="cwho">${stars}<b>${r.n}</b> · ${r.who || 'genitore'}, su Trustpilot</div></article>`).join('')
     + `<article class="case yours"><div><b>Hai una storia Lambda da raccontare?</b><p>Le storie dei ragazzi che hanno trovato il loro metodo sono il nostro risultato più bello. Raccontaci la vostra.</p></div><a class="btn btn-stud" href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener"><span class="t">Lascia una recensione →</span></a></article>`;
   // filtri e muro di recensioni
   document.getElementById('filters').innerHTML = `<button type="button" aria-pressed="true" data-f="">Tutte</button>` + D.map((d) => `<button type="button" aria-pressed="false" data-f="${d.k}">${d.name}</button>`).join('');
-  document.getElementById('rgrid').innerHTML = R.map((r) => `<figure class="rv" data-tags="${r.tags.join(' ')}">${stars}<q>${r.q}</q><div class="tags">${r.tags.map((t) => `<span>${D.find((d) => d.k === t).name}</span>`).join('')}</div><figcaption class="who"><b>${r.n}</b> · genitore, su Trustpilot</figcaption></figure>`).join('')
+  document.getElementById('rgrid').innerHTML = R.map((r) => `<figure class="rv" data-tags="${r.tags.join(' ')}">${stars}<q>${r.q}</q><div class="tags">${r.tags.map((t) => `<span>${D.find((d) => d.k === t).name}</span>`).join('')}</div><figcaption class="who"><b>${r.n}</b> · ${r.who || 'genitore'}, su Trustpilot</figcaption></figure>`).join('')
     + `<figure class="rv tp" data-tags="all"><b class="big">Tutte le recensioni, verificate.</b><p>Le recensioni Lambda su Trustpilot sono di famiglie reali e certificate. Leggile tutte, anche quelle più recenti.</p><a href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">Vai su Trustpilot →</a></figure>`;
 })();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=17"></script>
+<script src="assets/lambda.js?v=23"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {
   const L = window.Lambda, D = window.LAMBDA_DIMS, R = window.LAMBDA_REVIEWS, $ = (s) => document.querySelector(s);
+
+
+  /* ---------- risultati per percorso: si sceglie un percorso, numeri e recensioni cambiano ---------- */
+  const RS = window.LAMBDA_RESULTS, bt = $('#btabs'), bp = $('#bpanel');
+  const STARS = '<div class="stars"><i></i><i></i><i></i><i></i><i></i></div>';
+  const fmt = (n, d) => (d ? n.toFixed(d).replace('.', ',') : Math.round(n).toLocaleString('it-IT'));
+  const GEN = R.filter((r) => !r.cat.length);
+  bt.innerHTML = RS.map((c, i) => `<button class="btab" type="button" role="tab" aria-selected="${!i}" data-i="${i}">${c.name}<small>0${i + 1}</small></button>`).join('');
+  function showB(i) {
+    const c = RS[i]; [...bt.children].forEach((b, j) => b.setAttribute('aria-selected', String(j === i)));
+    const own = R.filter((r) => r.cat.some((k) => c.cats.includes(k)));
+    const revs = (own.length ? own : GEN).slice(0, 2);
+    bp.innerHTML = `<p class="bk">${c.name}</p><h3>${c.lead}</h3>
+      <div class="bnums">${c.nums.map((n) => `<div class="bn"><b>${n.pre || ''}<i data-v="${n.v}" data-d="${n.dec || 0}">${fmt(n.v, n.dec)}</i><small>${n.suf || ''}</small></b><p class="bl">${n.l}</p></div>`).join('')}</div>
+      <p class="brh">${own.length ? 'Dalle famiglie di questo percorso' : 'Dicono di noi'}</p>
+      <div class="brevs">${revs.map((r) => `<figure class="brv">${STARS}<q>${r.q}</q><small><b>${r.n}</b> · ${r.who || 'genitore'}, su Trustpilot</small></figure>`).join('')}</div>
+      <div class="bfoot"><a href="percorso.html?p=${c.p}">Scopri il percorso: ${c.name} →</a><a class="tp" href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">Tutte le recensioni su Trustpilot →</a></div>`;
+    if (L.reduced) return;
+    bp.querySelectorAll('.bn [data-v]').forEach((el) => { const o = { v: 0 }, d = +el.dataset.d; gsap.to(o, { v: +el.dataset.v, duration: 1.3, ease: 'power3.out', onUpdate: () => (el.textContent = fmt(o.v, d)) }); });
+    gsap.fromTo(bp.querySelectorAll('.bk,h3,.bn,.brh,.brv,.bfoot'), { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.05, ease: 'power3.out' });
+  }
+  bt.addEventListener('click', (e) => { const b = e.target.closest('.btab'); if (b) showB(+b.dataset.i); });
+  showB(0);
+  new IntersectionObserver((e, o) => e.forEach((x) => { if (x.isIntersecting) { showB(+(bt.querySelector('[aria-selected="true"]')?.dataset.i || 0)); o.disconnect(); } }), { threshold: 0.35 }).observe(bp);
 
   /* ---------- i 5 cambiamenti: si sceglie una scheda, il "prima" diventa "dopo" ---------- */
   const tabs = $('#dtabs'), card = $('#dcard'), btnPre = card.querySelector('.sw .pre'), btnPost = card.querySelector('.sw .after');
@@ -267,7 +315,7 @@ gsap.set('#logo', { autoAlpha: 1 });
     $('#dPre').textContent = d.pre; $('#dPost').textContent = d.post;
     $('#dHow').innerHTML = `<b>Come ci lavoriamo:</b> ${d.how}`;
     const v = R.find((r) => r.tags.includes(d.k) && r.lead === d.k) || R.find((r) => r.tags.includes(d.k));
-    $('#dVoice').innerHTML = v ? `“${v.q}”<small>${v.n} · genitore, su Trustpilot</small>` : '';
+    $('#dVoice').innerHTML = v ? `“${v.q}”<small>${v.n} · ${v.who || 'genitore'}, su Trustpilot</small>` : '';
     state('pre');
     clearTimeout(timer); barTw?.kill();
     if (auto) {
@@ -284,11 +332,15 @@ gsap.set('#logo', { autoAlpha: 1 });
   new IntersectionObserver((e, o) => e.forEach((x) => { if (x.isIntersecting && auto) { show(0); o.disconnect(); } }), { threshold: 0.4 }).observe(card);
 
   /* ---------- filtri del muro di recensioni ---------- */
-  const fl = $('#filters'), cards = [...document.querySelectorAll('#rgrid .rv')];
+  const fl = $('#filters'), cards = [...document.querySelectorAll('#rgrid .rv')], more = $('#rmore').parentElement;
+  // all'inizio 9 recensioni + il box Trustpilot, le altre con "Mostra altre"
+  cards.forEach((c, i) => { if (i >= 9 && !c.classList.contains('tp')) c.classList.add('more'); });
+  $('#rmore').addEventListener('click', () => { const h = cards.filter((c) => c.classList.contains('more')); h.forEach((c) => c.classList.remove('more')); more.hidden = true; if (!L.reduced) gsap.from(h, { y: 20, opacity: 0, duration: 0.5, stagger: 0.03, ease: 'power3.out' }); });
   fl.addEventListener('click', (e) => {
     const b = e.target.closest('button'); if (!b) return; const f = b.dataset.f;
     [...fl.children].forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    cards.forEach((c) => { const ok = !f || c.dataset.tags === 'all' || c.dataset.tags.split(' ').includes(f); c.classList.toggle('hide', !ok); });
+    cards.forEach((c) => { const ok = !f || c.dataset.tags === 'all' || c.dataset.tags.split(' ').includes(f); c.classList.toggle('hide', !ok); c.classList.remove('more'); });
+    more.hidden = true;
     if (!L.reduced) gsap.from(cards.filter((c) => !c.classList.contains('hide')), { y: 20, opacity: 0, duration: 0.5, stagger: 0.05, ease: 'power3.out' });
   });
 })();

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=8">
+<link rel="stylesheet" href="assets/lambda.css?v=16">
 <style>
 /* =================== LAMBDA · template sottopagina (età / esigenza) =================== */
 body{--acc:var(--aqua);--acc-l:#3fc8d1}
@@ -61,26 +61,6 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
 .sres.go .btn{display:inline-flex}
 
 /* ---------- PRIMA / DOPO ---------- */
-.ba-sec{background:var(--deep);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
-.ba-sec .eyebrow{color:var(--warm)}
-.ba-sec .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
-.ba{position:relative;margin-top:46px;height:clamp(380px,38vw,480px);border-radius:32px;overflow:hidden;touch-action:pan-y;user-select:none;cursor:ew-resize;--x:50%}
-.pane{position:absolute;inset:0;padding:clamp(26px,3.4vw,48px);display:flex;flex-direction:column;justify-content:space-between}
-.pa{background:linear-gradient(160deg,#1a2a33,#0d171d);color:#c8d3d8}
-.pd{background:linear-gradient(160deg,#fffaf0,#f2e6d2);color:var(--navy);align-items:flex-end;text-align:right;clip-path:inset(0 0 0 var(--x))}
-.pane .lab{font:500 12px/1 var(--mono);letter-spacing:.2em}
-.pa .lab{color:rgba(255,255,255,.45)} .pd .lab{color:var(--teal)}
-.pane ul{list-style:none;display:grid;gap:clamp(10px,1.4vw,16px)}
-.pane li{font:700 clamp(18px,1.9vw,28px)/1.15 var(--font);letter-spacing:-.025em;max-width:16ch}
-.pa li{text-decoration:line-through;text-decoration-color:rgba(255,138,91,.6);text-decoration-thickness:2px}
-.pane .clk{display:flex;gap:5px;font:700 clamp(30px,3.2vw,46px)/1 var(--font)}
-.pane .clk span{width:.72em;height:1.1em;border-radius:.1em;display:grid;place-items:center}
-.pa .clk span{background:linear-gradient(180deg,#22343e,#131f26);color:#f3ede2}
-.pd .clk span{background:#fff;color:var(--navy);box-shadow:0 4px 10px rgba(14,33,46,.12)}
-.pane .clk .c{width:auto;background:none!important;box-shadow:none!important}
-.handle{position:absolute;top:0;bottom:0;left:var(--x);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
-.handle b{position:absolute;top:50%;left:50%;width:58px;height:58px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;transform:translate(-50%,-50%);box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:20px}
-.ba-hint{margin-top:16px;text-align:center;font-size:14px;color:rgba(255,255,255,.5)}
 
 /* ---------- METODO + COSA COMPRENDE ---------- */
 .meth{background:#fff;color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
@@ -109,15 +89,6 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
 .rev .more{margin-top:26px;display:inline-block;font-weight:700;color:var(--warm);border-bottom:1.5px solid currentColor;padding-bottom:3px}
 
 /* ---------- FAQ ---------- */
-.faq{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
-.faq .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px)}
-.qa{border-top:1px solid rgba(14,33,46,.12)}
-.qa:last-child{border-bottom:1px solid rgba(14,33,46,.12)}
-.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font:700 clamp(18px,1.5vw,21px)/1.25 var(--font);letter-spacing:-.02em}
-.qa summary::-webkit-details-marker{display:none}
-.qa summary i{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;transition:transform .4s var(--ease),background .3s}
-.qa[open] summary i{transform:rotate(45deg);background:var(--warm)}
-.qa p{padding:0 50px 24px 0;font-size:16.5px;line-height:1.55;color:#4a6370}
 
 /* ---------- FINALE + CORRELATI ---------- */
 .final{background:radial-gradient(ellipse 70% 60% at 50% 45%, #16475a 0%, var(--navy) 55%, var(--deep) 100%);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px);text-align:center}
@@ -154,6 +125,54 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
   .qa p{padding-right:0}
   .mquote{width:92%;margin-top:-30px}
 }
+
+/* ---------- numeri (autorevolezza) ---------- */
+.pnums{position:relative;z-index:2;background:var(--deep);padding:clamp(56px,7vh,80px) 0}
+.pnrow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pnrow>div{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:22px 16px;border-radius:22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.pnrow b{font:700 clamp(38px,3.6vw,56px)/1 var(--font);letter-spacing:-.05em;color:#fff}
+.pnrow b small{font-size:.42em;color:rgba(255,255,255,.5);letter-spacing:0}
+.pnrow>div>span:last-child{font-size:14px;line-height:1.4;color:rgba(255,255,255,.65);max-width:24ch}
+.pnrow .stars{display:flex;gap:3px} .pnrow .stars i{width:18px;height:18px}
+/* ---------- come funziona ---------- */
+.phow{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(120px,15vh,170px)}
+.phow .eyebrow{color:var(--teal)}
+.hrail{position:relative;height:2px;margin:clamp(50px,7vh,70px) 10% 0;background:rgba(14,33,46,.12)}
+.hrail i{position:absolute;inset:0;background:linear-gradient(90deg,var(--acc),var(--warm));transform-origin:left;transform:scaleX(0);transition:transform 1.8s var(--ease)}
+.hrail.in i{transform:scaleX(1)}
+.hsteps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:-1px}
+.hsteps li{position:relative;padding:34px 20px 24px;border-radius:24px;background:#fff;box-shadow:0 24px 50px -36px rgba(14,33,46,.5);margin-top:26px}
+.hsteps .dot{position:absolute;left:50%;top:-34px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--acc);transform:translateX(-50%)}
+.hsteps small{font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--acc)}
+.hsteps svg{display:block;width:42px;height:42px;margin-top:14px;fill:none;stroke:var(--acc);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.hsteps b{display:block;margin-top:14px;font-size:20px;letter-spacing:-.02em}
+.hsteps p{margin-top:8px;font-size:14.5px;line-height:1.45;color:#4a6370}
+/* ---------- metodo: link e card principali ---------- */
+.mlink{display:inline-block;margin-left:6px;font-weight:700;color:var(--teal);border-bottom:1.5px solid currentColor}
+.inc.key{background:var(--navy);color:#fff;border-color:var(--navy)}
+.inc.key p{color:rgba(255,255,255,.72)} .inc.key svg{stroke:var(--warm)}
+/* ---------- recensioni ---------- */
+.prevs{background:radial-gradient(ellipse 70% 70% at 50% 40%, #14404f 0%, var(--navy) 60%, var(--deep) 100%);padding:clamp(110px,14vh,160px) 0}
+.prevs .eyebrow{color:var(--warm)}
+.rtop{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px}
+.rscore{display:flex;align-items:center;gap:14px;padding:14px 20px;border-radius:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.rscore b{font:700 44px/1 var(--font);letter-spacing:-.04em}
+.rscore .stars{display:flex;gap:3px} .rscore .stars i{width:18px;height:18px}
+.rscore small{display:block;margin-top:6px;font-size:13px;color:rgba(255,255,255,.6)}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.rv3{display:flex;flex-direction:column;padding:24px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.rv3 .stars{display:flex;gap:3px} .rv3 .stars i{width:18px;height:18px}
+.rv3 q{display:block;margin-top:16px;font:700 19px/1.35 var(--font);letter-spacing:-.015em;quotes:"“" "”"}
+.rv3 figcaption{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:18px;font-size:13.5px;color:rgba(255,255,255,.6)}
+.rv3 figcaption b{color:#fff}
+.rv3 figcaption i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--warm);color:var(--navy);font:700 12px/1 var(--font);font-style:normal}
+.prevs .more{display:inline-block;margin-top:28px;font-weight:700;color:var(--warm);border-bottom:1.5px solid currentColor;padding-bottom:3px}
+/* ---------- altri percorsi ---------- */
+.relsec{background:var(--deep);padding:clamp(60px,8vh,90px) 0 clamp(80px,10vh,110px)}
+.relsec .rel{margin-top:0;padding-top:0;border-top:0}
+@media (max-width: 1100px){ .hsteps{grid-template-columns:repeat(3,1fr)} .hrail{display:none} .hsteps li{margin-top:0} .hsteps .dot{display:none} }
+@media (max-width: 860px){ .pnrow{grid-template-columns:1fr 1fr} .rgrid{grid-template-columns:1fr} }
+@media (max-width: 560px){ .hsteps{grid-template-columns:1fr} .pnrow>div{padding:18px 10px} .pnrow>div>span:last-child{font-size:12.5px} }
 </style>
 </head>
 <body data-page="percorsi" data-branch="stud">
@@ -161,8 +180,10 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
 <main id="main"></main>
 <div data-lambda-footer></div>
 
-<script src="assets/percorsi.js?v=2"></script>
-<script src="assets/percorsi-pagine.js?v=2"></script>
+<script src="assets/recensioni.js?v=10"></script>
+<script src="assets/percorsi.js?v=4"></script>
+<script src="assets/percorsi-pagine.js?v=4"></script>
+<script src="assets/percorsi-contenuti.js?v=2"></script>
 <script>
 /* ---------- costruzione della pagina dai dati (prima del motore, così animazioni e titoli funzionano) ---------- */
 (() => {
@@ -187,7 +208,8 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
         <nav class="crumb" aria-label="Sei qui" data-reveal><a href="studenti.html#percorsi">Percorsi</a><span>/</span><b>${R.name}</b></nav>
         <h1 class="split" id="pTitle">${D ? D.title : R.tag}</h1>
         <p class="lead" data-reveal>${D ? D.lead : 'Metodo FOCUS, un tutor dedicato e lezioni live. Tutto online, in tutta Italia, dal lunedì al sabato.'}</p>
-        <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a><span class="small">Gratuito · 10 minuti</span></div>
+        <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a><button class="btn btn-ghost" type="button" data-lead="${R.kind === 'età' ? R.name : ''}"><span class="t">Parla con un tutor</span></button></div>
+        <p class="small" data-reveal>Performance Test gratuito · 10 minuti · oppure un tutor ti richiama</p>
         ${D ? '' : '<div class="soon" data-reveal><i></i>PAGINA COMPLETA IN PREPARAZIONE</div>'}
       </div>
       <div class="vis" data-reveal aria-hidden="true">
@@ -208,71 +230,104 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
     return;
   }
 
-  document.getElementById('main').innerHTML = hero + `
+  const N = D.nums || ['studenti seguiti, dai più piccoli all\'università', 'su Trustpilot, su 323 recensioni di genitori e studenti', 'in Italia per recensioni certificate', 'anni di esperienza con bambini e ragazzi'];
+  const HOW_ICON = ['M27 5 L47 19 L39 43 L15 43 L7 19 Z M27 14 L38 22 L34 36 L20 36 L16 22 Z', 'M7 11 H47 V47 H7 Z M7 20 H47 M17 6 V14 M37 6 V14 M15 28 H22 M26 28 H33 M15 36 H22', 'M5 10 H49 V40 H5 Z M23 19 L33 25 L23 31 Z M18 47 H36', 'M7 47 H47 M7 45 V9 M13 36 L23 26 L30 32 L44 16 M38 16 H44 V22', 'M17 8 H37 V20 A10 10 0 0 1 17 20 Z M17 12 H10 A6 6 0 0 0 17 22 M37 12 H44 A6 6 0 0 1 37 22 M27 30 V38 M19 46 H35 L33 38 H21 Z'];
+  const HOW_T = ['Analisi', 'Piano', 'Lezioni', 'Monitoraggio', 'Risultato'];
+  const HOW = D.how || ['Il Performance Test fotografa come studia oggi: punti di forza e blocchi.', 'Il tutor personale costruisce il piano su misura, settimana per settimana.', 'Lezioni individuali live con docenti certificati Lambda, aule studio e laboratori online.', 'Il tutor segue i progressi dal lunedì al sabato e aggiusta il piano.', 'Più sicurezza, più autonomia, meno fatica. E un metodo che resta.'];
+  const INC = ['tutor', 'live', ...D.includes.filter((k) => k !== 'tutor' && k !== 'live')].slice(0, 6);
+  // recensioni: prima quelle Trustpilot che parlano di questo percorso, poi quelle scelte per la pagina
+  const OWN = (window.LAMBDA_REVIEWS || []).filter((r) => r.cat.includes(slug)).map((r) => [r.q, r.n, r.who]);
+  const ALLR = Object.values(window.PERCORSI.REVIEWS), BASE = D.reviews || [D.review, ...ALLR.filter((x) => x !== D.review)];
+  const RV = [...OWN, ...BASE.filter((b) => !OWN.some((o) => o[0].startsWith(b[0].slice(0, 30))))].slice(0, 3);
+
+  const signsOld = `
   <section class="signs sheet" data-theme="light" aria-labelledby="sgTitle">
     <div class="wrap grid">
       <div><p class="eyebrow" data-reveal>Ti riconosci?</p><h2 class="sec-title split" id="sgTitle">Se succede anche a voi, <em>non siete i soli.</em></h2>
         <p class="sec-lead" data-reveal>Tocca le frasi che descrivono tuo figlio.</p></div>
       <div>
         <div class="slist" id="slist" data-reveal>${D.signs.map((s) => `<button class="srow" type="button" aria-pressed="false"><i>✓</i>${s}</button>`).join('')}</div>
-        <div class="sres" id="sres" data-reveal aria-live="polite"><span class="n" id="sN">0/${D.signs.length}</span><p id="sP">Tocca le frasi in cui lo riconosci.</p><a class="btn btn-stud" href="test.html"><span class="t">Fai il test gratuito →</span></a></div>
+        <div class="sres" id="sres" data-reveal aria-live="polite"><span class="n" id="sN">0/${D.signs.length}</span><p id="sP">Tocca le frasi in cui lo riconosci.</p></div>
       </div>
     </div>
-  </section>
+  </section>`;
+  const pains = `
+  <section class="pain sheet" id="ti-riconosci" data-theme="dark" aria-labelledby="dTitle">
+    <div class="wrap ptop">
+      <div><p class="eyebrow" data-reveal>Ti riconosci?</p>
+        <h2 class="sec-title split" id="dTitle">${D.painTitle || 'Se succede anche a voi, <em>non siete i soli.</em>'}</h2></div>
+      <div><p class="sec-lead" data-reveal>${D.painLead || 'Tocca la situazione che riconosci: ti spieghiamo cosa succede davvero, e perché "di più" spesso non basta.'}</p>
+        <div class="pnav" data-reveal><button type="button" id="pPrev" aria-label="Precedenti">←</button><button type="button" id="pNext" aria-label="Successivi">→</button></div></div>
+    </div>
+    <div class="ptrack" id="pTrack" role="list" aria-label="Le difficoltà più comuni"></div>
+  </section>`;
 
-  <section class="ba-sec sheet" data-theme="dark" aria-labelledby="baTitle">
+  document.getElementById('main').innerHTML = hero + `
+  <section class="pnums" data-theme="dark" aria-label="I nostri numeri">
+    <div class="wrap"><div class="pnrow" data-count-group>
+      <div data-reveal><b data-count="6000" data-pre="+">+0</b><span>${N[0]}</span></div>
+      <div data-reveal><b><span data-count="4.9" data-dec="1">0</span><small>/5</small></b><span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>${N[1]}</span></div>
+      <div data-reveal><b>N°1</b><span>${N[2]}</span></div>
+      <div data-reveal><b data-count="7">0</b><span>${N[3]}</span></div>
+    </div></div>
+  </section>
+  ${D.pains ? pains : signsOld}
+
+  <section class="phow sheet" data-theme="light" aria-labelledby="hwTitle">
     <div class="wrap">
-      <div class="top"><div><p class="eyebrow" data-reveal>Cosa cambia</p><h2 class="sec-title split" id="baTitle">Prima e dopo <em>Lambda.</em></h2></div>
-        <p class="sec-lead" data-reveal style="max-width:36ch">Non promettiamo miracoli. Promettiamo un metodo, e le serate cambiano di conseguenza.</p></div>
-      <div class="ba" id="ba" data-reveal role="slider" aria-label="Confronto prima e dopo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
-        <div class="pane pa"><span class="lab">PRIMA</span><ul>${D.before.items.map((t) => `<li>${t}</li>`).join('')}</ul><div class="clk">${clock(D.before.time)}</div></div>
-        <div class="pane pd"><span class="lab">DOPO</span><ul>${D.after.items.map((t) => `<li>${t}</li>`).join('')}</ul><div class="clk">${clock(D.after.time)}</div></div>
-        <div class="handle"><b>⇆</b></div>
-      </div>
-      <p class="ba-hint" data-reveal>Trascina per confrontare</p>
+      <p class="eyebrow" data-reveal>Come funziona</p>
+      <h2 class="sec-title split" id="hwTitle">${D.howTitle || 'Dalla prima analisi <em>al risultato.</em>'}</h2>
+      <div class="hrail" data-reveal><i></i></div>
+      <ol class="hsteps">${HOW_T.map((t, i) => `<li data-reveal><span class="dot"></span><small>0${i + 1}</small><svg viewBox="0 0 54 54"><path d="${HOW_ICON[i]}"/></svg><b>${t}</b><p>${HOW[i]}</p></li>`).join('')}</ol>
     </div>
   </section>
 
   <section class="meth sheet" data-theme="light" aria-labelledby="mTitle">
     <div class="wrap">
-      <p class="eyebrow" data-reveal>Il percorso</p>
+      <p class="eyebrow" data-reveal>Il metodo</p>
       <h2 class="sec-title split" id="mTitle">Su cosa lavoriamo, <em>prima di tutto.</em></h2>
-      <p class="sec-lead" data-reveal>Il Metodo FOCUS allena cinque abilità. Per ${R.kind === 'età' ? 'questa età' : 'questa esigenza'} partiamo da qui; il Performance Test ci dice il resto.</p>
+      <p class="sec-lead" data-reveal>Il Metodo FOCUS allena cinque abilità. Per ${R.kind === 'età' ? 'questa età' : 'questa esigenza'} partiamo da qui; il Performance Test ci dice il resto. <a class="mlink" href="metodo-focus.html">Scopri il Metodo FOCUS →</a></p>
       <div class="frow" data-reveal>${'FOCUS'.split('').map((l, i) => `<div class="fx${D.focus[i] ? ' on' : ''}"><span class="L">${l}</span><b>${NAMES[i]}</b>${D.focus[i] ? `<p>${D.focus[i]}</p>` : ''}</div>`).join('')}</div>
       <h3 class="incl-h" data-reveal>Cosa comprende</h3>
-      <div class="incl" data-reveal>${D.includes.map((k) => { const [t, p, d] = INCLUDES[k]; return `<div class="inc"><svg viewBox="0 0 28 28"><path d="${d}"/></svg><div><b>${t}</b><p>${p}</p></div></div>`; }).join('')}</div>
+      <div class="incl" data-reveal>${INC.map((k) => { const [t, p, d] = INCLUDES[k]; return `<div class="inc${k === 'tutor' || k === 'live' ? ' key' : ''}"><svg viewBox="0 0 28 28"><path d="${d}"/></svg><div><b>${t}</b><p>${p}</p></div></div>`; }).join('')}</div>
     </div>
   </section>
 
-  <section class="rev sheet" data-theme="dark" aria-label="Una recensione">
+  <section class="prevs sheet" data-theme="dark" aria-labelledby="rvTitle">
     <div class="wrap">
-      <div class="stars" data-reveal><i></i><i></i><i></i><i></i><i></i></div>
-      <blockquote class="split">“${D.review[0]}”</blockquote>
-      <p class="who" data-reveal><b>${D.review[1]}</b> · genitore, su Trustpilot · 4,9 su 5</p>
-      <a class="more" data-reveal href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">Leggi tutte le recensioni →</a>
+      <div class="rtop"><div><p class="eyebrow" data-reveal>Recensioni verificate su Trustpilot</p><h2 class="sec-title split" id="rvTitle">Lo raccontano <em>i genitori.</em></h2></div>
+        <div class="rscore" data-reveal><b>4,9</b><div><span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><small>su 323 recensioni</small></div></div></div>
+      <div class="rgrid">${RV.map(([q, n, who]) => `<figure class="rv3" data-reveal><span class="stars" aria-label="5 stelle su 5"><i></i><i></i><i></i><i></i><i></i></span><q>${q}</q><figcaption><i aria-hidden="true">${n[0]}</i><span><b>${n}</b> · ${who || 'genitore'}, su Trustpilot</span></figcaption></figure>`).join('')}</div>
+      <a class="more" data-reveal href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">Leggi tutte le recensioni su Trustpilot →</a>
     </div>
   </section>
 
-  <section class="faq sheet" data-theme="light" aria-labelledby="qTitle">
+  <section class="lfaq sheet" data-theme="light" aria-labelledby="qTitle">
     <div class="wrap grid">
-      <div><p class="eyebrow" data-reveal>Domande frequenti</p><h2 class="sec-title split" id="qTitle">Le domande <em>che ci fanno i genitori.</em></h2></div>
-      <div data-reveal>${D.faq.map(([q, a], i) => `<details class="qa"${i ? '' : ' open'}><summary>${q}<i>+</i></summary><p>${a}</p></details>`).join('')}</div>
+      <div class="qcol">
+        <p class="eyebrow" data-reveal>Domande frequenti</p>
+        <h2 class="sec-title split" id="qTitle">Le domande <em>che ci fanno i genitori.</em></h2>
+        <div class="qlist" data-reveal>${D.faq.map(([q, a], i) => `<details class="qa"${i ? '' : ' open'}><summary>${q}<i>+</i></summary><p>${a}</p></details>`).join('')}</div>
+      </div>
+      <aside class="tutor-box" data-reveal>
+        <svg class="glass9" viewBox="0 0 144 60" aria-hidden="true"><circle class="ring" cx="36" cy="30" r="26"/><circle class="ring" cx="108" cy="30" r="26"/><path class="bridge" d="M62 26 Q72 18 82 26"/></svg>
+        <h3>Hai un'altra domanda?</h3>
+        <p>Raccontaci la situazione di tuo figlio: un tutor ti richiama e ti consiglia da dove partire. Gratis e senza impegno.</p>
+        <button class="btn btn-stud magnetic" type="button" data-lead="${R.kind === 'età' ? R.name : ''}"><span class="t">Parla con un tutor →</span></button>
+        <a class="tutor-link" href="test.html">Oppure inizia dal Performance Test →</a>
+        <small>Gratuito · online · 10 minuti</small>
+      </aside>
     </div>
   </section>
 
-  <section class="final sheet" data-theme="dark" aria-labelledby="fTitle">
-    <div class="wrap">
-      <h2 class="split" id="fTitle">Il primo passo è capire <em>da dove parte.</em></h2>
-      <div class="ctas" data-reveal><a class="btn btn-stud magnetic" href="test.html"><span class="t">Fai il Performance Test →</span></a></div>
-      <p class="note" data-reveal>Gratuito · online · 10 minuti · poi un tutor vi spiega i risultati</p>
-      ${rel(D.related)}
-    </div>
-  </section>`;
+  <section class="relsec" data-theme="dark" aria-label="Altri percorsi"><div class="wrap">${rel(D.related)}</div></section>`;
 })();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=17"></script>
+<script src="assets/lambda.js?v=23"></script>
+<script src="assets/pains.js?v=1"></script>
+<script src="assets/lead.js?v=3"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {
@@ -304,33 +359,25 @@ gsap.set('#logo', { autoAlpha: 1 });
 
   if (!D) return;
 
-  /* ---------- ti riconosci? ---------- */
+  /* ---------- ti riconosci? (versione semplice, per le pagine non ancora aggiornate) ---------- */
   const rows = $$('.srow'), sN = $('#sN'), sP = $('#sP'), sres = $('#sres'), tot = rows.length;
-  $('#slist').addEventListener('click', (e) => {
+  $('#slist')?.addEventListener('click', (e) => {
     const b = e.target.closest('.srow'); if (!b) return;
     b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true'));
     const n = rows.filter((x) => x.getAttribute('aria-pressed') === 'true').length;
     sN.textContent = `${n}/${tot}`;
     sP.textContent = !n ? 'Tocca le frasi in cui lo riconosci.'
-      : n < 3 ? 'Qualche segnale. Il Performance Test vi dirà con precisione da dove partire.'
+      : n < 3 ? 'Qualche segnale. Sono abilità che si possono allenare.'
       : 'Non è un caso isolato: è il metodo che va costruito. E si può fare, a qualsiasi punto dell\'anno.';
-    sres.classList.toggle('go', n > 0);
     if (!reduced) gsap.fromTo(sN, { scale: 1.25 }, { scale: 1, duration: 0.5, ease: 'back.out(3)' });
   });
 
-  /* ---------- prima / dopo ---------- */
-  const ba = $('#ba'); let pos = 50, drag = false;
-  const set = (p) => { pos = Math.max(4, Math.min(96, p)); ba.style.setProperty('--x', pos + '%'); ba.setAttribute('aria-valuenow', Math.round(pos)); };
-  const fromEv = (e) => { const b = ba.getBoundingClientRect(); set(((e.clientX - b.left) / b.width) * 100); };
-  ba.addEventListener('pointerdown', (e) => { if (innerWidth <= 640) return; drag = true; ba.setPointerCapture(e.pointerId); gsap.killTweensOf(hint); fromEv(e); });
-  ba.addEventListener('pointermove', (e) => { if (drag) fromEv(e); });
-  ba.addEventListener('pointerup', () => (drag = false));
-  ba.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') set(pos - 5); if (e.key === 'ArrowRight') set(pos + 5); });
-  // al primo ingresso la maniglia "respira" per far capire che si può trascinare
-  const hint = { p: 50 };
-  new IntersectionObserver((en, o) => en.forEach((x) => { if (!x.isIntersecting || reduced || innerWidth <= 640) return; o.disconnect();
-    gsap.timeline({ delay: 0.4 }).to(hint, { p: 78, duration: 1.1, ease: 'power2.inOut', onUpdate: () => set(hint.p) }).to(hint, { p: 22, duration: 1.4, ease: 'power2.inOut', onUpdate: () => set(hint.p) }).to(hint, { p: 50, duration: 1, ease: 'power2.inOut', onUpdate: () => set(hint.p) });
-  }), { threshold: 0.5 }).observe(ba);
+  /* ---------- ti riconosci: card e pop-up educativi ---------- */
+  if (D.pains) LambdaPains.mount({ track: '#pTrack', prev: '#pPrev', next: '#pNext', data: D.pains });
+
+  /* ---------- come funziona: la linea si riempie entrando ---------- */
+  const rail = $('.hrail');
+  if (rail) new IntersectionObserver((e, o) => { if (e[0].isIntersecting) { rail.classList.add('in'); o.disconnect(); } }, { threshold: 0.5 }).observe(rail);
 })();
 </script>
 </body>

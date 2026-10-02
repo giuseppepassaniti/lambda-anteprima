@@ -10,6 +10,9 @@ import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { ITA, SIC, SAR, SEDI } from './italia-data.js?v=3';
 import { buildSedeInterior } from './sede-interior.js?v=4';
+import { buildMessina } from './sede-messina.js?v=6';
+import { buildMonza } from './sede-monza.js?v=3';
+import { buildCagliari } from './sede-cagliari.js?v=4';
 
 // tema: Lambda di default; una pagina può impostare window.SEDI_THEME prima di caricare questo modulo
 const LAMBDA_P = { bg: '#050d12', hemi: '#4f8da6', moon: '#a9d2e2', land: '#10303d', landE: '#071c25', acc: '#3fc8d1', dim: '#2b8a99', warm: '#ffd66b', win: '#ffd66b', core: '#ffe6a3', bld: '#1d5065', roof: '#0e2a36', pulse: '#fff2c8', scr1: '#123747', scr2: '#0a1c26',
@@ -259,6 +262,15 @@ function init() {
      ===================================================================== */
   const O2 = new THREE.Vector3(200, 0, 0);
   const SEDE_IN = buildSedeInterior(); const sede = SEDE_IN.group; sede.position.copy(O2); scene.add(sede);
+  // Messina: la sede vera, ricostruita dalle foto
+  const O3 = new THREE.Vector3(300, 0, 0);
+  const MES = buildMessina({ cma: !!window.SEDI_THEME, outdoorLight: false }); MES.group.position.copy(O3); scene.add(MES.group);
+  const O4 = new THREE.Vector3(400, 0, 0);
+  const CAG = buildCagliari({ cma: !!window.SEDI_THEME, outdoorLight: false }); CAG.group.position.copy(O4); scene.add(CAG.group);
+  const O5 = new THREE.Vector3(500, 0, 0);
+  const MON = buildMonza({ cma: !!window.SEDI_THEME, outdoorLight: false }); MON.group.position.copy(O5); scene.add(MON.group);
+  const CUSTOM = { messina: MES, cagliari: CAG, monza: MON };
+  const roomOf = () => (SEDE && CUSTOM[SEDE.key]) || SEDE_IN;
 
   /* =====================================================================
      5 · LA REGIA: posizioni della camera lungo lo scroll
@@ -305,7 +317,56 @@ function init() {
       { p: 0.8, pos: at(O2, 1.4, 1.35, 2.7), look: at(O2, 1.4, 2.0, -1.4) },
       { p: 0.8129, pos: at(O2, 1.4, 1.38, 2.65), look: at(O2, 1.4, 2.05, -1.4) },
       ...END]; };
-  KF.sede = kfSede(SEDE);
+  // tappe dentro la sede di Messina (stesse didascalie: entri, incontri la tutor, la postazione, la rete)
+  const kfMessina = (S) => { const sp0 = S.g.position; return [...OVER,
+      { p: 0.215, pos: at(sp0, 1.2, 1.1, 2.0), look: at(sp0, 0, 0.1, 0) },
+      { p: 0.262, pos: at(S.door, 0.1, 0.06, 0.6), look: S.door.clone() },
+      { p: 0.3, pos: at(S.door, 0, 0, 0.04), look: at(S.door, 0, 0, -1) },
+      { p: 0.3001, pos: at(O3, 5.5, 1.85, 3.95), look: at(O3, 2.8, 1.2, 1.2) },
+      { p: 0.37, pos: at(O3, 5.6, 1.85, 3.95), look: at(O3, 2.4, 1.1, 1.3) },
+      { p: 0.445, pos: at(O3, 5.5, 1.8, 3.9), look: at(O3, 2.2, 1.1, 1.4) },
+      { p: 0.49, pos: at(O3, -1.5, 1.65, -0.35), look: at(O3, -4.2, 1.0, -2.5) },
+      { p: 0.565, pos: at(O3, -1.8, 1.6, -0.6), look: at(O3, -4.0, 1.0, -2.4) },
+      { p: 0.61, pos: at(O3, -1.4, 1.75, 3.9), look: at(O3, -5.6, 1.0, 2.3) },
+      { p: 0.685, pos: at(O3, -2.3, 1.6, 3.5), look: at(O3, -5.7, 0.95, 2.1) },
+      { p: 0.725, pos: at(O3, -1.3, 1.75, 4.0), look: at(O3, -5.2, 1.9, 2.2) },
+      { p: 0.8, pos: at(O3, -1.4, 1.8, 3.9), look: at(O3, -5.2, 2.1, 2.2) },
+      { p: 0.8129, pos: at(O3, -1.4, 1.8, 3.9), look: at(O3, -5.2, 2.1, 2.2) },
+      ...END]; };
+  // tappe dentro la sede di Cagliari: reception a sinistra, colloqui in fondo a destra, aula studio sulla pedana
+  const kfCagliari = (S) => { const sp0 = S.g.position; return [...OVER,
+      { p: 0.215, pos: at(sp0, 1.2, 1.1, 2.0), look: at(sp0, 0, 0.1, 0) },
+      { p: 0.262, pos: at(S.door, 0.1, 0.06, 0.6), look: S.door.clone() },
+      { p: 0.3, pos: at(S.door, 0, 0, 0.04), look: at(S.door, 0, 0, -1) },
+      { p: 0.3001, pos: at(O4, 0.9, 1.7, 3.9), look: at(O4, -2.4, 1.0, 2.6) },
+      { p: 0.37, pos: at(O4, 1.2, 1.72, 1.6), look: at(O4, -2.7, 0.95, 3.8) },
+      { p: 0.445, pos: at(O4, 1.3, 1.75, 1.2), look: at(O4, -2.7, 0.9, 3.9) },
+      { p: 0.49, pos: at(O4, 2.15, 1.65, -3.9), look: at(O4, 3.5, 0.8, -6.6) },
+      { p: 0.565, pos: at(O4, 2.2, 1.6, -4.2), look: at(O4, 3.5, 0.8, -6.6) },
+      { p: 0.61, pos: at(O4, -1.7, 2.05, -1.9), look: at(O4, -1.8, 1.35, -7.6) },
+      { p: 0.685, pos: at(O4, -1.75, 1.95, -2.6), look: at(O4, -1.8, 1.3, -7.6) },
+      { p: 0.725, pos: at(O4, -1.5, 2.2, -2.3), look: at(O4, -1.8, 2.1, -7.7) },
+      { p: 0.8, pos: at(O4, -1.5, 2.25, -2.2), look: at(O4, -1.8, 2.4, -7.7) },
+      { p: 0.8129, pos: at(O4, -1.5, 2.25, -2.2), look: at(O4, -1.8, 2.4, -7.7) },
+      ...END]; };
+  // tappe dentro la sede di Monza: reception in fondo, colloqui sul retro, postazioni sulla parete destra
+  const kfMonza = (S) => { const sp0 = S.g.position; return [...OVER,
+      { p: 0.215, pos: at(sp0, 1.2, 1.1, 2.0), look: at(sp0, 0, 0.1, 0) },
+      { p: 0.262, pos: at(S.door, 0.1, 0.06, 0.6), look: S.door.clone() },
+      { p: 0.3, pos: at(S.door, 0, 0, 0.04), look: at(S.door, 0, 0, -1) },
+      { p: 0.3001, pos: at(O5, -2.6, 1.7, 4.4), look: at(O5, 0.3, 0.9, -2.0) },
+      { p: 0.37, pos: at(O5, -2.2, 1.7, 3.6), look: at(O5, 0.4, 0.9, -2.0) },
+      { p: 0.445, pos: at(O5, -1.9, 1.68, 3.0), look: at(O5, 0.4, 0.9, -2.0) },
+      { p: 0.49, pos: at(O5, -3.5, 1.65, -2.9), look: at(O5, -1.6, 0.85, -5.4) },
+      { p: 0.565, pos: at(O5, -3.4, 1.62, -3.3), look: at(O5, -1.6, 0.85, -5.4) },
+      { p: 0.61, pos: at(O5, 0.6, 1.65, 0.9), look: at(O5, 4.9, 1.1, 0.3) },
+      { p: 0.685, pos: at(O5, 1.2, 1.6, 0.8), look: at(O5, 4.9, 1.05, 0.3) },
+      { p: 0.725, pos: at(O5, 0.9, 1.9, 0.6), look: at(O5, 4.9, 1.85, 0.35) },
+      { p: 0.8, pos: at(O5, 1.0, 1.95, 0.6), look: at(O5, 4.9, 2.15, 0.35) },
+      { p: 0.8129, pos: at(O5, 1.0, 1.95, 0.6), look: at(O5, 4.9, 2.15, 0.35) },
+      ...END]; };
+  const kfFor = (S) => (S.key === 'messina' ? kfMessina(S) : S.key === 'cagliari' ? kfCagliari(S) : S.key === 'monza' ? kfMonza(S) : kfSede(S));
+  KF.sede = kfFor(SEDE);
   let path = 'casa';
   const camPos = new THREE.Vector3(), camLook = new THREE.Vector3(), tgtPos = new THREE.Vector3(), tgtLook = new THREE.Vector3();
   const sample = (p) => {
@@ -367,7 +428,7 @@ function init() {
   }
   function setSede(k, jump) {
     const S = sedi.find((s) => s.key === k); if (!S) return;
-    sedeKey = k; SEDE = S; KF.sede = kfSede(S); SEDE_IN.setCity(S.name);
+    sedeKey = k; SEDE = S; KF.sede = kfFor(S); SEDE_IN.setCity(S.name);
     if (path !== 'sede') { path = 'sede'; applyPath(); }
     snap = true; fillSede();
     const p = pathRanges();
@@ -419,7 +480,7 @@ function init() {
       lampLight.intensity = 6 + Math.sin(t * 2.3) * 0.15;
     }
     // in sede: il tutor "respira", poi dalle postazioni partono i fasci verso la rete
-    if (path === 'sede' && inside) { SEDE_IN.idle(t); SEDE_IN.connect(THREE.MathUtils.clamp((p - 0.71) / 0.05, 0, 1), t); }
+    if (path === 'sede' && inside) { const RM = roomOf(); RM.idle(t); RM.connect(THREE.MathUtils.clamp((p - 0.71) / 0.05, 0, 1), t); }
 
     // velo bianco/caldo nei passaggi, e velo del cambio percorso
     const fIn = tri(p, 0.283, 0.297, 0.303, 0.318), fOut = tri(p, 0.797, 0.81, 0.816, 0.83);
