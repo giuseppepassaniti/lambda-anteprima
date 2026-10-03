@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=17">
+<link rel="stylesheet" href="assets/lambda.css?v=18">
 <style>
 /* =================== CMA · Test Concorsi (il fascicolo) =================== */
 body{background:var(--ink)}
@@ -254,7 +254,7 @@ body.fx-on{overflow:hidden}
 <script src="assets/cma-mark.js?v=1"></script>
 <script src="assets/cma-corpi.js?v=2"></script>
 <script src="assets/cma-concorsi.js?v=2"></script>
-<script src="assets/lambda.js?v=25"></script>
+<script src="assets/lambda.js?v=26"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {
@@ -354,7 +354,7 @@ gsap.set('#logo', { autoAlpha: 1 });
     if (!$('.scr.on', fx)) { si = 0; render(); }
   }
   function close() { gsap.to(fx, { opacity: 0, duration: 0.3, onComplete: () => { fx.classList.remove('open'); gsap.set(fx, { clearProps: 'opacity' }); } }); fx.setAttribute('aria-hidden', 'true'); body.classList.remove('fx-on'); L.lenis?.start(); }
-  document.addEventListener('click', (e) => { const a = e.target.closest('[data-start], .hdr-cta'); if (!a) return; e.preventDefault(); open({ currentTarget: a }); });
+  document.addEventListener('click', (e) => { const a = e.target.closest('[data-start], .hdr-cta'); if (!a || a.matches('[data-lead]')) return; e.preventDefault(); open({ currentTarget: a }); });
   $('#fxClose').addEventListener('click', close);
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && fx.classList.contains('open')) close(); });
   if (location.hash === '#inizia') setTimeout(() => open(), 300);

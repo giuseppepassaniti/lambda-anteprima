@@ -24,22 +24,22 @@
     gate: { home: 'index.html', logo: `${ICON}<img class="wordmark" src="assets/wordmark-white.png" alt="Centro Studi Lambda">`, nav: [], cta: null },
     stud: { home: 'studenti.html', logo: `${ICON}<img class="wordmark" src="assets/wordmark-white.png" alt="Centro Studi Lambda">`,
       nav: [['Percorsi', 'studenti.html#percorsi', 'percorsi'], ['Metodo FOCUS', 'metodo-focus.html', 'focus'], ['Risultati', 'risultati.html', 'risultati'], ['Sedi', 'sedi.html', 'sedi']],
-      cta: ['Fai il Performance Test →', 'test.html', 'btn-cta-stud'], tutor: true },
+      cta: ['Fai il Performance Test →', 'test.html', 'btn-cta-stud'], tutor: 'Parla con un tutor' },
     conc: { home: 'concorsi.html', logo: `${STAR}<span class="cma-word"><b>CONCORSI MILITARI</b><span>ACADEMY</span></span>`,
       nav: [['Concorsi', 'concorsi.html#corpi-sec', 'concorsi'], ['Metodo EAGLE', 'concorsi.html#eagle', 'eagle'], ['Simulatore', 'simulatore.html', 'simulatore'], ['Risultati', 'concorsi.html#risultati', 'risultati'], ['Sedi', 'sedi-concorsi.html', 'sedi']],
-      cta: ['Test Concorsi →', 'test-concorsi.html', 'btn-cta-conc'], lead: true },
+      cta: ['Test Concorsi →', 'test-concorsi.html', 'btn-cta-conc'], tutor: 'Parla con un consulente' },
   }[branch];
   const headerHTML = `
   <header class="hdr" id="hdr" data-hbranch="${branch}">
     <a class="logo" id="logo" href="${BR.home}" aria-label="Home">${BR.logo}</a>
     ${BR.nav.length ? `<nav class="nav" aria-label="Principale">${BR.nav.map(([t, h, id]) => `<a href="${h}"${id === page ? ' aria-current="page"' : ''}>${t}</a>`).join('')}</nav>` : '<span class="hdr-space"></span>'}
-    ${BR.cta ? `<div class="hdr-ctas"><a class="btn hdr-cta ${BR.cta[2]} magnetic" href="${BR.cta[1]}"><span class="t">${BR.cta[0]}</span></a>${BR.tutor ? '<button class="btn hdr-cta hdr-tutor magnetic" type="button" data-lead><span class="t">Parla con un tutor</span></button>' : ''}</div>` : ''}
+    ${BR.cta ? `<div class="hdr-ctas"><a class="btn hdr-cta ${BR.cta[2]} magnetic" href="${BR.cta[1]}"><span class="t">${BR.cta[0]}</span></a>${BR.tutor ? `<button class="btn hdr-cta hdr-tutor magnetic" type="button" data-lead><span class="t">${BR.tutor}</span></button>` : ''}</div>` : ''}
     ${branch !== 'gate' ? `<a class="switch-branch" href="index.html" title="Torna alla scelta del percorso">Cambia percorso</a>` : ''}
     ${BR.nav.length ? '<button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false"><i></i><i></i></button>' : ''}
   </header>
   ${BR.nav.length ? `<nav class="menu" id="menu" aria-label="Menu mobile">
     ${BR.nav.map(([t, h]) => `<a href="${h}"><span>${t}</span></a>`).join('')}
-    <div class="mt">${BR.cta ? `<a href="${BR.cta[1]}">${BR.cta[0]}</a>` : ''}${BR.tutor ? '<button type="button" data-lead>Parla con un tutor</button>' : ''}<a href="index.html">↺ Cambia percorso</a></div>
+    <div class="mt">${BR.cta ? `<a href="${BR.cta[1]}">${BR.cta[0]}</a>` : ''}${BR.tutor ? `<button type="button" data-lead>${BR.tutor}</button>` : ''}<a href="index.html">↺ Cambia percorso</a></div>
   </nav>` : ''}`;
   const col = (title, items) => `<div><h4>${title}</h4><ul>${items.map(([t, h, soon]) => `<li><a href="${h || '#'}">${t}</a>${soon ? '<span class="soon">PRESTO</span>' : ''}</li>`).join('')}</ul></div>`;
   const legal = (owner) => `<div class="legal"><span>${owner} · © ${new Date().getFullYear()} Preparazione Concorsi LTD · P.IVA: MT 3058-2802</span>
