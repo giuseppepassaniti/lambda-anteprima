@@ -126,6 +126,9 @@ body{background:var(--ink)}
 .match b{display:block;font:700 19px/1.15 var(--font)}
 .match small{display:block;margin-top:5px;font-size:13.5px;line-height:1.4;color:rgba(242,241,236,.6)}
 .match .pc{font:700 26px/1 'Space Mono',var(--mono)}
+.match .elig{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.match .elig span{font:500 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(242,241,236,.5);margin-right:4px}
+.match .elig a{padding:6px 10px;border-radius:8px;border:1px solid rgba(169,185,122,.3);font-size:12.5px;font-weight:600;color:var(--bone)} .match .elig a:hover{border-color:var(--cma-red)}
 .match .bar{grid-column:2/4;height:4px;border-radius:2px;background:rgba(169,185,122,.15);overflow:hidden}
 .match .bar i{display:block;height:100%;width:0;background:var(--hud);transition:width 1.2s var(--ease)}
 .match.first{border-color:var(--cma-red);background:rgba(205,20,31,.08)}
@@ -161,7 +164,7 @@ body.fx-on{overflow:hidden}
         <p class="k" data-reveal>Test Concorsi · gratuito</p>
         <h1 class="split" id="tTitle">Quale concorso <em>fa per te?</em></h1>
         <p class="lead" data-reveal>Sei domande su di te: età, studi, requisiti, preferenze, obiettivi e attitudini. Il risultato ti mostra i concorsi delle Forze Armate e di Polizia più compatibili con il tuo profilo, e perché.</p>
-        <div class="chips" data-reveal><span>3 minuti</span><span>6 fasi</span><span>8 corpi analizzati</span><span>Piano concorsi gratuito</span></div>
+        <div class="chips" data-reveal><span>3 minuti</span><span>6 fasi</span><span>9 corpi · 27 concorsi</span><span>Piano concorsi gratuito</span></div>
         <div class="ctas" data-reveal><a class="btn btn-red magnetic" href="#inizia" data-start><span class="t">Apri il tuo fascicolo →</span></a><span class="small">Nessun impegno.</span></div>
       </div>
       <div class="dossier" data-reveal aria-hidden="true">
@@ -249,6 +252,8 @@ body.fx-on{overflow:hidden}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="assets/cma-mark.js?v=1"></script>
+<script src="assets/cma-corpi.js?v=2"></script>
+<script src="assets/cma-concorsi.js?v=2"></script>
 <script src="assets/lambda.js?v=25"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
@@ -258,50 +263,80 @@ gsap.set('#logo', { autoAlpha: 1 });
 
   /* ---------- i corpi e il loro "profilo" (indicativo: requisiti e limiti vanno verificati sul bando) ---------- */
   const CORPI = {
-    polizia: { n: 'Polizia di Stato', a: -62, d: 0.72 },
-    carabinieri: { n: 'Carabinieri', a: -18, d: 0.5 },
-    gdf: { n: 'Guardia di Finanza', a: 24, d: 0.8 },
-    esercito: { n: 'Esercito', a: 70, d: 0.58 },
-    marina: { n: 'Marina Militare', a: 118, d: 0.78 },
-    aeronautica: { n: 'Aeronautica Militare', a: 160, d: 0.52 },
-    penitenziaria: { n: 'Polizia Penitenziaria', a: 205, d: 0.76 },
-    accademie: { n: 'Accademie (ufficiali)', a: 248, d: 0.4 },
+    polizia: { n: 'Polizia di Stato', a: -80, d: 0.72 },
+    carabinieri: { n: 'Carabinieri', a: -40, d: 0.5 },
+    gdf: { n: 'Guardia di Finanza', a: 0, d: 0.8 },
+    esercito: { n: 'Esercito', a: 40, d: 0.58 },
+    marina: { n: 'Marina Militare', a: 80, d: 0.78 },
+    aeronautica: { n: 'Aeronautica Militare', a: 120, d: 0.52 },
+    penitenziaria: { n: 'Polizia Penitenziaria', a: 160, d: 0.76 },
+    vvf: { n: 'Vigili del Fuoco', a: 200, d: 0.62 },
+    accademie: { n: 'Accademie e scuole militari', a: 240, d: 0.4 },
   };
+  /* ---------- i requisiti di ogni concorso (dalla Libretta CMA, ultimo bando: vanno sempre verificati) ----------
+     [età minima, età massima compiuta per i civili, titolo minimo, opzioni]
+     titolo: 1 licenza media · 2 diploma · 3 laurea · 0 scuole militari (si entra con la licenza media)
+     mil: anni in più per chi è o è stato volontario (VFP/VFI) · milMax: età massima per i militari · vfi: riservato a chi è (stato) VFI
+     Gli ufficiali e le scuole militari stanno sotto "Accademie e scuole militari". */
+  const RULES = {
+    'allievi-ps': [18, 25, 2, { mil: 3 }], 'vice-ispettori-ps': [18, 27, 2], 'allievi-cc': [18, 23, 2, { milMax: 25 }], 'marescialli-cc': [17, 25, 2, { milMax: 27 }],
+    'allievi-gdf': [18, 23, 2, { milMax: 24 }], 'marescialli-gdf': [17, 25, 2, { mil: 3 }],
+    'vfi-ei': [18, 23, 1], 'vft-ei': [18, 28, 1, { vfi: true }], 'marescialli-ei': [17, 25, 2, { mil: 3 }],
+    'vfi-mm': [18, 23, 1], 'vft-mm': [18, 28, 1, { vfi: true }], 'marescialli-mm': [17, 25, 2, { mil: 3 }],
+    'vfi-am': [18, 23, 1], 'vft-am': [18, 28, 1, { vfi: true }], 'marescialli-am': [17, 25, 2, { mil: 3 }],
+    'allievi-pp': [18, 27, 2], 'vice-ispettori-pp': [18, 27, 2], 'vvf': [18, 25, 2, { mil: 3 }],
+    'ufficiali-cc': [17, 21, 2, { mil: 3 }], 'ufficiali-gdf': [17, 21, 2], 'ufficiali-ei': [17, 21, 2], 'ufficiali-mm': [17, 21, 2], 'ufficiali-am': [17, 21, 2], 'aufp-ei': [18, 31, 3],
+    'scuole-ei': [15, 17, 0], 'scuole-mm': [15, 17, 0], 'scuole-am': [15, 17, 0],
+  };
+  const ALLC = window.CMA_CONCORSI || [];
+  const groupOf = (x) => (x.lvl === 'dir' || x.lvl === 'scuole' ? 'accademie' : x.corpo);
+  const LVL = { base: 'presto', medio: 'carriera', dir: 'ufficiale', scuole: 'ufficiale' };
+  const STUDIO = { media: 1, diploma: 2, triennale: 3, magistrale: 3 };
+  // i concorsi a cui puoi partecipare con la tua età e il tuo titolo
+  function eligible() {
+    const vfp = A.req.has('vfp'), tit = STUDIO[A.studio] || 1, e = A.eta;
+    return ALLC.filter((x) => { const r = RULES[x.k]; if (!r) return false; const [mn, mx, t, o = {}] = r;
+      const max = vfp ? Math.max(mx + (o.mil || 0), o.milMax || 0) : mx;
+      if (e < mn || e > max) return false;
+      if (o.vfi && !vfp) return false;
+      return t === 0 ? e <= 17 : tit >= t; });
+  }
   // le sei fasi del fascicolo. w: quanto ogni risposta avvicina a ciascun corpo; why: la motivazione mostrata nel risultato
   const STEPS = [
     { k: 'eta', t: 'Quanti anni hai?', sub: 'I limiti di età cambiano da concorso a concorso: è il primo dato che incrociamo.', type: 'age' },
     { k: 'studio', t: 'Il tuo titolo di studio', sub: 'Quello che hai già, o che otterrai entro l\'anno.', type: 'radio', o: [
-      ['media', 'Licenza media', '', { polizia: -15, accademie: -40, gdf: -6 }],
-      ['diploma', 'Diploma di scuola superiore', '', { accademie: 8 }],
-      ['triennale', 'Laurea triennale', '', { accademie: 6, polizia: 4, gdf: 4 }],
-      ['magistrale', 'Laurea magistrale', '', { accademie: 4, polizia: 6, gdf: 6 }]] },
+      ['media', 'Licenza media', 'Oppure frequento ancora le superiori', {}],
+      ['diploma', 'Diploma di scuola superiore', '', {}],
+      ['triennale', 'Laurea triennale', '', {}],
+      ['magistrale', 'Laurea magistrale', '', {}]] },
     { k: 'req', t: 'Requisiti di base', sub: 'Seleziona quelli che possiedi. Ti serve solo per capire da dove partire.', type: 'multi', o: [
       ['citt', 'Cittadinanza italiana', 'Richiesta per tutti i concorsi', {}],
       ['fedina', 'Nessuna condanna penale', 'Richiesto per tutti i concorsi', {}],
-      ['forma', 'Sono in buona forma fisica', 'Ci saranno prove fisiche e visite mediche', { esercito: 6, marina: 4, carabinieri: 3 }],
+      ['forma', 'Sono in buona forma fisica', 'Ci saranno prove fisiche e visite mediche', { esercito: 6, marina: 4, carabinieri: 3, vvf: 6 }],
       ['patente', 'Ho la patente B', '', { polizia: 3, carabinieri: 3, gdf: 2 }],
       ['nuoto', 'So nuotare bene', '', { marina: 8 }],
-      ['vfp', 'Sono o sono stato volontario (VFP / VFI)', '', { esercito: 6, carabinieri: 6, polizia: 4, gdf: 4, penitenziaria: 4 }]] },
+      ['vfp', 'Sono o sono stato volontario (VFP / VFI)', 'Per i militari alcuni limiti di età sono più alti', { esercito: 6, carabinieri: 6, polizia: 4, gdf: 4, penitenziaria: 4 }]] },
     { k: 'pref', t: 'Dove ti vedi?', sub: 'Scegli uno o più ambienti in cui ti piacerebbe lavorare.', type: 'multi', o: [
       ['territorio', 'Sul territorio, tra i cittadini', 'Sicurezza, controllo, pronto intervento', { polizia: 18, carabinieri: 18 }],
       ['mare', 'In mare', 'Navi, porti, soccorso', { marina: 22, gdf: 6 }],
       ['volo', 'In volo e negli aeroporti', 'Aerei, controllo, tecnologia', { aeronautica: 22 }],
       ['campo', 'Sul campo, all\'aperto', 'Missioni, addestramento, spirito di corpo', { esercito: 22 }],
       ['indagini', 'Indagini e controlli economici', 'Frodi, contrabbando, finanza', { gdf: 22, polizia: 4 }],
-      ['istituti', 'Negli istituti penitenziari', 'Sicurezza e rieducazione', { penitenziaria: 22 }]] },
+      ['istituti', 'Negli istituti penitenziari', 'Sicurezza e rieducazione', { penitenziaria: 22 }],
+      ['soccorso', 'Nel soccorso e nelle emergenze', 'Incendi, calamità, protezione civile', { vvf: 22 }]] },
     { k: 'obiettivo', t: 'Il tuo obiettivo', sub: 'Scegli quello che senti più tuo.', type: 'radio', o: [
       ['presto', 'Entrare il prima possibile', 'Ruoli di agente, carabiniere, volontario', { esercito: 8, marina: 6, aeronautica: 6, carabinieri: 8, polizia: 8, penitenziaria: 8, gdf: 6 }],
       ['ufficiale', 'Diventare ufficiale', 'Un percorso di comando, con l\'accademia', { accademie: 30 }],
       ['carriera', 'Un ruolo da ispettore o sottufficiale', 'Più responsabilità, crescita interna', { polizia: 8, gdf: 8, carabinieri: 6, aeronautica: 4, marina: 4 }],
       ['stabile', 'Stabilità e un lavoro che conta', 'Il posto fisso, al servizio dello Stato', { polizia: 4, penitenziaria: 6, gdf: 4, carabinieri: 4 }]] },
     { k: 'att', t: 'Le tue attitudini', sub: 'Scegli fino a tre cose in cui ti riconosci.', type: 'multi', max: 3, o: [
-      ['squadra', 'Lavoro di squadra', '', { esercito: 7, marina: 7, carabinieri: 5 }],
+      ['squadra', 'Lavoro di squadra', '', { esercito: 7, marina: 7, carabinieri: 5, vvf: 6 }],
       ['regole', 'Disciplina e rispetto delle regole', '', { esercito: 5, accademie: 5, carabinieri: 5, penitenziaria: 5 }],
-      ['sport', 'Sport e resistenza fisica', '', { esercito: 8, marina: 6 }],
+      ['sport', 'Sport e resistenza fisica', '', { esercito: 8, marina: 6, vvf: 7 }],
       ['stress', 'Mantenere la calma sotto pressione', '', { polizia: 7, penitenziaria: 7, carabinieri: 5 }],
       ['numeri', 'Precisione, numeri, analisi', '', { gdf: 9 }],
       ['tech', 'Tecnologia e strumenti', '', { aeronautica: 9, marina: 3 }],
-      ['persone', 'Aiutare le persone', '', { polizia: 6, carabinieri: 6, penitenziaria: 6 }],
+      ['persone', 'Aiutare le persone', '', { polizia: 6, carabinieri: 6, penitenziaria: 6, vvf: 6 }],
       ['guida', 'Guidare e prendere decisioni', '', { accademie: 9 }]] },
   ];
   const A = { eta: 20, studio: null, req: new Set(['citt', 'fedina']), pref: new Set(), obiettivo: null, att: new Set() };
@@ -358,17 +393,16 @@ gsap.set('#logo', { autoAlpha: 1 });
     si = STEPS.length; paintSteps(); show('calc');
     const sc = Object.fromEntries(Object.keys(CORPI).map((k) => [k, 38])), why = Object.fromEntries(Object.keys(CORPI).map((k) => [k, []]));
     const add = (w, label) => Object.entries(w).forEach(([k, v]) => { sc[k] += v; if (v >= 6 && label) why[k].push(label); });
-    // età (indicativa: i limiti esatti sono nel bando)
-    const e = A.eta;
-    Object.keys(sc).forEach((k) => { if (e < 17) sc[k] -= 30; });
-    ['esercito', 'marina', 'aeronautica'].forEach((k) => { if (e > 25) sc[k] -= 22; else if (e <= 24) sc[k] += 6; });
-    ['polizia', 'carabinieri', 'gdf'].forEach((k) => { if (e > 28) sc[k] -= 20; else if (e >= 18 && e <= 26) sc[k] += 6; });
-    if (e > 30) sc.penitenziaria -= 14; else if (e >= 18 && e <= 28) sc.penitenziaria += 6;
-    if (e > 22) sc.accademie -= 30; else if (e >= 17) sc.accademie += 8;
+    // 1) requisiti: età e titolo di studio, concorso per concorso (dai dati dell'ultimo bando)
+    const el = eligible(), byG = {};
+    el.forEach((x) => (byG[groupOf(x)] = byG[groupOf(x)] || []).push(x));
+    Object.keys(sc).forEach((k) => { if (byG[k]) { sc[k] += 6; if (A.obiettivo && byG[k].some((x) => LVL[x.lvl] === A.obiettivo)) sc[k] += 10; } });
     STEPS.forEach((S) => { if (!S.o) return; S.o.forEach(([v, t, , w]) => { const on = S.type === 'radio' ? A[S.k] === v : A[S.k].has(v); if (on && S.k !== 'req') add(w, S.k === 'pref' ? `Ti vedi ${t.charAt(0).toLowerCase() + t.slice(1)}` : S.k === 'att' ? `Ti riconosci in: ${t.toLowerCase()}` : S.k === 'obiettivo' ? `Il tuo obiettivo: ${t.toLowerCase()}` : ''); else if (on) add(w, ''); }); });
     const gate = !A.req.has('citt') || !A.req.has('fedina');
-    const list = Object.entries(sc).map(([k, v]) => [k, Math.max(8, Math.min(gate ? 40 : 96, Math.round(v)))]).sort((a, b) => b[1] - a[1]);
-    const log = $('#calcLog'), lines = ['Età e studi · verificati', 'Requisiti di base · registrati', 'Preferenze · 8 corpi confrontati', 'Obiettivo e attitudini · incrociati', 'Profilo di compatibilità · pronto'];
+    // 2) in classifica solo i corpi con almeno un concorso accessibile, ordinati per preferenze e attitudini
+    const list = Object.entries(sc).filter(([k]) => byG[k]).map(([k, v]) => [k, Math.max(8, Math.min(gate ? 40 : 96, Math.round(v)))]).sort((a, b) => b[1] - a[1]);
+    window.__ELIG = byG;
+    const log = $('#calcLog'), lines = [`Età e titolo · ${el.length} concorsi su ${ALLC.length} accessibili`, 'Requisiti di base · registrati', 'Preferenze · 9 corpi confrontati', 'Obiettivo e attitudini · incrociati', 'Profilo di compatibilità · pronto'];
     log.innerHTML = ''; lines.forEach((l, i) => setTimeout(() => (log.innerHTML += `> ${l}<br>`), (L.reduced ? 0 : 380) * (i + 1)));
     setTimeout(() => result(list, why, gate), L.reduced ? 100 : 2400);
   }
@@ -384,8 +418,9 @@ gsap.set('#logo', { autoAlpha: 1 });
         : `<g class="tg" style="opacity:0"><line x1="${c}" y1="${c}" x2="${x}" y2="${y}" stroke="${t ? '#a9b97a' : '#CD141F'}" stroke-dasharray="4 5"/><circle cx="${x}" cy="${y}" r="${t ? 5 : 7}" fill="${t ? '#a9b97a' : '#CD141F'}"/><circle cx="${x}" cy="${y}" r="${t ? 12 : 16}" fill="none" stroke="${t ? '#a9b97a' : '#CD141F'}"/><text x="${x}" y="${y - 20}" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#F2F1EC">${t + 1}</text></g>`; }).join('')}
       <g transform="translate(${c} ${c}) scale(.07) translate(-410 -425)"><path fill="#284C31" d="M${M.green.map((p) => p.join(' ')).join(' L')}Z"/><path fill="#DADBDA" d="M${M.grey.map((p) => p.join(' ')).join(' L')}Z"/><path fill="#CD141F" d="M${M.red.map((p) => p.join(' ')).join(' L')}Z"/></g></svg>`;
     $('#resBox').innerHTML = `<div>${mini}</div><div>
-      <p class="phase">Esito del fascicolo</p><h2>I tuoi obiettivi <em>più compatibili.</em></h2>
-      ${top.map(([k, p], i) => `<div class="match${i ? '' : ' first'}">${i ? '' : '<span class="stamp2">COMPATIBILE</span>'}<span class="r">0${i + 1}</span><div><b>${CORPI[k].n}</b><small>${(why[k].slice(0, 2).join(' · ') || 'In linea con il tuo profilo generale')}</small></div><span class="pc">${p}%</span><div class="bar"><i data-w="${p}"></i></div></div>`).join('')}
+      <p class="phase">Esito del fascicolo</p><h2>${top.length ? 'I tuoi obiettivi <em>più compatibili.</em>' : 'Parliamone <em>insieme.</em>'}</h2>
+      ${top.map(([k, p], i) => `<div class="match${i ? '' : ' first'}">${i ? '' : '<span class="stamp2">COMPATIBILE</span>'}<span class="r">0${i + 1}</span><div><b>${CORPI[k].n}</b><small>${(why[k].slice(0, 2).join(' · ') || 'In linea con il tuo profilo generale')}</small></div><span class="pc">${p}%</span><div class="bar"><i data-w="${p}"></i></div><div class="elig"><span>Puoi partecipare a</span>${window.__ELIG[k].map((x) => `<a href="corpo.html?c=${k === 'accademie' ? 'accademie' : x.corpo}&k=${x.k}" target="_blank" rel="noopener">${x.title}${k === 'accademie' ? ` · ${(window.CMA_CORPI || []).find((c) => c.k === x.corpo)?.n || ''}` : ''}</a>`).join('')}</div></div>`).join('')}
+      ${!top.length ? `<div class="warn">Con l'età e il titolo di studio che hai indicato, oggi non risultano concorsi accessibili tra quelli che seguiamo. Spesso c'è una strada (un titolo da completare, un bando con limiti diversi, i posti riservati ai militari): parlane con un consulente.</div>` : ''}
       ${gate ? '<div class="warn">Attenzione: cittadinanza italiana e assenza di condanne penali sono richieste per i concorsi delle Forze Armate e di Polizia. Parlane con un consulente prima di iniziare.</div>' : ''}
       <p class="disc">Risultato indicativo: requisiti, limiti di età e prove cambiano a ogni bando e vanno sempre verificati sul bando ufficiale.</p>
       <div class="fnav"><button class="back" type="button" id="redo">↺ Rifai il test</button><button class="btn btn-red" type="button" data-go="lead"><span class="t">Ricevi il tuo piano concorsi →</span></button></div></div>`;
