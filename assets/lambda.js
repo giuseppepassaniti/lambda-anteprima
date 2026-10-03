@@ -47,6 +47,8 @@
   const social = `<div class="social"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="YouTube">YT</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="TikTok">TK</a></div>`;
   const WA_URL = 'https://chat.whatsapp.com/CHqB0h71IyQEsp2vjfAj1K?s=cl&p=i&mlu=4&ilr=4';
   const wa = `<a class="foot-wa" href="${WA_URL}" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9 2 .9 2.8.9 3.8.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span><b>Canale WhatsApp per genitori</b><small>Consigli sullo studio e novità Lambda</small></span></a>`;
+  const TG_URL = 'https://t.me/+UqQopJvsr_5AitxG';
+  const tg = `<a class="foot-wa foot-tg" href="${TG_URL}" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M26.6 6.3 3.9 15.1c-1.5.6-1.5 1.5-.3 1.9l5.8 1.8 2.2 6.9c.3.8.5 1.1 1.1 1.1.5 0 .7-.2 1-.5l2.8-2.7 5.8 4.3c1.1.6 1.8.3 2.1-1l3.8-17.9c.4-1.6-.6-2.3-1.6-1.9zm-3.4 4.1-10.4 9.4-.4 4.3-2-6.4 12.1-7.6c.6-.3 1.1 0 .7.3z"/></svg><span><b>Community Telegram</b><small>Per chi prepara i concorsi</small></span></a>`;
   const FOOT = {
     gate: `<footer class="foot foot-gate" aria-label="Informazioni"><div class="fg-split">
         <div class="fg stud"><div class="fg-in"><div class="brand"><img src="assets/wordmark-white.png" alt="Centro Studi Lambda"><p>Metodo di studio, tutor e lezioni live per studenti di ogni età. Online, in tutta Italia.</p></div>
@@ -56,7 +58,7 @@
         <div class="fg conc"><div class="fg-in"><div class="brand">${STAR}<p><b>Concorsi Militari Academy</b><br>La preparazione ai concorsi delle Forze Armate e di Polizia. Online, in tutta Italia.</p></div>
           <div class="fg-cols">${col('Concorsi', [['Polizia di Stato', 'corpo.html?c=polizia'], ['Carabinieri', 'corpo.html?c=carabinieri'], ['Guardia di Finanza', 'corpo.html?c=gdf'], ['Esercito', 'corpo.html?c=esercito'], ['Marina Militare', 'corpo.html?c=marina'], ['Aeronautica Militare', 'corpo.html?c=aeronautica']])}
           ${col('Academy', [['Metodo EAGLE', 'concorsi.html#eagle'], ['Test Concorsi', 'test-concorsi.html'], ['Simulatore', 'simulatore.html'], ['Sedi', 'sedi-concorsi.html'], ['Chi siamo', 'chisiamo.html'], ['Contatti', 'tel:+393514206823']])}</div>
-          <a class="fg-go" href="concorsi.html">Entra in Concorsi Militari Academy →</a></div></div>
+          ${tg}<a class="fg-go" href="concorsi.html">Entra in Concorsi Militari Academy →</a></div></div>
       </div><div class="foot-in fg-bottom">${social}${legal('Centro Studi Lambda · Concorsi Militari Academy')}</div></footer>`,
     stud: `<footer class="foot" aria-label="Informazioni"><div class="foot-in"><div class="foot-top">
         <div class="brand"><img src="assets/wordmark-white.png" alt="Centro Studi Lambda"><p>Metodo di studio, tutor e lezioni live. Online, in tutta Italia: per dare a ogni ragazzo gli strumenti per arrivare lontano.</p>${social}${wa}</div>
@@ -68,7 +70,7 @@
       <a class="foot-other conc" href="concorsi.html"><span>Prepari un concorso per le Forze Armate o di Polizia?</span><b>Concorsi Militari Academy →</b></a>
       ${legal('Centro Studi Lambda')}</div></footer>`,
     conc: `<footer class="foot foot-conc" aria-label="Informazioni"><div class="foot-in"><div class="foot-top">
-        <div class="brand">${SEAL}<p><b>Concorsi Militari Academy</b><br>by Centro Studi Lambda. Preparazione ai concorsi delle Forze Armate e di Polizia, online in tutta Italia.</p>${social}</div>
+        <div class="brand">${SEAL}<p><b>Concorsi Militari Academy</b><br>by Centro Studi Lambda. Preparazione ai concorsi delle Forze Armate e di Polizia, online in tutta Italia.</p>${social}${tg}</div>
         ${col('Concorsi', [['Polizia di Stato', 'corpo.html?c=polizia'], ['Carabinieri', 'corpo.html?c=carabinieri'], ['Guardia di Finanza', 'corpo.html?c=gdf'], ['Esercito', 'corpo.html?c=esercito'], ['Marina Militare', 'corpo.html?c=marina'], ['Aeronautica Militare', 'corpo.html?c=aeronautica'], ['Polizia Penitenziaria', 'corpo.html?c=penitenziaria'], ['Vigili del Fuoco', 'corpo.html?c=vvf'], ['Accademie', 'corpo.html?c=accademie']])}
         ${col('Risorse', [['Test Concorsi', 'test-concorsi.html'], ['Simulatore CMA', 'simulatore.html'], ['Metodo EAGLE', 'concorsi.html#eagle'], ['Blog CMA', '#', 1]])}
         ${col('Academy', [['Chi siamo', 'chisiamo.html'], ['Risultati', 'concorsi.html#risultati'], ['Sedi', 'sedi-concorsi.html'], ['Contatti', 'tel:+393514206823']])}
@@ -76,7 +78,7 @@
       <a class="foot-other stud" href="studenti.html"><span>Cerchi un metodo di studio per tuo figlio?</span><b>Centro Studi Lambda →</b></a>
       ${legal('Concorsi Militari Academy')}</div></footer>`,
   }[branch];
-  if ((BR.tutor || BR.lead) && !window.LambdaLead) { const sc = document.createElement('script'); sc.src = 'assets/lead.js?v=3'; document.head.appendChild(sc); }
+  if ((BR.tutor || BR.lead) && !window.LambdaLead) { const sc = document.createElement('script'); sc.src = 'assets/lead.js?v=4'; document.head.appendChild(sc); }
   const headerHTML_ = headerHTML, footerHTML = FOOT;
   document.querySelector('[data-lambda-header]')?.insertAdjacentHTML('afterend', headerHTML_);
   document.querySelector('[data-lambda-header]')?.remove();

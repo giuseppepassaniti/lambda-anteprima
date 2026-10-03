@@ -150,6 +150,121 @@ window.CMA_CONCORSI = [
   ]
  },
  {
+  "k": "marescialli-cc",
+  "corpo": "carabinieri",
+  "lvl": "medio",
+  "title": "Marescialli",
+  "what": "Il concorso Marescialli dei Carabinieri consente l’accesso al ruolo dei sottufficiali dell’Arma, figura di comando intermedio che coordina pattuglie e controllo del territorio, guida stazioni o nuclei e supervisiona le attività di polizia giudiziaria. È un concorso ad alta selezione, con formazione presso la Scuola Marescialli e Brigadieri di Firenze e laurea in Scienze giuridiche della sicurezza.",
+  "req": {
+   "eta": [
+    "Civili: 17 – 26 anni non compiuti",
+    "Militari in servizio da almeno 12 mesi: entro 28 anni non compiuti",
+    "Appartenenti all’Arma dei Carabinieri: entro 30 anni non compiuti"
+   ],
+   "titolo": [
+    "Diploma di scuola secondaria di secondo grado"
+   ],
+   "fedina": "Pulita",
+   "idoneita": "Psico-fisica obbligatoria",
+   "altri": []
+  },
+  "prove": [
+   {
+    "t": "Prova Preselettiva",
+    "d": []
+   },
+   {
+    "t": "Prova Scritta Italiano",
+    "d": []
+   },
+   {
+    "t": "Prove Fisiche",
+    "d": []
+   },
+   {
+    "t": "Accertamenti Psico-Fisici",
+    "d": []
+   },
+   {
+    "t": "Accertamenti Attitudinali",
+    "d": []
+   },
+   {
+    "t": "Prove Orali",
+    "d": []
+   },
+   {
+    "t": "Prove Facoltative (Lingua e Informatica)",
+    "d": []
+   }
+  ],
+  "nota": "È un concorso ad alta selezione: chi sottovaluta la prova scritta, i test attitudinali o il colloquio viene escluso anche se fisicamente preparato.",
+  "serv": [
+   "smart",
+   "psico",
+   "fisiche"
+  ]
+ },
+ {
+  "k": "ufficiali-cc",
+  "corpo": "carabinieri",
+  "lvl": "dir",
+  "title": "Ufficiali · Accademia",
+  "what": "Il concorso Ufficiali dei Carabinieri consente l’accesso al ruolo direttivo dell’Arma, con il comando di stazioni, compagnie e reparti territoriali o specializzati, la guida di indagini su reati complessi e la supervisione delle operazioni di ordine pubblico. È un concorso ad altissima selezione: la formazione inizia all’Accademia Militare di Modena e si conclude alla Scuola Ufficiali Carabinieri di Roma con la laurea magistrale in giurisprudenza.",
+  "req": {
+   "eta": [
+    "17 – 22 anni non compiuti",
+    "Militari: limite elevabile fino a 3 anni in base al servizio prestato",
+    "Ruoli Ispettori e Sovrintendenti dell’Arma: entro il 28° anno di età"
+   ],
+   "titolo": [
+    "Diploma di scuola secondaria di secondo grado"
+   ],
+   "fedina": "Pulita",
+   "idoneita": "Psico-fisica obbligatoria",
+   "altri": []
+  },
+  "prove": [
+   {
+    "t": "Prova Preselettiva",
+    "d": []
+   },
+   {
+    "t": "Prove Fisiche",
+    "d": []
+   },
+   {
+    "t": "Accertamenti Psico-Fisici",
+    "d": []
+   },
+   {
+    "t": "Accertamenti Attitudinali",
+    "d": []
+   },
+   {
+    "t": "Prova Scritta Italiano",
+    "d": []
+   },
+   {
+    "t": "Prove Orali",
+    "d": []
+   },
+   {
+    "t": "Prova di Inglese",
+    "d": []
+   },
+   {
+    "t": "Tirocinio",
+    "d": []
+   }
+  ],
+  "nota": "È un concorso ad altissima selezione: chi sottovaluta la prova scritta, i test attitudinali o il colloquio viene escluso anche se fisicamente preparato.",
+  "serv": [
+   "smart",
+   "psico"
+  ]
+ },
+ {
   "k": "allievi-gdf",
   "corpo": "gdf",
   "lvl": "base",

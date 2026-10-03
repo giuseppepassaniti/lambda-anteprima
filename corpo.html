@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=16">
+<link rel="stylesheet" href="assets/lambda.css?v=17">
 <style>
 /* =================== CMA · template della pagina di un corpo =================== */
 body{background:var(--ink)}
@@ -36,34 +36,12 @@ body{background:var(--ink)}
 .ghero .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .ghero .chips span{padding:9px 13px;border-radius:999px;border:1px solid rgba(169,185,122,.3);font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(242,241,236,.8)}
 .ghero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.gpatch{position:relative;justify-self:center;width:min(100%,420px);aspect-ratio:1;display:grid;place-items:center;perspective:900px}
-.gpatch .rings{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,transparent 39.6%,rgba(169,185,122,.18) 40%,transparent 40.4%),radial-gradient(circle,transparent 59.6%,rgba(169,185,122,.12) 60%,transparent 60.4%),radial-gradient(circle,transparent 79.6%,rgba(169,185,122,.08) 80%,transparent 80.4%)}
+.gpatch{position:relative;justify-self:center;width:min(100%,460px);aspect-ratio:.86;display:grid;place-items:center}
+.gpatch .sold{position:absolute;inset:0}
+.gpatch .rings{position:absolute;inset:8% 0 auto;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,transparent 39.6%,rgba(169,185,122,.18) 40%,transparent 40.4%),radial-gradient(circle,transparent 59.6%,rgba(169,185,122,.12) 60%,transparent 60.4%),radial-gradient(circle,transparent 79.6%,rgba(169,185,122,.08) 80%,transparent 80.4%)}
 .gpatch .rings::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 82%,rgba(169,185,122,.28) 100%);animation:sweep 6s linear infinite}
 @keyframes sweep{to{transform:rotate(360deg)}}
-.gpatch .p{position:relative;z-index:1;width:56%;transform-style:preserve-3d;will-change:transform}
-.gpatch .p .patch{width:100%;height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
 
-/* ---------- PIRAMIDE DELLA CARRIERA ---------- */
-.career{position:relative;background:#0d100b;padding:clamp(100px,13vh,150px) 0}
-.career .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
-.career .lead{max-width:44ch;font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:rgba(242,241,236,.7)}
-.cwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,3vw,50px);margin-top:44px;align-items:start}
-.pyr{display:grid;gap:8px}
-.rung{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;margin:0 auto;padding:16px 18px;border-radius:14px;background:rgba(242,241,236,.04);border:1.5px solid rgba(169,185,122,.18);color:var(--bone);text-align:left;transition:background .3s,border-color .3s,transform .4s var(--ease)}
-.rung[data-lvl="dir"]{width:62%} .rung[data-lvl="medio"]{width:80%} .rung[data-lvl="base"]{width:100%}
-.rung.scuole{width:100%;margin-top:10px;border-style:dashed}
-.rung small{font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(242,241,236,.5)}
-.rung b{display:block;font:700 17px/1.15 var(--font)}
-.rung .an{font:500 11px/1.3 var(--mono);letter-spacing:.06em;color:rgba(242,241,236,.5);text-align:right}
-.rung .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:rgba(169,185,122,.14);font:700 13px/1 'Space Mono',var(--mono);color:var(--hud)}
-.rung:hover{border-color:rgba(242,241,236,.4)}
-.rung[aria-pressed="true"]{border-color:var(--cma-red);background:rgba(205,20,31,.1)}
-.rung[aria-pressed="true"] .ic{background:var(--cma-red);color:#fff}
-.rung.none{opacity:.45;pointer-events:none}
-.pnote{margin-top:14px;font-size:13.5px;line-height:1.5;color:rgba(242,241,236,.5)}
-.cexp{padding:24px;border-radius:22px;background:rgba(242,241,236,.03);border:1px solid rgba(169,185,122,.18)}
-.cexp h3{font:700 24px/1.1 var(--font);color:var(--bone)}
-.cexp p{margin-top:10px;font-size:15.5px;line-height:1.5;color:rgba(242,241,236,.7)}
 .ctabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .ctabs button{padding:11px 14px;border-radius:12px;border:1.5px solid rgba(169,185,122,.25);font:700 14px/1.1 var(--font);color:rgba(242,241,236,.8);text-align:left;transition:background .3s,border-color .3s,color .3s}
 .ctabs button[aria-selected="true"]{background:var(--bone);border-color:var(--bone);color:#121710}
@@ -82,7 +60,7 @@ body{background:var(--ink)}
 .rq span{display:block;margin-top:6px;font-size:13.5px;line-height:1.4;color:rgba(242,241,236,.6)}
 .rq.wide{grid-column:span 2}
 .route{position:relative;margin-top:44px}
-.route h3,.serv h3{font:700 clamp(22px,2vw,28px)/1.1 var(--font);letter-spacing:-.03em;color:var(--bone)}
+.route h3{font:700 clamp(22px,2vw,28px)/1.1 var(--font);letter-spacing:-.03em;color:var(--bone)}
 .steps{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:10px;margin-top:22px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
 .steps::before{content:"";position:absolute;left:20px;right:20px;top:21px;height:2px;background:linear-gradient(90deg,var(--cma-red),rgba(169,185,122,.3))}
 .stp{position:relative;padding-top:52px}
@@ -91,14 +69,6 @@ body{background:var(--ink)}
 .stp span{display:block;margin-top:6px;font-size:13px;line-height:1.4;color:rgba(242,241,236,.6);padding-right:10px}
 .warn{display:flex;gap:14px;align-items:flex-start;margin-top:30px;padding:18px 20px;border-radius:16px;background:rgba(205,20,31,.08);border:1px solid rgba(205,20,31,.35);font-size:15px;line-height:1.5;color:#f3d6d8}
 .warn b{flex-shrink:0;font:700 12px/1.6 'Space Mono',var(--mono);letter-spacing:.12em;color:var(--cma-red)}
-.serv{margin-top:44px}
-.svg2{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
-.sv{display:flex;flex-direction:column;padding:20px;border-radius:18px;background:linear-gradient(160deg,#1f2a1a,#11160e);border:1px solid rgba(169,185,122,.25)}
-.sv.main{border-color:var(--cma-red);background:linear-gradient(160deg,rgba(205,20,31,.18),#11160e)}
-.sv small{font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--hud)}
-.sv.main small{color:#f3c9cc}
-.sv b{margin-top:10px;font:700 18px/1.15 var(--font);color:var(--bone)}
-.sv p{margin-top:8px;font-size:14px;line-height:1.45;color:rgba(242,241,236,.65)}
 .disc{margin-top:22px;font-size:13px;line-height:1.5;color:rgba(242,241,236,.45)}
 .disc a{color:var(--hud)}
 
@@ -141,22 +111,89 @@ body{background:var(--ink)}
 .fmore[hidden]{display:none}
 @media(max-width:700px){.ftabs button{padding:11px 13px 10px;font-size:13px}.fpanel .stamp{display:none}.fbody{max-height:440px}}
 
-/* ---------- EAGLE, SIMULATORE, RISULTATI ---------- */
-.trio{background:#0d100b;padding:clamp(90px,12vh,140px) 0}
-.tgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px;margin-top:30px}
-.tb{display:flex;flex-direction:column;padding:24px;border-radius:22px;background:rgba(242,241,236,.04);border:1px solid rgba(169,185,122,.2)}
-.tb small{font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hud)}
-.tb b{margin-top:10px;font:700 22px/1.15 var(--font);color:var(--bone)}
-.tb p{margin-top:8px;font-size:14.5px;line-height:1.45;color:rgba(242,241,236,.65)}
-.tb a,.tb .soon{margin-top:auto;padding-top:16px;font-weight:700;font-size:14px;color:var(--cma-red)}
-.tb .soon{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(242,241,236,.5)}
-.eag{display:flex;gap:8px;margin-top:16px}
-.eag span{flex:1;aspect-ratio:1;max-width:56px;border-radius:12px;display:grid;place-items:center;background:rgba(205,20,31,.14);font:700 24px/1 'Space Mono',var(--mono);color:var(--cma-red)}
-.tb.red{background:var(--cma-red);border-color:var(--cma-red)}
-.tb.red small{color:rgba(255,255,255,.75)} .tb.red b,.tb.red p{color:#fff} .tb.red a{color:#fff}
-.big96{font:700 54px/1 'Space Mono',var(--mono);color:var(--bone);margin-top:8px}
+/* ---------- NUMERI DELL'AZIENDA ---------- */
+.gnums{position:relative;z-index:3;background:#0d100b;border-top:1px solid rgba(169,185,122,.14);border-bottom:1px solid rgba(169,185,122,.14);padding:clamp(34px,5vh,54px) 0}
+.gnums .row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.gnums .n b{display:block;font:700 clamp(34px,3.4vw,52px)/1 'Space Mono',var(--mono);letter-spacing:-.03em;color:var(--bone)} .gnums .n b small{font-size:.45em;color:rgba(242,241,236,.5)}
+.gnums .n span{display:block;margin-top:8px;font-size:13.5px;line-height:1.35;color:rgba(242,241,236,.6);max-width:22ch}
+.gnums .n:nth-child(3) b{color:var(--cma-red)}
 
-/* ---------- FAQ + FINALE ---------- */
+/* ---------- SCHEDA: scelta del concorso + dossier del corpo ---------- */
+.sheetc .top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.sheetc .top .lead{max-width:44ch;font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:rgba(242,241,236,.7)}
+.pick{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px 22px}
+.pick .grp{display:flex;flex-direction:column;gap:8px}
+.pick .grp small{font:500 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(242,241,236,.45)}
+.pick .grp div{display:flex;flex-wrap:wrap;gap:8px}
+.sgrid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:clamp(22px,3vw,44px);margin-top:40px;align-items:start}
+.sgrid .reqs{grid-template-columns:repeat(2,1fr)}
+.dos{position:sticky;top:calc(var(--hdr) + 20px);border-radius:26px;background:linear-gradient(170deg,#18200f,#0d110a);border:1px solid color-mix(in srgb,var(--cc) 45%,rgba(169,185,122,.25));overflow:hidden}
+.dos .dv{position:relative;height:300px;background:radial-gradient(circle at 50% 72%,color-mix(in srgb,var(--cc) 30%,transparent),transparent 62%),repeating-linear-gradient(0deg,rgba(169,185,122,.05) 0 1px,transparent 1px 22px),repeating-linear-gradient(90deg,rgba(169,185,122,.05) 0 1px,transparent 1px 22px)}
+.dos .dv small{position:absolute;left:16px;top:16px;font:700 11px/1 'Space Mono',var(--mono);letter-spacing:.14em;color:var(--cc)}
+.dos .dv em{position:absolute;right:16px;top:14px;font:500 9.5px/1 var(--mono);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,241,236,.5);display:flex;align-items:center;gap:6px} .dos .dv em i{width:6px;height:6px;border-radius:50%;background:var(--cma-red);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.2}}
+.dtabs2{display:flex;border-top:1px solid rgba(169,185,122,.18);border-bottom:1px solid rgba(169,185,122,.18)}
+.dtabs2 button{flex:1;padding:12px 6px;font:500 10.5px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(242,241,236,.55);border-right:1px solid rgba(169,185,122,.14);transition:background .3s,color .3s} .dtabs2 button:last-child{border-right:0}
+.dtabs2 button[aria-selected="true"]{background:rgba(242,241,236,.06);color:var(--bone);box-shadow:inset 0 -2px 0 var(--cc)}
+.dbody{padding:20px;min-height:220px}
+.dbody p{font-size:14.5px;line-height:1.55;color:rgba(242,241,236,.75)}
+.dbody .chips2{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px} .dbody .chips2 span{padding:7px 10px;border-radius:8px;background:color-mix(in srgb,var(--cc) 16%,transparent);border:1px solid color-mix(in srgb,var(--cc) 40%,transparent);font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--bone)}
+.dbody dl{display:grid;grid-template-columns:auto 1fr;gap:10px 14px} .dbody dt{font:500 10px/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--hud)} .dbody dd{font-size:14px;line-height:1.45;color:var(--bone)}
+.dbody .dfoot{margin-top:16px;font-size:12px;color:rgba(242,241,236,.45)}
+
+/* ---------- METODO e SIMULATORE (semplici, rimandano alle pagine) ---------- */
+.gband{background:#0d100b;padding:clamp(70px,9vh,110px) 0}
+.gband.sim{background:linear-gradient(#0d100b,#10160d)}
+.gband .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,70px);align-items:center}
+.gband .lead{margin-top:16px;max-width:46ch;font-size:clamp(16px,1.3vw,18px);line-height:1.5;color:rgba(242,241,236,.7)}
+.gband .ctas{margin-top:24px}
+.eagle5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.eagle5 div{padding:16px 10px;border-radius:16px;background:rgba(205,20,31,.08);border:1px solid rgba(205,20,31,.3);text-align:center}
+.eagle5 b{display:block;font:700 clamp(30px,3vw,44px)/1 'Space Mono',var(--mono);color:var(--cma-red)} .eagle5 span{display:block;margin-top:8px;font-size:12px;line-height:1.3;color:rgba(242,241,236,.7)}
+.simbox{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.simbox div{padding:18px 14px;border-radius:16px;border:1px solid rgba(169,185,122,.2);background:rgba(242,241,236,.03)} .simbox b{display:block;font:700 16px/1.2 var(--font);color:var(--bone)} .simbox span{display:block;margin-top:6px;font-size:13px;line-height:1.35;color:rgba(242,241,236,.6)} .simbox i{display:block;font:700 12px/1 'Space Mono',var(--mono);font-style:normal;color:var(--cma-red);margin-bottom:10px}
+
+/* ---------- PERCORSI: preselettiva, psicoattitudinali, fisiche ---------- */
+.gperc{background:var(--ink);padding:clamp(100px,13vh,150px) 0}
+.gperc .top{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.gperc .top .lead{max-width:44ch;font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:rgba(242,241,236,.7)}
+.pblk{margin-top:56px}
+.pblk .ph{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding-bottom:20px;border-bottom:1px solid rgba(169,185,122,.18)}
+.pblk .ph .no{font:700 13px/1 'Space Mono',var(--mono);color:var(--cma-red);padding:10px 12px;border:1.5px solid rgba(205,20,31,.5);border-radius:10px}
+.pblk .ph h3{font:700 clamp(24px,2.4vw,34px)/1.05 var(--font);letter-spacing:-.035em;color:var(--bone)}
+.pblk .ph p{margin-top:8px;max-width:62ch;font-size:15.5px;line-height:1.5;color:rgba(242,241,236,.68)}
+.pblk .feat{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px} .pblk .feat span{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(169,185,122,.28);font-size:13px;color:rgba(242,241,236,.85)} .pblk .feat span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--hud)}
+.pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px;align-items:start}
+.pcards.n2{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)} .pcards.n1{grid-template-columns:minmax(0,760px)}
+.pc{position:relative;min-width:0;display:flex;flex-direction:column;padding:24px;border-radius:24px;background:linear-gradient(165deg,#161d10,#0d110a);border:1px solid rgba(169,185,122,.2)}
+.pc.main{border-color:var(--cma-red);background:linear-gradient(165deg,rgba(205,20,31,.14),#0d110a 60%)}
+.pc .pt{align-self:flex-start;padding:6px 10px;border-radius:8px;background:rgba(169,185,122,.12);font:500 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--hud)} .pc.main .pt{background:var(--cma-red);color:#fff}
+.pc h4{margin-top:14px;font:700 22px/1.12 var(--font);letter-spacing:-.025em;color:var(--bone)}
+.pc .pr{margin-top:8px;font:700 15px/1.2 'Space Mono',var(--mono);color:var(--bone)} .pc .pr.ask{font:500 11px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(242,241,236,.5)}
+.pc .plead{margin-top:12px;font-size:14.5px;line-height:1.5;color:rgba(242,241,236,.7)}
+.pc ul{list-style:none;display:grid;gap:8px;margin-top:16px}
+.pc li{position:relative;padding-left:24px;font-size:14px;line-height:1.45;color:rgba(242,241,236,.8)} .pc li::before{content:"";position:absolute;left:0;top:4px;width:14px;height:14px;border-radius:4px;background:rgba(169,185,122,.18);box-shadow:inset 0 0 0 1.5px var(--hud)} .pc li::after{content:"";position:absolute;left:4px;top:7px;width:6px;height:4px;border-left:1.5px solid var(--hud);border-bottom:1.5px solid var(--hud);transform:rotate(-45deg)}
+.pc li.x{display:none} .pc.open li.x{display:block}
+.pc .more{align-self:flex-start;margin-top:10px;font:600 13.5px/1 var(--font);color:var(--hud)}
+.pc .gua{display:flex;align-items:center;gap:8px;margin-top:16px;padding:10px 12px;border-radius:12px;background:rgba(0,182,122,.1);border:1px solid rgba(0,182,122,.35);font-size:13.5px;font-weight:700;color:#bff0dc} .pc .gua::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#00B67A;color:#fff;font-size:12px}
+.pc .btn{margin-top:20px;justify-content:center}
+
+/* ---------- RISULTATI E RECENSIONI ---------- */
+.gres{background:#0d100b;padding:clamp(100px,13vh,150px) 0}
+.gres .rhd{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:stretch;margin-top:30px}
+.gres .r95{display:flex;align-items:center;gap:20px;padding:22px 24px;border-radius:22px;background:rgba(242,241,236,.04);border:1px solid rgba(169,185,122,.2)} .gres .r95 b{font:700 clamp(46px,5vw,72px)/1 'Space Mono',var(--mono);color:var(--cma-red)} .gres .r95 p{font:700 clamp(17px,1.6vw,22px)/1.2 var(--font);color:var(--bone)} .gres .r95 small{display:block;margin-top:6px;font-size:12.5px;font-weight:400;color:rgba(242,241,236,.5)}
+.gres .rg{display:flex;flex-direction:column;justify-content:center;padding:22px 24px;border-radius:22px;background:var(--cma-red);color:#fff;max-width:300px} .gres .rg small{font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.8} .gres .rg b{margin-top:8px;font:700 20px/1.15 var(--font)}
+.gres .rt{display:flex;flex-direction:column;justify-content:center;padding:22px 24px;border-radius:22px;border:1px solid rgba(169,185,122,.2)} .gres .rt b{font:700 34px/1 'Space Mono',var(--mono);color:var(--bone)} .gres .rt span{margin-top:6px;font-size:13px;color:rgba(242,241,236,.6)}
+.crev{columns:3;column-gap:14px;margin-top:14px}
+.crv{break-inside:avoid;margin:0 0 14px;padding:22px;border-radius:22px;background:rgba(242,241,236,.04);border:1px solid rgba(169,185,122,.16)}
+.crv .stars{margin-bottom:12px}
+.crv q{display:block;font:700 17.5px/1.32 var(--font);letter-spacing:-.015em;color:var(--bone);quotes:"“" "”"}
+.crv .tg{display:inline-block;margin-top:14px;padding:6px 9px;border-radius:8px;background:color-mix(in srgb,var(--c,#a9b97a) 18%,transparent);font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--c,#a9b97a)}
+.crv .who{margin-top:12px;font-size:13px;color:rgba(242,241,236,.55)} .crv .who b{color:var(--bone)}
+.crev-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:6px;font-size:14px;color:rgba(242,241,236,.6)} .crev-foot a{font-weight:700;color:var(--cma-red)}
+#soldierCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:4}
+
+/* ---------- FAQ ---------- */
 .faq{background:var(--ink);padding:clamp(90px,12vh,140px) 0}
 .faq .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px)}
 .qa{border-top:1px solid rgba(169,185,122,.2)} .qa:last-child{border-bottom:1px solid rgba(169,185,122,.2)}
@@ -165,18 +202,9 @@ body{background:var(--ink)}
 .qa summary i{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid rgba(169,185,122,.4);display:grid;place-items:center;font-style:normal;color:var(--hud);transition:transform .4s var(--ease)}
 .qa[open] summary i{transform:rotate(45deg);color:var(--cma-red);border-color:var(--cma-red)}
 .qa p{padding:0 40px 22px 0;font-size:16px;line-height:1.55;color:rgba(242,241,236,.65)}
-.gfinal{position:relative;overflow:hidden;padding:clamp(110px,14vh,160px) 0;text-align:center;background:radial-gradient(ellipse 60% 60% at 50% 50%, #22301d 0%, #121710 55%, var(--ink) 100%)}
-.gfinal h2{font:700 clamp(40px,5vw,84px)/.95 var(--font);letter-spacing:-.05em;color:var(--bone);text-wrap:balance}
-.gfinal h2 em{font-style:normal;color:var(--cma-red)}
-.gfinal .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:32px}
-.others{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:44px}
-.others a{display:flex;align-items:center;gap:8px;padding:8px 12px 8px 8px;border-radius:999px;border:1px solid rgba(169,185,122,.25);font:700 13px/1 var(--font);color:rgba(242,241,236,.8);transition:border-color .3s,color .3s}
-.others a:hover{border-color:var(--cma-red);color:#fff}
-.others a .patch{width:22px;height:auto}
-
-@media (max-width: 1100px){ .reqs{grid-template-columns:1fr 1fr} .svg2{grid-template-columns:1fr 1fr} .tgrid{grid-template-columns:1fr 1fr} .tgrid .tb:first-child{grid-column:1/-1} }
-@media (max-width: 900px){ .ghero .wrap,.cwrap,.faq .grid{grid-template-columns:1fr} .gpatch{max-width:280px;order:-1} }
-@media (max-width: 600px){ .reqs,.svg2,.tgrid{grid-template-columns:1fr} .rq.wide{grid-column:auto} .rung[data-lvl]{width:100%} .ghero .ctas .btn{width:100%;justify-content:center} .qa p{padding-right:0} }
+@media (max-width: 1100px){ .reqs{grid-template-columns:1fr 1fr} .sgrid{grid-template-columns:minmax(0,1fr)} .dos{position:relative;top:auto;max-width:560px} .pcards,.pcards.n2{grid-template-columns:repeat(2,minmax(0,1fr))} .crev{columns:2} .gres .rhd{grid-template-columns:1fr 1fr} .gres .r95{grid-column:1/-1} .gres .rg{max-width:none} }
+@media (max-width: 900px){ .ghero .wrap,.faq .grid{grid-template-columns:1fr} .gband .wrap{grid-template-columns:minmax(0,1fr)} .gpatch{max-width:300px;order:-1} .gnums .row{grid-template-columns:1fr 1fr} }
+@media (max-width: 600px){ .reqs,.sgrid .reqs,.pcards,.pcards.n2,.simbox{grid-template-columns:1fr} .crev{columns:1} .gres .rhd{grid-template-columns:1fr} .eagle5{gap:5px} .eagle5 div{padding:12px 4px} .eagle5 span{font-size:9.5px;overflow-wrap:anywhere} .rq.wide{grid-column:auto} .ghero .ctas .btn{width:100%;justify-content:center} .qa p{padding-right:0} }
 </style>
 </head>
 <body data-page="concorsi" data-branch="conc">
@@ -187,8 +215,10 @@ body{background:var(--ink)}
 
 <script src="assets/cma-mark.js?v=1"></script>
 <script src="assets/cma-corpi.js?v=2"></script>
-<script src="assets/cma-concorsi.js?v=1"></script>
-<script src="assets/cma-concorsi-dettagli.js?v=2"></script>
+<script src="assets/cma-concorsi.js?v=2"></script>
+<script src="assets/cma-concorsi-dettagli.js?v=3"></script>
+<script src="assets/cma-prodotti.js?v=1"></script>
+<script src="assets/cma-recensioni.js?v=1"></script>
 <script>
 /* ---------- costruzione della pagina dai dati (prima del motore) ---------- */
 (() => {
@@ -202,10 +232,12 @@ body{background:var(--ink)}
   const corpoName = (k) => CORPI.find((c) => c.k === k)?.n || '';
   const list = key === 'accademie' ? ALL.filter((x) => x.lvl === 'dir' || x.lvl === 'scuole').map((x) => ({ ...x, title: `${x.title.replace(' · Accademia Navale', '').replace(' · Accademia', '')} · ${corpoName(x.corpo)}` })) : ALL.filter((x) => x.corpo === key);
   window.__CORPO = { C, list };
-  const LV = { dir: ['Ufficiali', 'I dirigenti: comando, pianificazione, direzione', 'Ufficiali · direttivi'], medio: ['Marescialli · Ispettori', 'I "manager": comando intermedio e coordinamento', 'Ruolo intermedio'], base: ['Truppa · Agenti', 'Il ruolo iniziale: la porta d\'ingresso', 'Ruolo iniziale'], scuole: ['Scuole militari', 'Prima dell\'accademia, dai 15 anni', 'Scuole militari'] };
-  const has = (l) => list.some((x) => x.lvl === l);
-  const rung = (l, cls = '') => { const n = list.filter((x) => x.lvl === l).length; if (!n && (key === 'accademie' || key === 'vvf')) return ''; return `<button class="rung${cls}${n ? '' : ' none'}" type="button" data-lvl="${l}" aria-pressed="false"><span class="ic">${n || '–'}</span><div><small>${LV[l][2]}</small><b>${LV[l][0]}</b></div><span class="an">${n ? `${n} ${n > 1 ? 'concorsi' : 'concorso'}` : 'scheda in arrivo'}</span></button>`; };
-  const others = CORPI.filter((c) => c.k !== key).map((c) => `<a href="corpo.html?c=${c.k}">${window.CMA_PATCH(c, 22)}${c.n}</a>`).join('');
+  const LVG = { base: 'Ruolo iniziale', medio: 'Marescialli · ispettori', dir: 'Ufficiali', scuole: 'Scuole militari' };
+  const grpHTML = ['base', 'medio', 'dir', 'scuole'].filter((l) => list.some((x) => x.lvl === l)).map((l) => `<div class="grp"><small>${LVG[l]}</small><div class="ctabs">${list.filter((x) => x.lvl === l).map((x) => `<button type="button" role="tab" aria-selected="false" data-k="${x.k}">${x.title}</button>`).join('')}</div></div>`).join('');
+  const P = window.CMA_PRODOTTI;
+  const card = (x) => { const items = x.items.map((t, i) => `<li${i >= 5 ? ' class="x"' : ''}>${t}</li>`).join('');
+    return `<article class="pc${x.main ? ' main' : ''}"><span class="pt">${x.tag}</span><h4>${x.name}</h4>${x.price ? `<p class="pr">${x.price}</p>` : '<p class="pr ask">Prezzo su misura · chiedi al consulente</p>'}<p class="plead">${x.lead}</p>${items ? `<ul>${items}</ul>` : ''}${x.items.length > 5 ? `<button class="more" type="button">Vedi tutto (+${x.items.length - 5}) ↓</button>` : ''}${x.guarantee ? `<p class="gua">${x.guarantee}</p>` : ''}<button class="btn ${x.main ? 'btn-red' : 'btn-line'}" type="button" data-lead="${C.n}"><span class="t">Richiedi informazioni →</span></button></article>`; };
+  const cards = (arr) => `<div class="pcards n${arr.length}">${arr.map(card).join('')}</div>`;
 
   document.getElementById('main').innerHTML = `
   <section class="ghero" data-theme="dark" aria-labelledby="gTitle">
@@ -218,34 +250,85 @@ body{background:var(--ink)}
         <p class="tag" data-reveal>${C.tag}</p>
         <p class="lead" data-reveal>${C.what}</p>
         <div class="chips" data-reveal><span>${list.length} ${list.length === 1 ? 'concorso' : 'concorsi'}</span>${C.env.map((e) => `<span>${e}</span>`).join('')}</div>
-        <div class="ctas" data-reveal><a class="btn btn-red magnetic" href="test-concorsi.html#inizia"><span class="t">Verifica la compatibilità →</span></a><a class="btn btn-line" href="#carriera"><span class="t">I concorsi ↓</span></a></div>
+        <div class="ctas" data-reveal><a class="btn btn-red magnetic" href="test-concorsi.html#inizia"><span class="t">Verifica la compatibilità →</span></a><a class="btn btn-line" href="#scheda"><span class="t">I concorsi ↓</span></a></div>
       </div>
-      <div class="gpatch" data-reveal aria-hidden="true"><div class="rings"></div><div class="p" id="gp">${window.CMA_PATCH(C, 260)}</div></div>
+      <div class="gpatch" aria-hidden="true"><div class="rings"></div><div class="sold" data-soldier="${key}" data-lvl="${key === 'accademie' ? 'dir' : 'base'}"></div></div>
     </div>
   </section>
 
-  <section class="career sheet" id="carriera" data-theme="dark" aria-labelledby="crTitle">
+  <section class="gnums" data-theme="dark" aria-label="Concorsi Militari Academy in numeri">
+    <div class="wrap"><div class="row" data-count-group>
+      <div class="n" data-reveal><b data-count="6000" data-pre="+">+0</b><span>studenti seguiti, tra scuola e concorsi</span></div>
+      <div class="n" data-reveal><b><span data-count="4.9" data-dec="1">0</span><small>/5</small></b><span>su Trustpilot, su 323 recensioni</span></div>
+      <div class="n" data-reveal><b data-count="95" data-suf="%">0%</b><span>dei nostri allievi supera la prima prova preselettiva</span></div>
+      <div class="n" data-reveal><b>N°1</b><span>in Italia per recensioni certificate</span></div>
+    </div></div>
+  </section>
+
+  <section class="sheetc sheet" id="scheda" data-theme="dark" aria-labelledby="scTitle">
     <div class="wrap">
-      <div class="top"><div><p class="k" data-reveal>La carriera</p><h2 class="h2 split" id="crTitle">Scegli <em>da dove entrare.</em></h2></div>
-        <p class="lead" data-reveal>Come in una grande azienda: in cima i dirigenti (ufficiali), nel mezzo i "manager" (marescialli e ispettori), alla base il ruolo iniziale (truppa e agenti). Ogni livello ha i suoi concorsi.</p></div>
-      <div class="cwrap">
-        <div><div class="pyr" id="pyr" data-reveal>${rung('dir')}${rung('medio')}${rung('base')}${has('scuole') ? rung('scuole', ' scuole') : ''}</div>
-          <p class="pnote" data-reveal>Tocca un livello per vedere i concorsi.</p></div>
-        <div class="cexp" id="cexp" data-reveal aria-live="polite"></div>
+      <div class="top"><div><p class="k" data-reveal>I concorsi · ${C.n}</p><h2 class="h2 split" id="scTitle">Scegli il concorso, <em>leggi la scheda.</em></h2></div>
+        <p class="lead" data-reveal>Requisiti in breve, le fasi di selezione e, se vuoi andare a fondo, il fascicolo tecnico dell'ultimo bando.</p></div>
+      <div class="pick" id="pick" role="tablist" aria-label="I concorsi" data-reveal>${grpHTML}</div>
+      <div class="sgrid">
+        <div id="schedaMain" aria-live="polite"></div>
+        <aside class="dos" aria-label="Dossier del corpo">
+          <div class="dv"><small>DOSSIER · ${C.code}</small><em><i></i>Live</em><div class="sold" data-soldier="${key}" data-lvl="${key === 'accademie' ? 'dir' : 'base'}" style="position:absolute;inset:0"></div></div>
+          <div class="dtabs2" role="tablist"><button type="button" role="tab" aria-selected="true" data-d="0">Cosa fa</button><button type="button" role="tab" aria-selected="false" data-d="1">Fa per te se</button><button type="button" role="tab" aria-selected="false" data-d="2">Ultimo bando</button></div>
+          <div class="dbody" id="dbody"></div>
+        </aside>
       </div>
     </div>
   </section>
 
-  <section class="sheetc" id="scheda" data-theme="dark" aria-live="polite"></section>
-
-  <section class="trio" data-theme="dark" aria-labelledby="trTitle">
+  <section class="gband" data-theme="dark" aria-labelledby="mtTitle">
     <div class="wrap">
-      <p class="k" data-reveal>Come ti prepari</p><h2 class="h2 split" id="trTitle">Metodo, allenamento, <em>risultati.</em></h2>
-      <div class="tgrid" data-reveal>
-        <div class="tb"><small>Il metodo</small><b>Metodo EAGLE</b><p>Memoria, richiamo, strategia, leadership emotiva ed esame sicuro: le cinque fasi della preparazione.</p><div class="eag"><span>E</span><span>A</span><span>G</span><span>L</span><span>E</span></div><a href="concorsi.html#eagle">Scopri la missione →</a></div>
-        <div class="tb"><small>Allenamento</small><b>Simulatore ${C.n}</b><p>Banca dati, quiz per materia e simulazioni della prova preselettiva, con le statistiche dei tuoi progressi.</p><a href="simulatore.html">Scopri il simulatore →</a></div>
-        <div class="tb red"><small>Risultati</small><div class="big96">95%</div><p>dei nostri allievi supera la prima prova preselettiva. E con la Garanzia 100%: o superi il concorso, o ti riprepariamo gratis.</p><a href="concorsi.html#risultati">Le storie →</a></div>
+      <div><p class="k" data-reveal>Il metodo</p><h2 class="h2 split" id="mtTitle">Metodo EAGLE: <em>studi meno, ricordi di più.</em></h2>
+        <p class="lead" data-reveal>Cinque fasi per preparare il concorso ${C.n === 'Accademie' ? 'da ufficiale' : `in ${C.n}`}: memorizzi la banca dati, alleni il richiamo, gestisci il tempo, la parte emotiva e il giorno dell'esame.</p>
+        <div class="ctas" data-reveal><a class="btn btn-line" href="concorsi.html#eagle"><span class="t">Scopri il Metodo EAGLE →</span></a></div></div>
+      <div class="eagle5" data-reveal><div><b>E</b><span>Efficienza della memoria</span></div><div><b>A</b><span>Allenamento al richiamo</span></div><div><b>G</b><span>Gestione strategica</span></div><div><b>L</b><span>Leadership emotiva</span></div><div><b>E</b><span>Esame sicuro</span></div></div>
+    </div>
+  </section>
+
+  <section class="gband sim" data-theme="dark" aria-labelledby="smTitle">
+    <div class="wrap">
+      <div><p class="k" data-reveal>Il simulatore</p><h2 class="h2 split" id="smTitle">Allenati sulla banca dati <em>del tuo concorso.</em></h2>
+        <p class="lead" data-reveal>Quiz per materia, simulazioni a tempo con il numero di domande del bando e le statistiche dei tuoi progressi. Oggi è riservato ai nostri allievi: presto lo apriamo a tutti.</p>
+        <div class="ctas" data-reveal style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn btn-red" href="simulatore.html#lista"><span class="t">Entra in lista d'attesa →</span></a><a class="btn btn-line" href="simulatore.html"><span class="t">Scopri il simulatore</span></a></div></div>
+      <div class="simbox" data-reveal><div><i>01</i><b>Banca dati</b><span>Divisa per materia</span></div><div><i>02</i><b>Simulazioni</b><span>A tempo, come il giorno della prova</span></div><div><i>03</i><b>Statistiche</b><span>Sai sempre su cosa lavorare</span></div></div>
+    </div>
+  </section>
+
+  <section class="gperc sheet" id="percorsi" data-theme="dark" aria-labelledby="pcTitle">
+    <div class="wrap">
+      <div class="top"><div><p class="k" data-reveal>I percorsi</p><h2 class="h2 split" id="pcTitle">Un percorso <em>per ogni prova.</em></h2></div>
+        <p class="lead" data-reveal>Preselettiva, prove psicoattitudinali e prove fisiche: scegli da dove partire, o mettile insieme. Un consulente ti aiuta a costruire il percorso giusto per ${C.n === 'Accademie' ? 'il tuo concorso' : `il concorso in ${C.n}`}.</p></div>
+      <div class="pblk" data-reveal>
+        <div class="ph"><span class="no">01</span><div><h3>La prova preselettiva</h3><p>Il primo filtro, e il più duro: memorizzare la banca dati e richiamare le risposte in fretta, con il Metodo EAGLE.</p></div></div>
+        ${cards(P.preselettiva)}
       </div>
+      <div class="pblk" data-reveal>
+        <div class="ph"><span class="no">02</span><div><h3>Le prove psicoattitudinali</h3><p>Test di personalità, questionari e colloquio: ti alleni con chi li conosce dall'interno.</p>
+          <div class="feat"><span>Simulazioni del test Minnesota</span><span>Neo PI-3</span><span>Big Five</span><span>Appuntamenti individuali con psicologhe specializzate e iscritte all'albo</span></div></div></div>
+        ${cards(P.psico)}
+      </div>
+      <div class="pblk" data-reveal>
+        <div class="ph"><span class="no">03</span><div><h3>Le prove fisiche</h3><p>Schede personalizzate e un coach dedicato, con programmi in collaborazione con il Team Andrea Presti.</p></div></div>
+        ${cards(P.fisiche)}
+      </div>
+    </div>
+  </section>
+
+  <section class="gres" data-theme="dark" aria-labelledby="rsTitle">
+    <div class="wrap">
+      <p class="k" data-reveal>Risultati e recensioni</p><h2 class="h2 split" id="rsTitle">Risultati veri, <em>raccontati dagli allievi.</em></h2>
+      <div class="rhd" data-reveal>
+        <div class="r95"><b>95%</b><p>dei nostri allievi supera la prima prova preselettiva.<small>Dato Concorsi Militari Academy.</small></p></div>
+        <div class="rg"><small>Garanzia 100%</small><b>O superi il concorso, o ti riprepariamo gratis.</b></div>
+        <div class="rt"><b>4,9/5</b><span>su Trustpilot · 323 recensioni</span></div>
+      </div>
+      <div class="crev" id="crev" data-reveal></div>
+      <div class="crev-foot" data-reveal><span>Recensioni di allievi CMA, da Trustpilot.</span><a href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">Leggi tutte le recensioni →</a></div>
     </div>
   </section>
 
@@ -253,7 +336,7 @@ body{background:var(--ink)}
     <div class="wrap grid fq-side">
       <div class="qcol"><p class="k" data-reveal>Domande frequenti</p><h2 class="h2 split" id="fqTitle">${C.n}, <em>in pratica.</em></h2>
         <div class="qlist" data-reveal>
-        <details class="qa" open><summary>Questi requisiti sono quelli definitivi?<i>+</i></summary><p>Sono i requisiti in breve degli ultimi bandi. Età, titoli e prove possono cambiare a ogni nuovo concorso: verifica sempre il bando ufficiale. Il tutor CMA ti aiuta a leggerlo e a capire se puoi partecipare.</p></details>
+        <details class="qa" open><summary>Questi requisiti sono quelli definitivi?<i>+</i></summary><p>Sono i requisiti in breve degli ultimi bandi. Età, titoli e prove possono cambiare a ogni nuovo concorso: verifica sempre il bando ufficiale. Un consulente CMA ti aiuta a leggerlo e a capire se puoi partecipare.</p></details>
         <details class="qa"><summary>Da quale prova conviene iniziare a prepararsi?<i>+</i></summary><p>Quasi sempre dalla prova preselettiva, che è il primo filtro: con il Metodo EAGLE impari a memorizzare la banca dati e a richiamare le risposte in fretta. In parallelo si preparano le prove psicoattitudinali e, se serve, quelle fisiche.</p></details>
         <details class="qa"><summary>Posso prepararmi online?<i>+</i></summary><p>Sì. Tutto il percorso è online, in tutta Italia: incontri one to one con il tutor, aule studio, simulazioni e il supporto delle nostre psicologhe per le prove attitudinali.</p></details>
         <details class="qa"><summary>Quanto tempo serve per prepararsi?<i>+</i></summary><p>Dipende dal concorso, dal punto di partenza e dal tempo che hai ogni giorno. Il tutor costruisce un piano su misura, anche se puoi studiare poche ore al giorno.</p></details>
@@ -262,26 +345,18 @@ body{background:var(--ink)}
       <aside class="tutor-box cma" data-reveal>
         <svg class="tb-star" viewBox="0 0 200 200" aria-hidden="true"><path fill="#CD141F" d="M100 8 L124 76 L196 76 L138 118 L160 188 L100 146 L40 188 L62 118 L4 76 L76 76 Z"/></svg>
         <h3>Hai un'altra domanda?</h3>
-        <p>Raccontaci a che punto sei: un tutor CMA ti richiama, ti aiuta a leggere il bando e a capire da dove partire.</p>
-        <button class="btn btn-red magnetic" type="button" data-lead="${C.n}"><span class="t">Parla con un tutor →</span></button>
+        <p>Raccontaci a che punto sei: un consulente CMA ti richiama, ti aiuta a leggere il bando e a capire da dove partire.</p>
+        <button class="btn btn-red magnetic" type="button" data-lead="${C.n}"><span class="t">Parla con un consulente →</span></button>
         <a class="tutor-link" href="test-concorsi.html#inizia">Oppure fai il Test Concorsi →</a>
         <small>Gratuito · senza impegno</small>
       </aside>
-    </div>
-  </section>
-
-  <section class="gfinal" data-theme="dark" aria-labelledby="gfTitle">
-    <div class="wrap">
-      <h2 class="split" id="gfTitle">${C.n}: <em>il tuo percorso parte da qui.</em></h2>
-      <div class="ctas" data-reveal><a class="btn btn-red magnetic" href="test-concorsi.html#inizia"><span class="t">Apri il tuo fascicolo →</span></a><a class="btn btn-line" href="tel:+393514206823"><span class="t">Parla con un tutor</span></a></div>
-      <div class="others" data-reveal>${others}</div>
     </div>
   </section>`;
 })();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=23"></script>
+<script src="assets/lambda.js?v=25"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {
@@ -325,42 +400,65 @@ gsap.set('#logo', { autoAlpha: 1 });
 
   /* ---------- la scheda di un concorso ---------- */
   function scheda(x) {
-    const r = x.req, sec = $('#scheda');
+    const r = x.req, sec = $('#schedaMain');
     const eta = r.eta.length ? rq('eta', 'Età', cap(r.eta[0]), r.eta.slice(1).join(' · ')) : '';
     const tit = r.titolo.length ? rq('tit', 'Titolo di studio', cap(r.titolo[0]), r.titolo.slice(1).join(' · ')) : '';
     const fed = r.fedina ? rq('fed', 'Fedina penale', cap(r.fedina)) : '';
     const ido = r.idoneita ? rq('ido', 'Idoneità', cap(r.idoneita)) : '';
     const alt = r.altri.map((a) => rq('alt', a.l, cap(a.v[0] || ''), a.v.slice(1).join(' · '), a.v.length > 2)).join('');
-    sec.innerHTML = `<div class="wrap">
+    sec.innerHTML = `<div>
       <div class="ctitle"><div><p class="k">Scheda concorso · ${LVN[x.lvl]}</p><h2 style="margin-top:12px">${x.title}</h2><p>${x.what}</p></div><span class="lvlb">${LVN[x.lvl]}</span></div>
       <div class="reqs">${eta}${tit}${fed}${ido}${alt}</div>
       <div class="route"><h3>Le fasi del concorso</h3><div class="steps">${x.prove.map((p, i) => `<div class="stp"><i>${String(i + 1).padStart(2, '0')}</i><b>${p.t}</b>${p.d.length ? `<span>${p.d.join(' · ')}</span>` : ''}</div>`).join('')}</div></div>
       ${x.nota ? `<div class="warn"><b>ATTENZIONE</b><span>${x.nota}</span></div>` : ''}
-      <div class="serv"><h3>Come ti prepariamo</h3><div class="svg2">${x.serv.map((k, i) => `<div class="sv${i ? '' : ' main'}"><small>${SERV[k][0]}${i ? '' : ' · consigliato'}</small><b>${SERV[k][1]}</b><p>${SERV[k][2]}</p></div>`).join('')}</div></div>
       ${fascicolo(x)}
       <p class="disc">Requisiti, prove e date sono tratti dagli ultimi bandi: possono cambiare a ogni concorso, verifica sempre il bando ufficiale. <a href="test-concorsi.html#inizia">Verifica la tua compatibilità →</a></p>
     </div>`;
     fascBind(sec);
-    if (!L.reduced) gsap.from(sec.querySelectorAll('.ctitle, .rq, .stp, .warn, .sv'), { y: 18, opacity: 0, duration: 0.6, stagger: 0.035, ease: 'power3.out' });
+    if (!L.reduced) gsap.from(sec.querySelectorAll('.ctitle, .rq, .stp, .warn'), { y: 18, opacity: 0, duration: 0.6, stagger: 0.035, ease: 'power3.out' });
   }
 
-  /* ---------- la piramide: livello → concorsi → scheda ---------- */
-  const pyr = $('#pyr'), cexp = $('#cexp');
-  function level(l, pickFirst = true) {
-    [...pyr.children].forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lvl === l)));
-    const items = list.filter((x) => x.lvl === l);
-    cexp.innerHTML = `<h3>${LVN[l]}</h3><p>${LVD[l]}</p><div class="ctabs" role="tablist">${items.map((x, i) => `<button type="button" role="tab" aria-selected="${!i}" data-k="${x.k}">${x.title}</button>`).join('')}</div>`;
-    if (pickFirst && items[0]) scheda(items[0]);
-  }
-  pyr.addEventListener('click', (e) => { const b = e.target.closest('.rung'); if (b) level(b.dataset.lvl); });
-  cexp.addEventListener('click', (e) => { const b = e.target.closest('[data-k]'); if (!b) return; [...cexp.querySelectorAll('[data-k]')].forEach((x) => x.setAttribute('aria-selected', String(x === b))); scheda(list.find((x) => x.k === b.dataset.k)); });
-  // si parte dal ruolo iniziale (o dal primo livello disponibile)
-  const first = ['base', 'medio', 'dir', 'scuole'].find((l) => list.some((x) => x.lvl === l)); if (first) level(first);
+  /* ---------- scelta del concorso (al posto della piramide) ---------- */
+  const pick = $('#pick');
+  const select = (x) => { pick.querySelectorAll('[data-k]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.k === x.k))); scheda(x); cur = x; dos(dsel); };
+  pick.addEventListener('click', (e) => { const b = e.target.closest('[data-k]'); if (b) select(list.find((x) => x.k === b.dataset.k)); });
 
-  /* ---------- il patch dell'hero si inclina col mouse ---------- */
-  const gp = $('#gp');
-  if (!L.reduced && matchMedia('(pointer: fine)').matches) addEventListener('pointermove', (e) => { const x = e.clientX / innerWidth - 0.5, y = e.clientY / innerHeight - 0.5; gsap.to(gp, { rotateY: x * 24, rotateX: -y * 20, duration: 0.6, ease: 'power3.out' }); });
+  /* ---------- il dossier del corpo (box di lato: diventerà una motion graphic) ---------- */
+  let cur = null, dsel = 0;
+  const strip = (h) => h.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  function bando(x) {
+    const d = (DET[x.k] || []).find((s) => s.k === 'bando'); if (!d) return null;
+    const t = strip(d.h), posti = (t.match(/Posti disponibili:?\s*([\d.]+)/i) || t.match(/per\s+([\d.]+)\s+(?:posti|Allievi|allievi)/))?.[1];
+    const dom = (t.match(/(?:Presentazione domande|domande)[^.]*?(dal[^.;]*?\d{4})/i) || [])[1];
+    return { posti, dom, first: strip(d.h.split('</p>')[0]) };
+  }
+  function dos(i) {
+    dsel = i; document.querySelectorAll('.dtabs2 button').forEach((b) => b.setAttribute('aria-selected', String(+b.dataset.d === i)));
+    const body = $('#dbody');
+    if (i === 0) body.innerHTML = `<p>${C.what}</p><div class="chips2">${C.roles.map((r) => `<span>${r}</span>`).join('')}</div>`;
+    if (i === 1) body.innerHTML = `<p>Fa per te se ti riconosci in questo: <b style="color:var(--bone)">${C.tag.toLowerCase()}</b>.</p><div class="chips2">${C.env.map((e) => `<span>${e}</span>`).join('')}</div><p class="dfoot">Non sei sicuro? In tre minuti il Test Concorsi incrocia età, titolo e preferenze.</p>`;
+    if (i === 2) { const b = cur && bando(cur); body.innerHTML = b ? `<dl><dt>Concorso</dt><dd>${cur.title}</dd>${b.posti ? `<dt>Posti</dt><dd>${b.posti}</dd>` : ''}${b.dom ? `<dt>Domande</dt><dd>${b.dom.replace(/^dal/i, 'Dal')}</dd>` : ''}<dt>Fasi</dt><dd>${cur.prove.length}</dd></dl><p class="dfoot">Dati dell'ultimo bando: verifica sempre il bando ufficiale.</p>` : `<p>I dati dell'ultimo bando di questo concorso sono in aggiornamento.</p>`; }
+    if (!L.reduced) gsap.from(body.children, { y: 10, opacity: 0, duration: 0.4, stagger: 0.04, ease: 'power2.out' });
+  }
+  document.querySelector('.dtabs2').addEventListener('click', (e) => { const b = e.target.closest('[data-d]'); if (b) dos(+b.dataset.d); });
+
+  // si parte dal ruolo iniziale, oppure dal concorso arrivando da una card della home (?k=concorso)
+  const want = list.find((x) => x.k === new URLSearchParams(location.search).get('k'));
+  const firstL = ['base', 'medio', 'dir', 'scuole'].find((l) => list.some((x) => x.lvl === l));
+  if (list.length) select(want || list.find((x) => x.lvl === firstL));
+  if (want) setTimeout(() => { const el = $('#scheda'); L.lenis ? L.lenis.scrollTo(el, { offset: -40, duration: 1.4 }) : el.scrollIntoView({ behavior: 'smooth' }); }, 700);
+
+  /* ---------- percorsi: "vedi tutto" sulle card lunghe ---------- */
+  document.querySelectorAll('.pc .more').forEach((b) => b.addEventListener('click', () => { const pc = b.closest('.pc'); pc.classList.add('open'); b.remove(); L.lenis?.resize?.(); }));
+
+  /* ---------- recensioni: prima quelle di questo corpo ---------- */
+  const R = window.CMA_REVIEWS || [], CO = window.CMA_CORPI, STARS = '<div class="stars"><i></i><i></i><i></i><i></i><i></i></div>';
+  const mine = R.filter((r) => r.corpo === C.k || (C.k === 'accademie' && /Accademi|Ufficiali/i.test(r.tag)));
+  const revs = [...mine, ...R.filter((r) => !mine.includes(r))].slice(0, 6);
+  $('#crev').innerHTML = revs.map((r) => { const c = r.corpo && CO.find((x) => x.k === r.corpo); return `<figure class="crv" style="${c ? `--c:${c.color}` : ''}">${STARS}<q>${r.q}</q><span class="tg">${r.tag}</span><figcaption class="who"><b>${r.n}</b> · ${c ? c.n + ', ' : ''}su Trustpilot</figcaption></figure>`; }).join('');
 })();
 </script>
+<script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
+<script type="module">import { mountSoldiers } from './assets/cma-soldier.js?v=3'; mountSoldiers(document);</script>
 </body>
 </html>

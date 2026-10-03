@@ -1,5 +1,5 @@
 /* =====================================================================
-   LAMBDA · modulo "Parla con un tutor" (condiviso)
+   LAMBDA · modulo "Parla con un tutor" / CMA "Parla con un consulente" (condiviso)
    Qualsiasi elemento con [data-lead] apre il modulo. Nome, telefono ed email obbligatori.
    Prototipo: i dati non vengono inviati (vedi TODO).
    ===================================================================== */
@@ -9,12 +9,12 @@
   const L = () => window.Lambda || {};
   const CMA = document.body.dataset.branch === 'conc';
   const T = CMA ? {
-    sub: 'Lascia i tuoi contatti: un tutor CMA ti contatta entro un giorno lavorativo.',
+    ey: 'Parla con un consulente', sub: 'Lascia i tuoi contatti: un consulente CMA ti contatta entro un giorno lavorativo.',
     selL: 'Concorso che ti interessa', sel: ['Polizia di Stato', 'Carabinieri', 'Guardia di Finanza', 'Esercito', 'Marina Militare', 'Aeronautica Militare', 'Polizia Penitenziaria', 'Vigili del Fuoco', 'Accademie', 'Non lo so ancora'],
     ph: 'Per esempio: ho già provato la preselettiva e voglio superarla', btn: 'btn-red',
-    ok: 'Un tutor CMA ti contatta presto. Intanto, se vuoi, puoi fare il Test Concorsi: al colloquio avrete già il tuo profilo.', okBtn: ['Fai il Test Concorsi →', 'test-concorsi.html#inizia'], tick: '#CD141F',
+    ok: 'Un consulente CMA ti contatta presto. Intanto, se vuoi, puoi fare il Test Concorsi: al colloquio avrete già il tuo profilo.', okBtn: ['Fai il Test Concorsi →', 'test-concorsi.html#inizia'], tick: '#CD141F',
   } : {
-    sub: 'Lascia i tuoi contatti: un tutor Lambda ti contatta entro un giorno lavorativo.',
+    ey: 'Parla con un tutor', sub: 'Lascia i tuoi contatti: un tutor Lambda ti contatta entro un giorno lavorativo.',
     selL: 'Classe o età di tuo figlio', sel: ['Scuola primaria', 'Scuola media', 'Scuola superiore', 'Università', 'Test universitari'],
     ph: 'Per esempio: studia tanto ma i voti non arrivano', btn: 'btn-stud',
     ok: 'Un tutor ti contatta presto. Intanto, se vuoi, puoi fare il Performance Test: in videochiamata avrete già il suo profilo.', okBtn: ['Fai il Performance Test →', 'test.html'], tick: '#FFD66B',
@@ -25,7 +25,7 @@
     <div class="pm-back" data-lclose></div>
     <div class="ld-card"><button class="pm-x" type="button" data-lclose aria-label="Chiudi">×</button>
       <form id="ldForm" novalidate>
-        <p class="eyebrow">Parla con un tutor</p>
+        <p class="eyebrow">${T.ey}</p>
         <h3 id="ldT">Ti richiamiamo noi.</h3>
         <p class="ld-sub">${T.sub}</p>
         <label class="ldf"><span>Nome *</span><input id="ldName" type="text" autocomplete="name" required></label>

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=16">
+<link rel="stylesheet" href="assets/lambda.css?v=17">
 <style>
 /* =================== CMA · Simulatore =================== */
 body{background:var(--ink)}
@@ -92,9 +92,11 @@ body{background:var(--ink)}
 .bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:12px;margin-top:22px}
 .bc{position:relative;display:flex;flex-direction:column;gap:14px;padding:22px;border-radius:20px;background:linear-gradient(165deg,rgba(242,241,236,.06),rgba(242,241,236,.015));border:1px solid rgba(169,185,122,.2);overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s}
 .bc:hover{transform:translateY(-4px);border-color:rgba(169,185,122,.5)}
-.bc::before{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,var(--c),transparent 70%);opacity:.22}
+.bc{overflow:hidden}
 .bc .hd{display:flex;align-items:center;gap:12px}
-.bc .hd .patch{flex-shrink:0;width:38px;height:auto}
+.bc .bv{position:relative;height:190px;margin:-22px -22px 0;border-bottom:1px solid rgba(169,185,122,.14);background:radial-gradient(circle at 50% 74%,color-mix(in srgb,var(--c) 26%,transparent),transparent 62%),repeating-linear-gradient(0deg,rgba(169,185,122,.05) 0 1px,transparent 1px 22px),repeating-linear-gradient(90deg,rgba(169,185,122,.05) 0 1px,transparent 1px 22px)}
+.bc .bv span{position:absolute;left:14px;top:14px;font:700 12px/1 'Space Mono',var(--mono);letter-spacing:.1em;color:var(--c)}
+#soldierCanvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:4}
 .bc .hd small{display:block;font:500 10.5px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--hud)}
 .bc .hd b{display:block;margin-top:4px;font:700 18px/1.15 var(--font);color:var(--bone)}
 .bc .num{display:flex;align-items:baseline;gap:8px;margin-top:auto}
@@ -177,6 +179,24 @@ body{background:var(--ink)}
 .qa p{padding:0 0 22px;font-size:15.5px;line-height:1.55;color:rgba(242,241,236,.7);max-width:62ch}
 
 /* ---------- FINALE ---------- */
+.soon2{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:7px 12px;border-radius:999px;background:rgba(205,20,31,.12);border:1px solid rgba(205,20,31,.45);font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#f3c9cc}
+.soon2 i{width:7px;height:7px;border-radius:50%;background:var(--cma-red);animation:blink2 1.4s infinite} @keyframes blink2{50%{opacity:.25}}
+.allievo{display:inline-block;margin-top:16px;font-size:14px;font-weight:600;color:var(--hud)} .allievo:hover{color:#fff}
+.wait{position:relative;padding:clamp(100px,14vh,160px) 0;background:radial-gradient(ellipse 50% 60% at 80% 100%,rgba(205,20,31,.18),transparent 70%),#0b0c0a}
+.wait #accedi{position:absolute;top:0}
+.wait .wrap{display:grid;grid-template-columns:1fr .95fr;gap:clamp(30px,5vw,80px);align-items:center}
+.wait h2{margin-top:16px;font:700 clamp(38px,4.6vw,72px)/.98 var(--font);letter-spacing:-.05em;color:var(--bone)} .wait h2 em{font-style:normal;color:var(--cma-red)}
+.wait .lead{margin-top:18px;max-width:44ch;font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:rgba(242,241,236,.72)}
+.wpts{list-style:none;display:grid;gap:10px;margin-top:22px} .wpts li{display:flex;gap:10px;align-items:center;font-size:15px;color:rgba(242,241,236,.85)} .wpts li::before{content:"✓";display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(169,185,122,.18);color:var(--hud);font-size:12px}
+.wform{display:grid;gap:14px;padding:clamp(22px,3vw,34px);border-radius:26px;background:#11160e;border:1px solid rgba(169,185,122,.25);box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.wform .wk{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hud)}
+.wform .ldf span{color:rgba(169,185,122,.85)}
+.wform :is(input,select){background:#0b0e09;color:var(--bone);border-color:rgba(169,185,122,.25)} .wform :is(input,select):focus{border-color:var(--cma-red)}
+.wform .ld-chk{color:rgba(242,241,236,.65)} .wform .ld-chk input{accent-color:#CD141F}
+.wform .btn{justify-content:center}
+.wok{display:none;text-align:center;padding:10px 4px} .wok b{display:block;margin-top:10px;font:700 26px/1.1 var(--font);color:var(--bone)} .wok p{margin-top:8px;color:rgba(242,241,236,.65);line-height:1.5} .wok .btn{margin-top:18px}
+.wform.sent > :not(.wok){display:none} .wform.sent .wok{display:block}
+@media (max-width: 900px){ .wait .wrap{grid-template-columns:1fr} }
 .sfinal{position:relative;padding:clamp(110px,16vh,180px) 0;text-align:center;overflow:hidden;background:radial-gradient(ellipse 50% 60% at 50% 100%,rgba(205,20,31,.22),transparent 70%),#0b0c0a}
 .sfinal h2{font:700 clamp(40px,6vw,96px)/.95 var(--font);letter-spacing:-.055em;color:var(--bone);max-width:16ch;margin:0 auto}
 .sfinal h2 em{font-style:normal;color:var(--cma-red)}
@@ -202,10 +222,12 @@ body{background:var(--ink)}
       <div class="stext">
         <div class="sstep on" data-sstep>
           <p class="k"><b>●</b> Simulatore CMA</p>
+          <p class="soon2"><i></i>Riservato agli allievi CMA · presto aperto a tutti</p>
           <h1>Allenati come il giorno <em>del concorso.</em></h1>
           <p class="lead">Le banche dati dei concorsi, quiz per materia, simulazioni d’esame a tempo e le statistiche dei tuoi progressi. Tutto in un unico simulatore.</p>
           <div class="chips"><span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg>Da PC</span><span><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>Da smartphone</span><span><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Banche dati</span></div>
-          <div class="ctas"><a class="btn btn-red magnetic" href="#accedi" data-sim-login><span class="t">Accedi al simulatore →</span></a><a class="btn btn-line" href="#prova"><span class="t">Prova 3 domande</span></a></div>
+          <div class="ctas"><a class="btn btn-red magnetic" href="#lista"><span class="t">Entra in lista d'attesa →</span></a><a class="btn btn-line" href="#prova"><span class="t">Prova 3 domande</span></a></div>
+          <a class="allievo" href="#accedi" data-sim-login>Sei già allievo CMA? Accedi al simulatore →</a>
         </div>
         <div class="sstep" data-sstep>
           <p class="k"><b>01</b> Banca dati</p>
@@ -227,11 +249,11 @@ body{background:var(--ink)}
           <p class="k"><b>04</b> Statistiche</p>
           <h2>Vedi dove sbagli. <em>E smetti di farlo.</em></h2>
           <p class="lead">Percentuali per materia, andamento delle simulazioni, errori da ripassare: tu e il tuo tutor sapete sempre su cosa lavorare.</p>
-          <div class="ctas"><a class="btn btn-red magnetic" href="#accedi" data-sim-login><span class="t">Accedi al simulatore →</span></a></div>
+          <div class="ctas"><a class="btn btn-red magnetic" href="#lista"><span class="t">Entra in lista d'attesa →</span></a></div>
         </div>
       </div>
       <nav class="sidx" aria-label="Tappe del simulatore"><i class="bar" id="simBar"></i>
-        <button type="button" data-sdot class="on">Accesso</button><button type="button" data-sdot>Banca dati</button><button type="button" data-sdot>Allenamento</button><button type="button" data-sdot>Simulazione</button><button type="button" data-sdot>Statistiche</button>
+        <button type="button" data-sdot class="on">Il simulatore</button><button type="button" data-sdot>Banca dati</button><button type="button" data-sdot>Allenamento</button><button type="button" data-sdot>Simulazione</button><button type="button" data-sdot>Statistiche</button>
       </nav>
       <div class="shint"><i></i>Scorri</div>
     </div>
@@ -287,27 +309,45 @@ body{background:var(--ink)}
       <div class="qcol"><p class="k" data-reveal>Domande frequenti</p><h2 class="h2 split" id="fTitle">Il simulatore, <em>in pratica.</em></h2>
         <div class="qlist" data-reveal>
         <details class="qa"><summary>Da quali dispositivi posso usarlo?<i>+</i></summary><p>Da PC e da smartphone: puoi allenarti alla scrivania o in pausa, dove ti è più comodo.</p></details>
-        <details class="qa"><summary>Ci sono le banche dati del mio concorso?<i>+</i></summary><p>Nel simulatore trovi le banche dati dei concorsi delle Forze Armate e di Polizia, divise per materia. Se hai un dubbio sul tuo concorso, chiedilo al tutor durante il primo colloquio.</p></details>
+        <details class="qa"><summary>Ci sono le banche dati del mio concorso?<i>+</i></summary><p>Nel simulatore trovi le banche dati dei concorsi delle Forze Armate e di Polizia, divise per materia. Se hai un dubbio sul tuo concorso, chiedilo al consulente durante il primo colloquio.</p></details>
         <details class="qa"><summary>E se il mio concorso non pubblica una banca dati?<i>+</i></summary><p>Alcuni concorsi, come Allievi Finanzieri o le Accademie, non hanno una banca dati ufficiale. In quel caso ti alleni sulle materie e sui quesiti di logica previsti dal bando.</p></details>
-        <details class="qa"><summary>Come si accede?<i>+</i></summary><p>Ricevi le credenziali quando inizi il percorso con Concorsi Militari Academy. Se le hai già, entra da “Accedi al simulatore”.</p></details>
+        <details class="qa" open><summary>Posso usarlo anche se non sono allievo CMA?<i>+</i></summary><p>Non ancora. Oggi il simulatore è riservato agli allievi di Concorsi Militari Academy, che ricevono le credenziali all'inizio del percorso. Ci stiamo lavorando per aprirlo a tutti: entra in lista d'attesa e ti avvisiamo per primo.</p></details>
+        <details class="qa"><summary>Come si accede?<i>+</i></summary><p>Se sei allievo CMA, con le credenziali che ricevi all'inizio del percorso: entra da “Accedi al simulatore”. Se non lo sei, lascia i tuoi contatti in lista d'attesa.</p></details>
         </div>
       </div>
       <aside class="tutor-box cma" data-reveal>
         <svg class="tb-star" viewBox="0 0 200 200" aria-hidden="true"><path fill="#CD141F" d="M100 8 L124 76 L196 76 L138 118 L160 188 L100 146 L40 188 L62 118 L4 76 L76 76 Z"/></svg>
         <h3>Hai un dubbio sul simulatore?</h3>
-        <p>Un tutor CMA ti richiama e ti spiega come allenarti per il tuo concorso, con il simulatore e il Metodo EAGLE.</p>
-        <button class="btn btn-red magnetic" type="button" data-lead=""><span class="t">Parla con un tutor →</span></button>
+        <p>Un consulente CMA ti richiama e ti spiega come allenarti per il tuo concorso, con il simulatore e il Metodo EAGLE.</p>
+        <button class="btn btn-red magnetic" type="button" data-lead=""><span class="t">Parla con un consulente →</span></button>
         <a class="tutor-link" href="test-concorsi.html#inizia">Oppure fai il Test Concorsi →</a>
         <small>Gratuito · senza impegno</small>
       </aside>
     </div>
   </section>
 
-  <!-- ============ FINALE ============ -->
-  <section class="sfinal" id="accedi" data-theme="dark" aria-labelledby="sfTitle">
+  <!-- ============ LISTA D'ATTESA ============ -->
+  <section class="wait" id="lista" data-theme="dark" aria-labelledby="wTitle">
+    <span id="accedi" aria-hidden="true"></span>
     <div class="wrap">
-      <h2 class="split" id="sfTitle">La prossima domanda <em>potrebbe essere quella vera.</em></h2>
-      <div class="ctas" data-reveal><a class="btn btn-red magnetic" href="#accedi" data-sim-login><span class="t">Accedi al simulatore →</span></a><a class="btn btn-line" href="test-concorsi.html#inizia"><span class="t">Non hai ancora un account? Fai il test</span></a></div>
+      <div class="wtx">
+        <p class="soon2" data-reveal><i></i>Presto aperto a tutti</p>
+        <h2 class="split" id="wTitle">Il simulatore arriva <em>per tutti.</em></h2>
+        <p class="lead" data-reveal>Oggi è riservato ai nostri allievi. Ci stiamo lavorando per aprirlo a chiunque prepari un concorso: entra in lista d'attesa e sarai tra i primi a provarlo.</p>
+        <ul class="wpts" data-reveal><li>Ti avvisiamo appena apre</li><li>Accesso in anteprima per chi è in lista</li><li>Le banche dati del tuo concorso, pronte</li></ul>
+        <a class="allievo" href="#accedi" data-sim-login data-reveal>Sei già allievo CMA? Accedi al simulatore →</a>
+      </div>
+      <form class="wform" id="wForm" novalidate data-reveal>
+        <p class="wk">Lista d'attesa · Simulatore CMA</p>
+        <label class="ldf"><span>Nome *</span><input id="wName" type="text" autocomplete="name" required></label>
+        <div class="row2"><label class="ldf"><span>Email *</span><input id="wMail" type="email" autocomplete="email" required></label>
+          <label class="ldf"><span>Telefono / WhatsApp *</span><input id="wTel" type="tel" autocomplete="tel" inputmode="tel" required></label></div>
+        <label class="ldf"><span>Concorso che stai preparando</span><select id="wConc"><option value="">Seleziona</option></select></label>
+        <label class="ld-chk"><input type="checkbox" id="wOk"><span>Ho letto l'informativa privacy e acconsento a essere ricontattato.</span></label>
+        <p class="ld-err" id="wErr" aria-live="polite"></p>
+        <button class="btn btn-red" type="submit"><span class="t">Entra in lista d'attesa →</span></button>
+        <div class="wok" aria-live="polite"><svg viewBox="0 0 60 60" width="56" aria-hidden="true"><circle cx="30" cy="30" r="27" fill="none" stroke="#CD141F" stroke-width="3"/><path d="M18 31l8 8 16-17" fill="none" stroke="#CD141F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Sei in lista!</b><p>Ti avvisiamo appena il simulatore apre a tutti. Intanto puoi provare tre domande, o scoprire il concorso giusto per te.</p><a class="btn btn-line" href="test-concorsi.html#inizia"><span class="t">Fai il Test Concorsi →</span></a></div>
+      </form>
     </div>
   </section>
 </main>
@@ -315,7 +355,7 @@ body{background:var(--ink)}
 
 <script src="assets/cma-mark.js?v=1"></script>
 <script src="assets/cma-corpi.js?v=2"></script>
-<script src="assets/cma-concorsi.js?v=1"></script>
+<script src="assets/cma-concorsi.js?v=2"></script>
 <script>
 const FMT = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 /* ---------- link al simulatore: da sostituire con l'indirizzo reale ---------- */
@@ -341,7 +381,7 @@ window.SIM_URL = '';
   document.getElementById('bFil').innerHTML = `<button type="button" aria-pressed="true" data-c="">Tutti</button>` + corpiIn.map((c) => `<button type="button" aria-pressed="false" data-c="${c.k}"><i style="background:${c.color}"></i>${c.n}</button>`).join('');
   const card = (x) => {
     const n = x.bd[0], num = typeof n === 'number' ? `<div class="num"><b data-n="${n}">${FMT(n)}</b><span>quesiti</span></div>` : n === 'si' ? `<div class="num no"><b>Con banca dati</b></div>` : `<div class="num no"><b>Senza banca dati</b></div>`;
-    return `<article class="bc" data-corpo="${x.corpo}" style="--c:${x.C.color}"><div class="hd">${window.CMA_PATCH(x.C, 38)}<div><small>${x.C.n}</small><b>${x.title}</b></div></div>${num}<p class="note">${x.bd[1]}</p><a class="go" href="corpo.html?c=${x.corpo}">Scheda del concorso →</a></article>`;
+    return `<article class="bc" data-corpo="${x.corpo}" data-soldier-card style="--c:${x.C.color}"><div class="bv" data-soldier="${x.corpo}" data-lvl="${x.lvl}"><span>${x.C.code}</span></div><div class="hd"><div><small>${x.C.n}</small><b>${x.title}</b></div></div>${num}<p class="note">${x.bd[1]}</p><a class="go" href="corpo.html?c=${x.corpo}">Scheda del concorso →</a></article>`;
   };
   // prima i concorsi con più quesiti
   items.sort((a, b) => (typeof b.bd[0] === 'number' ? b.bd[0] : b.bd[0] === 'si' ? 1 : 0) - (typeof a.bd[0] === 'number' ? a.bd[0] : a.bd[0] === 'si' ? 1 : 0));
@@ -350,11 +390,28 @@ window.SIM_URL = '';
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=23"></script>
+<script src="assets/lambda.js?v=25"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {
   const L = window.Lambda, $ = (s) => document.querySelector(s);
+  /* lista d'attesa: prototipo, i dati non vengono inviati (TODO: collegare al CRM) */
+  (() => {
+    const f = $('#wForm'); if (!f) return;
+    $('#wConc').innerHTML += window.CMA_CORPI.filter((c) => c.k !== 'accademie').map((c) => `<option>${c.n}</option>`).join('') + '<option>Accademie</option><option>Non lo so ancora</option>';
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const err = [], tel = $('#wTel').value.replace(/\D/g, ''), mail = $('#wMail').value.trim(), okMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
+      if (!$('#wName').value.trim()) err.push('il nome');
+      if (!okMail) err.push('un\'email valida');
+      if (tel.length < 8) err.push('un numero di telefono valido');
+      if (!$('#wOk').checked) err.push('il consenso privacy');
+      $('#wErr').textContent = err.length ? 'Manca ' + err.join(', ').replace(/, ([^,]*)$/, ' e $1') + '.' : '';
+      $('#wName').classList.toggle('bad', !$('#wName').value.trim()); $('#wMail').classList.toggle('bad', !okMail); $('#wTel').classList.toggle('bad', tel.length < 8);
+      if (err.length) return;
+      f.classList.add('sent'); if (!L.reduced) gsap.from('.wok > *', { y: 14, opacity: 0, duration: 0.5, stagger: 0.06, ease: 'power3.out' });
+    });
+  })();
   /* accesso al simulatore */
   document.querySelectorAll('[data-sim-login]').forEach((a) => { if (window.SIM_URL) { a.href = window.SIM_URL; a.target = '_blank'; a.rel = 'noopener'; } });
 
@@ -416,8 +473,8 @@ gsap.set('#logo', { autoAlpha: 1 });
   function end() {
     const pct = score / QS.length, C = 2 * Math.PI * 64;
     body.innerHTML = `<div class="end"><div class="ring"><svg viewBox="0 0 150 150"><circle cx="75" cy="75" r="64" fill="none" stroke="rgba(242,241,236,.08)" stroke-width="12"/><circle id="qArc" cx="75" cy="75" r="64" fill="none" stroke="${pct >= 0.66 ? '#3fbf6a' : '#CD141F'}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg><b>${score}/${QS.length}</b></div>
-      <h4>${score === 3 ? 'Ottimo inizio.' : score === 2 ? 'Buona base.' : 'Si parte da qui.'}</h4><p>Nel simulatore ti alleni sulla banca dati del tuo concorso, con le statistiche per materia.</p>
-      <a class="btn btn-red" href="${window.SIM_URL || '#accedi'}" data-sim-login><span class="t">Accedi al simulatore →</span></a><button class="again" type="button">Rifai la prova</button></div>`;
+      <h4>${score === 3 ? 'Ottimo inizio.' : score === 2 ? 'Buona base.' : 'Si parte da qui.'}</h4><p>Nel simulatore ti alleni sulla banca dati del tuo concorso, con le statistiche per materia. Presto aperto a tutti.</p>
+      <a class="btn btn-red" href="#lista"><span class="t">Entra in lista d'attesa →</span></a><button class="again" type="button">Rifai la prova</button></div>`;
     tEl.textContent = 'FINE'; tEl.classList.remove('low');
     requestAnimationFrame(() => gsap.to('#qArc', { attr: { 'stroke-dashoffset': C * (1 - pct) }, duration: L.reduced ? 0 : 1.2, ease: 'power3.out' }));
     body.querySelector('.again').onclick = start;
@@ -427,5 +484,6 @@ gsap.set('#logo', { autoAlpha: 1 });
 </script>
 <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
 <script type="module" src="assets/sim3d.js?v=4"></script>
+<script type="module">import { mountSoldiers } from './assets/cma-soldier.js?v=3'; mountSoldiers(document);</script>
 </body>
 </html>
