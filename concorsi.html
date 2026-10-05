@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=18">
+<link rel="stylesheet" href="assets/lambda.css?v=21">
 <style>
 /* =================== CONCORSI MILITARI ACADEMY · home =================== */
 body{background:var(--ink)}
@@ -180,7 +180,7 @@ body.intro-on .chero .rwrap{opacity:0;transform:scale(.94)}
 .ring96 svg{width:100%;height:100%;transform:rotate(-90deg)}
 .ring96 .tr{fill:none;stroke:rgba(169,185,122,.15);stroke-width:10}
 .ring96 .fg{fill:none;stroke:var(--cma-red);stroke-width:10;stroke-linecap:round;stroke-dasharray:578;stroke-dashoffset:578;transition:stroke-dashoffset 2s var(--ease)}
-.big96.in .ring96 .fg{stroke-dashoffset:29}
+.big96.in .ring96 .fg{stroke-dashoffset:17}
 .ring96 b{position:absolute;inset:0;display:grid;place-items:center;font:700 clamp(46px,4.6vw,66px)/1 'Space Mono',var(--mono);color:var(--bone)}
 .big96 .k2{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--hud)}
 .big96 p.s{margin-top:10px;font:700 clamp(22px,2.2vw,32px)/1.12 var(--font);letter-spacing:-.03em;color:var(--bone)}
@@ -454,12 +454,12 @@ body.intro-on .chero .rwrap{opacity:0;transform:scale(.94)}
   <section class="cres sheet" id="risultati" data-theme="dark" aria-labelledby="crTitle">
     <div class="wrap">
       <div class="top"><div><p class="k" style="font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--hud)" data-reveal>Risultati</p><h2 class="split" id="crTitle">Risultati veri, <em>raccontati dagli allievi.</em></h2></div>
-        <p class="lead" data-reveal>Il 95% dei nostri allievi supera la prima prova preselettiva. E sono loro a raccontarlo, su Trustpilot.</p></div>
+        <p class="lead" data-reveal>Nel 2026 il 97% dei nostri allievi è risultato idoneo alla prima prova. E sono loro a raccontarlo, su Trustpilot.</p></div>
       <div class="rtop">
         <div class="big96" id="big96" data-reveal>
-          <div class="ring96"><svg viewBox="0 0 200 200"><circle class="tr" cx="100" cy="100" r="92"/><circle class="fg" cx="100" cy="100" r="92"/></svg><b><span data-count="95" data-suf="%">0%</span></b></div>
-          <div><p class="k2">Prima prova preselettiva</p><p class="s">dei nostri allievi supera la prima prova preselettiva.</p><small>Dato Concorsi Militari Academy.</small>
-            <div class="minis" data-count-group><div><b data-count="6000" data-pre="+">+0</b><span>studenti seguiti</span></div><div><b><span data-count="4.9" data-dec="1">0</span><small>/5</small></b><span>su Trustpilot · N°1 per recensioni certificate</span></div></div></div>
+          <div class="ring96"><svg viewBox="0 0 200 200"><circle class="tr" cx="100" cy="100" r="92"/><circle class="fg" cx="100" cy="100" r="92"/></svg><b><span data-kpi="conc.prima"></span></b></div>
+          <div><p class="k2">Prima prova · 2026</p><p class="s">dei nostri allievi idonei alla prima prova nel 2026.</p><small>Dato Concorsi Militari Academy.</small>
+            <div class="minis" data-count-group><div><b data-kpi="conc.allievi"></b><span>allievi seguiti</span></div><div><b data-kpi="conc.psico"></b><span>idonei alle prove psicoattitudinali</span></div><div><b data-kpi="conc.quiz"></b><span>quiz fatti per studiare e memorizzare</span></div><div><b data-kpi="conc.ore"></b><span>ore di lezione erogate dal 2020 al 2026</span></div></div></div>
         </div>
         <div class="guar" id="guar" data-reveal>
           <div class="seal2" id="seal2"></div>
@@ -504,7 +504,7 @@ body.intro-on .chero .rwrap{opacity:0;transform:scale(.94)}
 <script src="assets/cma-corpi.js?v=2"></script>
 <script src="assets/cma-concorsi.js?v=2"></script>
 <script src="assets/cma-recensioni.js?v=1"></script>
-<script src="assets/lambda.js?v=26"></script>
+<script src="assets/lambda.js?v=32"></script>
 <script>
 (() => {
   const L = window.Lambda, M = window.CMA_MARK, $ = (s) => document.querySelector(s);
@@ -711,7 +711,7 @@ body.intro-on .chero .rwrap{opacity:0;transform:scale(.94)}
     });
   })();
 
-  /* ---------- risultati: anello del 95% e timbro della garanzia ---------- */
+  /* ---------- risultati: anello del 97% e timbro della garanzia ---------- */
   $('#seal2').innerHTML = M.svg({ ring: true, ringColor: '#ffffff' });
   ['#big96', '#guar'].forEach((sel) => new IntersectionObserver((e, o) => e.forEach((x) => { if (x.isIntersecting) { x.target.classList.add('in'); o.disconnect(); } }), { threshold: 0.45 }).observe($(sel)));
 

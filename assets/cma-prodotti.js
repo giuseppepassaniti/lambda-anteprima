@@ -4,7 +4,7 @@
    ===================================================================== */
 window.CMA_PRODOTTI = {
   preselettiva: [
-    { k: 'smart', name: 'Preparazione Concorsi SMART', tag: 'Il più completo', price: null, main: true, guarantee: 'Garanzia soddisfatto o rimborsato',
+    { k: 'smart', name: 'Preparazione Concorsi SMART', tag: 'Il più completo', price: null, main: true, guarantee: 'Garanzia soddisfatto o ripreparato',
       lead: 'Metodo, lezioni, aule studio live e simulazioni con i docenti: la preparazione completa alla prova preselettiva.',
       items: [
         'Accesso riservato al Portale Allievi Concorsi Militari Academy',
@@ -31,9 +31,26 @@ window.CMA_PRODOTTI = {
         'Software di simulazione per allenarsi in autonomia',
         'Academy Psicoattitudinale: 2 incontri di gruppo al mese con la psicologa, per lavorare su mindset, concentrazione e gestione dello stress',
       ] },
-    { k: 'ebook', name: 'Ebook CMA', tag: 'Per iniziare', price: '47 €',
-      lead: 'Il metodo Concorsi Militari Academy in un ebook, per iniziare a prepararti in autonomia.',
-      items: [] },
+    { k: 'ebook', name: 'Ebook CMA', tag: 'Per iniziare', price: '47 €', cover: true,
+      sub: 'La guida completa per affrontare i concorsi nelle Forze Armate e di Polizia',
+      lead: 'Un manuale pratico che ti accompagna dalla scelta del concorso fino al giorno della selezione. Niente scorciatoie o formule magiche: un metodo concreto per organizzare la preparazione, migliorare le tue prestazioni e affrontare ogni fase con più consapevolezza.',
+      inside: 'All\'interno troverai',
+      items: [
+        ['🎯', 'Come scegliere e comprendere il concorso più adatto al tuo obiettivo'],
+        ['🧠', 'Tecniche di studio e memoria per imparare e ricordare più efficacemente'],
+        ['🦅', 'Il Metodo EAGLE di Concorsi Militari Academy'],
+        ['📚', 'Strategie per quiz e banca dati, e un metodo per lavorare sugli errori'],
+        ['📅', 'Piani di preparazione a 12, 6 e 3 mesi'],
+        ['🏃', 'Preparazione alle prove fisiche'],
+        ['🧩', 'Guida alle prove psicoattitudinali, test di personalità e test cognitivi'],
+        ['🗣️', 'Preparazione ai colloqui con psicologo e perito selettore'],
+        ['⚡', 'Gestione dell\'ansia e della pressione prima e durante la selezione'],
+        ['🎒', 'Guida pratica al giorno del concorso, dall\'organizzazione all\'attesa'],
+        ['📝', 'Esercizi, checklist e workbook da usare durante la preparazione'],
+        ['👮', 'Storie reali di candidati che hanno affrontato difficoltà, fallimenti e paure prima di raggiungere il proprio obiettivo'],
+      ],
+      for: ['Polizia di Stato', 'Carabinieri', 'Guardia di Finanza', 'Polizia Penitenziaria', 'Esercito', 'Aeronautica', 'VFI', 'Marescialli', 'Accademie'],
+      claim: 'Il concorso può cambiare il tuo futuro. Il modo in cui ti prepari può fare la differenza.' },
   ],
   psico: [
     { k: 'psico', name: 'Percorso Psicoattitudinale personalizzato', tag: 'Con la psicologa, one to one', price: null, main: true,

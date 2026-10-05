@@ -28,7 +28,15 @@
       address: 'Via Pietro Nava 35, 23900 Lecco (LC)',
       hours: [['Lun – Ven', '14:30 – 18:30'], ['Sabato', '10:00 – 13:00 · 14:00 – 18:00'], ['Domenica', 'Chiuso']],
       phone: '+39 393 233 1172', email: 'segreteria@lecco.centrostudilambda.it',
-      photos: [], tutors: [], seats: null,
+      photos: [
+        { src: 'assets/sedi/lecco/esterno.jpg', alt: 'La facciata della sede di Lecco: la porta di Concorsi Militari Academy e la vetrina del Centro Studi Lambda', label: 'L\'ingresso', stop: 0 },
+        { src: 'assets/sedi/lecco/reception.jpg', alt: 'La reception subito a sinistra entrando, con la bussola in legno rosso e il logo verde', label: 'Reception', stop: 1 },
+        { src: 'assets/sedi/lecco/attesa.jpg', alt: 'L\'angolo attesa con la parete in doghe di legno, la TV e le poltroncine senape', label: 'Lo spazio', stop: 2 },
+        { src: 'assets/sedi/lecco/aula.jpg', alt: 'Le postazioni dell\'aula studio con i divisori e i pannelli blu', label: 'Aula studio', stop: 3 },
+        { src: 'assets/sedi/lecco/accoglienza.jpg', alt: 'Il bancone bianco della reception con il logo Centro Studi Lambda', label: 'L\'accoglienza', stop: 1 },
+        { src: 'assets/sedi/lecco/postazioni.jpg', alt: 'Due postazioni separate dai divisori in feltro, con lampade e piante', label: 'Le postazioni', stop: 3 },
+      ],
+      tutors: [], seats: null,
     },
     monza: {
       name: 'Monza', region: 'Lombardia', area: 'Monza e Brianza',

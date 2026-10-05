@@ -65,7 +65,7 @@
         ${col('Percorsi', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Test universitari', 'percorso.html?p=test-universitari']])}
         ${col('Esigenze', [['Metodo di studio', 'percorso.html?p=metodo-di-studio'], ['Ripetizioni', 'percorso.html?p=ripetizioni'], ['Recupero insufficienze', 'percorso.html?p=recupero-insufficienze'], ['DSA/BES', 'percorso.html?p=dsa-bes'], ['Ansia scolastica', 'percorso.html?p=ansia-scolastica'], ['Memoria e concentrazione', 'percorso.html?p=memoria-concentrazione']])}
         ${col('Risorse', [['Performance Test', 'test.html'], ['Metodo FOCUS', 'metodo-focus.html'], ['La storia', 'storia.html'], ['Blog Lambda'], ['Guide per genitori']])}
-        ${col('Lambda', [['Chi siamo', 'chisiamo.html'], ['Team', 'chisiamo.html#team'], ['Risultati', 'risultati.html'], ['Sedi', 'sedi.html'], ['Lavora con noi'], ['Franchising'], ['Contatti', 'mailto:info@centrostudilambda.it']])}
+        ${col('Lambda', [['Chi siamo', 'chisiamo.html'], ['Risultati', 'risultati.html'], ['Sedi', 'sedi.html'], ['Lavora con noi'], ['Franchising'], ['Contatti', 'mailto:info@centrostudilambda.it']])}
       </div>
       <a class="foot-other conc" href="concorsi.html"><span>Prepari un concorso per le Forze Armate o di Polizia?</span><b>Concorsi Militari Academy →</b></a>
       ${legal('Centro Studi Lambda')}</div></footer>`,
@@ -85,20 +85,35 @@
   document.querySelector('[data-lambda-footer]')?.insertAdjacentHTML('afterend', footerHTML);
   document.querySelector('[data-lambda-footer]')?.remove();
   /* ---------- "Hanno parlato di noi": banner delle testate che scorre ([data-press]) ----------
-     Loghi ricostruiti in versione tipografica monocromatica (non i file ufficiali). */
+     Per aggiungere una testata basta una riga. Campi:
+       k     sigla per lo stile tipografico (vedi .pl-* in lambda.css) · name  nome della testata
+       html  logo ricostruito in tipografia · logo  file del logo ufficiale (es. 'assets/press/ansa.svg'): se c'è, vince sull'html
+       url   link all'articolo o al servizio (facoltativo) · brand  'lambda', 'cma' o 'both': su quali pagine compare
+     Nelle pagine Lambda compaiono 'lambda' e 'both', in quelle CMA 'cma' e 'both', nella home a due colonne tutte. */
   const PRESS = [
-    ['repubblica', '<i>la</i> Repubblica', 'La Repubblica'],
-    ['skytg', '<b>sky</b><span>TG24</span>', 'Sky TG24'],
-    ['studio', 'Studio<b>Aperto</b>', 'Studio Aperto'],
-    ['ansa', 'ANSA', 'ANSA'],
-    ['radio1', '<b>Rai</b> Radio<span>1</span>', 'Rai Radio 1'],
-    ['assofr', '<b>Asso</b>franchising', 'Assofranchising'],
-    ['express', '<i>L\'Express</i><span>Franchising</span>', 'L\'Express Franchising'],
+    { k: 'repubblica', name: 'La Repubblica', html: '<i>la</i> Repubblica', brand: 'both' },
+    { k: 'skytg', name: 'Sky TG24', html: '<b>sky</b><span>TG24</span>', brand: 'both' },
+    { k: 'ilgiorno', name: 'Il Giorno', html: 'Il Giorno', brand: 'both' },
+    { k: 'studio', name: 'Studio Aperto', html: 'Studio<b>Aperto</b>', brand: 'both' },
+    { k: 'tgcom', name: 'TGCOM24', html: '<b>TGCOM</b><span>24</span>', brand: 'both' },
+    { k: 'ansa', name: 'ANSA', html: 'ANSA', brand: 'both' },
+    { k: 'millionaire', name: 'Millionaire', html: 'millionaire', brand: 'both' },
+    { k: 'radio1', name: 'Rai Radio 1', html: '<b>Rai</b> Radio<span>1</span>', brand: 'both' },
+    { k: 'quotidiano', name: 'Quotidiano', html: 'Quotidiano', brand: 'both' },
+    { k: 'nexteco', name: 'Next Economy', html: '<b>NEXT</b>economy', brand: 'both' },
+    { k: 'millennium', name: 'Radio Millennium', html: '<span>Radio</span><b>Millennium</b>', brand: 'both' },
+    { k: 'assofr', name: 'Assofranchising', html: '<b>Asso</b>franchising', brand: 'both' },
+    { k: 'inblu', name: 'Radio InBlu', html: '<span>Radio</span><b>InBlu</b>', brand: 'both' },
+    { k: 'express', name: 'L\'Express Franchisee', html: '<i>L\'Express</i><span>Franchisee</span>', brand: 'both' },
   ];
   document.querySelectorAll('[data-press]').forEach((el) => {
-    const row = PRESS.map(([k, html]) => `<li class="pl pl-${k}">${html}</li>`).join('');
+    const list = PRESS.filter((p) => branch === 'gate' || p.brand === 'both' || p.brand === (branch === 'conc' ? 'cma' : 'lambda'));
+    if (!list.length) { el.remove(); return; }
+    const item = (p) => { const inner = p.logo ? `<img src="${p.logo}" alt="${p.name}" loading="lazy">` : p.html;
+      return `<li class="pl pl-${p.k}">${p.url ? `<a href="${p.url}" target="_blank" rel="noopener" title="${p.name}: leggi l'articolo">${inner}</a>` : inner}</li>`; };
+    const row = list.map(item).join('');
     el.innerHTML = `<div class="wrap press-in"><p class="press-k">${el.dataset.press || 'Hanno parlato di noi'}</p>
-      <div class="press-track"><ul class="press-row" aria-label="Testate: ${PRESS.map((p) => p[2]).join(', ')}">${row}</ul><ul class="press-row" aria-hidden="true">${row}</ul></div></div>`;
+      <div class="press-track"><ul class="press-row" aria-label="Testate: ${list.map((p) => p.name).join(', ')}">${row}</ul><ul class="press-row" aria-hidden="true">${row}</ul></div></div>`;
   });
   const $ = (s) => document.querySelector(s);
   const hdr = $('#hdr');
@@ -139,6 +154,33 @@
   const STAR5 = '<svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.5 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg>';
   L.stars = (root = document) => root.querySelectorAll('.stars i').forEach((i) => { if (!i.innerHTML) i.innerHTML = STAR5; });
   L.stars();
+
+  /* ---------------- KPI: i numeri ufficiali di Lambda e CMA, in un solo posto ----------------
+     Nelle pagine: <b data-kpi="stud.docenti"></b>. Con n: null il dato non è ancora arrivato
+     e al suo posto compare un segnaposto ben visibile (classe .kpi-todo). */
+  L.KPI = {
+    stud: {
+      ore: { n: null, l: 'ore di lezione erogate al mese' },          // da inserire: numero massimo
+      allievi: { n: null, pre: '+', l: 'allievi seguiti' },           // da inserire
+      docenti: { n: 100, pre: '+', l: 'docenti esperti in apprendimento' },
+      genitori: { n: 95, suf: '%', l: 'genitori soddisfatti' },
+      autonomi: { n: 87, suf: '%', l: 'degli allievi autonomi dopo 20 giorni' },
+    },
+    conc: {
+      allievi: { n: 5000, pre: '+', l: 'allievi seguiti' },
+      prima: { n: 97, suf: '%', l: 'idonei alla prima nel 2026' },
+      psico: { n: 92, suf: '%', l: 'idonei alle prove psicoattitudinali' },
+      quiz: { n: 25, suf: ' mln', l: 'quiz fatti per studiare e memorizzare' },
+      ore: { n: 9000, l: 'ore di lezione erogate dal 2020 al 2026' },
+    },
+  };
+  L.kpis = (root = document) => root.querySelectorAll('[data-kpi]').forEach((el) => {
+    const [b, k] = el.dataset.kpi.split('.'), K = L.KPI[b]?.[k]; if (!K) return;
+    if (K.n == null) { el.textContent = '—'; el.classList.add('kpi-todo'); el.title = 'Dato da inserire'; return; }
+    el.dataset.count = K.n; if (K.pre) el.dataset.pre = K.pre; if (K.suf) el.dataset.suf = K.suf;
+    el.textContent = (K.pre || '') + '0' + (K.suf || '');
+  });
+  L.kpis();
 
   /* ---------------- ingresso allo scroll + contatori ---------------- */
   const fmt = (v, d) => v.toLocaleString('it-IT', { minimumFractionDigits: d, maximumFractionDigits: d });

@@ -21,6 +21,7 @@ async function start() {
   const sk = document.body.dataset.sede;
   if (sk === 'messina') { try { custom = (await import('./sede-messina.js?v=6')).buildMessina({ cma: CMA }); } catch (e) { custom = null; } }
   if (sk === 'monza') { try { custom = (await import('./sede-monza.js?v=3')).buildMonza({ cma: CMA }); } catch (e) { console.error(e); custom = null; } }
+  if (sk === 'lecco') { try { custom = (await import('./sede-lecco.js?v=2')).buildLecco({ cma: CMA }); } catch (e) { console.error(e); custom = null; } }
   if (sk === 'cagliari') { try { custom = (await import('./sede-cagliari.js?v=4')).buildCagliari({ cma: CMA }); } catch (e) { console.error(e); custom = null; } }
   init(custom);
 }

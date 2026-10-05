@@ -12,6 +12,7 @@ import { ITA, SIC, SAR, SEDI } from './italia-data.js?v=3';
 import { buildSedeInterior } from './sede-interior.js?v=4';
 import { buildMessina } from './sede-messina.js?v=6';
 import { buildMonza } from './sede-monza.js?v=3';
+import { buildLecco } from './sede-lecco.js?v=2';
 import { buildCagliari } from './sede-cagliari.js?v=4';
 
 // tema: Lambda di default; una pagina può impostare window.SEDI_THEME prima di caricare questo modulo
@@ -269,7 +270,9 @@ function init() {
   const CAG = buildCagliari({ cma: !!window.SEDI_THEME, outdoorLight: false }); CAG.group.position.copy(O4); scene.add(CAG.group);
   const O5 = new THREE.Vector3(500, 0, 0);
   const MON = buildMonza({ cma: !!window.SEDI_THEME, outdoorLight: false }); MON.group.position.copy(O5); scene.add(MON.group);
-  const CUSTOM = { messina: MES, cagliari: CAG, monza: MON };
+  const O6 = new THREE.Vector3(600, 0, 0);
+  const LEC = buildLecco({ cma: !!window.SEDI_THEME, outdoorLight: false }); LEC.group.position.copy(O6); scene.add(LEC.group);
+  const CUSTOM = { messina: MES, cagliari: CAG, monza: MON, lecco: LEC };
   const roomOf = () => (SEDE && CUSTOM[SEDE.key]) || SEDE_IN;
 
   /* =====================================================================
@@ -365,7 +368,23 @@ function init() {
       { p: 0.8, pos: at(O5, 1.0, 1.95, 0.6), look: at(O5, 4.9, 2.15, 0.35) },
       { p: 0.8129, pos: at(O5, 1.0, 1.95, 0.6), look: at(O5, 4.9, 2.15, 0.35) },
       ...END]; };
-  const kfFor = (S) => (S.key === 'messina' ? kfMessina(S) : S.key === 'cagliari' ? kfCagliari(S) : S.key === 'monza' ? kfMonza(S) : kfSede(S));
+  // tappe dentro la sede di Lecco: si entra dalla porta CMA, reception subito a sinistra, colloqui sul retro, postazioni a destra
+  const kfLecco = (S) => { const sp0 = S.g.position; return [...OVER,
+      { p: 0.215, pos: at(sp0, 1.2, 1.1, 2.0), look: at(sp0, 0, 0.1, 0) },
+      { p: 0.262, pos: at(S.door, 0.1, 0.06, 0.6), look: S.door.clone() },
+      { p: 0.3, pos: at(S.door, 0, 0, 0.04), look: at(S.door, 0, 0, -1) },
+      { p: 0.3001, pos: at(O6, -2.7, 1.7, 3.4), look: at(O6, -3.4, 1.2, -0.5) },
+      { p: 0.37, pos: at(O6, -0.4, 1.7, 1.6), look: at(O6, -4.4, 1.15, 2.0) },
+      { p: 0.445, pos: at(O6, 0.6, 1.7, 1.0), look: at(O6, -4.4, 1.15, 2.0) },
+      { p: 0.49, pos: at(O6, -3.9, 1.65, -2.8), look: at(O6, -1.8, 0.85, -5.2) },
+      { p: 0.565, pos: at(O6, -3.8, 1.62, -3.2), look: at(O6, -1.8, 0.85, -5.2) },
+      { p: 0.61, pos: at(O6, 0.4, 1.65, 0.5), look: at(O6, 4.9, 1.1, 0.4) },
+      { p: 0.685, pos: at(O6, 1.0, 1.6, 0.6), look: at(O6, 4.9, 1.05, 0.4) },
+      { p: 0.725, pos: at(O6, 0.9, 1.9, 0.5), look: at(O6, 4.9, 1.85, 0.4) },
+      { p: 0.8, pos: at(O6, 1.0, 1.95, 0.5), look: at(O6, 4.9, 2.15, 0.4) },
+      { p: 0.8129, pos: at(O6, 1.0, 1.95, 0.5), look: at(O6, 4.9, 2.15, 0.4) },
+      ...END]; };
+  const kfFor = (S) => (S.key === 'messina' ? kfMessina(S) : S.key === 'cagliari' ? kfCagliari(S) : S.key === 'monza' ? kfMonza(S) : S.key === 'lecco' ? kfLecco(S) : kfSede(S));
   KF.sede = kfFor(SEDE);
   let path = 'casa';
   const camPos = new THREE.Vector3(), camLook = new THREE.Vector3(), tgtPos = new THREE.Vector3(), tgtLook = new THREE.Vector3();

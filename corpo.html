@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=18">
+<link rel="stylesheet" href="assets/lambda.css?v=21">
 <style>
 /* =================== CMA · template della pagina di un corpo =================== */
 body{background:var(--ink)}
@@ -115,7 +115,7 @@ body{background:var(--ink)}
 .gnums{position:relative;z-index:3;background:#0d100b;border-top:1px solid rgba(169,185,122,.14);border-bottom:1px solid rgba(169,185,122,.14);padding:clamp(34px,5vh,54px) 0}
 .gnums .row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .gnums .n b{display:block;font:700 clamp(34px,3.4vw,52px)/1 'Space Mono',var(--mono);letter-spacing:-.03em;color:var(--bone)} .gnums .n b small{font-size:.45em;color:rgba(242,241,236,.5)}
-.gnums .n span{display:block;margin-top:8px;font-size:13.5px;line-height:1.35;color:rgba(242,241,236,.6);max-width:22ch}
+.gnums .n > span{display:block;margin-top:8px;font-size:13.5px;line-height:1.35;color:rgba(242,241,236,.6);max-width:22ch}
 .gnums .n:nth-child(3) b{color:var(--cma-red)}
 
 /* ---------- SCHEDA: scelta del concorso + dossier del corpo ---------- */
@@ -177,6 +177,18 @@ body{background:var(--ink)}
 .pc .more{align-self:flex-start;margin-top:10px;font:600 13.5px/1 var(--font);color:var(--hud)}
 .pc .gua{display:flex;align-items:center;gap:8px;margin-top:16px;padding:10px 12px;border-radius:12px;background:rgba(0,182,122,.1);border:1px solid rgba(0,182,122,.35);font-size:13.5px;font-weight:700;color:#bff0dc} .pc .gua::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#00B67A;color:#fff;font-size:12px}
 .pc .btn{margin-top:20px;justify-content:center}
+.pc .psub{margin-top:6px;font-size:14px;line-height:1.4;font-weight:600;color:rgba(242,241,236,.85)}
+.pc .pin{margin-top:16px;font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hud)} .pc .pin + ul{margin-top:10px}
+.pc li.ic{padding-left:30px} .pc li.ic::before{display:none} .pc li.ic i{position:absolute;left:0;top:-1px;font-style:normal;font-size:16px;line-height:1.2}
+.pc .pfor{margin-top:16px;padding-top:14px;border-top:1px solid rgba(169,185,122,.16)} .pc .pfor small{display:block;font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(242,241,236,.5)}
+.pc .pfor div{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px} .pc .pfor span{padding:5px 9px;border-radius:999px;border:1px solid rgba(169,185,122,.28);font-size:12px;color:rgba(242,241,236,.82)}
+.pc .pclaim{margin-top:16px;font:600 15px/1.35 var(--font);letter-spacing:-.01em;color:var(--bone)}
+.pc .bcover{display:grid;place-items:center;margin:-8px -8px 18px;padding:22px 0;border-radius:18px;background:radial-gradient(80% 90% at 50% 30%,rgba(205,20,31,.22),transparent 70%),rgba(242,241,236,.03);perspective:700px}
+.pc .bk{position:relative;width:118px;aspect-ratio:3/4.2;padding:16px 12px;border-radius:4px 8px 8px 4px;background:linear-gradient(160deg,#1d2a3e,#0e1622);box-shadow:inset 6px 0 0 rgba(0,0,0,.35),inset 7px 0 0 rgba(255,255,255,.08),14px 18px 30px rgba(0,0,0,.5);transform:rotateY(-18deg) rotateX(4deg);transition:transform .6s var(--ease);display:flex;flex-direction:column;gap:6px}
+.pc.book:hover .bk{transform:rotateY(-6deg) rotateX(2deg)}
+.pc .bk .st{width:22px;height:22px;background:var(--cma-red);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.pc .bk small{font:500 6.5px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(242,241,236,.6)}
+.pc .bk b{font:700 14px/1.05 var(--font);letter-spacing:-.02em;color:#fff} .pc .bk span{margin-top:auto;font:500 7.5px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--hud)}
 
 /* ---------- RISULTATI E RECENSIONI ---------- */
 .gres{background:#0d100b;padding:clamp(100px,13vh,150px) 0}
@@ -217,7 +229,7 @@ body{background:var(--ink)}
 <script src="assets/cma-corpi.js?v=2"></script>
 <script src="assets/cma-concorsi.js?v=2"></script>
 <script src="assets/cma-concorsi-dettagli.js?v=3"></script>
-<script src="assets/cma-prodotti.js?v=1"></script>
+<script src="assets/cma-prodotti.js?v=2"></script>
 <script src="assets/cma-recensioni.js?v=1"></script>
 <script>
 /* ---------- costruzione della pagina dai dati (prima del motore) ---------- */
@@ -235,8 +247,8 @@ body{background:var(--ink)}
   const LVG = { base: 'Ruolo iniziale', medio: 'Marescialli · ispettori', dir: 'Ufficiali', scuole: 'Scuole militari' };
   const grpHTML = ['base', 'medio', 'dir', 'scuole'].filter((l) => list.some((x) => x.lvl === l)).map((l) => `<div class="grp"><small>${LVG[l]}</small><div class="ctabs">${list.filter((x) => x.lvl === l).map((x) => `<button type="button" role="tab" aria-selected="false" data-k="${x.k}">${x.title}</button>`).join('')}</div></div>`).join('');
   const P = window.CMA_PRODOTTI;
-  const card = (x) => { const items = x.items.map((t, i) => `<li${i >= 5 ? ' class="x"' : ''}>${t}</li>`).join('');
-    return `<article class="pc${x.main ? ' main' : ''}"><span class="pt">${x.tag}</span><h4>${x.name}</h4>${x.price ? `<p class="pr">${x.price}</p>` : '<p class="pr ask">Prezzo su misura · chiedi al consulente</p>'}<p class="plead">${x.lead}</p>${items ? `<ul>${items}</ul>` : ''}${x.items.length > 5 ? `<button class="more" type="button">Vedi tutto (+${x.items.length - 5}) ↓</button>` : ''}${x.guarantee ? `<p class="gua">${x.guarantee}</p>` : ''}<button class="btn ${x.main ? 'btn-red' : 'btn-line'}" type="button" data-lead="${C.n}"><span class="t">Richiedi informazioni →</span></button></article>`; };
+  const card = (x) => { const items = x.items.map((t, i) => Array.isArray(t) ? `<li class="ic${i >= 5 ? ' x' : ''}"><i aria-hidden="true">${t[0]}</i>${t[1]}</li>` : `<li${i >= 5 ? ' class="x"' : ''}>${t}</li>`).join('');
+    return `<article class="pc${x.main ? ' main' : ''}${x.cover ? ' book' : ''}">${x.cover ? '<div class="bcover" aria-hidden="true"><div class="bk"><i class="st"></i><small>Concorsi Militari Academy</small><b>La guida completa ai concorsi</b><span>Forze Armate e di Polizia</span></div></div>' : ''}<span class="pt">${x.tag}</span><h4>${x.name}</h4>${x.sub ? `<p class="psub">${x.sub}</p>` : ''}${x.price ? `<p class="pr">${x.price}</p>` : '<p class="pr ask">Prezzo su misura · chiedi al consulente</p>'}<p class="plead">${x.lead}</p>${x.inside ? `<p class="pin">${x.inside}</p>` : ''}${items ? `<ul>${items}</ul>` : ''}${x.items.length > 5 ? `<button class="more" type="button">Vedi tutto (+${x.items.length - 5}) ↓</button>` : ''}${x.for ? `<div class="pfor"><small>Per i concorsi di</small><div>${x.for.map((f) => `<span>${f}</span>`).join('')}</div></div>` : ''}${x.claim ? `<p class="pclaim">${x.claim}</p>` : ''}${x.guarantee ? `<p class="gua">${x.guarantee}</p>` : ''}<button class="btn ${x.main ? 'btn-red' : 'btn-line'}" type="button" data-lead="${C.n}"><span class="t">Richiedi informazioni →</span></button></article>`; };
   const cards = (arr) => `<div class="pcards n${arr.length}">${arr.map(card).join('')}</div>`;
 
   document.getElementById('main').innerHTML = `
@@ -258,9 +270,9 @@ body{background:var(--ink)}
 
   <section class="gnums" data-theme="dark" aria-label="Concorsi Militari Academy in numeri">
     <div class="wrap"><div class="row" data-count-group>
-      <div class="n" data-reveal><b data-count="6000" data-pre="+">+0</b><span>studenti seguiti, tra scuola e concorsi</span></div>
+      <div class="n" data-reveal><b data-kpi="conc.allievi"></b><span>allievi seguiti da Concorsi Militari Academy</span></div>
       <div class="n" data-reveal><b><span data-count="4.9" data-dec="1">0</span><small>/5</small></b><span>su Trustpilot, su 323 recensioni</span></div>
-      <div class="n" data-reveal><b data-count="95" data-suf="%">0%</b><span>dei nostri allievi supera la prima prova preselettiva</span></div>
+      <div class="n" data-reveal><b data-kpi="conc.prima"></b><span>dei nostri allievi idonei alla prima prova nel 2026</span></div>
       <div class="n" data-reveal><b>N°1</b><span>in Italia per recensioni certificate</span></div>
     </div></div>
   </section>
@@ -323,7 +335,7 @@ body{background:var(--ink)}
     <div class="wrap">
       <p class="k" data-reveal>Risultati e recensioni</p><h2 class="h2 split" id="rsTitle">Risultati veri, <em>raccontati dagli allievi.</em></h2>
       <div class="rhd" data-reveal>
-        <div class="r95"><b>95%</b><p>dei nostri allievi supera la prima prova preselettiva.<small>Dato Concorsi Militari Academy.</small></p></div>
+        <div class="r95"><b>97%</b><p>dei nostri allievi idonei alla prima prova nel 2026.<small>Dato Concorsi Militari Academy.</small></p></div>
         <div class="rg"><small>Garanzia 100%</small><b>O superi il concorso, o ti riprepariamo gratis.</b></div>
         <div class="rt"><b>4,9/5</b><span>su Trustpilot · 323 recensioni</span></div>
       </div>
@@ -356,7 +368,7 @@ body{background:var(--ink)}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=26"></script>
+<script src="assets/lambda.js?v=32"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {

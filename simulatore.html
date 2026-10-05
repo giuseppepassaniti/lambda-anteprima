@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=18">
+<link rel="stylesheet" href="assets/lambda.css?v=21">
 <style>
 /* =================== CMA · Simulatore =================== */
 body{background:var(--ink)}
@@ -104,6 +104,11 @@ body{background:var(--ink)}
 .bc .num span{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(242,241,236,.55)}
 .bc .num.no b{font:700 19px/1.15 var(--font);letter-spacing:-.01em;color:rgba(242,241,236,.85)}
 .bc .note{font-size:13px;line-height:1.4;color:rgba(242,241,236,.55)}
+.bc .src{display:inline-flex;align-self:flex-start;margin-top:auto;align-items:center;gap:7px;padding:6px 10px;border-radius:8px;font:500 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.bc .src i{font-style:normal;font-size:11px}
+.bc .src.off{background:rgba(0,182,122,.12);border:1px solid rgba(0,182,122,.35);color:#bff0dc}
+.bc .src.cma{background:rgba(205,20,31,.14);border:1px solid rgba(205,20,31,.45);color:#ffd2d4} .bc .src.cma i{color:var(--cma-red)}
+.bc .src + .num{margin-top:0}
 .bc .mat{display:flex;height:6px;border-radius:3px;overflow:hidden;gap:2px}
 .bc .mat i{display:block;height:100%;background:var(--hud);opacity:.35}
 .bc .mat i:nth-child(odd){opacity:.7}
@@ -264,12 +269,12 @@ body{background:var(--ink)}
     <div class="wrap">
       <div class="top">
         <div><p class="k" data-reveal>Le banche dati</p><h2 class="h2 split" id="bTitle">Il tuo concorso, <em>domanda per domanda.</em></h2></div>
-        <p class="lead" data-reveal>Molti concorsi pubblicano una banca dati da cui escono le domande della prova scritta. Nel simulatore le trovi divise per materia, pronte per allenarti.</p>
+        <p class="lead" data-reveal>Dove il concorso pubblica una banca dati ufficiale, nel simulatore la trovi divisa per materia. Dove non c’è, ti alleni sulla banca dati creata dai docenti di Concorsi Militari Academy, sulle materie del bando.</p>
       </div>
       <div class="bstats" data-reveal id="bStats"></div>
       <div class="bfil" role="group" aria-label="Filtra per corpo" id="bFil" data-reveal></div>
       <div class="bgrid" id="bGrid"></div>
-      <p class="bdisc" data-reveal>Numeri dall’ultimo bando di ogni concorso, dalla Libretta Tecnica CMA: possono cambiare a ogni nuovo bando.</p>
+      <p class="bdisc" data-reveal>Banche dati ufficiali: numeri dall’ultimo bando di ogni concorso, dalla Libretta Tecnica CMA, possono cambiare a ogni nuovo bando. Banche dati CMA: create e aggiornate dai docenti di Concorsi Militari Academy.</p>
     </div>
   </section>
 
@@ -310,7 +315,7 @@ body{background:var(--ink)}
         <div class="qlist" data-reveal>
         <details class="qa"><summary>Da quali dispositivi posso usarlo?<i>+</i></summary><p>Da PC e da smartphone: puoi allenarti alla scrivania o in pausa, dove ti è più comodo.</p></details>
         <details class="qa"><summary>Ci sono le banche dati del mio concorso?<i>+</i></summary><p>Nel simulatore trovi le banche dati dei concorsi delle Forze Armate e di Polizia, divise per materia. Se hai un dubbio sul tuo concorso, chiedilo al consulente durante il primo colloquio.</p></details>
-        <details class="qa"><summary>E se il mio concorso non pubblica una banca dati?<i>+</i></summary><p>Alcuni concorsi, come Allievi Finanzieri o le Accademie, non hanno una banca dati ufficiale. In quel caso ti alleni sulle materie e sui quesiti di logica previsti dal bando.</p></details>
+        <details class="qa"><summary>E se il mio concorso non pubblica una banca dati?<i>+</i></summary><p>Alcuni concorsi, come Allievi Finanzieri o le Accademie, non hanno una banca dati ufficiale. Per questi c’è la banca dati CMA: quesiti e materiale di studio creati dai nostri docenti sulle materie e sulle prove di logica previste dal bando, gli stessi con cui hanno già preparato migliaia di allievi.</p></details>
         <details class="qa" open><summary>Posso usarlo anche se non sono allievo CMA?<i>+</i></summary><p>Non ancora. Oggi il simulatore è riservato agli allievi di Concorsi Militari Academy, che ricevono le credenziali all'inizio del percorso. Ci stiamo lavorando per aprirlo a tutti: entra in lista d'attesa e ti avvisiamo per primo.</p></details>
         <details class="qa"><summary>Come si accede?<i>+</i></summary><p>Se sei allievo CMA, con le credenziali che ricevi all'inizio del percorso: entra da “Accedi al simulatore”. Se non lo sei, lascia i tuoi contatti in lista d'attesa.</p></details>
         </div>
@@ -367,21 +372,25 @@ window.SIM_URL = '';
     'vft-ei': [26760, 'Si studia quella di VFP4 2024'], 'vft-mm': [26760, 'Si studia quella di VFP4 2024'], 'vft-am': [26760, 'Si studia quella di VFP4 2024'],
     'marescialli-ei': [31196, 'Logico-cognitivi: pubblicazione ridotta'], 'marescialli-mm': [14694, 'Logico-cognitivi: pubblicazione ridotta'], 'allievi-pp': [2965, 'Italiano, educazione civica, storia e altre'],
     'scuole-ei': ['si', 'Argomenti del 1° e 2° anno di liceo'], 'scuole-mm': ['si', 'Argomenti del 1° e 2° anno di liceo'], 'scuole-am': ['si', 'Argomenti del 1° e 2° anno di liceo'],
-    'allievi-gdf': ['no', 'Matematica, logica, grammatica, storia, educazione civica'], 'marescialli-gdf': ['no', 'Quesiti su materie del bando'], 'ufficiali-gdf': ['no', 'Logica-matematica, grammatica, storia'],
+    'allievi-gdf': ['no', 'Matematica, logica, grammatica, storia, educazione civica'], 'marescialli-gdf': ['no', ''], 'ufficiali-gdf': ['no', 'Logica-matematica, grammatica, storia'],
     'ufficiali-ei': ['no', 'Algebra, storia, grammatica, deduzioni logiche'], 'aufp-ei': ['no', 'Logica, cultura generale, inglese'], 'ufficiali-mm': ['no', 'Italiano, matematica, storia'],
     'marescialli-am': ['no', '75 logico-deduttivi, 25 cultura generale'], 'ufficiali-am': ['no', 'Quesiti logico-deduttivi'] };
   const CORPI = window.CMA_CORPI, items = window.CMA_CONCORSI.filter((c) => BD[c.k]).map((c) => ({ ...c, bd: BD[c.k], C: CORPI.find((x) => x.k === c.corpo) }));
   const withN = items.filter((x) => typeof x.bd[0] === 'number');
   const uniq = [...new Map(withN.map((x) => [x.bd[0] + (x.bd[0] === 26760 ? '' : x.k), x.bd[0]])).values()];
   document.getElementById('bStats').innerHTML = `
-    <div><b data-count="${items.filter((x) => x.bd[0] !== 'no').length}">0</b><span>concorsi con banca dati</span></div>
-    <div><b data-count="${Math.max(...uniq)}" data-fmt="it">0</b><span>quesiti nella più grande</span></div>
-    <div><b data-count="${CORPI.filter((c) => items.some((x) => x.corpo === c.k)).length}">0</b><span>corpi</span></div>`;
+    <div><b data-count="${items.filter((x) => x.bd[0] !== 'no').length}">0</b><span>banche dati ufficiali</span></div>
+    <div><b data-count="${items.filter((x) => x.bd[0] === 'no').length}">0</b><span>banche dati create dai docenti CMA</span></div>
+    <div><b data-count="${Math.max(...uniq)}" data-fmt="it">0</b><span>quesiti nella più grande</span></div>`;
   const corpiIn = CORPI.filter((c) => items.some((x) => x.corpo === c.k));
   document.getElementById('bFil').innerHTML = `<button type="button" aria-pressed="true" data-c="">Tutti</button>` + corpiIn.map((c) => `<button type="button" aria-pressed="false" data-c="${c.k}"><i style="background:${c.color}"></i>${c.n}</button>`).join('');
   const card = (x) => {
-    const n = x.bd[0], num = typeof n === 'number' ? `<div class="num"><b data-n="${n}">${FMT(n)}</b><span>quesiti</span></div>` : n === 'si' ? `<div class="num no"><b>Con banca dati</b></div>` : `<div class="num no"><b>Senza banca dati</b></div>`;
-    return `<article class="bc" data-corpo="${x.corpo}" data-soldier-card style="--c:${x.C.color}"><div class="bv" data-soldier="${x.corpo}" data-lvl="${x.lvl}"><span>${x.C.code}</span></div><div class="hd"><div><small>${x.C.n}</small><b>${x.title}</b></div></div>${num}<p class="note">${x.bd[1]}</p><a class="go" href="corpo.html?c=${x.corpo}">Scheda del concorso →</a></article>`;
+    const n = x.bd[0], off = n !== 'no';
+    // banca dati ufficiale del concorso, oppure banca dati e materiale creati dai docenti CMA
+    const src = off ? `<p class="src off"><i>✓</i>Banca dati ufficiale</p>` : `<p class="src cma"><i>★</i>Banca dati CMA</p>`;
+    const num = typeof n === 'number' ? `<div class="num"><b data-n="${n}">${FMT(n)}</b><span>quesiti ufficiali</span></div>` : n === 'si' ? `<div class="num no"><b>Banca dati ufficiale</b></div>` : `<div class="num no"><b>Creata dai docenti di Concorsi Militari Academy</b></div>`;
+    const note = off ? x.bd[1] : `Quesiti e materiale di studio preparati dai nostri docenti sulle materie del bando${x.bd[1] ? ` (${x.bd[1].charAt(0).toLowerCase() + x.bd[1].slice(1)})` : ''}: gli stessi con cui hanno già preparato migliaia di allievi.`;
+    return `<article class="bc" data-corpo="${x.corpo}" data-soldier-card style="--c:${x.C.color}"><div class="bv" data-soldier="${x.corpo}" data-lvl="${x.lvl}"><span>${x.C.code}</span></div><div class="hd"><div><small>${x.C.n}</small><b>${x.title}</b></div></div>${src}${num}<p class="note">${note}</p><a class="go" href="corpo.html?c=${x.corpo}">Scheda del concorso →</a></article>`;
   };
   // prima i concorsi con più quesiti
   items.sort((a, b) => (typeof b.bd[0] === 'number' ? b.bd[0] : b.bd[0] === 'si' ? 1 : 0) - (typeof a.bd[0] === 'number' ? a.bd[0] : a.bd[0] === 'si' ? 1 : 0));
@@ -390,7 +399,7 @@ window.SIM_URL = '';
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=26"></script>
+<script src="assets/lambda.js?v=32"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {

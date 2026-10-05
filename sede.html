@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=18">
+<link rel="stylesheet" href="assets/lambda.css?v=21">
 <style>
 /* =================== LAMBDA · template della singola sede =================== */
 .soon-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px dashed currentColor;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;opacity:.65}
@@ -244,7 +244,7 @@ body[data-branch="conc"] .sec-title em{color:#CD141F}
 <main id="main"></main>
 <div data-lambda-footer></div>
 
-<script src="assets/sedi-info.js?v=6"></script>
+<script src="assets/sedi-info.js?v=7"></script>
 <script>
 /* ---------- costruzione della pagina dai dati della sede (prima del motore) ---------- */
 (() => {
@@ -271,8 +271,6 @@ body[data-branch="conc"] .sec-title em{color:#CD141F}
   const realGallery = S.photos.slice(0, 6).map((p, i) => `<button type="button" class="gtile real" data-stop="${p.stop}" aria-label="${p.label}: vedi nel tour 3D"><img src="${p.src}" alt="${p.alt}" loading="lazy"><span class="gcap"><small>Tappa ${String(p.stop + 1).padStart(2, '0')} del tour</small><b>${p.label}</b><em>Vedi nel tour 3D →</em></span></button>`).join('');
   const gallery = REAL ? realGallery : [...S.photos.slice(0, 5).map((p) => `<figure class="gtile"><img src="${p.src}" alt="${p.alt}" loading="lazy"></figure>`), ...PH.slice(S.photos.length, 5).map(([b, s, i]) => `<figure class="gtile">${ph(b, s, i)}</figure>`)].slice(0, 5).join('');
   const hours = S.hours.length ? S.hours.map(([d, h]) => `<li><b>${d}</b><span>${h}</span></li>`).join('') : (SOON ? [['Apertura', soon(S.opening)], ['Orari', soon('in arrivo')]] : [['Lunedì – Venerdì', soon()], ['Sabato', soon()]]).map(([d, v]) => `<li><b>${d}</b><span>${v}</span></li>`).join('');
-  const tutors = S.tutors.length ? S.tutors.slice(0, 3).map((t) => `<div class="tc"><div class="ph"><img src="${t.photo}" alt="${t.name}"></div><div><b>${t.name}</b><small>${t.role}</small></div></div>`).join('')
-    : [1, 2, 3].map(() => `<div class="tc"><div class="ph"><svg viewBox="0 0 100 80" aria-hidden="true"><circle cx="50" cy="30" r="15" fill="#184E61" opacity=".5"/><path d="M20 80c3-22 15-32 30-32s27 10 30 32z" fill="#184E61" opacity=".5"/></svg></div><div><b>Tutor della sede</b><small>Profilo e foto in arrivo</small></div></div>`).join('');
   const others = Object.entries(I).filter(([k]) => k !== key).map(([k, o]) => `<a class="ol" href="sede.html?c=${k}"><small>${o.region}</small><b>Lambda ${o.name}</b><span>${o.opening ? `Apre a ${o.opening.split(' ')[0]} →` : 'Scopri la sede →'}</span></a>`).join('')
     + `<a class="ol" href="test.html"><small>Ovunque in Italia</small><b>Online</b><span>Inizia dal test →</span></a>`;
   const LK = window.SEDE_LINKS(key);
@@ -398,16 +396,6 @@ body[data-branch="conc"] .sec-title em{color:#CD141F}
     </div>
   </section>
 
-  <section class="team sheet" data-theme="light" aria-labelledby="tmTitle">
-    <div class="wrap">
-      <p class="eyebrow" data-reveal>Le persone</p>
-      <h2 class="sec-title split" id="tmTitle">I tutor di ${N}, <em>e cosa dicono le famiglie.</em></h2>
-      <div class="tgrid" data-reveal>
-        ${tutors}
-        <div class="tp"><div class="stars"><i></i><i></i><i></i><i></i><i></i></div><div class="big" style="margin-top:14px">4,9</div><p>su Trustpilot, per tutta Lambda. Le recensioni delle famiglie di ${N} arriveranno qui.</p><a href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">Leggi le recensioni →</a></div>
-      </div>
-    </div>
-  </section>
 
   <section class="visit sheet" id="visita" data-theme="light" aria-labelledby="vTitle">
     <div class="wrap">
@@ -467,7 +455,7 @@ body[data-branch="conc"] .sec-title em{color:#CD141F}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=26"></script>
+<script src="assets/lambda.js?v=32"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {
@@ -490,6 +478,6 @@ gsap.set('#logo', { autoAlpha: 1 });
 </script>
 <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
 <script type="module" src="assets/sede3d.js?v=6"></script>
-<script type="module" src="assets/sede-tour.js?v=19"></script>
+<script type="module" src="assets/sede-tour.js?v=21"></script>
 </body>
 </html>

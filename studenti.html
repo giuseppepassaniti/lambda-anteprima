@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=18">
+<link rel="stylesheet" href="assets/lambda.css?v=21">
 <style>
 /* =================== LAMBDA · home del ramo studenti =================== */
 
@@ -165,11 +165,11 @@
 .numbers{position:relative;background:var(--deep);padding:clamp(80px,12vh,130px) 0 clamp(110px,15vh,160px)}
 .numbers .eyebrow{text-align:center;color:rgba(255,255,255,.55)}
 .numbers .eyebrow b{color:var(--warm);font-weight:500}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:44px}
 .stat{position:relative;padding:34px 28px 10px;text-align:left}
 .stat::before{content:"";position:absolute;left:28px;right:28px;top:0;height:1px;background:rgba(255,255,255,.18);transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease)}
 .stat.in::before{transform:scaleX(1)}
-.stat .v{font:700 clamp(52px,6vw,96px)/1 var(--font);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.stat .v{font:700 clamp(46px,5vw,84px)/1 var(--font);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
 .stat .v small{font-size:.45em;letter-spacing:-.02em;color:rgba(255,255,255,.6);margin-left:4px}
 .stat .l{margin-top:12px;font-size:16px;line-height:1.4;color:rgba(255,255,255,.66);max-width:22ch}
 .stat .stars{margin-top:14px}
@@ -292,7 +292,8 @@
 .final h2 .l2{color:var(--warm)}
 
 @media (max-width: 1100px){ .ages{grid-template-columns:repeat(3,1fr)} }
-@media (max-width: 980px){ .stats{grid-template-columns:1fr 1fr;row-gap:20px} .sedi .grid,.diag .grid{grid-template-columns:1fr} .dcard{position:relative;top:auto} }
+@media (max-width: 1240px){ .stat{padding:30px 16px 10px} }
+@media (max-width: 980px){ .stats{grid-template-columns:1fr 1fr;row-gap:20px} .stat:last-child{grid-column:1/-1} .sedi .grid,.diag .grid{grid-template-columns:1fr} .dcard{position:relative;top:auto} }
 @media (max-width: 860px){
   .lhero .content{padding-right:var(--gutter);padding-bottom:290px}
   .focus{height:auto} .focus .stage{position:relative;height:auto;padding:120px 24px 100px}
@@ -360,7 +361,7 @@
       </div>
       <ul class="trust" data-reveal>
         <li><span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span><b>4,9</b> su Trustpilot</span></li>
-        <li><span><b>6000+</b> studenti aiutati</span></li>
+        <li><span><b>+100</b> docenti esperti in apprendimento</span></li>
       </ul>
     </div>
     <svg class="lens" id="lens" aria-hidden="true"></svg>
@@ -371,10 +372,11 @@
     <div class="wrap">
       <p class="eyebrow" data-reveal><b>●</b> 100% online · in tutta Italia · dal lunedì al sabato</p>
       <div class="stats">
-        <div class="stat" data-reveal><div class="v" data-count="6000" data-pre="+">+0</div><p class="l">studenti aiutati a trovare il loro metodo</p></div>
-        <div class="stat" data-reveal><div class="v"><span data-count="4.9" data-dec="1">0</span><small>/5</small></div><div class="stars"><i></i><i></i><i></i><i></i><i></i></div><p class="l">su Trustpilot</p></div>
-        <div class="stat" data-reveal><div class="v">N°1</div><p class="l">in Italia per recensioni certificate</p></div>
-        <div class="stat" data-reveal><div class="v" data-count="100" data-suf="%">0%</div><p class="l">garanzia: vi accompagniamo fino all'obiettivo</p></div>
+        <div class="stat" data-reveal><div class="v" data-kpi="stud.ore"></div><p class="l">ore di lezione erogate al mese</p></div>
+        <div class="stat" data-reveal><div class="v" data-kpi="stud.allievi"></div><p class="l">allievi seguiti</p></div>
+        <div class="stat" data-reveal><div class="v" data-kpi="stud.docenti"></div><p class="l">docenti esperti in apprendimento</p></div>
+        <div class="stat" data-reveal><div class="v" data-kpi="stud.genitori"></div><p class="l">dei genitori soddisfatti</p></div>
+        <div class="stat" data-reveal><div class="v" data-kpi="stud.autonomi"></div><p class="l">degli allievi autonomi nello studio dopo 20 giorni</p></div>
       </div>
     </div>
   </section>
@@ -535,7 +537,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=26"></script>
+<script src="assets/lambda.js?v=32"></script>
 <script src="assets/pains.js?v=1"></script>
 <script src="assets/lead.js?v=4"></script>
 <script>
@@ -672,7 +674,7 @@
 </script>
 <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
 <script type="module" src="assets/intro3d.js?v=2"></script>
-<script src="assets/sedi-info.js?v=6"></script>
+<script src="assets/sedi-info.js?v=7"></script>
 <script type="module" src="assets/sedi-map3d.js?v=2"></script>
 </body>
 </html>

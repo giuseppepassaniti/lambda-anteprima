@@ -387,7 +387,7 @@ body.light-hdr .hdr-tutor:hover{border-color:var(--navy)}
 .press-in{display:flex;align-items:center;gap:clamp(18px,3vw,44px)}
 .press-k{flex-shrink:0;max-width:11ch;font:500 11px/1.5 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--warm)}
 .press-track{flex:1;min-width:0;display:flex;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.press-row{flex-shrink:0;display:flex;align-items:center;gap:clamp(40px,5vw,76px);padding-right:clamp(40px,5vw,76px);list-style:none;margin:0;animation:press-run 38s linear infinite}
+.press-row{flex-shrink:0;display:flex;align-items:center;gap:clamp(40px,5vw,76px);padding-right:clamp(40px,5vw,76px);list-style:none;margin:0;animation:press-run 70s linear infinite}
 .press-track:hover .press-row{animation-play-state:paused}
 @keyframes press-run{to{transform:translateX(-100%)}}
 .pl{flex-shrink:0;white-space:nowrap;color:rgba(255,255,255,.62);transition:color .3s;line-height:1}
@@ -413,3 +413,21 @@ body[data-branch="gate"] .press{background:#0a141b} body[data-branch="gate"] .pr
 .foot-gate .foot-wa{display:flex;width:max-content;max-width:100%;margin:22px 0 4px}
 /* community Telegram per chi prepara i concorsi (footer CMA) */
 .foot-tg{background:rgba(42,171,238,.1);border-color:rgba(42,171,238,.4)} .foot-tg:hover{background:rgba(42,171,238,.18);border-color:#2AABEE} .foot-tg svg{background:#2AABEE;padding:7px}
+/* testate: logo ufficiale (se fornito) in un solo colore, link all'articolo */
+.pl img{display:block;height:30px;width:auto;max-width:180px;object-fit:contain;filter:grayscale(1) brightness(0) invert(1);opacity:.62;transition:opacity .3s}
+.pl a{color:inherit;display:inline-flex;align-items:center;gap:inherit} .pl a:hover img{opacity:1}
+.press.light .pl img{filter:grayscale(1) brightness(0);opacity:.55}
+/* testate aggiunte (ottobre 2026): loghi ricostruiti in tipografia, monocromatici */
+.pl-ilgiorno{font:700 28px/1 Georgia,'Times New Roman',serif;letter-spacing:.06em;text-transform:uppercase}
+.pl-tgcom{display:flex;align-items:center;gap:5px;font:800 26px/1 var(--font);letter-spacing:-.03em} .pl-tgcom span{padding:3px 6px 2px;border-radius:5px;background:currentColor;font-size:.7em} .pl-tgcom span{color:var(--deep);background:rgba(255,255,255,.62)}
+.pl-millionaire{font:800 28px/1 var(--font);letter-spacing:-.045em}
+.pl-quotidiano{font:700 italic 28px/1 Georgia,'Times New Roman',serif;letter-spacing:-.01em}
+.pl-nexteco{font:300 25px/1 var(--font);letter-spacing:-.02em} .pl-nexteco b{font-weight:800;letter-spacing:.04em;margin-right:4px}
+.pl-millennium,.pl-inblu{display:flex;flex-direction:column;align-items:flex-start;gap:2px} .pl-millennium span,.pl-inblu span{font:500 10px/1 var(--mono);letter-spacing:.3em;text-transform:uppercase} .pl-millennium b{font:700 24px/1 var(--font);letter-spacing:-.02em} .pl-inblu b{font:800 26px/1 var(--font);letter-spacing:-.03em}
+.press.light .pl-tgcom span{color:#fff;background:rgba(14,33,46,.55)}
+body[data-branch="conc"] .pl-tgcom span{color:#0b0c0a;background:rgba(242,241,236,.6)}
+@media (max-width: 700px){ .pl-ilgiorno,.pl-millionaire,.pl-quotidiano,.pl-tgcom{font-size:22px} .pl-nexteco,.pl-millennium b,.pl-inblu b{font-size:20px} }
+
+/* KPI non ancora arrivato: segnaposto visibile (vedi L.KPI in lambda.js) */
+.kpi-todo{position:relative;opacity:.5}
+.kpi-todo::after{content:'dato da inserire';display:block;margin-top:6px;font:500 10px/1 var(--mono, monospace);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
