@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vacanze studio a Malta · Centro Studi Lambda</title>
+<meta name="description" content="Vacanze studio a Malta con Centro Studi Lambda: corso d'inglese in college, alloggio, attività ed escursioni. Anche con il Metodo di studio FOCUS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=23">
+<style>
+/* =====================================================================
+   LAMBDA · Vacanze studio a Malta (prodotto dell'ecosistema Lambda)
+   Palette mediterranea dentro la famiglia Lambda: mare profondo, acqua, pietra calcarea, sole.
+   ===================================================================== */
+body{--sea:#0b4f6c;--sea-2:#0f6e8c;--sky:#cfeaf2;--sand:#f7f1e6;--lime:#ead6ac;--stone:#d2ad72;--ink:#0E212E;--blue:#1f6fd1;background:var(--sand)}
+.hand{font-family:'Caveat',cursive;font-weight:700;letter-spacing:0}
+.vs-eye{font:500 12px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--sea-2)}
+.vs-h2{font:700 clamp(36px,4.6vw,68px)/.98 var(--font);letter-spacing:-.045em;color:var(--ink);text-wrap:balance}
+.vs-h2 em{font-style:normal;color:var(--sea-2)}
+.vs-lead{margin-top:16px;max-width:54ch;font-size:clamp(16px,1.35vw,19px);line-height:1.5;color:#3d5664}
+.btn-sea{background:var(--ink);color:#fff}.btn-sea:hover{box-shadow:0 14px 40px -12px var(--ink)}
+.btn-line-d{border:1.5px solid rgba(14,33,46,.28);color:var(--ink)}.btn-line-d:hover{border-color:var(--ink);background:rgba(14,33,46,.04)}
+
+/* ---------------- HERO: Malta all'ora d'oro, a strati ---------------- */
+.vh{position:relative;min-height:100svh;overflow:hidden;color:var(--ink);background:linear-gradient(180deg,#8fd0e6 0%,#cbe9ef 38%,#ffe6bd 70%,#ffd59a 100%)}
+.vh svg.scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+.vh .lay{will-change:transform}
+.vh .wrap{position:relative;z-index:3;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:calc(var(--hdr) + 20px);padding-bottom:clamp(150px,22vh,230px)}
+.vh .vs-eye{color:#0b5e78}
+.vh h1{margin-top:18px;max-width:11.5ch;font:700 clamp(46px,7.2vw,112px)/.92 var(--font);letter-spacing:-.055em;text-wrap:balance}
+.vh h1 em{font-style:normal;position:relative;color:#0b4f6c}
+.vh h1 em .hl{position:absolute;left:-.04em;right:-.04em;bottom:.06em;height:.26em;background:var(--warm);z-index:-1;border-radius:4px;transform-origin:left;transform:scaleX(0);transition:transform 1.2s var(--ease) .7s}
+.vh h1.in em .hl{transform:scaleX(1)}
+.vh .lead{margin-top:22px;max-width:46ch;font-size:clamp(16px,1.4vw,20px);line-height:1.5;color:#21414f}
+.vh .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.note{position:absolute;z-index:3;right:clamp(16px,6vw,110px);top:calc(var(--hdr) + 30px);font-size:clamp(22px,2vw,30px);line-height:1.15;color:#123a4c;transform:rotate(4deg);text-align:left}
+.note span{display:block;opacity:0;transform:translateY(8px);transition:opacity .6s,transform .6s var(--ease)}
+.note.in span{opacity:1;transform:none}
+.note.in span:nth-child(2){transition-delay:.25s}.note.in span:nth-child(3){transition-delay:.5s}.note.in span:nth-child(4){transition-delay:.75s}
+.wave{stroke-dasharray:22 34;animation:wv 9s linear infinite}
+.wave.b{animation-duration:13s;animation-direction:reverse}
+@keyframes wv{to{stroke-dashoffset:-560}}
+.boat{animation:bob 4.2s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 80%}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+.gull{animation:gl 16s linear infinite}
+@keyframes gl{from{transform:translateX(-120px)}to{transform:translateX(1800px)}}
+.plane-trail{stroke-dasharray:6 10}
+
+/* striscia dei vantaggi, a cavallo dell'hero */
+.feat{position:relative;z-index:4;margin-top:clamp(-110px,-11vh,-80px)}
+.feat .in{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:#fff;border-radius:26px;box-shadow:0 40px 80px -40px rgba(11,79,108,.45),0 1px 0 rgba(14,33,46,.05);padding:10px}
+.feat .f{padding:22px 16px;text-align:center;color:var(--ink);position:relative}
+.feat .f+.f::before{content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:rgba(14,33,46,.1)}
+.feat svg{width:40px;height:40px;fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feat b{display:block;margin-top:10px;font-size:15px;letter-spacing:-.01em}
+.feat small{display:block;margin-top:3px;font-size:13px;color:#5b7380}
+
+/* ---------------- DUE MODI ---------------- */
+.modes{padding:clamp(90px,12vh,140px) 0 clamp(60px,8vh,90px);color:var(--ink)}
+.modes .top{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.modes .hand{font-size:clamp(24px,2.2vw,32px);line-height:1.15;color:#123a4c;transform:rotate(-3deg);justify-self:end;text-align:left;position:relative}
+.modes .hand svg{position:absolute;left:-64px;bottom:-36px;width:70px;fill:none;stroke:#123a4c;stroke-width:2;stroke-linecap:round}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:46px}
+.opt{position:relative;display:flex;flex-direction:column;border-radius:28px;background:#fff;overflow:hidden;box-shadow:0 30px 70px -45px rgba(11,79,108,.5);transition:transform .5s var(--ease),box-shadow .5s}
+.opt:hover{transform:translateY(-6px);box-shadow:0 40px 80px -40px rgba(11,79,108,.55)}
+.opt .art{position:relative;height:clamp(170px,17vw,230px);overflow:hidden}
+.opt .art svg{position:absolute;inset:0;width:100%;height:100%}
+.opt .badge{position:absolute;left:20px;top:20px;z-index:2;padding:8px 12px;border-radius:9px;font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.opt.o1 .badge{background:var(--blue);color:#fff}.opt.o2 .badge{background:var(--warm);color:var(--ink)}
+.opt .rec{position:absolute;right:20px;top:20px;z-index:2;padding:8px 12px;border-radius:999px;background:var(--ink);color:var(--warm);font:700 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.opt .body{padding:26px 28px 28px;display:flex;flex-direction:column;flex:1}
+.opt h3{font:700 clamp(24px,2.2vw,30px)/1.05 var(--font);letter-spacing:-.035em}
+.opt .sub{margin-top:6px;color:#4c6572;font-size:15.5px}
+.opt ul{list-style:none;display:grid;gap:11px;margin:20px 0 26px}
+.opt li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.4}
+.opt li i{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;margin-top:-1px}
+.opt li i svg{width:12px;height:12px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.opt.o1 li i{background:var(--blue)}.opt.o2 li i{background:#e9b52f}
+.opt li.plus{font-weight:700}
+.opt .btn{margin-top:auto;justify-content:center}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{box-shadow:0 14px 40px -12px var(--blue)}
+.btn-warm{background:var(--warm);color:var(--ink)}.btn-warm:hover{box-shadow:0 14px 40px -12px #e9b52f}
+
+/* ---------------- CONFRONTA ---------------- */
+.cmp{padding:clamp(40px,6vh,70px) 0 clamp(90px,12vh,140px);color:var(--ink)}
+.cmp .top{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.cmp .hand{font-size:clamp(22px,2vw,28px);color:#123a4c;transform:rotate(-4deg)}
+.ctab{margin-top:36px;border-radius:26px;background:#fff;box-shadow:0 30px 70px -50px rgba(11,79,108,.5);overflow:hidden}
+.crow{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr);align-items:center}
+.crow>div{padding:15px 22px}
+.crow+.crow{border-top:1px solid rgba(14,33,46,.07)}
+.crow .lab{display:flex;align-items:center;gap:14px;font-size:15.5px;color:#2e4a58}
+.crow .lab svg{flex-shrink:0;width:22px;height:22px;fill:none;stroke:#5a7684;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.crow .c{text-align:center;height:100%;display:grid;place-items:center}
+.crow .c1{background:rgba(31,111,209,.05)}.crow .c2{background:rgba(255,214,107,.16)}
+.crow.hd .c{padding:22px 14px;font-weight:700;font-size:15px;line-height:1.25}.crow.hd .c small{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-top:6px;opacity:.6}
+.crow.hd .c1{background:rgba(31,111,209,.14);color:#174f96}.crow.hd .c2{background:rgba(255,214,107,.5)}
+.ck{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;transform:scale(0);transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
+.ck svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.c1 .ck{background:var(--blue)}.c2 .ck{background:#e9b52f}
+.ctab.in .ck{transform:scale(1)}
+.dash{width:16px;height:2px;border-radius:2px;background:rgba(14,33,46,.22)}
+.crow.focus .lab{color:var(--ink);font-weight:700}
+
+/* ---------------- GIORNATA TIPO: il sole attraversa il cielo ---------------- */
+.day{position:relative;height:520vh;background:#0b2232}
+.day .stage{position:sticky;top:0;height:100svh;overflow:hidden;color:#fff}
+.day .sky{position:absolute;inset:0}
+.day svg.dsc{position:absolute;inset:0;width:100%;height:100%}
+.day .wrap{position:relative;z-index:2;height:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:30px;padding-top:var(--hdr)}
+.day .hd .vs-eye{color:rgba(255,255,255,.85)}
+.day .hd h2{margin-top:14px;font:700 clamp(36px,4.6vw,68px)/.98 var(--font);letter-spacing:-.045em;text-wrap:balance;text-shadow:0 2px 30px rgba(0,0,0,.15)}
+.day .hd p{margin-top:14px;font-size:17px;color:rgba(255,255,255,.85);max-width:36ch}
+.ev{position:relative;justify-self:end;width:min(440px,100%);min-height:260px}
+.ev .card{position:absolute;inset:0 0 auto;padding:28px 30px;border-radius:28px;background:rgba(8,22,31,.38);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(255,255,255,.18);opacity:0;transform:translateY(24px) scale(.98);transition:opacity .5s,transform .6s var(--ease)}
+.ev .card.on{opacity:1;transform:none}
+.ev .t{font:700 clamp(54px,6vw,84px)/1 'JetBrains Mono',monospace;letter-spacing:-.04em}
+.ev h3{margin-top:12px;font:700 26px/1.1 var(--font);letter-spacing:-.03em}
+.ev p{margin-top:10px;font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.85)}
+.ev .chip{display:inline-block;margin-top:14px;padding:7px 11px;border-radius:999px;background:var(--warm);color:var(--ink);font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.ev .ic{position:absolute;right:26px;top:28px;width:46px;height:46px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.tl{position:absolute;z-index:2;left:var(--gutter);right:var(--gutter);bottom:clamp(24px,5vh,46px);display:grid;grid-template-columns:repeat(6,1fr);max-width:1240px;margin:0 auto}
+.tl::before{content:"";position:absolute;left:8px;right:8px;top:7px;height:2px;background:rgba(255,255,255,.25)}
+.tl .bar{position:absolute;left:8px;top:7px;height:2px;background:#fff;width:0}
+.tl span{position:relative;font:500 11px/1.3 var(--mono);letter-spacing:.06em;color:rgba(255,255,255,.6);padding-top:24px;transition:color .3s}
+.tl span::before{content:"";position:absolute;left:0;top:0;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.25);border:2px solid transparent;transition:background .3s,transform .4s var(--ease)}
+.tl span.on{color:#fff}.tl span.on::before{background:#fff;transform:scale(1.15)}
+.tl span b{display:block;font-size:13px;color:inherit}
+
+/* ---------------- IL COLLEGE ---------------- */
+.col{padding:clamp(100px,13vh,150px) 0 clamp(60px,8vh,90px);color:var(--ink)}
+.cgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px}
+.cc{border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 26px 60px -44px rgba(11,79,108,.5)}
+.cc .il{aspect-ratio:4/3;position:relative}
+.cc .il svg{position:absolute;inset:0;width:100%;height:100%}
+.cc b{display:block;padding:18px 20px 4px;font-size:17px;letter-spacing:-.02em}
+.cc p{padding:0 20px 20px;font-size:14px;line-height:1.45;color:#56707d}
+.cnote{margin-top:16px;font:500 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#7a8f99}
+
+/* ---------------- MALTA: la mappa ---------------- */
+.mt{padding:clamp(60px,8vh,90px) 0 clamp(100px,13vh,150px);color:var(--ink)}
+.mgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,60px);align-items:center;margin-top:30px}
+.map{position:relative;border-radius:32px;overflow:hidden;background:radial-gradient(ellipse 80% 70% at 60% 50%,#3fb3cf 0%,#1b88aa 55%,#0f6a88 100%);aspect-ratio:1.12;box-shadow:inset 0 0 0 1px rgba(255,255,255,.15),0 40px 80px -50px rgba(11,79,108,.7)}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .isl{fill:#efdcb4;stroke:#fff6e2;stroke-width:2}
+.map .isl-sh{fill:rgba(6,50,70,.35)}
+.map .route{fill:none;stroke:#fff;stroke-width:2;stroke-dasharray:4 7;opacity:.8;animation:wv 30s linear infinite}
+.pin{cursor:pointer}
+.pin .halo{fill:var(--warm);opacity:.35;transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+.pin .dot{fill:var(--ink);stroke:#fff;stroke-width:3;transition:fill .3s}
+.pin.on .dot,.pin:hover .dot{fill:#e9b52f}
+.pin text{font:700 15px var(--font);fill:var(--ink);paint-order:stroke;stroke:#fff6e2;stroke-width:5px;stroke-linejoin:round}
+@keyframes pulse{0%{transform:scale(.6);opacity:.55}100%{transform:scale(2.2);opacity:0}}
+.mlist{display:grid;gap:10px}
+.mi{display:flex;gap:16px;align-items:center;padding:16px 18px;border-radius:20px;background:#fff;border:1.5px solid transparent;text-align:left;transition:border-color .3s,transform .4s var(--ease),box-shadow .4s;box-shadow:0 20px 50px -44px rgba(11,79,108,.6)}
+.mi svg{flex-shrink:0;width:38px;height:38px;fill:none;stroke:var(--blue);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.mi b{display:block;font-size:16px;letter-spacing:-.01em}.mi small{display:block;margin-top:3px;font-size:13.5px;line-height:1.4;color:#5b7380}
+.mi.on{border-color:var(--blue);transform:translateX(6px)}
+
+/* ---------------- ESPERIENZE ---------------- */
+.exp{padding:clamp(80px,11vh,120px) 0;background:#fff;color:var(--ink)}
+.egrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.ex{padding:26px;border-radius:24px;background:var(--sand);position:relative}
+.ex .av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:18px;color:#fff}
+.ex q{display:block;margin-top:16px;font-size:16.5px;line-height:1.5;quotes:"“" "”"}
+.ex .stars{margin-top:14px}
+.ex small{display:block;margin-top:10px;font-size:13.5px;color:#5b7380}
+.ph-tag{position:absolute;right:16px;top:16px;padding:5px 8px;border-radius:6px;background:rgba(14,33,46,.07);font:500 9.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#6b818c}
+
+/* ---------------- CTA FINALE: il tramonto ---------------- */
+.vend{position:relative;overflow:hidden;color:#fff;background:linear-gradient(180deg,#2b2546 0%,#7c3f5e 34%,#e2784c 62%,#f7b55a 78%,#14394c 78.2%,#0b2232 100%);padding:clamp(120px,16vh,180px) 0 clamp(140px,20vh,220px)}
+.vend svg{position:absolute;left:0;right:0;bottom:0;width:100%;height:56%}
+.vend .wrap{position:relative;z-index:2}
+.vend h2{max-width:16ch;font:700 clamp(40px,5.4vw,84px)/.96 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.vend h2 em{font-style:normal;color:var(--warm)}
+.vend p{margin-top:18px;max-width:48ch;font-size:clamp(16px,1.4vw,19px);line-height:1.5;color:rgba(255,255,255,.85)}
+.vend .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.vend .hand{position:absolute;right:clamp(16px,7vw,120px);top:clamp(110px,15vh,170px);font-size:clamp(22px,2vw,30px);line-height:1.15;transform:rotate(5deg);color:#ffe7c2;z-index:2}
+
+@media (max-width: 1100px){ .feat .in{grid-template-columns:repeat(3,minmax(0,1fr))} .feat .f:nth-child(4)::before{display:none} .cgrid{grid-template-columns:repeat(2,minmax(0,1fr))} .mgrid{grid-template-columns:minmax(0,1fr)} }
+@media (max-width: 860px){
+  .note{display:none} .modes .top{grid-template-columns:1fr} .modes .hand{justify-self:start;margin-left:70px} .opts{grid-template-columns:minmax(0,1fr)}
+  .day .wrap{grid-template-columns:minmax(0,1fr);align-content:start;gap:22px;padding-top:calc(var(--hdr) + 18px)} .ev{justify-self:stretch;min-height:250px} .day .hd p{display:none}
+  .tl span b{font-size:11px} .tl span{font-size:0;letter-spacing:0} .egrid{grid-template-columns:minmax(0,1fr)} .vend .hand{position:relative;right:auto;top:auto;margin-bottom:24px;display:block}
+}
+@media (max-width: 600px){
+  .feat .in{grid-template-columns:repeat(2,minmax(0,1fr))} .feat .f:nth-child(odd)::before{display:none} .feat .f:last-child{grid-column:1/-1} .feat .f:nth-child(4)::before{display:block}
+  .crow{grid-template-columns:minmax(0,1.4fr) 64px 64px} .crow>div{padding:13px 12px} .crow .lab{font-size:14px;gap:10px} .crow .lab svg{display:none} .crow.hd .c{font-size:11.5px;padding:16px 4px} .crow.hd .c small{display:none}
+  .cgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px} .cc b{padding:14px 14px 2px;font-size:15px} .cc p{padding:0 14px 14px;font-size:13px}
+  .cmp .top{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion: reduce){ .wave,.boat,.gull,.pin .halo,.map .route{animation:none} }
+</style>
+</head>
+<body data-page="vacanze" data-branch="stud">
+<div data-lambda-header></div>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="vh" data-theme="light" aria-labelledby="vTitle">
+    <svg class="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="sunG" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff6d8"/><stop offset=".35" stop-color="#ffe08a" stop-opacity=".9"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>
+        <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3aa9c4"/><stop offset=".5" stop-color="#1c86a6"/><stop offset="1" stop-color="#0b4f6c"/></linearGradient>
+        <linearGradient id="stoneG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3dfb6"/><stop offset="1" stop-color="#d8b47a"/></linearGradient>
+        <linearGradient id="stoneF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ead1a0"/><stop offset="1" stop-color="#c99a5c"/></linearGradient>
+      </defs>
+      <g class="lay" data-depth="0.05"><circle cx="1210" cy="430" r="230" fill="url(#sunG)"/><circle cx="1210" cy="430" r="62" fill="#fff3cf"/></g>
+      <g class="lay" data-depth="0.1" opacity=".55" fill="#e7c896">
+        <path d="M0 620 L0 585 L120 580 L170 560 L260 566 L330 548 L420 556 L520 540 L600 552 L640 600 Z"/>
+      </g>
+      <!-- La Valletta: bastioni, cupola, campanili, guglia -->
+      <g class="lay" data-depth="0.18" id="city"></g>
+      <g class="gull" fill="none" stroke="#33515f" stroke-width="2.4" stroke-linecap="round"><path d="M100 250 q12 -10 22 0 q10 -10 22 0"/><path d="M160 290 q9 -8 17 0 q8 -8 17 0"/></g>
+      <!-- il mare -->
+      <g class="lay" data-depth="0.3">
+        <rect x="-50" y="660" width="1700" height="300" fill="url(#seaG)"/>
+        <path d="M-50 660 H1650" stroke="#bfe9f2" stroke-width="2" opacity=".6"/>
+        <g fill="none" stroke="#e9fbff" stroke-width="2.4" stroke-linecap="round" opacity=".55">
+          <path class="wave" d="M-40 700 H1640"/><path class="wave b" d="M-40 745 H1640"/><path class="wave" d="M-40 800 H1640"/><path class="wave b" d="M-40 862 H1640"/>
+        </g>
+        <!-- riflesso del sole -->
+        <g fill="#fff3cf" opacity=".7"><rect x="1150" y="676" width="120" height="4" rx="2"/><rect x="1170" y="696" width="80" height="4" rx="2"/><rect x="1185" y="716" width="50" height="3" rx="1.5"/></g>
+      </g>
+      <!-- il luzzu, la barca maltese con l'occhio -->
+      <g class="lay" data-depth="0.42"><g transform="translate(1290 740)"><g class="boat">
+        <path d="M-120 0 Q-110 40 -60 46 L80 46 Q120 40 132 -4 Z" fill="#f6c431"/>
+        <path d="M-120 0 L132 -4 L128 10 L-116 14 Z" fill="#1f5fae"/>
+        <path d="M-112 22 Q-60 30 110 24 L106 34 Q-60 40 -104 34 Z" fill="#d6372e"/>
+        <path d="M118 -4 Q130 -44 120 -64" fill="none" stroke="#1f5fae" stroke-width="6" stroke-linecap="round"/>
+        <path d="M-112 2 Q-126 -30 -116 -48" fill="none" stroke="#d6372e" stroke-width="6" stroke-linecap="round"/>
+        <g transform="translate(92 22)"><ellipse rx="13" ry="7" fill="#fff"/><circle r="5" fill="#1b2a3a"/><path d="M-15 -8 Q0 -16 15 -8" fill="none" stroke="#1b2a3a" stroke-width="2.4"/></g>
+      </g></g></g>
+      <!-- l'aeroplanino di carta e la sua scia -->
+      <g class="lay" data-depth="0.12">
+        <path id="trail" class="plane-trail" d="M760 300 C900 200 1000 330 1120 240 S1330 150 1440 190" fill="none" stroke="#123a4c" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+        <g id="plane" transform="translate(1440 190) rotate(-14)"><path d="M0 0 L-46 -14 L-30 2 Z" fill="#fff" stroke="#123a4c" stroke-width="2" stroke-linejoin="round"/><path d="M-30 2 L-46 18 L-24 4" fill="#e4f2f6" stroke="#123a4c" stroke-width="2" stroke-linejoin="round"/></g>
+      </g>
+    </svg>
+    <p class="note hand" id="note" aria-hidden="true"><span>Nuove amicizie.</span><span>Più inglese.</span><span>Più competenze.</span><span>Un'esperienza che resta.</span></p>
+    <div class="wrap">
+      <p class="vs-eye" data-reveal>Vacanze studio a Malta · Centro Studi Lambda</p>
+      <h1 id="vTitle" class="vt">Più di una vacanza. <em>Un futuro più grande.<i class="hl"></i></em></h1>
+      <p class="lead" data-reveal>Migliora l'inglese, vivi un'esperienza internazionale e scegli il percorso che fa per te: la vacanza studio tradizionale, oppure la vacanza studio con il Metodo di studio FOCUS.</p>
+      <div class="ctas" data-reveal><a class="btn btn-sea magnetic" href="#programmi" data-scroll><span class="t">Scopri i programmi ↓</span></a><button class="btn btn-line-d magnetic" type="button" data-lead="Vacanze studio a Malta"><span class="t">Parla con un tutor →</span></button></div>
+    </div>
+  </section>
+
+  <!-- vantaggi -->
+  <div class="feat"><div class="wrap"><div class="in" data-reveal>
+    <div class="f"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="15"/><path d="M5 20h30M20 5c5 5 5 25 0 30M20 5c-5 5-5 25 0 30"/></svg><b>Corso d'inglese</b><small>in college</small></div>
+    <div class="f"><svg viewBox="0 0 40 40"><path d="M6 34V15L20 6l14 9v19z"/><path d="M15 34v-9h10v9M11 18h4M25 18h4"/></svg><b>Alloggio</b><small>sicuro e confortevole</small></div>
+    <div class="f"><svg viewBox="0 0 40 40"><circle cx="13" cy="13" r="5"/><circle cx="27" cy="13" r="5"/><path d="M4 33c0-6 4-10 9-10s9 4 9 10M18 33c0-6 4-10 9-10s9 4 9 10"/></svg><b>Attività ed escursioni</b><small>tutta la settimana</small></div>
+    <div class="f"><svg viewBox="0 0 40 40"><path d="M20 35s-11-9-11-18a11 11 0 0 1 22 0c0 9-11 18-11 18z"/><circle cx="20" cy="17" r="4"/></svg><b>Crescita personale</b><small>e autonomia</small></div>
+    <div class="f"><svg viewBox="0 0 40 40"><path d="M20 5l12 5v9c0 8-5 13-12 16C13 32 8 27 8 19v-9z"/><path d="M15 20l4 4 7-8"/></svg><b>Assistenza continua</b><small>del nostro staff</small></div>
+  </div></div></div>
+
+  <!-- ============ DUE MODI ============ -->
+  <section class="modes" id="programmi" data-theme="light" aria-labelledby="mTitle">
+    <div class="wrap">
+      <div class="top">
+        <div><p class="vs-eye" data-reveal>I programmi</p><h2 class="vs-h2 split" id="mTitle">Due modi di vivere <em>la stessa esperienza.</em></h2>
+          <p class="vs-lead" data-reveal>Scegli il programma più adatto a te. Entrambi includono inglese, college, attività ed escursioni. Il secondo aggiunge il Metodo di studio FOCUS, per tornare a casa con molto di più di un semplice ricordo.</p></div>
+        <p class="hand" data-reveal>Stessa destinazione.<br>Due percorsi.<br>Più opportunità.<svg viewBox="0 0 70 50"><path d="M66 6 C40 4 18 16 8 42"/><path d="M4 30 L8 43 L20 36"/></svg></p>
+      </div>
+      <div class="opts">
+        <article class="opt o1" data-reveal>
+          <div class="art"><span class="badge">Opzione 1</span><svg viewBox="0 0 600 230" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="600" height="230" fill="#dcebfb"/><circle cx="500" cy="60" r="34" fill="#ffe08a"/>
+            <path d="M0 175 L60 165 L80 140 L120 146 L140 120 L170 124 L176 96 L196 92 L204 70 L214 92 L234 96 L240 126 L300 130 L330 150 L400 146 L430 162 L600 158 V230 H0 Z" fill="#f0d9ab"/>
+            <rect y="186" width="600" height="44" fill="#3b9cc2"/><path d="M0 200 H600" stroke="#cfeefa" stroke-width="2" stroke-dasharray="18 26" opacity=".7"/>
+            <g transform="translate(330 46)"><rect width="150" height="70" rx="20" fill="#fff"/><path d="M28 70 L22 92 L48 70" fill="#fff"/><text x="75" y="46" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="30" fill="#1f6fd1">Hello!</text></g>
+            <g transform="translate(250 104)"><rect width="104" height="50" rx="16" fill="#1f6fd1"/><path d="M78 50 L86 66 L62 50" fill="#1f6fd1"/><text x="52" y="33" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="21" fill="#fff">Let's go</text></g>
+          </svg></div>
+          <div class="body">
+            <h3>Vacanza Studio Inglese</h3><p class="sub">La formula classica, completa e divertente.</p>
+            <ul><li><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg></i>Corso d'inglese in college con insegnanti qualificati</li><li><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg></i>Alloggio in college (camere condivise o singole)</li><li><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg></i>Attività ed escursioni organizzate</li><li><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg></i>Esperienza internazionale e nuove amicizie</li></ul>
+            <button class="btn btn-blue magnetic" type="button" data-lead="Vacanza Studio Inglese a Malta"><span class="t">Scopri il programma →</span></button>
+          </div>
+        </article>
+        <article class="opt o2" data-reveal>
+          <div class="art"><span class="badge">Opzione 2</span><span class="rec">Con il Metodo FOCUS</span><svg viewBox="0 0 600 230" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="600" height="230" fill="#fff1c9"/><circle cx="110" cy="70" r="40" fill="#ffd66b"/>
+            <path d="M0 175 L60 165 L80 140 L120 146 L140 120 L170 124 L176 96 L196 92 L204 70 L214 92 L234 96 L240 126 L300 130 L330 150 L400 146 L430 162 L600 158 V230 H0 Z" fill="#f0d9ab"/>
+            <rect y="186" width="600" height="44" fill="#3b9cc2"/><path d="M0 200 H600" stroke="#cfeefa" stroke-width="2" stroke-dasharray="18 26" opacity=".7"/>
+            <g transform="translate(400 44)"><circle cx="0" cy="40" r="30" fill="none" stroke="#0E212E" stroke-width="7"/><circle cx="76" cy="40" r="30" fill="none" stroke="#0E212E" stroke-width="7"/><path d="M28 34 Q38 24 48 34" fill="none" stroke="#0E212E" stroke-width="6" stroke-linecap="round"/><circle cx="0" cy="40" r="23" fill="#fff" opacity=".7"/><circle cx="76" cy="40" r="23" fill="#fff" opacity=".7"/></g>
+            <g transform="translate(300 118)"><rect width="128" height="46" rx="14" fill="#0E212E"/><text x="64" y="30" text-anchor="middle" font-family="JetBrains Mono" font-weight="500" font-size="17" letter-spacing="3" fill="#ffd66b">FOCUS</text></g>
+            <g fill="#e9b52f"><circle cx="530" cy="150" r="5"/><circle cx="560" cy="120" r="3.5"/><circle cx="270" cy="70" r="4"/></g>
+          </svg></div>
+          <div class="body">
+            <h3>Vacanza Studio + Metodo FOCUS</h3><p class="sub">L'inglese oggi, strumenti per tutta la vita.</p>
+            <ul><li><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg></i>Corso d'inglese in college</li><li class="plus"><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg></i>Metodo di studio FOCUS con laboratori pratici</li><li><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg></i>Alloggio, attività ed escursioni</li><li class="plus"><i><svg viewBox="0 0 12 12"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg></i>Tecniche di memoria, organizzazione e autonomia</li></ul>
+            <button class="btn btn-warm magnetic" type="button" data-lead="Vacanza Studio + Metodo FOCUS a Malta"><span class="t">Scopri il programma →</span></button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONFRONTA ============ -->
+  <section class="cmp" data-theme="light" aria-labelledby="cTitle">
+    <div class="wrap">
+      <div class="top"><div><p class="vs-eye" data-reveal>Il confronto</p><h2 class="vs-h2 split" id="cTitle">Confronta <em>i programmi.</em></h2><p class="vs-lead" data-reveal>Stessa qualità, un valore in più.</p></div><p class="hand" data-reveal>Scegli il percorso<br>che fa per te.</p></div>
+      <div class="ctab" id="ctab" data-reveal role="table" aria-label="Confronto tra i due programmi"></div>
+    </div>
+  </section>
+
+  <!-- ============ GIORNATA TIPO ============ -->
+  <section class="day" id="day" data-theme="dark" aria-labelledby="dTitle">
+    <div class="stage">
+      <div class="sky" id="dSky"></div>
+      <svg class="dsc" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <g id="dStars" fill="#fff"></g>
+        <path id="dArc" d="M120 760 Q800 -60 1480 760" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="2" stroke-dasharray="3 10"/>
+        <g id="dSun"><circle r="90" fill="#fff3cf" opacity=".25"/><circle r="46" fill="#fff3cf"/></g>
+        <g id="dMoon" opacity="0"><circle r="34" fill="#f4f1e6"/><circle cx="14" cy="-8" r="30" fill="#0b2232"/></g>
+        <path id="dCity" fill="#0e2a3a" opacity=".85"/>
+        <rect x="-50" y="800" width="1700" height="120" id="dSea" fill="#0f5a76"/>
+        <g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".35"><path class="wave" d="M-40 830 H1640"/><path class="wave b" d="M-40 865 H1640"/></g>
+      </svg>
+      <div class="wrap">
+        <div class="hd"><p class="vs-eye">Una giornata tipo</p><h2 id="dTitle">Studio, esperienze <em style="font-style:normal;color:var(--warm)">e tanto altro.</em></h2><p>Scorri: il sole attraversa una giornata a Malta, dalla colazione alla serata con il gruppo.</p></div>
+        <div class="ev" id="dEv" aria-live="polite"></div>
+      </div>
+      <div class="tl" id="dTl"><i class="bar" id="dBar"></i></div>
+    </div>
+  </section>
+
+  <!-- ============ IL COLLEGE ============ -->
+  <section class="col sheet" data-theme="light" style="background:var(--sand)" aria-labelledby="kTitle">
+    <div class="wrap">
+      <p class="vs-eye" data-reveal>Il college</p><h2 class="vs-h2 split" id="kTitle">Un ambiente sicuro, <em>moderno e internazionale.</em></h2>
+      <div class="cgrid" id="cgrid"></div>
+      <p class="cnote" data-reveal>Illustrazioni. Le foto del college arrivano a breve.</p>
+    </div>
+  </section>
+
+  <!-- ============ MALTA ============ -->
+  <section class="mt" data-theme="light" aria-labelledby="xTitle">
+    <div class="wrap">
+      <p class="vs-eye" data-reveal>Malta</p><h2 class="vs-h2 split" id="xTitle">Un'aula <em>a cielo aperto.</em></h2>
+      <p class="vs-lead" data-reveal>Mare, cultura, storia e divertimento: tocca un luogo sulla mappa.</p>
+      <div class="mgrid">
+        <div class="map" data-reveal><svg id="mapSvg" viewBox="0 0 720 620" role="img" aria-label="Mappa di Malta, Gozo e Comino con i luoghi delle escursioni"></svg></div>
+        <div class="mlist" id="mList" data-reveal></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ESPERIENZE ============ -->
+  <section class="exp" data-theme="light" aria-labelledby="eTitle">
+    <div class="wrap">
+      <p class="vs-eye" data-reveal>Le famiglie Lambda raccontano</p><h2 class="vs-h2 split" id="eTitle">Più sicuri, <em>più autonomi.</em></h2>
+      <p class="vs-lead" data-reveal>Recensioni vere su Trustpilot: 4,9 su 5, su 323 recensioni. <a href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener" style="font-weight:700;color:var(--ink);border-bottom:1px solid rgba(14,33,46,.3)">Leggi tutte le recensioni →</a></p>
+      <div class="egrid" id="egrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="lfaq" data-theme="light" style="background:var(--sand)" aria-labelledby="qTitle">
+    <div class="wrap grid">
+      <div class="qcol">
+        <p class="eyebrow" data-reveal>Domande frequenti</p>
+        <h2 class="sec-title split" id="qTitle">Tutto quello <em>che vuoi sapere.</em></h2>
+        <div class="qlist" id="qlist" data-reveal></div>
+      </div>
+      <aside class="tutor-box" data-reveal>
+        <svg class="glass9" viewBox="0 0 144 60" aria-hidden="true"><circle class="ring" cx="36" cy="30" r="26"/><circle class="ring" cx="108" cy="30" r="26"/><path class="bridge" d="M62 26 Q72 18 82 26"/></svg>
+        <h3>Parla con un tutor.</h3>
+        <p>Ti aiutiamo a scegliere il programma più adatto a tuo figlio: date, costi, cosa è incluso. Gratis e senza impegno.</p>
+        <button class="btn btn-stud magnetic" type="button" data-lead="Vacanze studio a Malta"><span class="t">Richiedi una consulenza →</span></button>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINALE ============ -->
+  <section class="vend" data-theme="dark" aria-labelledby="zTitle">
+    <p class="hand" aria-hidden="true">Più inglese.<br>Più metodo.<br>Più opportunità.<br>Un futuro più suo.</p>
+    <svg viewBox="0 0 1600 500" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <circle cx="1000" cy="215" r="120" fill="#ffd27a" opacity=".35"/><circle cx="1000" cy="215" r="70" fill="#ffe3a0"/>
+      <path id="eCity" fill="#3a2440" opacity=".9"/>
+      <rect y="250" width="1600" height="250" fill="#0f2c3c"/>
+      <g fill="#ffcf7a" opacity=".75"><rect x="930" y="268" width="140" height="4" rx="2"/><rect x="955" y="290" width="90" height="4" rx="2"/><rect x="975" y="314" width="50" height="3" rx="1.5"/></g>
+      <g fill="none" stroke="#ffd9a3" stroke-width="2" stroke-linecap="round" opacity=".3"><path class="wave" d="M-40 340 H1640"/><path class="wave b" d="M-40 400 H1640"/></g>
+      <g transform="translate(360 300)"><g class="boat"><path d="M-80 0 Q-72 26 -40 30 L54 30 Q80 26 88 -3 Z" fill="#14202b"/><path d="M78 -3 Q86 -30 80 -42" fill="none" stroke="#14202b" stroke-width="5" stroke-linecap="round"/><path d="M-74 1 Q-84 -20 -78 -32" fill="none" stroke="#14202b" stroke-width="5" stroke-linecap="round"/></g></g>
+    </svg>
+    <div class="wrap">
+      <h2 class="split" id="zTitle">Quest'estate dagli <em>un'occasione in più.</em></h2>
+      <p data-reveal>Inglese, esperienze, nuove amicizie e strumenti per il suo futuro. Scopri i programmi disponibili.</p>
+      <div class="ctas" data-reveal><button class="btn btn-stud magnetic" type="button" data-lead="Vacanze studio a Malta · prossime partenze"><span class="t">Scopri le prossime partenze →</span></button><button class="btn btn-ghost magnetic" type="button" data-lead="Vacanze studio a Malta"><span class="t">Parla con un tutor</span></button></div>
+    </div>
+  </section>
+</main>
+
+<div data-lambda-footer></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/recensioni.js?v=10"></script>
+<script src="assets/lambda.js?v=33"></script>
+<script>
+gsap.set('#logo', { autoAlpha: 1 });
+(() => {
+  const L = window.Lambda, $ = (s) => document.querySelector(s), NS = 'http://www.w3.org/2000/svg';
+  const CK = '<svg viewBox="0 0 12 12"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg>';
+
+  /* ---------- skyline di La Valletta (generato: bastioni, case, cupola, campanili, guglia) ---------- */
+  const skyline = (x0, x1, base, s = 1) => {
+    let d = `M${x0} ${base + 200} L${x0} ${base}`, x = x0, r = 7;
+    const rnd = () => { r = (r * 9301 + 49297) % 233280; return r / 233280; };
+    while (x < x1) { const w = (26 + rnd() * 40) * s, h = (30 + rnd() * 46) * s; d += ` L${x} ${base - h} L${x + w} ${base - h}`; x += w; }
+    return d + ` L${x1} ${base} L${x1} ${base + 200} Z`;
+  };
+  const city = $('#city');
+  if (city) {
+    city.innerHTML = `
+      <path d="M560 668 L590 600 L1600 600 L1600 668 Z" fill="url(#stoneF)"/>
+      <path d="M560 668 L590 600 L1600 600" fill="none" stroke="#b98a52" stroke-width="2" opacity=".6"/>
+      ${[640, 760, 880, 1000, 1120, 1240, 1360, 1480].map((x) => `<path d="M${x} 600 l14 -10 h30 l14 10" fill="#e6c891"/>`).join('')}
+      <path d="${skyline(600, 1600, 600)}" fill="url(#stoneG)"/>
+      <g fill="#c4935a" opacity=".55">${Array.from({ length: 60 }, (_, i) => `<rect x="${610 + (i * 97) % 980}" y="${545 + (i * 37) % 48}" width="6" height="9" rx="1"/>`).join('')}</g>
+      <g transform="translate(1030 0)"><rect x="-58" y="470" width="116" height="90" fill="#efd8a8"/><path d="M-64 474 Q0 340 64 474 Z" fill="#e3c38a"/><path d="M-50 474 Q0 360 50 474" fill="none" stroke="#cfa868" stroke-width="3"/><rect x="-10" y="358" width="20" height="30" fill="#efd8a8"/><path d="M-14 360 Q0 330 14 360 Z" fill="#e3c38a"/><path d="M0 330 V312" stroke="#b88a4c" stroke-width="3"/></g>
+      <g transform="translate(860 0)">${[-34, 34].map((dx) => `<rect x="${dx - 14}" y="430" width="28" height="130" fill="#ecd3a2"/><path d="M${dx - 16} 432 L${dx} 400 L${dx + 16} 432 Z" fill="#d9b277"/><rect x="${dx - 6}" y="446" width="12" height="18" rx="6" fill="#b88a4c" opacity=".7"/>`).join('')}<rect x="-20" y="470" width="40" height="90" fill="#efd8a8"/></g>
+      <g transform="translate(1290 0)"><rect x="-16" y="420" width="32" height="140" fill="#ecd3a2"/><path d="M-18 422 L0 300 L18 422 Z" fill="#d9b277"/><rect x="-6" y="440" width="12" height="20" rx="6" fill="#b88a4c" opacity=".7"/></g>
+      <path d="M560 668 L1600 668" stroke="#c99a5c" stroke-width="3"/>`;
+  }
+
+  /* ---------- hero: entrata, parallasse allo scroll e al puntatore, aeroplanino ---------- */
+  const vt = $('.vt'); setTimeout(() => { vt.classList.add('in'); $('#note')?.classList.add('in'); }, 200);
+  const lays = [...document.querySelectorAll('.vh .lay')], hero = $('.vh');
+  let px = 0, py = 0;
+  if (!L.reduced) addEventListener('pointermove', (e) => { px = e.clientX / innerWidth - 0.5; py = e.clientY / innerHeight - 0.5; });
+  const trail = $('#trail'), plane = $('#plane'), TL = trail.getTotalLength();
+  trail.style.strokeDasharray = `6 10`;
+  let tp = L.reduced ? 1 : 0;
+  L.onFrame((now, sy) => {
+    if (sy > innerHeight * 1.2) return;
+    lays.forEach((g) => { const k = +g.dataset.depth; g.setAttribute('transform', `translate(${(-px * 60 * k).toFixed(1)} ${(sy * k * 0.6 - py * 30 * k).toFixed(1)})`); });
+    // l'aeroplanino vola lungo la scia, poi resta sospeso
+    if (tp < 1) tp = Math.min(1, tp + 0.0045);
+    const e = 1 - Math.pow(1 - tp, 3), pt = trail.getPointAtLength(e * TL), p2 = trail.getPointAtLength(Math.min(TL, e * TL + 2));
+    const ang = Math.atan2(p2.y - pt.y, p2.x - pt.x) * 180 / Math.PI, fl = Math.sin(now / 600) * 4 * e;
+    plane.setAttribute('transform', `translate(${pt.x} ${pt.y + fl}) rotate(${ang})`);
+    trail.style.clipPath = `inset(0 ${(100 - e * 100).toFixed(1)}% 0 0)`;
+  });
+
+  /* ---------- confronto ---------- */
+  const ROWS = [
+    ['Corso d\'inglese in college', 1, 1, 'M4 6h16v10H8l-4 4z'], ['Alloggio in college', 1, 1, 'M3 20V9l9-6 9 6v11zM9 20v-6h6v6'], ['Attività ed escursioni', 1, 1, 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2 20c0-3 3-6 6-6s6 3 6 6M10 20c0-3 3-6 6-6s6 3 6 6'],
+    ['Esperienza internazionale', 1, 1, 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18'], ['Metodo di studio FOCUS', 0, 1, 'M7 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 8q1-1 2 0M5 19h14'],
+    ['Laboratori pratici sul metodo di studio', 0, 1, 'M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3'], ['Tecniche di memoria e organizzazione', 0, 1, 'M12 4a5 5 0 0 0-5 5c0 2 1 3 2 4v3h6v-3c1-1 2-2 2-4a5 5 0 0 0-5-5zM9 20h6'], ['Autonomia nello studio', 0, 1, 'M4 19V8l8-4 8 4v11M8 19v-6h8v6'],
+  ];
+  const ck = (on, c) => `<div class="c ${c}" role="cell">${on ? `<span class="ck" style="transition-delay:${Math.random() * 0.5 + 0.1}s">${CK}</span>` : '<span class="dash" aria-label="non incluso"></span>'}</div>`;
+  $('#ctab').innerHTML = `<div class="crow hd" role="row"><div role="columnheader"></div><div class="c c1" role="columnheader">Vacanza Studio Inglese<small>Opzione 1</small></div><div class="c c2" role="columnheader">Vacanza Studio + Metodo FOCUS<small>Opzione 2</small></div></div>`
+    + ROWS.map(([t, a, b, ic]) => `<div class="crow${a ? '' : ' focus'}" role="row"><div class="lab" role="cell"><svg viewBox="0 0 24 24"><path d="${ic}"/></svg>${t}</div>${ck(a, 'c1')}${ck(b, 'c2')}</div>`).join('');
+
+  /* ---------- giornata tipo: il sole attraversa il cielo con lo scroll ---------- */
+  const EV = [
+    ['08:30', 'Colazione', 'Si comincia insieme, in college: la giornata parte con calma e con il gruppo.', 'M5 10h12v4a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5zM17 11h2a2 2 0 0 1 0 4h-2M8 3v3M11 3v3M14 3v3'],
+    ['09:00', 'Lezione d\'inglese', 'In college, con insegnanti qualificati: si parla, si ascolta, si sbaglia e si migliora.', 'M3 5h8a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H3zM21 5h-5a2 2 0 0 0-2 2'],
+    ['12:30', 'Pranzo', 'Pasti inclusi, in college. E si continua a chiacchierare, in inglese.', 'M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 0-3 3-3 6s1 4 3 4v8'],
+    ['14:30', 'Attività · Metodo FOCUS', 'Con l\'opzione 2, i laboratori pratici del Metodo FOCUS: metodo di studio, memoria, organizzazione.', 'M7 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM17 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 8q1-1 2 0', 'Opzione 2'],
+    ['17:00', 'Escursioni e tempo libero', 'Il mare, La Valletta, la cultura e la storia dell\'isola. Sempre con lo staff.', 'M4 8h4l2-3h4l2 3h4v11H4zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'],
+    ['20:00', 'Cena e serata con il gruppo', 'Si chiude insieme: giochi, racconti della giornata, nuove amicizie da tutto il mondo.', 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2 20c0-3 3-6 6-6s6 3 6 6M10 20c0-3 3-6 6-6s6 3 6 6'],
+  ];
+  $('#dEv').innerHTML = EV.map(([t, h, p, ic, chip]) => `<div class="card"><svg class="ic" viewBox="0 0 24 24"><path d="${ic}"/></svg><div class="t">${t}</div><h3>${h}</h3><p>${p}</p>${chip ? `<span class="chip">${chip}</span>` : ''}</div>`).join('');
+  $('#dTl').insertAdjacentHTML('beforeend', EV.map(([t, h]) => `<span><b>${t}</b>${h.split(' · ')[0]}</span>`).join(''));
+  $('#dCity').setAttribute('d', skyline(-20, 1620, 800, 1.1));
+  $('#dStars').innerHTML = Array.from({ length: 70 }, (_, i) => `<circle cx="${(i * 233) % 1600}" cy="${(i * 97) % 520}" r="${1 + (i % 3) * 0.6}"/>`).join('');
+  // colori del cielo per ora: mattina, metà mattina, mezzogiorno, pomeriggio, tramonto, sera
+  const SKY = [['#8fd3ec', '#ffe9c4'], ['#5fbde3', '#cdeefa'], ['#3aa5dc', '#a9e1f4'], ['#4f9fd0', '#ffd99a'], ['#6b4f8e', '#f39a5b'], ['#0b2232', '#1d3b5a']];
+  const SEA = ['#2c95b4', '#1f8fb8', '#1688b5', '#1d7aa0', '#3b4a6e', '#0b2a3a'];
+  const mix = (a, b, k) => { const pa = a.match(/\w\w/g).map((h) => parseInt(h, 16)), pb = b.match(/\w\w/g).map((h) => parseInt(h, 16)); return '#' + pa.map((v, i) => Math.round(v + (pb[i] - v) * k).toString(16).padStart(2, '0')).join(''); };
+  const day = $('#day'), sky = $('#dSky'), arc = $('#dArc'), AL = arc.getTotalLength(), sun = $('#dSun'), moon = $('#dMoon'), stars = $('#dStars'), sea = $('#dSea'), bar = $('#dBar');
+  const cards = [...document.querySelectorAll('#dEv .card')], dots = [...document.querySelectorAll('#dTl span')];
+  let lastI = -1;
+  L.onFrame(() => {
+    const r = day.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+    const p = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));
+    const f = p * (EV.length - 1), i = Math.min(EV.length - 1, Math.round(f)), i0 = Math.floor(f), k = f - i0, i1 = Math.min(EV.length - 1, i0 + 1);
+    const top = mix(SKY[i0][0], SKY[i1][0], k), bot = mix(SKY[i0][1], SKY[i1][1], k);
+    sky.style.background = `linear-gradient(180deg, ${top} 0%, ${bot} 100%)`; sea.setAttribute('fill', mix(SEA[i0], SEA[i1], k));
+    const sp = Math.min(1, p / 0.97), pt = arc.getPointAtLength(sp * AL);
+    sun.setAttribute('transform', `translate(${pt.x} ${pt.y})`); sun.style.opacity = String(Math.max(0, 1 - Math.max(0, p - 0.86) * 9));
+    const night = Math.min(1, Math.max(0, (p - 0.88) / 0.1)); moon.style.opacity = night; moon.setAttribute('transform', `translate(1240 ${300 - night * 60})`); stars.style.opacity = night;
+    bar.style.width = `calc(${(p * 100).toFixed(2)}% - ${(p * 16).toFixed(1)}px)`;
+    if (i !== lastI) { lastI = i; cards.forEach((c, j) => c.classList.toggle('on', j === i)); dots.forEach((d, j) => d.classList.toggle('on', j <= i)); }
+  });
+  cards[0].classList.add('on');
+
+  /* ---------- il college: scene illustrate ---------- */
+  const COL = [
+    ['Camere confortevoli', 'Camere condivise o singole, in un college sicuro.', '#e7f1fb', `<rect x="40" y="150" width="240" height="60" rx="10" fill="#fff"/><rect x="40" y="130" width="90" height="34" rx="12" fill="#cfe2f7"/><rect x="40" y="160" width="240" height="14" fill="#1f6fd1" opacity=".85"/><rect x="200" y="70" width="80" height="60" rx="6" fill="#bfe3f2"/><path d="M240 70v60M200 100h80" stroke="#fff" stroke-width="4"/><circle cx="80" cy="70" r="14" fill="#ffd66b"/><path d="M80 84v30" stroke="#0E212E" stroke-width="3"/>`],
+    ['Pasti inclusi', 'Colazione, pranzo e cena, tutti insieme.', '#fff3d6', `<ellipse cx="160" cy="150" rx="100" ry="34" fill="#fff"/><ellipse cx="160" cy="146" rx="62" ry="20" fill="#f6c431"/><circle cx="140" cy="140" r="9" fill="#d6372e"/><circle cx="172" cy="146" r="8" fill="#6aa84f"/><path d="M50 110v60M44 110v18a6 6 0 0 0 12 0v-18M270 110c-8 0-12 12-12 24s4 14 12 14v22" stroke="#0E212E" stroke-width="4" fill="none" stroke-linecap="round"/>`],
+    ['Spazi per studiare e rilassarsi', 'Aule luminose, zone relax e spazi all\'aperto.', '#e5f4ef', `<rect x="30" y="130" width="140" height="10" rx="4" fill="#0E212E"/><rect x="40" y="140" width="6" height="60" fill="#0E212E"/><rect x="154" y="140" width="6" height="60" fill="#0E212E"/><rect x="70" y="96" width="70" height="34" rx="4" fill="#fff"/><path d="M230 210v-90" stroke="#7a5532" stroke-width="8"/><path d="M230 120c-30-30-60-10-70 4M230 120c20-36 56-26 66-8M230 122c-6-36 14-56 30-58M230 122c-24-14-30-40-22-58" stroke="#2f8f5b" stroke-width="10" fill="none" stroke-linecap="round"/>`],
+    ['Lezioni con docenti qualificati', 'Inglese in classe, con un ritmo pensato per i ragazzi.', '#f1ecfb', `<rect x="40" y="50" width="240" height="120" rx="10" fill="#21443a"/><text x="160" y="105" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="40" fill="#fff">Good job!</text><path d="M80 140h70" stroke="#ffd66b" stroke-width="5" stroke-linecap="round"/><rect x="40" y="170" width="240" height="8" fill="#b28b5e"/><circle cx="250" cy="200" r="16" fill="#1f6fd1"/>`],
+  ];
+  $('#cgrid').innerHTML = COL.map(([b, p, bg, art], i) => `<article class="cc" data-reveal style="transition-delay:${i * 0.08}s"><div class="il"><svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="320" height="240" fill="${bg}"/>${art}</svg></div><b>${b}</b><p>${p}</p></article>`).join('');
+
+  /* ---------- Malta: la mappa, disegnata dalle coordinate ---------- */
+  const P = ([lo, la]) => [(60 + (lo - 14.17) * 0.81 * 1680).toFixed(1), (40 + (36.1 - la) * 1680).toFixed(1)];
+  const smooth = (pts) => { const q = pts.map(P).map((a) => a.map(Number)); let d = `M${q[0][0]} ${q[0][1]}`; for (let i = 0; i < q.length; i++) { const p0 = q[(i - 1 + q.length) % q.length], p1 = q[i], p2 = q[(i + 1) % q.length], p3 = q[(i + 2) % q.length]; d += ` C${(p1[0] + (p2[0] - p0[0]) / 6).toFixed(1)} ${(p1[1] + (p2[1] - p0[1]) / 6).toFixed(1)} ${(p2[0] - (p3[0] - p1[0]) / 6).toFixed(1)} ${(p2[1] - (p3[1] - p1[1]) / 6).toFixed(1)} ${p2[0]} ${p2[1]}`; } return d + 'Z'; };
+  const MALTA = [[14.329, 35.99], [14.36, 35.976], [14.385, 35.962], [14.405, 35.952], [14.425, 35.956], [14.46, 35.94], [14.49, 35.921], [14.515, 35.903], [14.535, 35.889], [14.56, 35.874], [14.568, 35.858], [14.562, 35.832], [14.545, 35.836], [14.528, 35.82], [14.515, 35.808], [14.48, 35.812], [14.455, 35.82], [14.43, 35.828], [14.395, 35.846], [14.37, 35.862], [14.345, 35.885], [14.338, 35.912], [14.343, 35.935], [14.33, 35.952], [14.336, 35.974]];
+  const GOZO = [[14.19, 36.068], [14.22, 36.08], [14.26, 36.077], [14.3, 36.062], [14.338, 36.04], [14.333, 36.022], [14.3, 36.016], [14.26, 36.02], [14.22, 36.032], [14.188, 36.048]];
+  const COMINO = [[14.318, 36.014], [14.338, 36.016], [14.352, 36.006], [14.335, 35.999], [14.316, 36.005]];
+  const PL = [
+    { k: 'valletta', n: 'La Valletta', d: 'La capitale: bastioni, la Concattedrale di San Giovanni e i giardini sul porto.', at: [14.514, 35.899], ic: 'M3 20V9l9-6 9 6v11zM8 20v-6h8v6M3 12h18' },
+    { k: 'lagoon', n: 'Blue Lagoon', d: 'A Comino, l\'acqua turchese più famosa dell\'arcipelago. Ci si arriva in barca.', at: [14.326, 36.013], ic: 'M3 17c3 0 3-2 6-2s3 2 6 2 3-2 6-2M3 21c3 0 3-2 6-2s3 2 6 2 3-2 6-2M8 13l4-9 4 9z' },
+    { k: 'beach', n: 'Spiagge e mare cristallino', d: 'Golden Bay e le baie sabbiose della costa nord-ovest.', at: [14.344, 35.934], ic: 'M12 4a5 5 0 0 1 5 5H7a5 5 0 0 1 5-5zM12 9v11M3 20h18M12 1v1' },
+    { k: 'mdina', n: 'Cultura e storia', d: 'Mdina, la città silenziosa: vicoli medievali e mura sulla collina.', at: [14.403, 35.886], ic: 'M4 20V10l4-3 4 3 4-3 4 3v10zM10 20v-5h4v5M4 10h16' },
+    { k: 'friends', n: 'Nuove amicizie da tutto il mondo', d: 'St Julian\'s e Sliema: lungomare, ragazzi da ogni paese, inglese ovunque.', at: [14.49, 35.919], ic: 'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2 20c0-3 3-6 6-6s6 3 6 6M10 20c0-3 3-6 6-6s6 3 6 6' },
+  ];
+  const isl = (pts) => `<path class="isl-sh" d="${smooth(pts)}" transform="translate(6 10)"/><path class="isl" d="${smooth(pts)}"/>`;
+  const [vx, vy] = P([14.514, 35.899]).map(Number), [lx, ly] = P([14.326, 36.013]).map(Number);
+  $('#mapSvg').innerHTML = `<g opacity=".25" fill="none" stroke="#fff" stroke-width="1.4">${[120, 260, 400, 540].map((y) => `<path d="M0 ${y} q180 -18 360 0 t360 0"/>`).join('')}</g>
+    ${isl(GOZO)}${isl(COMINO)}${isl(MALTA)}
+    <path class="route" d="M${vx} ${vy + 4} C ${vx - 40} ${vy - 120}, ${lx + 110} ${ly + 40}, ${lx + 10} ${ly + 6}"/>
+    <text x="${P([14.25, 36.05])[0]}" y="${P([14.25, 36.05])[1]}" text-anchor="middle" font-family="JetBrains Mono" font-size="13" letter-spacing="4" fill="#9a7a45">GOZO</text>
+    <text x="${P([14.44, 35.86])[0]}" y="${P([14.44, 35.86])[1]}" text-anchor="middle" font-family="JetBrains Mono" font-size="15" letter-spacing="6" fill="#9a7a45">MALTA</text>
+    ${PL.map((p, i) => { const [x, y] = P(p.at); return `<g class="pin" data-i="${i}" tabindex="0" role="button" aria-label="${p.n}" transform="translate(${x} ${y})"><circle class="halo" r="14"/><circle class="dot" r="9"/><text x="${p.k === 'lagoon' ? -16 : 16}" y="-14" ${p.k === 'lagoon' ? 'text-anchor="end"' : ''}>${p.n.split(' ')[0] === 'Nuove' ? 'St Julian\'s' : p.k === 'beach' ? 'Golden Bay' : p.k === 'mdina' ? 'Mdina' : p.n}</text></g>`; }).join('')}
+    <g transform="translate(640 560)" fill="none" stroke="#fff" stroke-width="2"><circle r="20" opacity=".5"/><path d="M0 -16 L5 0 L0 16 L-5 0 Z" fill="#fff" stroke="none"/><text y="-24" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#fff" stroke="none">N</text></g>`;
+  $('#mList').innerHTML = PL.map((p, i) => `<button class="mi" type="button" data-i="${i}"><svg viewBox="0 0 24 24"><path d="${p.ic}"/></svg><span><b>${p.n}</b><small>${p.d}</small></span></button>`).join('');
+  const pick = (i) => { document.querySelectorAll('.pin').forEach((g) => g.classList.toggle('on', +g.dataset.i === i)); document.querySelectorAll('.mi').forEach((b) => b.classList.toggle('on', +b.dataset.i === i)); };
+  document.querySelectorAll('.pin,.mi').forEach((el) => { const go = () => pick(+el.dataset.i); el.addEventListener('click', go); el.addEventListener('mouseenter', go); el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }); });
+  pick(0);
+
+  /* ---------- esperienze: segnaposto finché non arrivano le testimonianze vere ---------- */
+  // recensioni vere da Trustpilot (assets/recensioni.js) su crescita, autonomia e sicurezza.
+  // Quando ci saranno le prime partenze, qui andranno le recensioni delle vacanze studio.
+  const PICK = ['Irene L. M.', 'Maria|crescita importante', 'Fabio T.'];
+  const REV = PICK.map((k) => { const [n, w] = k.split('|'); return (window.LAMBDA_REVIEWS || []).find((r) => r.n === n && (!w || r.q.includes(w))); }).filter(Boolean);
+  const COLS = ['#1f6fd1', '#e9b52f', '#00949E'];
+  $('#egrid').innerHTML = REV.map((r, i) => `<figure class="ex" data-reveal style="transition-delay:${i * 0.08}s"><span class="ph-tag">Trustpilot</span><span class="av" style="background:${COLS[i]}">${r.n[0]}</span><q>${r.q}</q><div class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><small>${r.n} · ${r.who || 'genitore'}, su Trustpilot</small></figure>`).join('');
+  L.stars($('#egrid'));
+
+  /* ---------- FAQ ---------- */
+  // TODO: date, età minima, voli e costi da confermare con la segreteria
+  const FAQ = [
+    ['Quali sono le date di partenza?', 'Le partenze sono in estate, con turni di più settimane. Le date della prossima stagione le comunichiamo appena confermate: lasciaci i contatti e ti avvisiamo per primo.'],
+    ['Qual è l\'età minima?', 'I programmi sono pensati per ragazzi delle medie e delle superiori. Il tutor ti conferma il gruppo più adatto all\'età di tuo figlio.'],
+    ['Il volo è incluso?', 'Te lo indichiamo nel dettaglio del pacchetto, insieme a cosa comprende la quota: il tutor ti manda tutto per iscritto prima dell\'iscrizione.'],
+    ['Com\'è organizzata la sicurezza?', 'I ragazzi alloggiano in college e sono seguiti dal nostro staff durante le lezioni, le attività e le escursioni, con un\'assistenza continua per tutta la durata del soggiorno.'],
+    ['Qual è la differenza principale tra i due programmi?', 'Entrambi includono corso d\'inglese, college, attività ed escursioni. La Vacanza Studio + Metodo FOCUS aggiunge i laboratori pratici del Metodo FOCUS: metodo di studio, memoria, organizzazione e autonomia, da riportare a scuola a settembre.'],
+  ];
+  $('#qlist').innerHTML = FAQ.map(([q, a], i) => `<details class="qa"${i ? '' : ' open'}><summary>${q}<i>+</i></summary><p>${a}</p></details>`).join('');
+
+  /* ---------- CTA finale: skyline al tramonto ---------- */
+  $('#eCity').setAttribute('d', skyline(560, 1620, 250, 0.9));
+
+  document.querySelectorAll('[data-scroll]').forEach((a) => a.addEventListener('click', (e) => { const t = document.querySelector(a.getAttribute('href')); if (!t) return; e.preventDefault(); L.lenis ? L.lenis.scrollTo(t, { offset: -70 }) : t.scrollIntoView({ behavior: 'smooth' }); }));
+  L.observe(); L.magnetic();
+})();
+</script>
+</body>
+</html>

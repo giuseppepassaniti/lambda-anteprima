@@ -61,7 +61,9 @@
   function open(preset) {
     build(); if (document.body.classList.contains('menu-open')) { document.body.classList.remove('menu-open'); document.getElementById('burger')?.setAttribute('aria-expanded', 'false'); }
     lastFocus = document.activeElement; ld.hidden = false; ld.classList.remove('sent'); document.body.classList.add('modal-on'); L().lenis?.stop();
-    if (preset) { const s = ld.querySelector('#ldAge'); [...s.options].forEach((o) => { if (o.text === preset) s.value = o.text; }); }
+    if (preset) { const s = ld.querySelector('#ldAge'), m = ld.querySelector('#ldMsg'); let hit = false; [...s.options].forEach((o) => { if (o.text === preset) { s.value = o.text; hit = true; } });
+      // un prodotto (es. "Vacanze studio a Malta") va nel messaggio, se non è una delle opzioni
+      if (!hit && !m.value) m.value = `Mi interessa: ${preset}`; }
     if (!L().reduced && window.gsap) gsap.fromTo(ld.querySelector('.ld-card'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: 'expo.out' });
     setTimeout(() => ld.querySelector('#ldName').focus(), 50);
   }

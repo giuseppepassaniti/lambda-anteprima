@@ -24,6 +24,8 @@
     gate: { home: 'index.html', logo: `${ICON}<img class="wordmark" src="assets/wordmark-white.png" alt="Centro Studi Lambda">`, nav: [], cta: null },
     stud: { home: 'studenti.html', logo: `${ICON}<img class="wordmark" src="assets/wordmark-white.png" alt="Centro Studi Lambda">`,
       nav: [['Percorsi', 'studenti.html#percorsi', 'percorsi'], ['Metodo FOCUS', 'metodo-focus.html', 'focus'], ['Risultati', 'risultati.html', 'risultati'], ['Sedi', 'sedi.html', 'sedi']],
+      // i prodotti dell'ecosistema Lambda, separati dal percorso principale: menu a tendina "Oltre la scuola"
+      more: ['Oltre la scuola', [['Vacanze studio a Malta', 'vacanze-studio.html', 'vacanze', 'Inglese, college ed escursioni. Anche con il Metodo FOCUS.'], ['Percorsi per genitori', 'genitori.html', 'genitori', 'Comunicare meglio con i figli, ogni giorno.']]],
       cta: ['Fai il Performance Test →', 'test.html', 'btn-cta-stud'], tutor: 'Parla con un tutor' },
     conc: { home: 'concorsi.html', logo: `${STAR}<span class="cma-word"><b>CONCORSI MILITARI</b><span>ACADEMY</span></span>`,
       nav: [['Concorsi', 'concorsi.html#corpi-sec', 'concorsi'], ['Metodo EAGLE', 'concorsi.html#eagle', 'eagle'], ['Simulatore', 'simulatore.html', 'simulatore'], ['Risultati', 'concorsi.html#risultati', 'risultati'], ['Sedi', 'sedi-concorsi.html', 'sedi']],
@@ -32,13 +34,14 @@
   const headerHTML = `
   <header class="hdr" id="hdr" data-hbranch="${branch}">
     <a class="logo" id="logo" href="${BR.home}" aria-label="Home">${BR.logo}</a>
-    ${BR.nav.length ? `<nav class="nav" aria-label="Principale">${BR.nav.map(([t, h, id]) => `<a href="${h}"${id === page ? ' aria-current="page"' : ''}>${t}</a>`).join('')}</nav>` : '<span class="hdr-space"></span>'}
+    ${BR.nav.length ? `<nav class="nav" aria-label="Principale">${BR.nav.map(([t, h, id]) => `<a href="${h}"${id === page ? ' aria-current="page"' : ''}>${t}</a>`).join('')}${BR.more ? `<div class="nav-dd${BR.more[1].some((m) => m[2] === page) ? ' cur' : ''}"><button type="button" aria-expanded="false" aria-haspopup="true">${BR.more[0]}<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="dd">${BR.more[1].map(([t, h, id, d]) => `<a href="${h}"${id === page ? ' aria-current="page"' : ''}><b>${t}</b><small>${d}</small></a>`).join('')}</div></div>` : ''}</nav>` : '<span class="hdr-space"></span>'}
     ${BR.cta ? `<div class="hdr-ctas"><a class="btn hdr-cta ${BR.cta[2]} magnetic" href="${BR.cta[1]}"><span class="t">${BR.cta[0]}</span></a>${BR.tutor ? `<button class="btn hdr-cta hdr-tutor magnetic" type="button" data-lead><span class="t">${BR.tutor}</span></button>` : ''}</div>` : ''}
     ${branch !== 'gate' ? `<a class="switch-branch" href="index.html" title="Torna alla scelta del percorso">Cambia percorso</a>` : ''}
     ${BR.nav.length ? '<button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false"><i></i><i></i></button>' : ''}
   </header>
   ${BR.nav.length ? `<nav class="menu" id="menu" aria-label="Menu mobile">
     ${BR.nav.map(([t, h]) => `<a href="${h}"><span>${t}</span></a>`).join('')}
+    ${BR.more ? `<div class="m-more"><small>${BR.more[0]}</small>${BR.more[1].map(([t, h]) => `<a href="${h}">${t} →</a>`).join('')}</div>` : ''}
     <div class="mt">${BR.cta ? `<a href="${BR.cta[1]}">${BR.cta[0]}</a>` : ''}${BR.tutor ? `<button type="button" data-lead>${BR.tutor}</button>` : ''}<a href="index.html">↺ Cambia percorso</a></div>
   </nav>` : ''}`;
   const col = (title, items) => `<div><h4>${title}</h4><ul>${items.map(([t, h, soon]) => `<li><a href="${h || '#'}">${t}</a>${soon ? '<span class="soon">PRESTO</span>' : ''}</li>`).join('')}</ul></div>`;
@@ -53,7 +56,7 @@
     gate: `<footer class="foot foot-gate" aria-label="Informazioni"><div class="fg-split">
         <div class="fg stud"><div class="fg-in"><div class="brand"><img src="assets/wordmark-white.png" alt="Centro Studi Lambda"><p>Metodo di studio, tutor e lezioni live per studenti di ogni età. Online, in tutta Italia.</p></div>
           <div class="fg-cols">${col('Percorsi', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Metodo di studio', 'percorso.html?p=metodo-di-studio'], ['Ripetizioni', 'percorso.html?p=ripetizioni']])}
-          ${col('Lambda', [['Metodo FOCUS', 'metodo-focus.html'], ['Performance Test', 'test.html'], ['Risultati', 'risultati.html'], ['Sedi', 'sedi.html'], ['Chi siamo', 'chisiamo.html'], ['Contatti', 'mailto:info@centrostudilambda.it']])}</div>
+          ${col('Lambda', [['Metodo FOCUS', 'metodo-focus.html'], ['Performance Test', 'test.html'], ['Vacanze studio', 'vacanze-studio.html'], ['Percorsi per genitori', 'genitori.html'], ['Risultati', 'risultati.html'], ['Sedi', 'sedi.html'], ['Chi siamo', 'chisiamo.html']])}</div>
           ${wa}<a class="fg-go" href="studenti.html">Entra in Centro Studi Lambda →</a></div></div>
         <div class="fg conc"><div class="fg-in"><div class="brand">${STAR}<p><b>Concorsi Militari Academy</b><br>La preparazione ai concorsi delle Forze Armate e di Polizia. Online, in tutta Italia.</p></div>
           <div class="fg-cols">${col('Concorsi', [['Polizia di Stato', 'corpo.html?c=polizia'], ['Carabinieri', 'corpo.html?c=carabinieri'], ['Guardia di Finanza', 'corpo.html?c=gdf'], ['Esercito', 'corpo.html?c=esercito'], ['Marina Militare', 'corpo.html?c=marina'], ['Aeronautica Militare', 'corpo.html?c=aeronautica']])}
@@ -64,7 +67,7 @@
         <div class="brand"><img src="assets/wordmark-white.png" alt="Centro Studi Lambda"><p>Metodo di studio, tutor e lezioni live. Online, in tutta Italia: per dare a ogni ragazzo gli strumenti per arrivare lontano.</p>${social}${wa}</div>
         ${col('Percorsi', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Test universitari', 'percorso.html?p=test-universitari']])}
         ${col('Esigenze', [['Metodo di studio', 'percorso.html?p=metodo-di-studio'], ['Ripetizioni', 'percorso.html?p=ripetizioni'], ['Recupero insufficienze', 'percorso.html?p=recupero-insufficienze'], ['DSA/BES', 'percorso.html?p=dsa-bes'], ['Ansia scolastica', 'percorso.html?p=ansia-scolastica'], ['Memoria e concentrazione', 'percorso.html?p=memoria-concentrazione']])}
-        ${col('Risorse', [['Performance Test', 'test.html'], ['Metodo FOCUS', 'metodo-focus.html'], ['La storia', 'storia.html'], ['Blog Lambda'], ['Guide per genitori']])}
+        ${col('Oltre la scuola', [['Vacanze studio a Malta', 'vacanze-studio.html'], ['Percorsi per genitori', 'genitori.html'], ['Performance Test', 'test.html'], ['Metodo FOCUS', 'metodo-focus.html'], ['La storia', 'storia.html'], ['Blog Lambda']])}
         ${col('Lambda', [['Chi siamo', 'chisiamo.html'], ['Risultati', 'risultati.html'], ['Sedi', 'sedi.html'], ['Lavora con noi'], ['Franchising'], ['Contatti', 'mailto:info@centrostudilambda.it']])}
       </div>
       <a class="foot-other conc" href="concorsi.html"><span>Prepari un concorso per le Forze Armate o di Polizia?</span><b>Concorsi Militari Academy →</b></a>
@@ -78,7 +81,7 @@
       <a class="foot-other stud" href="studenti.html"><span>Cerchi un metodo di studio per tuo figlio?</span><b>Centro Studi Lambda →</b></a>
       ${legal('Concorsi Militari Academy')}</div></footer>`,
   }[branch];
-  if ((BR.tutor || BR.lead) && !window.LambdaLead) { const sc = document.createElement('script'); sc.src = 'assets/lead.js?v=4'; document.head.appendChild(sc); }
+  if ((BR.tutor || BR.lead) && !window.LambdaLead) { const sc = document.createElement('script'); sc.src = 'assets/lead.js?v=5'; document.head.appendChild(sc); }
   const headerHTML_ = headerHTML, footerHTML = FOOT;
   document.querySelector('[data-lambda-header]')?.insertAdjacentHTML('afterend', headerHTML_);
   document.querySelector('[data-lambda-header]')?.remove();
@@ -202,6 +205,9 @@
   L.observe();
 
   /* ---------------- header: test, menu, magnetici ---------------- */
+  // menu a tendina "Oltre la scuola": si apre al passaggio del mouse (CSS) e al clic/tastiera
+  document.querySelectorAll('.nav-dd > button').forEach((b) => { b.addEventListener('click', () => { const o = b.parentElement.classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); }); });
+  document.addEventListener('click', (e) => { if (!e.target.closest('.nav-dd')) document.querySelectorAll('.nav-dd.open').forEach((d) => { d.classList.remove('open'); d.querySelector('button').setAttribute('aria-expanded', 'false'); }); });
   $('#burger')?.addEventListener('click', () => { const o = body.classList.toggle('menu-open'); $('#burger').setAttribute('aria-expanded', String(o)); if (L.lenis) o ? L.lenis.stop() : L.lenis.start(); });
   L.magnetic = (root = document) => {
     if (reduced || !matchMedia('(pointer: fine)').matches || !window.gsap) return;

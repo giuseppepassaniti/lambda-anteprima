@@ -431,3 +431,26 @@ body[data-branch="conc"] .pl-tgcom span{color:#0b0c0a;background:rgba(242,241,23
 /* KPI non ancora arrivato: segnaposto visibile (vedi L.KPI in lambda.js) */
 .kpi-todo{position:relative;opacity:.5}
 .kpi-todo::after{content:'dato da inserire';display:block;margin-top:6px;font:500 10px/1 var(--mono, monospace);letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+
+/* ---------- menu a tendina "Oltre la scuola" (prodotti dell'ecosistema Lambda) ---------- */
+.nav-dd{position:relative}
+.nav-dd>button{display:inline-flex;align-items:center;gap:6px;font:500 15px/1 var(--font);color:rgba(255,255,255,.82);white-space:nowrap;transition:color .3s;padding:0}
+.nav-dd>button svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.8;transition:transform .35s var(--ease)}
+.nav-dd:hover>button,.nav-dd.open>button,.nav-dd.cur>button{color:#fff}
+.nav-dd.cur>button{box-shadow:0 8px 0 -6px var(--warm)}
+.nav-dd:hover>button svg,.nav-dd.open>button svg{transform:rotate(180deg)}
+.nav-dd .dd{position:absolute;top:calc(100% + 18px);left:50%;width:320px;padding:10px;border-radius:20px;background:rgba(10,26,36,.96);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -20px rgba(0,0,0,.6);display:grid;gap:4px;
+  opacity:0;visibility:hidden;transform:translate(-50%,-8px);transition:opacity .3s,transform .4s var(--ease),visibility .3s}
+.nav-dd .dd::before{content:"";position:absolute;inset:-20px 0 auto;height:20px}
+.nav-dd:hover .dd,.nav-dd.open .dd,.nav-dd:focus-within .dd{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.nav-dd .dd a{display:block;padding:14px 16px;border-radius:14px;color:#fff;transition:background .25s}
+.nav-dd .dd a::after{display:none}
+.nav-dd .dd a:hover,.nav-dd .dd a[aria-current="page"]{background:rgba(255,255,255,.07)}
+.nav-dd .dd b{display:block;font-size:15px} .nav-dd .dd small{display:block;margin-top:4px;font-size:13px;line-height:1.35;color:rgba(255,255,255,.6);white-space:normal}
+body.light-hdr .nav-dd>button{color:rgba(14,33,46,.8)} body.light-hdr .nav-dd:hover>button{color:var(--navy)}
+.menu .m-more{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:8px}
+.menu .m-more small{width:100%;font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.menu .m-more a{font-size:15px;font-weight:700;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22)}
+.menu{overflow-y:auto}
+.nav{align-items:center}
+body.light-hdr .nav-dd .dd a,.nav-dd .dd a:hover{color:#fff}

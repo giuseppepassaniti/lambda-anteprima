@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=21">
+<link rel="stylesheet" href="assets/lambda.css?v=23">
 <style>
 /* =================== LAMBDA · home del ramo studenti =================== */
 
@@ -292,6 +292,30 @@
 .final h2 .l2{color:var(--warm)}
 
 @media (max-width: 1100px){ .ages{grid-template-columns:repeat(3,1fr)} }
+/* ---------- oltre la scuola: i prodotti dell'ecosistema ---------- */
+.eco{background:var(--light);color:var(--navy);padding:clamp(110px,14vh,160px) 0 clamp(130px,16vh,180px)}
+.eco .eyebrow{color:var(--teal)} .eco .sec-title em{color:var(--teal)}
+.eco-top{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.eco-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:48px}
+.eco-card{display:flex;flex-direction:column;border-radius:32px;overflow:hidden;background:#fff;box-shadow:0 40px 80px -50px rgba(14,33,46,.45);transition:transform .6s var(--ease),box-shadow .6s}
+.eco-card:hover{transform:translateY(-8px);box-shadow:0 50px 90px -45px rgba(14,33,46,.5)}
+.eco-art{position:relative;aspect-ratio:600/260;overflow:hidden}
+.eco-art svg{position:absolute;inset:0;width:100%;height:100%;transition:transform 1.2s var(--ease)}
+.eco-card:hover .eco-art svg{transform:scale(1.05)}
+.eco-tag{position:absolute;left:22px;top:20px;padding:8px 12px;border-radius:9px;background:rgba(255,255,255,.9);font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.eco-body{padding:28px 30px 30px;display:flex;flex-direction:column;flex:1}
+.eco-body h3{font:700 clamp(26px,2.4vw,36px)/1.02 var(--font);letter-spacing:-.04em}
+.eco-body p{margin-top:10px;font-size:16px;line-height:1.5;color:#4a6370;max-width:44ch}
+.eco-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.eco-chips span{padding:7px 12px;border-radius:999px;font-size:13px;font-weight:500;background:var(--light)}
+.eco-card.gen .eco-chips span{background:#fdeae6}
+.eco-go{margin-top:auto;padding-top:22px;font-size:15.5px;color:var(--teal)} .eco-card.gen .eco-go{color:#c43d55}
+.eco-go{transition:letter-spacing .4s var(--ease)} .eco-card:hover .eco-go{letter-spacing:.02em}
+.eco-w{stroke-dasharray:22 34;animation:ecoW 9s linear infinite}.eco-w.b{animation-direction:reverse;animation-duration:13s}
+@keyframes ecoW{to{stroke-dashoffset:-560}}
+.eco-boat{animation:ecoB 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 80%}
+@keyframes ecoB{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-4px) rotate(2deg)}}
+@media (max-width: 860px){ .eco-top,.eco-grid{grid-template-columns:minmax(0,1fr)} }
 @media (max-width: 1240px){ .stat{padding:30px 16px 10px} }
 @media (max-width: 980px){ .stats{grid-template-columns:1fr 1fr;row-gap:20px} .stat:last-child{grid-column:1/-1} .sedi .grid,.diag .grid{grid-template-columns:1fr} .dcard{position:relative;top:auto} }
 @media (max-width: 860px){
@@ -504,6 +528,36 @@
     </div>
   </section>
 
+  <!-- ============ OLTRE LA SCUOLA: i prodotti dell'ecosistema Lambda ============ -->
+  <section class="eco sheet" id="oltre" data-theme="light" aria-labelledby="ecoTitle">
+    <div class="wrap">
+      <div class="eco-top"><div><p class="eyebrow" data-reveal>Oltre la scuola</p><h2 class="sec-title split" id="ecoTitle">Il metodo Lambda, <em>anche fuori dai libri.</em></h2></div>
+        <p class="sec-lead" data-reveal>Due esperienze separate dal percorso di studio, per tutta la famiglia: un'estate a Malta per i ragazzi, e strumenti concreti per i genitori.</p></div>
+      <div class="eco-grid">
+        <a class="eco-card malta" href="vacanze-studio.html" data-reveal>
+          <div class="eco-art"><svg viewBox="0 0 600 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs><linearGradient id="ecoSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd0e6"/><stop offset="1" stop-color="#ffe2b4"/></linearGradient></defs>
+            <rect width="600" height="260" fill="url(#ecoSky)"/><circle cx="450" cy="110" r="70" fill="#fff3cf" opacity=".5"/><circle cx="450" cy="110" r="34" fill="#fff3cf"/>
+            <path d="M200 190 L200 150 L240 150 L240 132 L280 132 L280 150 L300 150 Q330 80 360 150 L400 150 L400 120 L410 92 L420 120 L420 150 L470 150 L470 138 L520 138 L520 150 L600 150 V190 Z" fill="#e9cf9c"/>
+            <rect y="186" width="600" height="80" fill="#2a95b6"/><g stroke="#e9fbff" stroke-width="2.4" stroke-linecap="round" opacity=".55" fill="none"><path class="eco-w" d="M0 208 H600"/><path class="eco-w b" d="M0 232 H600"/></g>
+            <g transform="translate(130 206)"><g class="eco-boat"><path d="M-60 0 Q-55 22 -30 25 L40 25 Q60 22 66 -2 Z" fill="#f6c431"/><path d="M-60 0 L66 -2 L64 6 L-58 8 Z" fill="#1f5fae"/><path d="M60 -2 Q66 -24 61 -34" fill="none" stroke="#1f5fae" stroke-width="4" stroke-linecap="round"/><g transform="translate(46 12)"><ellipse rx="7" ry="4" fill="#fff"/><circle r="2.6" fill="#1b2a3a"/></g></g></g>
+          </svg><span class="eco-tag">Estate · per i ragazzi</span></div>
+          <div class="eco-body"><h3>Vacanze studio a Malta</h3><p>Corso d'inglese in college, attività ed escursioni. E, se vuoi, i laboratori del Metodo FOCUS.</p>
+            <div class="eco-chips"><span>Inglese in college</span><span>Escursioni</span><span>+ Metodo FOCUS</span></div><b class="eco-go">Scopri i programmi →</b></div>
+        </a>
+        <a class="eco-card gen" href="genitori.html" data-reveal>
+          <div class="eco-art"><svg viewBox="0 0 600 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="600" height="260" fill="#fde4dc"/><circle cx="470" cy="60" r="110" fill="#fbd0c6"/>
+                        <g id="ecoWaves" fill="none" stroke-linecap="round" stroke-width="2.2"></g>
+            <g transform="translate(300 130)"><circle cx="-34" cy="0" r="52" fill="#e0566b" opacity=".9"/><circle cx="34" cy="12" r="38" fill="#ffd66b" opacity=".95"/><circle cx="-42" cy="-10" r="11" fill="#fff"/><path d="M-62 22c3-11 11-16 20-16s17 5 20 16" fill="#fff"/><circle cx="36" cy="2" r="9" fill="#0E212E"/><path d="M22 26c2-9 8-12 14-12s12 3 14 12" fill="#0E212E"/></g>
+          </svg><span class="eco-tag">Per mamma e papà</span></div>
+          <div class="eco-body"><h3>Percorsi per genitori</h3><p>Comunicare meglio, gestire le emozioni, ridurre i conflitti: online, con strumenti da usare ogni giorno.</p>
+            <div class="eco-chips"><span>Genitori Efficaci · 27 €/mese</span><span>Weekend con i figli</span></div><b class="eco-go">Scopri i percorsi →</b></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ DOMANDE FREQUENTI + PARLA CON UN TUTOR ============ -->
   <section class="lfaq sheet" id="faq" data-theme="light" aria-labelledby="qTitle">
     <div class="wrap grid">
@@ -537,9 +591,17 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=32"></script>
+<script src="assets/lambda.js?v=33"></script>
+<script>
+/* oltre la scuola: le due onde (genitore e figlio) che si intrecciano nella card dei genitori */
+(() => { const g = document.getElementById('ecoWaves'); if (!g) return; let h = '';
+  for (let s = 0; s < 5; s++) { const o = (s - 2) * 6; let a = '', b = ''; for (let i = 0; i <= 60; i++) { const u = i / 60, x = u * 600, k = u; a += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + (130 + Math.sin(u * 9) * 40 + o).toFixed(1); b += (i ? 'L' : 'M') + x.toFixed(1) + ' ' + (130 + (Math.sin(u * 15 + 2) * 34 + 20) * (1 - k) + Math.sin(u * 9 + Math.PI) * 30 * k + o * 1.3).toFixed(1); }
+    h += `<path d="${a}" stroke="#e0566b" opacity="${0.5 - Math.abs(o) / 40}"/><path d="${b}" stroke="#1f6fd1" opacity="${0.45 - Math.abs(o) / 40}"/>`; }
+  g.innerHTML = h; })();
+</script>
+
 <script src="assets/pains.js?v=1"></script>
-<script src="assets/lead.js?v=4"></script>
+<script src="assets/lead.js?v=5"></script>
 <script>
 (() => {
   gsap.set('#logo', { autoAlpha: 1 });

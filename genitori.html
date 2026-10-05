@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Percorsi per genitori · Centro Studi Lambda</title>
+<meta name="description" content="Percorsi per genitori di Centro Studi Lambda: Genitori Efficaci (online, 27 € al mese) e Percorso Genitori Consapevoli (weekend online con i figli). Comunicare meglio, ogni giorno.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=23">
+<style>
+/* =====================================================================
+   LAMBDA · Percorsi per genitori (prodotto dell'ecosistema Lambda)
+   Palette calda dentro la famiglia Lambda: rosa corallo, pesca, crema, il blu di Genitori Efficaci.
+   ===================================================================== */
+body{--rose:#e0566b;--rose-d:#c43d55;--peach:#ffe4d8;--cream:#fbf5ef;--ink:#0E212E;--blue:#1f6fd1;--mut:#55707d;background:var(--cream)}
+.hand{font-family:'Caveat',cursive;font-weight:700}
+.g-eye{font:500 12px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--rose-d)}
+.g-h2{font:700 clamp(36px,4.6vw,68px)/.98 var(--font);letter-spacing:-.045em;color:var(--ink);text-wrap:balance}
+.g-h2 em{font-style:normal;color:var(--rose)}
+.g-lead{margin-top:16px;max-width:54ch;font-size:clamp(16px,1.35vw,19px);line-height:1.5;color:#405966}
+.btn-rose{background:var(--rose);color:#fff}.btn-rose:hover{box-shadow:0 14px 40px -12px var(--rose)}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{box-shadow:0 14px 40px -12px var(--blue)}
+.btn-line-d{border:1.5px solid rgba(14,33,46,.28);color:var(--ink)}.btn-line-d:hover{border-color:var(--ink);background:rgba(14,33,46,.04)}
+
+/* ---------------- HERO: due voci che trovano la stessa onda ---------------- */
+.gh{position:relative;min-height:100svh;overflow:hidden;color:var(--ink);background:radial-gradient(ellipse 70% 80% at 78% 45%,#ffe0d2 0%,#fdf0e8 45%,var(--cream) 80%)}
+.gh canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.gh .wrap{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:calc(var(--hdr) + 20px);padding-bottom:70px}
+.gh h1{margin-top:18px;max-width:11ch;font:700 clamp(48px,7.4vw,116px)/.92 var(--font);letter-spacing:-.055em}
+.gh h1 em{font-style:normal;color:var(--rose)}
+.gh .lead{margin-top:22px;max-width:44ch;font-size:clamp(16px,1.4vw,20px);line-height:1.5;color:#33505e}
+.gh .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.bens{display:flex;flex-wrap:wrap;gap:12px 30px;margin-top:40px}
+.bens div{display:flex;align-items:center;gap:12px;font-size:15px;line-height:1.3;font-weight:500}
+.bens svg{width:36px;height:36px;fill:none;stroke:var(--rose);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gnote{position:absolute;z-index:2;right:clamp(16px,7vw,120px);top:calc(var(--hdr) + 40px);font-size:clamp(22px,2vw,30px);line-height:1.15;color:#5a2a33;transform:rotate(4deg)}
+.gnote span{display:block;opacity:0;transform:translateY(8px);transition:opacity .6s,transform .6s var(--ease)}
+.gnote.in span{opacity:1;transform:none}
+.gnote.in span:nth-child(2){transition-delay:.25s}.gnote.in span:nth-child(3){transition-delay:.5s}.gnote.in span:nth-child(4){transition-delay:.75s}
+.gnote svg{width:34px;height:30px;fill:none;stroke:var(--rose);stroke-width:2.4;stroke-linecap:round;vertical-align:middle;margin-left:6px}
+.sync{position:absolute;z-index:2;right:clamp(16px,6vw,110px);bottom:clamp(30px,7vh,70px);display:flex;align-items:center;gap:12px;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#7b5560}
+.sync i{display:block;width:120px;height:4px;border-radius:2px;background:rgba(224,86,107,.18);overflow:hidden}
+.sync i b{display:block;height:100%;width:0;background:var(--rose);border-radius:2px}
+
+/* ---------------- TI RICONOSCI? (card + pop-up condivisi, in rosa) ---------------- */
+.gpain{--warm:#ff8a9b;background:radial-gradient(ellipse 80% 70% at 20% 0%,#4a2234 0%,#2a1422 50%,#170a12 100%)}
+.gpain .sec-title em{color:#ff8a9b}
+.pmodal{--warm:#ff8a9b}
+.pmodal .pm-card{background:linear-gradient(160deg,#2c1522,#170a12)}
+.gpain .pain-card:hover{border-color:rgba(255,138,155,.5);background:linear-gradient(170deg,rgba(255,138,155,.12),rgba(255,255,255,.03))}
+.tp-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:18px;font-size:15px;color:var(--mut)}
+.tp-row b{color:var(--ink);font-size:18px} .tp-row a{font-weight:700;color:var(--ink);border-bottom:1px solid rgba(14,33,46,.3)}
+.tp-row .stars{display:inline-flex}
+/* ---------------- I PERCORSI ---------------- */
+.prog{position:relative;z-index:3;padding:clamp(80px,11vh,120px) 0;color:var(--ink)}
+.pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:40px}
+.pc{position:relative;display:flex;flex-direction:column;border-radius:30px;overflow:hidden;background:#fff;box-shadow:0 34px 80px -50px rgba(90,40,50,.45);transition:transform .5s var(--ease),box-shadow .5s}
+.pc:hover{transform:translateY(-6px)}
+.pc .art{position:relative;height:clamp(180px,17vw,230px)}
+.pc .art svg{position:absolute;inset:0;width:100%;height:100%}
+.pc .tag{position:absolute;left:24px;top:22px;z-index:2;padding:8px 12px;border-radius:9px;font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.pc.ef .tag{background:#e3eefc;color:#174f96}.pc.co .tag{background:#fde3e7;color:var(--rose-d)}
+.pc .body{padding:26px 30px 30px;display:flex;flex-direction:column;flex:1}
+.pc h3{font:700 clamp(28px,2.6vw,38px)/1 var(--font);letter-spacing:-.04em}
+.pc .sub{margin-top:8px;font-weight:700;font-size:16.5px}
+.pc .desc{margin-top:10px;font-size:15.5px;line-height:1.5;color:var(--mut)}
+.pc ul{list-style:none;display:grid;gap:12px;margin:22px 0;padding:20px;border-radius:20px}
+.pc.ef ul{background:#f2f7fe}.pc.co ul{background:#fff3f4}
+.pc li{display:flex;gap:14px;align-items:center;font-size:15px}
+.pc li svg{flex-shrink:0;width:24px;height:24px;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.pc.ef li svg{stroke:#174f96}.pc.co li svg{stroke:var(--rose-d)}
+.pc .pfoot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.price b{font:700 clamp(32px,3vw,42px)/1 var(--font);letter-spacing:-.04em}.price b small{font-size:.5em;font-weight:500;letter-spacing:0}
+.price span{display:block;margin-top:6px;font-size:13.5px;color:var(--mut)}
+.pc.co .foot .btn{flex:1;justify-content:center}
+
+/* ---------------- COSA IMPARERAI ---------------- */
+.learn{padding:clamp(40px,6vh,70px) 0 clamp(90px,12vh,130px);color:var(--ink)}
+.lgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:40px}
+.lc{position:relative;padding:28px 20px 24px;border-radius:24px;text-align:center;overflow:hidden;transition:transform .5s var(--ease)}
+.lc:hover{transform:translateY(-6px) rotate(-1deg)}
+.lc svg{width:52px;height:52px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
+.lc:hover svg{transform:scale(1.15)}
+.lc b{display:block;margin-top:14px;font-size:17px;line-height:1.2;letter-spacing:-.02em}
+.lc p{margin-top:8px;font-size:14px;line-height:1.45;color:#4f6873}
+
+/* ---------------- STESSA SITUAZIONE, DUE RISPOSTE ---------------- */
+.sim{position:relative;padding:clamp(100px,13vh,150px) 0;background:var(--ink);color:#fff;overflow:hidden}
+.sim::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 40%,rgba(224,86,107,.22),transparent 70%),radial-gradient(ellipse 50% 60% at 10% 90%,rgba(0,148,158,.18),transparent 70%)}
+.sim .wrap{position:relative}
+.sim .g-eye{color:#ff9aa9}.sim .g-h2{color:#fff}.sim .g-h2 em{color:#ff8a9b}.sim .g-lead{color:rgba(255,255,255,.72)}
+.sgrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,60px);margin-top:44px;align-items:start}
+.scen{display:grid;gap:10px}
+.scen button{display:flex;gap:14px;align-items:center;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);text-align:left;font-weight:700;font-size:16px;transition:background .3s,border-color .3s}
+.scen button span{font:500 11px/1 var(--mono);letter-spacing:.12em;color:rgba(255,255,255,.5)}
+.scen button[aria-pressed="true"]{background:rgba(255,255,255,.12);border-color:#ff8a9b}
+.tog{display:inline-flex;margin-top:22px;padding:5px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);position:relative}
+.tog button{position:relative;z-index:1;padding:12px 18px;border-radius:999px;font-weight:700;font-size:14px;color:rgba(255,255,255,.7);transition:color .3s}
+.tog button[aria-pressed="true"]{color:var(--ink)}
+.tog i{position:absolute;top:5px;bottom:5px;left:5px;border-radius:999px;background:#ff8a9b;transition:transform .5s var(--ease),width .5s var(--ease),background .4s}
+.tog.good i{background:#7fe0b8}
+.chat{position:relative;padding:28px;border-radius:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);min-height:400px;display:flex;flex-direction:column;gap:14px}
+.who{font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.bub{max-width:82%;padding:14px 18px;border-radius:20px;font-size:16px;line-height:1.45;opacity:0;transform:translateY(10px);transition:opacity .45s,transform .5s var(--ease)}
+.bub.on{opacity:1;transform:none}
+.bub.p{align-self:flex-end;border-bottom-right-radius:6px;background:#ff8a9b;color:var(--ink)}
+.chat.good .bub.p{background:#7fe0b8}
+.bub.k{align-self:flex-start;border-bottom-left-radius:6px;background:rgba(255,255,255,.14)}
+.why{margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.78)}
+.why b{color:#fff}
+.meter{display:flex;align-items:center;gap:12px;margin-top:6px;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.meter i{flex:1;height:8px;border-radius:4px;background:linear-gradient(90deg,#ff6b6b,#ffd66b 50%,#7fe0b8);position:relative}
+.meter i b{position:absolute;top:50%;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.18);transform:translate(-50%,-50%);transition:left .9s var(--ease)}
+
+/* ---------------- STORIE ---------------- */
+.st{padding:clamp(100px,13vh,140px) 0;color:var(--ink)}
+.stgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.sc{position:relative;padding:26px;border-radius:24px;background:#fff;box-shadow:0 26px 60px -48px rgba(90,40,50,.5)}
+.sc .av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:18px;color:#fff}
+.sc q{display:block;margin-top:16px;font-size:16.5px;line-height:1.5}
+.sc .stars{margin-top:14px}
+.sc small{display:block;margin-top:10px;font-size:13.5px;color:var(--mut)}
+.ph-tag{position:absolute;right:16px;top:16px;padding:5px 8px;border-radius:6px;background:rgba(14,33,46,.07);font:500 9.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#6b818c}
+
+/* ---------------- CTA FINALE ---------------- */
+.gend{position:relative;overflow:hidden;color:#fff;background:linear-gradient(160deg,#3a1d32 0%,#8a3a52 45%,#e0566b 80%,#ff9a76 100%);padding:clamp(120px,16vh,180px) 0}
+.gend canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.gend .wrap{position:relative;z-index:2}
+.gend h2{max-width:15ch;font:700 clamp(40px,5.4vw,84px)/.96 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.gend h2 em{font-style:normal;color:#ffd6a8}
+.gend .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.gend .hand{position:absolute;right:clamp(16px,7vw,120px);bottom:clamp(60px,10vh,110px);font-size:clamp(26px,2.4vw,36px);line-height:1.15;transform:rotate(-5deg);color:#ffe2cc;z-index:2}
+.btn-white{background:#fff;color:var(--rose-d)}.btn-white:hover{box-shadow:0 14px 40px -12px rgba(255,255,255,.6)}
+
+@media (max-width: 1100px){ .lgrid{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width: 860px){
+  .gnote,.sync{display:none} .gh canvas{opacity:.45} .pgrid,.sgrid,.stgrid{grid-template-columns:minmax(0,1fr)} .lgrid{grid-template-columns:repeat(2,minmax(0,1fr))} .lc:last-child{grid-column:1/-1}
+  .gend .hand{position:relative;right:auto;bottom:auto;display:block;margin-top:40px}
+}
+@media (max-width: 520px){ .bens{flex-direction:column;gap:12px} .scen button{padding:14px 16px;font-size:15px} .chat{padding:20px;min-height:0} .tog button{padding:11px 13px;font-size:13px} }
+</style>
+</head>
+<body data-page="genitori" data-branch="stud">
+<div data-lambda-header></div>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="gh" data-theme="light" aria-labelledby="gTitle">
+    <canvas id="waves" aria-hidden="true"></canvas>
+    <p class="gnote hand" id="gnote" aria-hidden="true"><span>Più ascolto.</span><span>Più comprensione.</span><span>Più equilibrio.</span><span>Ogni giorno.<svg viewBox="0 0 34 30"><path d="M17 27S3 18 3 9a7 7 0 0 1 14-2 7 7 0 0 1 14 2c0 9-14 18-14 18z"/></svg></span></p>
+    <div class="wrap">
+      <p class="g-eye" data-reveal>Percorsi per genitori · Centro Studi Lambda</p>
+      <h1 id="gTitle" class="split">Genitori più sereni. <em>Figli più felici.</em></h1>
+      <p class="lead" data-reveal>Due percorsi concreti per imparare a comunicare, gestire le emozioni e costruire una relazione più forte con i tuoi figli, ogni giorno e per tutta la vita.</p>
+      <div class="ctas" data-reveal><a class="btn btn-rose magnetic" href="#percorsi" data-scroll><span class="t">Scopri i percorsi ↓</span></a><button class="btn btn-line-d magnetic" type="button" data-lead="Percorsi per genitori"><span class="t">Parla con un tutor →</span></button></div>
+      <div class="bens" data-reveal>
+        <div><svg viewBox="0 0 36 36"><path d="M18 31S5 22 5 13a7 7 0 0 1 13-3 7 7 0 0 1 13 3c0 9-13 18-13 18z"/></svg>Meno conflitti<br>e tensioni</div>
+        <div><svg viewBox="0 0 36 36"><circle cx="12" cy="11" r="5"/><circle cx="25" cy="13" r="4"/><path d="M3 31c0-6 4-10 9-10s9 4 9 10M20 31c0-5 2-9 6-9s7 4 7 9"/></svg>Più comprensione<br>e dialogo</div>
+        <div><svg viewBox="0 0 36 36"><path d="M6 31V22M14 31V16M22 31V11M30 31V5"/></svg>Figli più autonomi<br>e motivati</div>
+      </div>
+    </div>
+    <div class="sync" aria-hidden="true">In sintonia <i><b id="syncBar"></b></i></div>
+  </section>
+
+  <!-- ============ TI RICONOSCI? (consapevolezza, non vendita) ============ -->
+  <section class="pain gpain sheet" id="riconosci" data-theme="dark" aria-labelledby="rTitle">
+    <div class="wrap ptop">
+      <div><p class="eyebrow" data-reveal>Ti riconosci?</p>
+        <h2 class="sec-title split" id="rTitle">Non sei un cattivo genitore. <em>Ti mancano solo gli strumenti.</em></h2></div>
+      <div><p class="sec-lead" data-reveal>Le stesse scene si ripetono in tante case. Tocca quella che riconosci: ti spieghiamo cosa succede davvero, e perché "provarci con più forza" spesso non basta.</p>
+        <div class="pnav" data-reveal><button type="button" id="gPrev" aria-label="Situazioni precedenti">←</button><button type="button" id="gNext" aria-label="Situazioni successive">→</button></div></div>
+    </div>
+    <div class="ptrack" id="gTrack" role="list" aria-label="Le situazioni più comuni"></div>
+    <div class="wrap pend" data-reveal><p>Comunicare con i figli si impara, come tutto il resto.</p><a href="#percorsi" data-scroll>Scopri i percorsi ↓</a></div>
+  </section>
+
+  <!-- ============ I PERCORSI ============ -->
+  <section class="prog" id="percorsi" data-theme="light" aria-labelledby="pTitle">
+    <div class="wrap">
+      <p class="g-eye" data-reveal>I nostri percorsi</p>
+      <h2 class="g-h2 split" id="pTitle">Scegli il percorso <em>più adatto a te.</em></h2>
+      <p class="g-lead" data-reveal>Uno da seguire quando vuoi, ogni mese. L'altro da vivere in un weekend, insieme a tuo figlio.</p>
+      <div class="pgrid">
+        <article class="pc ef" id="efficaci" data-reveal>
+          <div class="art"><span class="tag">Percorso online</span><svg viewBox="0 0 600 230" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="600" height="230" fill="#e6f0fd"/><circle cx="520" cy="40" r="70" fill="#d3e4fb"/>
+            <g transform="translate(250 34)"><rect width="260" height="160" rx="14" fill="#0E212E"/><rect x="10" y="10" width="240" height="132" rx="8" fill="#f7fbff"/>
+              <rect x="22" y="22" width="104" height="70" rx="8" fill="#ffd9cf"/><circle cx="74" cy="50" r="14" fill="#e0566b"/><path d="M50 92c4-14 14-20 24-20s20 6 24 20" fill="#e0566b"/>
+              <rect x="134" y="22" width="104" height="70" rx="8" fill="#cfe2fb"/><circle cx="186" cy="50" r="14" fill="#1f6fd1"/><path d="M162 92c4-14 14-20 24-20s20 6 24 20" fill="#1f6fd1"/>
+              <rect x="22" y="102" width="150" height="10" rx="5" fill="#dbe6f3"/><rect x="22" y="120" width="96" height="10" rx="5" fill="#dbe6f3"/><circle cx="222" cy="118" r="12" fill="#1f6fd1"/><path d="M218 112l9 6-9 6z" fill="#fff"/></g>
+            <rect x="230" y="194" width="300" height="12" rx="6" fill="#0E212E"/>
+            <g transform="translate(110 70)"><rect width="110" height="56" rx="18" fill="#fff"/><path d="M80 56l10 16 4-16" fill="#fff"/><path d="M55 40S38 29 38 20a8 8 0 0 1 17-3 8 8 0 0 1 17 3c0 9-17 20-17 20z" fill="#e0566b"/></g>
+          </svg></div>
+          <div class="body">
+            <h3>Genitori Efficaci</h3><p class="sub">Strumenti pratici, subito applicabili.</p>
+            <p class="desc">Un percorso pratico e continuativo per comprendere le emozioni, ridurre i conflitti e migliorare la comunicazione con i tuoi figli.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></svg>Lezioni online</li>
+              <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8l6 4-6 4z"/></svg>Video, slide ed esercizi pratici</li>
+              <li><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM9 12h7M9 16h7M9 8h3"/></svg>Strumenti da usare ogni giorno</li>
+              <li><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3 3-6 6-6s6 3 6 6M10 20c0-3 3-6 6-6s6 3 6 6"/></svg>Accesso alla community di genitori</li>
+              <li><svg viewBox="0 0 24 24"><path d="M7 15a3 3 0 1 1 0-6c3 0 7 6 10 6a3 3 0 1 0 0-6c-3 0-7 6-10 6z"/></svg>Percorso continuo e sempre aggiornato</li>
+            </ul>
+            <div class="pfoot"><div class="price"><b>27 € <small>/ mese</small></b><span>Disdici quando vuoi. Accesso immediato.</span></div><button class="btn btn-blue magnetic" type="button" data-lead="Genitori Efficaci"><span class="t">Inizia ora →</span></button></div>
+          </div>
+        </article>
+        <article class="pc co" id="consapevoli" data-reveal>
+          <div class="art"><span class="tag">Weekend online</span><svg viewBox="0 0 600 230" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="600" height="230" fill="#fde6e3"/><circle cx="90" cy="200" r="90" fill="#fbd3cd"/>
+            <g transform="translate(400 118)"><circle cx="-38" cy="0" r="70" fill="#e0566b" opacity=".85"/><circle cx="44" cy="12" r="50" fill="#ffd66b" opacity=".9"/><path d="M4 -8 a44 44 0 0 1 2 60" fill="none"/>
+              <circle cx="-50" cy="-14" r="14" fill="#fff"/><path d="M-74 24c4-14 14-20 24-20s20 6 24 20" fill="#fff"/><circle cx="46" cy="0" r="11" fill="#0E212E"/><path d="M28 30c3-11 10-15 18-15s15 4 18 15" fill="#0E212E"/></g>
+            <g fill="none" stroke="#e0566b" stroke-width="3" stroke-linecap="round"><path d="M150 70q30-26 60 0t60 0"/><path d="M150 96q30-26 60 0t60 0" opacity=".5"/></g>
+            <text x="160" y="160" font-family="Caveat" font-weight="700" font-size="34" fill="#c43d55">insieme</text>
+          </svg></div>
+          <div class="body">
+            <h3>Percorso Genitori Consapevoli</h3><p class="sub">Genitori e figli insieme, per crescere davvero.</p>
+            <p class="desc">Un weekend esperienziale online per genitori e figli, con attività pratiche, esercizi e momenti di condivisione: per migliorare l'ascolto reciproco, rafforzare la relazione e affrontare le sfide quotidiane con più consapevolezza.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-4 3-7 6-7s6 3 6 7M13 20c0-3 2-6 4-6s5 3 5 6"/></svg>Genitori e figli insieme</li>
+              <li><svg viewBox="0 0 24 24"><path d="M12 20s-8-5-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 6-8 11-8 11z"/></svg>Esercizi pratici e condivisioni guidate</li>
+              <li><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4zM8 10h.01M12 10h.01M16 10h.01"/></svg>Ascolto reciproco e comunicazione autentica</li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 0 0-4-10z"/></svg>Strumenti per la vita di tutti i giorni</li>
+              <li><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7M12 14v3"/></svg>Conduzione di psicologi ed esperti</li>
+            </ul>
+            <div class="pfoot"><button class="btn btn-rose magnetic" type="button" data-lead="Percorso Genitori Consapevoli"><span class="t">Parla con un tutor →</span></button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COSA IMPARERAI ============ -->
+  <section class="learn" data-theme="light" aria-labelledby="lTitle">
+    <div class="wrap">
+      <p class="g-eye" data-reveal>Cosa imparerai</p>
+      <h2 class="g-h2 split" id="lTitle">Competenze concrete <em>per una famiglia più serena.</em></h2>
+      <div class="lgrid" id="lgrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ STESSA SITUAZIONE, DUE RISPOSTE ============ -->
+  <section class="sim sheet" data-theme="dark" aria-labelledby="sTitle">
+    <div class="wrap">
+      <p class="g-eye" data-reveal>Un esempio di cosa cambia</p>
+      <h2 class="g-h2 split" id="sTitle">Stessa situazione, <em>due risposte.</em></h2>
+      <p class="g-lead" data-reveal>Scegli una situazione di tutti i giorni e guarda come cambia la conversazione, quando hai gli strumenti giusti.</p>
+      <div class="sgrid">
+        <div data-reveal>
+          <div class="scen" id="scen" role="group" aria-label="Situazioni"></div>
+          <div class="tog" id="tog" role="group" aria-label="Tipo di risposta"><i></i><button type="button" aria-pressed="true" data-m="0">Di getto</button><button type="button" aria-pressed="false" data-m="1">Con gli strumenti giusti</button></div>
+        </div>
+        <div class="chat" id="chat" aria-live="polite" data-reveal></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORIE ============ -->
+  <section class="st" data-theme="light" aria-labelledby="hTitle">
+    <div class="wrap">
+      <p class="g-eye" data-reveal>Le famiglie Lambda raccontano</p>
+      <h2 class="g-h2 split" id="hTitle">Più serenità, <em>anche a casa.</em></h2>
+      <div class="tp-row" data-reveal><span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span><b>4,9</b> su Trustpilot, su 323 recensioni</span><a href="https://it.trustpilot.com/review/centrostudioonline.eu" target="_blank" rel="noopener">Leggi tutte le recensioni →</a></div>
+      <div class="stgrid" id="stgrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="lfaq" data-theme="light" aria-labelledby="qTitle">
+    <div class="wrap grid">
+      <div class="qcol">
+        <p class="eyebrow" data-reveal>Domande frequenti</p>
+        <h2 class="sec-title split" id="qTitle">Tutto quello <em>che vuoi sapere.</em></h2>
+        <div class="qlist" id="qlist" data-reveal></div>
+      </div>
+      <aside class="tutor-box" data-reveal>
+        <svg class="glass9" viewBox="0 0 144 60" aria-hidden="true"><circle class="ring" cx="36" cy="30" r="26"/><circle class="ring" cx="108" cy="30" r="26"/><path class="bridge" d="M62 26 Q72 18 82 26"/></svg>
+        <h3>Non sai quale scegliere?</h3>
+        <p>Raccontaci la tua situazione: un tutor ti richiama e ti consiglia il percorso più adatto alla tua famiglia. Gratis e senza impegno.</p>
+        <button class="btn btn-stud magnetic" type="button" data-lead="Percorsi per genitori"><span class="t">Parla con un tutor →</span></button>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINALE ============ -->
+  <section class="gend" data-theme="dark" aria-labelledby="zTitle">
+    <canvas id="waves2" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <h2 class="split" id="zTitle">Oggi costruisci una relazione più forte. <em>Domani vedi la differenza.</em></h2>
+      <div class="ctas" data-reveal><a class="btn btn-white magnetic" href="#efficaci" data-scroll><span class="t">Scopri Genitori Efficaci →</span></a><button class="btn btn-ghost magnetic" type="button" data-lead="Percorsi per genitori"><span class="t">Parla con un tutor</span></button></div>
+    </div>
+    <p class="hand" aria-hidden="true">Genitori oggi.<br>Alleati per sempre. ♥</p>
+  </section>
+</main>
+
+<div data-lambda-footer></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/recensioni.js?v=10"></script>
+<script src="assets/lambda.js?v=33"></script>
+<script src="assets/pains.js?v=1"></script>
+<script>
+gsap.set('#logo', { autoAlpha: 1 });
+(() => {
+  const L = window.Lambda, $ = (s) => document.querySelector(s);
+  setTimeout(() => $('#gnote')?.classList.add('in'), 400);
+
+  /* ---------- due voci: genitore e figlio partono fuori tempo e trovano la stessa onda ----------
+     La sintonia cresce da sola nei primi secondi e segue il puntatore: verso destra, più in sintonia. */
+  const ribbons = (cv, opt) => {
+    const ctx = cv.getContext('2d'); let W = 0, H = 0, dpr = Math.min(devicePixelRatio, 2);
+    const size = () => { const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+    size(); addEventListener('resize', size);
+    let target = opt.sync0 ?? 0.15, sync = 0, t0 = performance.now();
+    if (opt.pointer && !L.reduced) cv.parentElement.addEventListener('pointermove', (e) => { const r = cv.getBoundingClientRect(); target = Math.min(1, Math.max(0.1, (e.clientX - r.left) / r.width * 1.3 - 0.15)); });
+    const line = (pts, color, w, a) => { ctx.beginPath(); pts.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y))); ctx.strokeStyle = color; ctx.globalAlpha = a; ctx.lineWidth = w; ctx.stroke(); };
+    const draw = (now) => {
+      const r = cv.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+      const t = (now - t0) / 1000;
+      if (opt.pointer && t < 3.5) target = Math.max(target, Math.min(0.85, t / 3.5 * 0.85));
+      sync += (target - sync) * 0.03; if (opt.onSync) opt.onSync(sync);
+      ctx.clearRect(0, 0, W, H);
+      const x0 = W * opt.x0, x1 = W * opt.x1, cy = H * opt.cy, amp = H * opt.amp, N = 90;
+      ctx.lineCap = 'round';
+      for (let s = 0; s < opt.strands; s++) {
+        const off = (s - opt.strands / 2) * opt.gap;
+        const A = [], B = [];
+        for (let i = 0; i <= N; i++) {
+          const u = i / N, x = x0 + (x1 - x0) * u;
+          // fuori sintonia: frequenze e fasi diverse; in sintonia: la stessa onda, che si intreccia
+          const k = sync * (0.35 + 0.65 * u);
+          const ya = Math.sin(u * 9 + t * 1.3 + s * 0.08) * amp * (1 - k * 0.3) + off;
+          const yb0 = Math.sin(u * 15 - t * 1.9 + 2 + s * 0.12) * amp * 0.85 + off * 1.4 + amp * 0.5 * (1 - k);
+          const yb1 = Math.sin(u * 9 + t * 1.3 + Math.PI + s * 0.08) * amp * 0.75 * (1 - k * 0.3) + off;
+          A.push([x, cy + ya]); B.push([x, cy + yb0 * (1 - k) + yb1 * k]);
+        }
+        line(A, opt.c1, opt.w, opt.a * (1 - Math.abs(off) / (opt.strands * opt.gap)));
+        line(B, opt.c2, opt.w, opt.a * (1 - Math.abs(off) / (opt.strands * opt.gap)));
+      }
+      ctx.globalAlpha = 1;
+    };
+    if (L.reduced) { target = sync = 0.9; draw(performance.now()); } else L.onFrame(draw);
+  };
+  const bar = $('#syncBar');
+  ribbons($('#waves'), { x0: 0.42, x1: 1.02, cy: 0.5, amp: 0.12, strands: 7, gap: 7, w: 2, a: 0.55, c1: '#e0566b', c2: '#1f6fd1', pointer: true, onSync: (s) => { if (bar) bar.style.width = (s * 100).toFixed(1) + '%'; } });
+  ribbons($('#waves2'), { x0: -0.02, x1: 1.02, cy: 0.62, amp: 0.1, strands: 6, gap: 8, w: 1.6, a: 0.5, c1: '#ffd6a8', c2: '#ffffff', sync0: 0.95 });
+
+  /* ---------- ti riconosci? le scene di tutti i giorni (stesso formato delle card studenti) ---------- */
+  LambdaPains.mount({ track: '#gTrack', prev: '#gPrev', next: '#gNext', data: [
+    { a: 'storm', t: 'Ogni sera si litiga sui compiti', q: 'I compiti finiscono sempre in una discussione.',
+      real: 'Quando lo studio diventa terreno di scontro, il problema non sono più gli esercizi ma la relazione: tu ti senti responsabile dei risultati, lui si sente controllato. Ogni sera la tensione riparte da dove si era fermata.',
+      mythT: 'Perché "insistere di più" non basta', myth: 'Alzare la pressione rende il momento dei compiti ancora più pesante, per entrambi. E più il genitore si sostituisce, meno il figlio si sente responsabile.',
+      fact: 'Le emozioni sono contagiose: la tensione di un adulto si trasmette ai figli, e viceversa. Abbassare la propria è il primo passo per abbassare la loro.' },
+    { a: 'alone', t: 'Non mi racconta più niente', q: 'Gli chiedo com\'è andata e risponde "bene". E basta.',
+      real: 'Crescendo, i ragazzi cercano più spazio e scelgono loro quando parlare. Se ogni conversazione diventa un interrogatorio o finisce in un consiglio non richiesto, la porta si chiude un po\' di più.',
+      mythT: 'Perché "fare più domande" non basta', myth: 'Le domande a raffica mettono sulla difensiva. Spesso i ragazzi si aprono nei momenti meno "ufficiali": in macchina, a tavola, mentre fate altro insieme.',
+      fact: 'In adolescenza il bisogno di privacy e di autonomia è una tappa normale della crescita, non un rifiuto del genitore.' },
+    { a: 'heart', t: 'Perdo la pazienza e poi mi pento', q: 'Alzo la voce, e poi mi sento in colpa.',
+      real: 'Stanchezza, preoccupazione e mille cose da fare: basta poco perché la reazione parta prima del pensiero. Poi arriva il senso di colpa, e la volta dopo si ricomincia da capo.',
+      mythT: 'Perché "devo controllarmi" non basta', myth: 'La forza di volontà da sola regge poco, soprattutto a fine giornata. Servono strumenti concreti per accorgersi della rabbia in tempo e fermarsi un attimo prima.',
+      fact: 'Quando siamo molto arrabbiati, ragionare e frenarsi diventa più difficile: anche una pausa di pochi minuti può cambiare la risposta.' },
+    { a: 'focus', t: 'Il telefono è sempre in mezzo', q: 'Ogni regola sul telefono diventa una battaglia.',
+      real: 'Il telefono è il luogo dove i ragazzi stanno con gli amici: toglierlo all\'improvviso viene vissuto come un\'ingiustizia. Senza regole chiare e condivise, ogni sera si rinegozia tutto.',
+      mythT: 'Perché "toglierglielo" non basta', myth: 'Il divieto improvviso funziona finché c\'è qualcuno a controllare. Poi si torna al punto di partenza, con più rabbia di prima.',
+      fact: 'Le regole funzionano meglio quando sono poche, chiare, decise insieme e valgono per tutta la famiglia, adulti compresi.' },
+    { a: 'battery', t: 'Non so più come motivarlo', q: 'Gliele ho provate tutte: premi, punizioni, prediche.',
+      real: 'Premi e punizioni spostano l\'attenzione sul risultato immediato: si studia per avere qualcosa, o per evitare guai. Quando lo stimolo finisce, finisce anche l\'impegno.',
+      mythT: 'Perché "una ricompensa più grande" non basta', myth: 'Alzare la posta crea un\'asta infinita. E le prediche, ripetute, diventano rumore di fondo.',
+      fact: 'La motivazione che dura nasce dal sentirsi capaci, autonomi e ascoltati: è uno dei risultati più solidi della psicologia della motivazione.' },
+    { a: 'week', t: 'Devo stargli sempre dietro', q: 'Se non glielo ricordo io, non fa niente.',
+      real: 'Più il genitore si occupa di ricordare, organizzare e controllare, meno il figlio ha bisogno di farlo. Senza volerlo, si crea un equilibrio in cui la responsabilità resta tutta sulle tue spalle.',
+      mythT: 'Perché "ricordarglielo ancora" non basta', myth: 'Ogni promemoria in più conferma che ci pensi tu. L\'autonomia cresce solo se c\'è lo spazio per provarci, e anche per sbagliare.',
+      fact: 'L\'autonomia si sviluppa quando un adulto sostiene senza sostituirsi: affida un compito alla volta e resta vicino, invece di fare al posto suo.' },
+    { a: 'bored', t: 'Reagisce male a ogni no', q: 'Basta un no e sbatte la porta.',
+      real: 'Davanti a un limite, molti ragazzi non hanno ancora le parole per dire cosa provano: la frustrazione esce tutta insieme. Non è (solo) maleducazione: è un\'emozione che non sanno ancora gestire.',
+      mythT: 'Perché "essere più severi" non basta', myth: 'Rispondere all\'esplosione con un\'altra esplosione insegna proprio quello che vorremmo evitare. Il limite resta, ma il modo di darlo cambia tutto.',
+      fact: 'Durante l\'adolescenza le aree del cervello legate alle emozioni maturano prima di quelle che regolano gli impulsi: le reazioni intense sono in parte fisiologiche.' },
+    { a: 'curve', t: 'Ho paura di sbagliare tutto', q: 'Mi chiedo se sto facendo la cosa giusta.',
+      real: 'Nessuno nasce sapendo fare il genitore, e i figli cambiano più in fretta delle nostre strategie. Il dubbio è il segno che ci tieni, non che stai sbagliando.',
+      mythT: 'Perché "fare di più" non basta', myth: 'Cercare di essere perfetti porta solo più ansia, e i figli la sentono. Serve un modo di fare, non più sforzi.',
+      fact: 'Lo psicoanalista Donald Winnicott parlava di genitore "sufficientemente buono": non perfetto, ma presente, capace di sbagliare e di riparare.' },
+  ] });
+
+  /* ---------- cosa imparerai ---------- */
+  const LEARN = [
+    ['Gestire le emozioni', 'Imparare a riconoscere e regolare le emozioni, tue e dei tuoi figli.', '#fde3e5', '#e0566b', 'M26 44S8 32 8 19a9 9 0 0 1 18-4 9 9 0 0 1 18 4c0 13-18 25-18 25z'],
+    ['Comunicare efficacemente', 'Ascolto, dialogo e parole che costruiscono invece che ferire.', '#e3eefc', '#1f6fd1', 'M8 10h36v24H22l-10 8v-8H8zM18 22h.01M26 22h.01M34 22h.01'],
+    ['Rafforzare la relazione', 'Creare un clima di fiducia e rispetto reciproco.', '#fff1d0', '#d99a12', 'M18 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM34 20a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM6 44c0-8 5-14 12-14s12 6 12 14M28 44c0-6 3-11 7-11s9 5 9 11'],
+    ['Affrontare le difficoltà', 'Strategie pratiche per gestire conflitti, ansia e momenti di crisi.', '#efe7fb', '#7a52c7', 'M26 8a12 12 0 0 0-12 12c0 5 2 8 5 10v6h14v-6c3-2 5-5 5-10A12 12 0 0 0 26 8zM20 42h12M22 22h8M26 18v8'],
+    ['Favorire l\'autonomia', 'Aiutare i figli a diventare più sicuri, motivati e responsabili.', '#ffe6dc', '#e86a3a', 'M10 44V32M20 44V24M30 44V16M40 44V8'],
+  ];
+  $('#lgrid').innerHTML = LEARN.map(([b, p, bg, c, ic], i) => `<div class="lc" data-reveal style="background:${bg};transition-delay:${i * 0.07}s"><svg viewBox="0 0 52 52" style="stroke:${c}"><path d="${ic}"/></svg><b>${b}</b><p>${p}</p></div>`).join('');
+
+  /* ---------- stessa situazione, due risposte ---------- */
+  const SC = [
+    { n: 'I compiti non sono fatti', t: '19:30, ancora davanti al telefono', k: 'Ma come, non hai ancora fatto niente?', bad: ['Sei sempre il solito! Non ti impegni mai, così non andrai da nessuna parte.', 'Lasciami in pace, tanto per te sbaglio sempre.', 'Il rimprovero generalizza ("sempre", "mai") e parla di lui, non del problema: si chiude e si difende.', 0.12],
+      good: ['Vedo che i compiti sono ancora lì e mi preoccupa, domani hai la verifica. Cosa ti blocca?', 'Non ho capito gli esercizi di mate e non volevo dirtelo…', 'Descrivi il fatto e come ti senti, poi chiedi: il figlio non deve difendersi e può dirti cosa c\'è davvero.', 0.86] },
+    { n: 'Un brutto voto', t: 'Torna da scuola con un 4', k: 'Ho preso 4 in latino.', bad: ['Un altro 4? Ti avevo detto di studiare di più. Niente uscite per un mese.', 'Ecco, lo sapevo. Non ti dico più niente.', 'La punizione arriva prima dell\'ascolto: la prossima volta il voto lo nasconderà.', 0.15],
+      good: ['Immagino come ti senti. Grazie per avermelo detto subito: vediamo insieme cosa non ha funzionato?', 'Ho studiato, ma al compito mi è andato tutto in confusione.', 'Prima accogli l\'emozione, poi il problema: così il voto diventa un punto di partenza, non uno scontro.', 0.82] },
+    { n: 'Il telefono a tavola', t: 'Cena in famiglia', k: '(scrolla in silenzio)', bad: ['Metti giù quel telefono! Sempre attaccato a quell\'affare, non si può più parlare con te.', 'Uffa, cosa ho fatto adesso?', 'L\'attacco fa scattare la difesa: il telefono si posa, ma la conversazione non parte.', 0.2],
+      good: ['Mi piacerebbe che la cena fosse un momento solo nostro. Facciamo un patto: telefoni nel cestino fino al dolce?', 'Ok… ma poi ti faccio vedere un video che fa ridere.', 'Esprimi un tuo bisogno e proponi una regola condivisa: è più facile rispettarla, se l\'ha scelta anche lui.', 0.88] },
+  ];
+  let si = 0, mode = 0, timers = [];
+  $('#scen').innerHTML = SC.map((s, i) => `<button type="button" aria-pressed="${!i}" data-i="${i}"><span>0${i + 1}</span>${s.n}</button>`).join('');
+  const chat = $('#chat'), tog = $('#tog'), knob = tog.querySelector('i');
+  const render = () => {
+    timers.forEach(clearTimeout); timers = [];
+    const s = SC[si], r = mode ? s.good : s.bad;
+    chat.classList.toggle('good', !!mode);
+    chat.innerHTML = `<p class="who">${s.t}</p><div class="bub k">${s.k}</div><p class="who" style="align-self:flex-end">Il genitore</p><div class="bub p">${r[0]}</div><div class="bub k">${r[1]}</div>
+      <div class="why"><b>${mode ? 'Perché funziona.' : 'Cosa succede.'}</b> ${r[2]}<div class="meter">Tensione<i><b style="left:${(mode ? 0.5 : 0.5) * 100}%"></b></i>Sintonia</div></div>`;
+    const bubs = chat.querySelectorAll('.bub');
+    bubs.forEach((b, j) => timers.push(setTimeout(() => b.classList.add('on'), L.reduced ? 0 : 150 + j * 650)));
+    timers.push(setTimeout(() => { chat.querySelector('.meter b').style.left = (r[3] * 100) + '%'; }, L.reduced ? 0 : 1700));
+    const btns = tog.querySelectorAll('button'), bb = btns[mode];
+    knob.style.width = bb.offsetWidth + 'px'; knob.style.transform = `translateX(${bb.offsetLeft - 5}px)`; tog.classList.toggle('good', !!mode);
+    btns.forEach((b, j) => b.setAttribute('aria-pressed', String(j === mode)));
+    document.querySelectorAll('#scen button').forEach((b, j) => b.setAttribute('aria-pressed', String(j === si)));
+  };
+  $('#scen').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; si = +b.dataset.i; mode = 0; render(); });
+  tog.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; mode = +b.dataset.m; render(); });
+  new IntersectionObserver((es, o) => es.forEach((x) => { if (x.isIntersecting) { render(); o.disconnect(); } }), { threshold: 0.3 }).observe(chat);
+  addEventListener('resize', () => { const bb = tog.querySelectorAll('button')[mode]; knob.style.width = bb.offsetWidth + 'px'; knob.style.transform = `translateX(${bb.offsetLeft - 5}px)`; });
+  document.fonts?.ready.then(() => { const bb = tog.querySelectorAll('button')[mode]; knob.style.width = bb.offsetWidth + 'px'; knob.style.transform = `translateX(${bb.offsetLeft - 5}px)`; });
+
+  /* ---------- storie: segnaposto finché non arrivano le testimonianze vere ---------- */
+  // recensioni vere da Trustpilot (assets/recensioni.js): famiglie che parlano di serenità, conflitti e relazione
+  const PICK = ['Simona S.', 'Cinzia C.|Il Centro', 'Moira I.', 'Monica P.', 'Alessandra', 'Irene L. M.'];
+  const REV = PICK.map((k) => { const [n, w] = k.split('|'); return (window.LAMBDA_REVIEWS || []).find((r) => r.n === n && (!w || r.q.includes(w))); }).filter(Boolean).slice(0, 6);
+  const COLS = ['#e0566b', '#1f6fd1', '#d99a12', '#00949E', '#7a52c7', '#e86a3a'];
+  $('#stgrid').innerHTML = REV.map((r, i) => `<figure class="sc" data-reveal style="transition-delay:${(i % 3) * 0.08}s"><span class="ph-tag">Trustpilot</span><span class="av" style="background:${COLS[i]}">${r.n[0]}</span><q>${r.q}</q><div class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><small>${r.n} · ${r.who || 'genitore'}, su Trustpilot</small></figure>`).join('');
+  L.stars($('#stgrid'));
+
+  /* ---------- FAQ ---------- */
+  const FAQ = [
+    ['A chi sono rivolti i percorsi?', 'Ai genitori di bambini e ragazzi, dalla primaria alle superiori, che vogliono comunicare meglio con i figli e vivere con più serenità i momenti difficili: compiti, voti, regole, emozioni.'],
+    ['È necessario partecipare insieme a mio figlio?', 'Per Genitori Efficaci no: è un percorso per te, da seguire online quando vuoi. Il Percorso Genitori Consapevoli invece è pensato proprio per genitori e figli insieme.'],
+    ['Quanto dura il Percorso Genitori Consapevoli?', 'Un weekend, online. Date e orari della prossima edizione te li comunica il tutor.'],
+    ['Come funziona il pagamento di Genitori Efficaci?', 'È un abbonamento da 27 € al mese, con accesso immediato a lezioni, materiali e community. Puoi disdire quando vuoi.'],
+  ];
+  $('#qlist').innerHTML = FAQ.map(([q, a], i) => `<details class="qa"${i ? '' : ' open'}><summary>${q}<i>+</i></summary><p>${a}</p></details>`).join('');
+
+  document.querySelectorAll('[data-scroll]').forEach((a) => a.addEventListener('click', (e) => { const t = document.querySelector(a.getAttribute('href')); if (!t) return; e.preventDefault(); L.lenis ? L.lenis.scrollTo(t, { offset: -90 }) : t.scrollIntoView({ behavior: 'smooth' }); }));
+  L.observe(); L.magnetic();
+})();
+</script>
+</body>
+</html>
