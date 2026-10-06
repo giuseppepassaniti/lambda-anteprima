@@ -149,8 +149,6 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
 .hsteps p{margin-top:8px;font-size:14.5px;line-height:1.45;color:#4a6370}
 /* ---------- metodo: link e card principali ---------- */
 .mlink{display:inline-block;margin-left:6px;font-weight:700;color:var(--teal);border-bottom:1.5px solid currentColor}
-.inc.key{background:var(--navy);color:#fff;border-color:var(--navy)}
-.inc.key p{color:rgba(255,255,255,.72)} .inc.key svg{stroke:var(--warm)}
 /* ---------- recensioni ---------- */
 .prevs{background:radial-gradient(ellipse 70% 70% at 50% 40%, #14404f 0%, var(--navy) 60%, var(--deep) 100%);padding:clamp(110px,14vh,160px) 0}
 .prevs .eyebrow{color:var(--warm)}
@@ -181,7 +179,7 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
 <div data-lambda-footer></div>
 
 <script src="assets/recensioni.js?v=10"></script>
-<script src="assets/percorsi.js?v=4"></script>
+<script src="assets/percorsi.js?v=5"></script>
 <script src="assets/percorsi-pagine.js?v=4"></script>
 <script src="assets/percorsi-contenuti.js?v=2"></script>
 <script>
@@ -289,7 +287,7 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
       <p class="sec-lead" data-reveal>Il Metodo FOCUS allena cinque abilità. Per ${R.kind === 'età' ? 'questa età' : 'questa esigenza'} partiamo da qui; il Performance Test ci dice il resto. <a class="mlink" href="metodo-focus.html">Scopri il Metodo FOCUS →</a></p>
       <div class="frow" data-reveal>${'FOCUS'.split('').map((l, i) => `<div class="fx${D.focus[i] ? ' on' : ''}"><span class="L">${l}</span><b>${NAMES[i]}</b>${D.focus[i] ? `<p>${D.focus[i]}</p>` : ''}</div>`).join('')}</div>
       <h3 class="incl-h" data-reveal>Cosa comprende</h3>
-      <div class="incl" data-reveal>${INC.map((k) => { const [t, p, d] = INCLUDES[k]; return `<div class="inc${k === 'tutor' || k === 'live' ? ' key' : ''}"><svg viewBox="0 0 28 28"><path d="${d}"/></svg><div><b>${t}</b><p>${p}</p></div></div>`; }).join('')}</div>
+      <div class="incl" data-reveal>${INC.map((k) => { const [t, p, d] = INCLUDES[k]; return `<div class="inc"><svg viewBox="0 0 28 28"><path d="${d}"/></svg><div><b>${t}</b><p>${p}</p></div></div>`; }).join('')}</div>
     </div>
   </section>
 

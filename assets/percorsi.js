@@ -85,7 +85,7 @@ window.PERCORSI = {
     live: ['Docenti certificati Lambda', 'Lezioni individuali live, dal lunedì al sabato, con docenti formati sul nostro metodo e aggiornati con corsi continui.', 'M3 7h17v15H3zM20 12l7-4v13l-7-4'],
     aule: ['Aule studio online', 'Applichi il metodo in autonomia, con un docente sempre collegato a cui chiedere aiuto.', 'M4 24V10l10-6 10 6v14M10 24v-7h8v7'],
     lab: ['Laboratori di metodo', 'Mappe, lettura veloce, memoria: le tecniche, allenate insieme.', 'M11 3v8L4 23h20l-7-12V3M9 3h10'],
-    ripetizioni: ['Ripetizioni mirate', 'Nelle materie critiche i docenti recuperano le lacune, applicando il metodo.', 'M5 5h18v14H5zM9 23h10M14 19v4'],
+    ripetizioni: ['Lezioni individuali mirate', 'Nelle materie critiche i docenti recuperano le lacune, applicando il metodo.', 'M5 5h18v14H5zM9 23h10M14 19v4'],
     simulazioni: ['Simulazioni di interrogazione', 'Prove con i docenti, finché esporre diventa naturale.', 'M4 6h20v13H11l-5 4v-4H4z'],
     report: ['Report per i genitori', 'Aggiornamenti regolari: sapete sempre a che punto è.', 'M7 3h11l5 5v17H7zM11 14h8M11 18h8M11 10h4'],
   },
