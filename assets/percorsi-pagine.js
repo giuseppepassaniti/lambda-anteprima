@@ -29,7 +29,7 @@
       includes: ['tutor', 'live', 'lab', 'aule', 'genitori', 'report'],
       review: R.fabio,
       reviews: [R.fabio, R.silvia, R.irene],
-      nums: ['studenti seguiti, dalla primaria all\'università', 'su Trustpilot, su 323 recensioni di genitori e studenti', 'in Italia per recensioni certificate', 'anni accanto a bambini, ragazzi e famiglie'],
+      nums: ['studenti seguiti, dalla primaria all\'università', 'su Trustpilot, su 350+ recensioni di genitori e studenti', 'in Italia per recensioni certificate', 'anni accanto a bambini, ragazzi e famiglie'],
       painTitle: 'Riconosci il tuo bambino? <em>Non è pigrizia.</em>',
       painLead: 'A questa età le difficoltà hanno quasi sempre una causa precisa. Tocca la situazione che vivete a casa: ti spieghiamo cosa succede davvero, e perché “di più” spesso non basta.',
       pains: [

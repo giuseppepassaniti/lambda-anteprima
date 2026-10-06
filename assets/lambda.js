@@ -57,11 +57,11 @@
         <div class="fg stud"><div class="fg-in"><div class="brand"><img src="assets/wordmark-white.png" alt="Centro Studi Lambda"><p>Metodo di studio, tutor e lezioni live per studenti di ogni età. Online, in tutta Italia.</p></div>
           <div class="fg-cols">${col('Percorsi', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Metodo di studio', 'percorso.html?p=metodo-di-studio'], ['Ripetizioni', 'percorso.html?p=ripetizioni']])}
           ${col('Lambda', [['Metodo FOCUS', 'metodo-focus.html'], ['Performance Test', 'test.html'], ['Vacanze studio', 'vacanze-studio.html'], ['Percorsi per genitori', 'genitori.html'], ['Risultati', 'risultati.html'], ['Sedi', 'sedi.html'], ['Chi siamo', 'chisiamo.html']])}</div>
-          ${wa}<a class="fg-go" href="studenti.html">Entra in Centro Studi Lambda →</a></div></div>
+          <a class="fg-go" href="studenti.html">Entra in Centro Studi Lambda →</a></div></div>
         <div class="fg conc"><div class="fg-in"><div class="brand">${STAR}<p><b>Concorsi Militari Academy</b><br>La preparazione ai concorsi delle Forze Armate e di Polizia. Online, in tutta Italia.</p></div>
           <div class="fg-cols">${col('Concorsi', [['Polizia di Stato', 'corpo.html?c=polizia'], ['Carabinieri', 'corpo.html?c=carabinieri'], ['Guardia di Finanza', 'corpo.html?c=gdf'], ['Esercito', 'corpo.html?c=esercito'], ['Marina Militare', 'corpo.html?c=marina'], ['Aeronautica Militare', 'corpo.html?c=aeronautica']])}
           ${col('Academy', [['Metodo EAGLE', 'concorsi.html#eagle'], ['Test Concorsi', 'test-concorsi.html'], ['Simulatore', 'simulatore.html'], ['Sedi', 'sedi-concorsi.html'], ['Chi siamo', 'chisiamo.html'], ['Contatti', 'tel:+393514206823']])}</div>
-          ${tg}<a class="fg-go" href="concorsi.html">Entra in Concorsi Militari Academy →</a></div></div>
+          <a class="fg-go" href="concorsi.html">Entra in Concorsi Militari Academy →</a></div></div>
       </div><div class="foot-in fg-bottom">${social}${legal('Centro Studi Lambda · Concorsi Militari Academy')}</div></footer>`,
     stud: `<footer class="foot" aria-label="Informazioni"><div class="foot-in"><div class="foot-top">
         <div class="brand"><img src="assets/wordmark-white.png" alt="Centro Studi Lambda"><p>Metodo di studio, tutor e lezioni live. Online, in tutta Italia: per dare a ogni ragazzo gli strumenti per arrivare lontano.</p>${social}${wa}</div>

@@ -9,7 +9,7 @@
  "ansia-scolastica": {
   "nums": [
    "studenti seguiti, anche quando la scuola fa paura",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni accanto a ragazzi e famiglie, con calma e metodo"
   ],
@@ -119,7 +119,7 @@
  "autonomia": {
   "nums": [
    "studenti seguiti verso uno studio più autonomo",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni accanto a ragazzi che imparano a fare da soli"
   ],
@@ -229,7 +229,7 @@
  "dsa-bes": {
   "nums": [
    "studenti seguiti, ognuno con il suo modo di imparare",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni accanto a ragazzi e famiglie, partendo dai punti di forza"
   ],
@@ -339,7 +339,7 @@
  "media": {
   "nums": [
    "studenti seguiti, dalla primaria all'università",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni accanto ai ragazzi, nei passaggi più delicati della scuola"
   ],
@@ -449,7 +449,7 @@
  "memoria-concentrazione": {
   "nums": [
    "studenti seguiti, per studiare meglio in meno tempo",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni accanto a ragazzi e famiglie, tra distrazioni e dimenticanze"
   ],
@@ -559,7 +559,7 @@
  "metodo-di-studio": {
   "nums": [
    "studenti a cui abbiamo insegnato un metodo, dalla primaria all'università",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni a insegnare come si studia, non solo cosa"
   ],
@@ -660,7 +660,7 @@
  "organizzazione": {
   "nums": [
    "studenti seguiti, dalla primaria all'università",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni ad aiutare ragazzi e famiglie a ritrovare i pomeriggi"
   ],
@@ -770,7 +770,7 @@
  "recupero-insufficienze": {
   "nums": [
    "studenti seguiti, anche nel recupero delle materie a rischio",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni accanto a ragazzi e famiglie, anche negli anni più difficili"
   ],
@@ -871,7 +871,7 @@
  "ripetizioni": {
   "nums": [
    "studenti seguiti, tra ripetizioni e metodo di studio",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni a recuperare materie, e a insegnare come studiarle"
   ],
@@ -972,7 +972,7 @@
  "superiore": {
   "nums": [
    "studenti seguiti, dalla primaria all'università",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni accanto a ragazzi e famiglie, fino alla maturità e oltre"
   ],
@@ -1082,7 +1082,7 @@
  "test-universitari": {
   "nums": [
    "studenti seguiti, dalla scuola all'università",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni accanto a ragazzi e famiglie nelle scelte che contano"
   ],
@@ -1192,7 +1192,7 @@
  "universita": {
   "nums": [
    "studenti seguiti, dalla scuola all'università",
-   "su Trustpilot, su 323 recensioni di genitori e studenti",
+   "su Trustpilot, su 350+ recensioni di genitori e studenti",
    "in Italia per recensioni certificate",
    "anni accanto a studenti e famiglie, fino alla laurea"
   ],
