@@ -498,7 +498,8 @@ body.light-hdr .nav-dd .dd a,.nav-dd .dd a:hover{color:#fff}
 .ft-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,28px);padding:0 clamp(0px,1.5vw,24px);border-left:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08)}
 .ft-col h4{font:500 11px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 .ft-col h4 small{display:block;margin-top:5px;font:500 12px/1.2 var(--font);letter-spacing:0;text-transform:none;color:rgba(255,255,255,.4)}
-.ft-col.stud h4{color:var(--warm)} .ft-col.conc h4{color:#ff6b74}
+.ft-col.fc-stud h4{color:var(--warm)} .ft-col.fc-conc h4{color:#ff6b74}
+.ft-col{background:none}
 .ft-col ul{list-style:none;display:grid;gap:9px;margin-top:14px;font-size:14px;line-height:1.3}
 .ft-col a{color:rgba(255,255,255,.72);transition:color .25s,padding .3s var(--ease)} .ft-col a:hover{color:#fff;padding-left:4px}
 .ft-news{position:relative;padding:24px;border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1)}
@@ -544,4 +545,39 @@ body.light-hdr .nav-dd .dd a,.nav-dd .dd a:hover{color:#fff}
   .ft-kpi{grid-template-columns:repeat(2,minmax(0,1fr))} .ft-kpi>div{border-left:0!important;border-top:1px solid rgba(255,255,255,.08)} .ft-kpi>div:first-child,.ft-kpi>div:nth-child(2){border-top:0}
   .ft-kpi>div:last-child{grid-column:1/-1}
   .ft-bottom{grid-template-columns:minmax(0,1fr)} .ft-marks{order:4}
+}
+
+/* =====================================================================
+   TELEFONO · barra delle azioni fissa in basso, caroselli a scorrimento, aree di tocco ≥ 44px
+   ===================================================================== */
+.mcta{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:45;display:none;grid-template-columns:1.15fr 1fr;gap:8px;padding:8px;border-radius:22px;
+  background:rgba(8,20,28,.86);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(255,255,255,.12);box-shadow:0 20px 40px -12px rgba(0,0,0,.55);
+  transform:translateY(140%);transition:transform .5s var(--ease)}
+.mcta-conc{background:rgba(11,12,10,.88);border-color:rgba(169,185,122,.22)}
+.mcta .btn{height:48px;padding:0 12px;justify-content:center;font-size:14.5px;border-radius:16px}
+.mcta .mcta-2{border:1.5px solid rgba(255,255,255,.28);color:#fff}
+.mcta.on{transform:none}
+@media (max-width: 759px){ .mcta{display:grid} }
+
+/* liste lunghe → carosello orizzontale da scorrere col dito (solo telefono) */
+@media (max-width: 760px){
+  .mcar{display:flex!important;grid-template-columns:none!important;flex-wrap:nowrap!important;gap:12px!important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    margin-inline:calc(-1 * var(--gutter));padding:6px var(--gutter) 16px;scroll-padding-inline:var(--gutter);overscroll-behavior-x:contain}
+  .mcar::-webkit-scrollbar{display:none}
+  .mcar>*{flex:0 0 min(82%,330px)!important;max-width:none;scroll-snap-align:start;min-width:0}
+  .mcar-hint{display:flex!important;align-items:center;gap:8px;margin-top:2px;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.55}
+  .mcar-hint::after{content:"";width:28px;height:1.5px;background:currentColor;animation:mch 1.6s ease-in-out infinite}
+}
+.mcar-hint{display:none}
+@keyframes mch{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+
+/* aree di tocco più grandi su telefono, senza cambiare l'aspetto */
+@media (max-width: 760px){
+  [data-pick-sede],[data-sdot],.krow button,#bFil button,.scen button,.tog button{min-height:44px}
+  .cities a{min-height:46px}
+  .pc .more{padding:14px 0;margin-top:2px}
+  .tutor-link,.tpall a,.dgo,.mlink,.rlink,.crev-foot a,.tp-row a,.ftall a{display:inline-flex;align-items:center;min-height:44px}
+  #tDots button,[data-sdot]{position:relative} #tDots button::before{content:"";position:absolute;inset:-14px}
+  .hs{padding-block:10px}
+  .jl::before,.ml::before{content:"";position:absolute;inset:-9px -4px}
 }

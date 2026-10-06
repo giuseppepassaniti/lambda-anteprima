@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=29">
+<link rel="stylesheet" href="assets/lambda.css?v=32">
 <style>
 /* =================== CMA · template della pagina di un corpo =================== */
 body{background:var(--ink)}
@@ -249,7 +249,7 @@ body{background:var(--ink)}
   const P = window.CMA_PRODOTTI;
   const card = (x) => { const items = x.items.map((t, i) => Array.isArray(t) ? `<li class="ic${i >= 5 ? ' x' : ''}"><i aria-hidden="true">${t[0]}</i>${t[1]}</li>` : `<li${i >= 5 ? ' class="x"' : ''}>${t}</li>`).join('');
     return `<article class="pc${x.main ? ' main' : ''}${x.cover ? ' book' : ''}">${x.cover ? '<div class="bcover" aria-hidden="true"><div class="bk"><i class="st"></i><small>Concorsi Militari Academy</small><b>La guida completa ai concorsi</b><span>Forze Armate e di Polizia</span></div></div>' : ''}<span class="pt">${x.tag}</span><h4>${x.name}</h4>${x.sub ? `<p class="psub">${x.sub}</p>` : ''}${x.price ? `<p class="pr">${x.price}</p>` : '<p class="pr ask">Prezzo su misura · chiedi al consulente</p>'}<p class="plead">${x.lead}</p>${x.inside ? `<p class="pin">${x.inside}</p>` : ''}${items ? `<ul>${items}</ul>` : ''}${x.items.length > 5 ? `<button class="more" type="button">Vedi tutto (+${x.items.length - 5}) ↓</button>` : ''}${x.for ? `<div class="pfor"><small>Per i concorsi di</small><div>${x.for.map((f) => `<span>${f}</span>`).join('')}</div></div>` : ''}${x.claim ? `<p class="pclaim">${x.claim}</p>` : ''}${x.guarantee ? `<p class="gua">${x.guarantee}</p>` : ''}<button class="btn ${x.main ? 'btn-red' : 'btn-line'}" type="button" data-lead="${C.n}"><span class="t">Richiedi informazioni →</span></button></article>`; };
-  const cards = (arr) => `<div class="pcards n${arr.length}">${arr.map(card).join('')}</div>`;
+  const cards = (arr) => `<div class="pcards mcar n${arr.length}">${arr.map(card).join('')}</div>${arr.length > 1 ? '<p class="mcar-hint">Scorri</p>' : ''}`;
 
   document.getElementById('main').innerHTML = `
   <section class="ghero" data-theme="dark" aria-labelledby="gTitle">
@@ -368,7 +368,7 @@ body{background:var(--ink)}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=39"></script>
+<script src="assets/lambda.js?v=41"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {

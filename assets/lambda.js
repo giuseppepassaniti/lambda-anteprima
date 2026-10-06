@@ -71,10 +71,10 @@
   const socs = [...(branch === 'conc' ? [IG_C] : branch === 'stud' ? [IG_L] : [IG_L, IG_C]).map(([h, l]) => [h, l, IC.ig]), ['https://www.youtube.com/@centro_studi_lambda', 'YouTube', IC.yt], ['https://www.facebook.com/profile.php?id=61566760292485', 'Facebook', IC.fb]];
   const fcol = (title, cls, items) => `<div class="ft-col ${cls}"><h4>${title}</h4><ul>${items.map(([t, h]) => `<li><a href="${h}"${/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : ''}>${t}</a></li>`).join('')}</ul></div>`;
   const FCOLS = [
-    fcol('Studenti e famiglie<small>Centro Studi Lambda</small>', 'stud', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Medicina · semestre filtro', 'percorso.html?p=test-universitari'], ['DSA e BES', 'percorso.html?p=dsa-bes'], ['Tutti i percorsi', 'studenti.html#percorsi'], ['Vacanze studio a Malta', 'vacanze-studio.html'], ['Percorsi per genitori', 'genitori.html'], ['Risultati studenti', 'risultati.html'], ['Sedi Lambda', 'sedi.html'], ['Blog Lambda', CO.blog]]),
-    fcol('Forze Armate e Polizia<small>Concorsi Militari Academy</small>', 'conc', [['Polizia di Stato', 'corpo.html?c=polizia'], ['Carabinieri', 'corpo.html?c=carabinieri'], ['Guardia di Finanza', 'corpo.html?c=gdf'], ['Esercito', 'corpo.html?c=esercito'], ['Marina Militare', 'corpo.html?c=marina'], ['Aeronautica Militare', 'corpo.html?c=aeronautica'], ['Polizia Penitenziaria', 'corpo.html?c=penitenziaria'], ['Vigili del Fuoco', 'corpo.html?c=vvf'], ['Accademie', 'corpo.html?c=accademie'], ['Tutti i concorsi', 'concorsi.html#corpi-sec'], ['Risultati concorsi', 'concorsi.html#risultati'], ['Sedi CMA', 'sedi-concorsi.html']]),
-    fcol('Il nostro metodo<small>Strumenti e test</small>', 'meth', [['Metodo FOCUS', 'metodo-focus.html'], ['Metodo EAGLE', 'concorsi.html#eagle'], ['Performance Test', 'test.html'], ['Test Concorsi', 'test-concorsi.html'], ['Simulatore CMA', 'simulatore.html'], ['Come funziona', 'studenti.html#come'], ['La nostra storia', 'storia.html'], ['Domande frequenti', 'studenti.html#faq']]),
-    fcol('Il gruppo<small>Lambda e CMA</small>', 'grp', [['Chi siamo', 'chisiamo.html'], ['Le nostre sedi', 'sedi.html'], ['Contatti', 'contatti.html'], ['Lavora con noi', 'lavora-con-noi.html'], ['Franchising', 'franchising.html'], ['Press e media', 'press.html']]),
+    fcol('Studenti e famiglie<small>Centro Studi Lambda</small>', 'fc-stud', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Medicina · semestre filtro', 'percorso.html?p=test-universitari'], ['DSA e BES', 'percorso.html?p=dsa-bes'], ['Tutti i percorsi', 'studenti.html#percorsi'], ['Vacanze studio a Malta', 'vacanze-studio.html'], ['Percorsi per genitori', 'genitori.html'], ['Risultati studenti', 'risultati.html'], ['Sedi Lambda', 'sedi.html'], ['Blog Lambda', CO.blog]]),
+    fcol('Forze Armate e Polizia<small>Concorsi Militari Academy</small>', 'fc-conc', [['Polizia di Stato', 'corpo.html?c=polizia'], ['Carabinieri', 'corpo.html?c=carabinieri'], ['Guardia di Finanza', 'corpo.html?c=gdf'], ['Esercito', 'corpo.html?c=esercito'], ['Marina Militare', 'corpo.html?c=marina'], ['Aeronautica Militare', 'corpo.html?c=aeronautica'], ['Polizia Penitenziaria', 'corpo.html?c=penitenziaria'], ['Vigili del Fuoco', 'corpo.html?c=vvf'], ['Accademie', 'corpo.html?c=accademie'], ['Tutti i concorsi', 'concorsi.html#corpi-sec'], ['Risultati concorsi', 'concorsi.html#risultati'], ['Sedi CMA', 'sedi-concorsi.html']]),
+    fcol('Il nostro metodo<small>Strumenti e test</small>', 'fc-meth', [['Metodo FOCUS', 'metodo-focus.html'], ['Metodo EAGLE', 'concorsi.html#eagle'], ['Performance Test', 'test.html'], ['Test Concorsi', 'test-concorsi.html'], ['Simulatore CMA', 'simulatore.html'], ['Come funziona', 'studenti.html#come'], ['La nostra storia', 'storia.html'], ['Domande frequenti', 'studenti.html#faq']]),
+    fcol('Il gruppo<small>Lambda e CMA</small>', 'fc-grp', [['Chi siamo', 'chisiamo.html'], ['Le nostre sedi', 'sedi.html'], ['Contatti', 'contatti.html'], ['Lavora con noi', 'lavora-con-noi.html'], ['Franchising', 'franchising.html'], ['Press e media', 'press.html']]),
   ];
   const FKPI = [
     ['<b>4,9/5</b><span>su Trustpilot · 350+ recensioni</span>', 'M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z'],
@@ -114,7 +114,10 @@
   </footer>`;
   if ((BR.tutor || BR.lead) && !window.LambdaLead) { const sc = document.createElement('script'); sc.src = 'assets/lead.js?v=6'; document.head.appendChild(sc); }
   const headerHTML_ = headerHTML, footerHTML = FOOT;
-  document.querySelector('[data-lambda-header]')?.insertAdjacentHTML('afterend', headerHTML_);
+  // barra fissa in basso su telefono: l'azione principale e il contatto sempre a portata di pollice
+  const MCTA = branch === 'stud' ? ['Performance Test →', 'Parla con un tutor'] : branch === 'conc' ? ['Test Concorsi →', 'Un consulente'] : null;
+  const mctaHTML = MCTA && BR.cta && !body.hasAttribute('data-nocta') ? `<div class="mcta mcta-${branch}" id="mcta" aria-label="Azioni rapide"><a class="btn ${branch === 'conc' ? 'btn-conc' : 'btn-stud'}" href="${BR.cta[1]}">${MCTA[0]}</a><button class="btn mcta-2" type="button" data-lead>${MCTA[1]}</button></div>` : '';
+  document.querySelector('[data-lambda-header]')?.insertAdjacentHTML('afterend', headerHTML_ + mctaHTML);
   document.querySelector('[data-lambda-header]')?.remove();
   document.querySelector('[data-lambda-footer]')?.insertAdjacentHTML('afterend', footerHTML);
   document.querySelector('[data-lambda-footer]')?.remove();
@@ -264,6 +267,7 @@
   L.magnetic();
 
   /* ---------------- UN SOLO ciclo di animazione per tutta la pagina ---------------- */
+  const mcta = document.getElementById('mcta');
   const themed = () => [...document.querySelectorAll('[data-theme]')];
   function loop(now) {
     requestAnimationFrame(loop);
@@ -275,6 +279,8 @@
     const cur = themed().findLast((s) => { const r = s.getBoundingClientRect(); return r.top <= y && r.bottom >= y; }); // l'ultima: le sezioni dopo stanno sopra (bordi arrotondati)
     // con data-hdr-manual è la pagina a decidere il colore dell'header (es. la storia, dopo la svolta)
     if (!body.hasAttribute('data-hdr-manual')) body.classList.toggle('light-hdr', cur?.dataset.theme === 'light');
+    if (mcta) { const ft = document.querySelector('.ft'), ftTop = ft ? ft.getBoundingClientRect().top : 1e9;
+      mcta.classList.toggle('on', innerWidth < 760 && sy > innerHeight * 0.75 && ftTop > innerHeight - 40 && !body.classList.contains('menu-open') && !body.classList.contains('modal-on')); }
     for (const f of L.frames) f(now, sy);
   }
   requestAnimationFrame(loop);
