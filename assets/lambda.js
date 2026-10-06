@@ -31,18 +31,21 @@
       nav: [['Concorsi', 'concorsi.html#corpi-sec', 'concorsi'], ['Metodo EAGLE', 'concorsi.html#eagle', 'eagle'], ['Simulatore', 'simulatore.html', 'simulatore'], ['Risultati', 'concorsi.html#risultati', 'risultati'], ['Sedi', 'sedi-concorsi.html', 'sedi']],
       cta: ['Test Concorsi →', 'test-concorsi.html', 'btn-cta-conc'], tutor: 'Parla con un consulente' },
   }[branch];
+  // in alto a destra, il passaggio diretto all'altro marchio (al posto di "Cambia percorso")
+  const OTHER = branch === 'conc' ? { name: 'Centro Studi Lambda', l1: 'Centro Studi', l2: 'Lambda', href: 'studenti.html', ic: '<svg viewBox="0 0 40 18" aria-hidden="true"><circle cx="10" cy="9" r="7"/><circle cx="30" cy="9" r="7"/><path d="M17 8q3-3 6 0"/></svg>' }
+    : { name: 'Concorsi Militari Academy', l1: 'Concorsi Militari', l2: 'Academy', href: 'concorsi.html', ic: '<svg viewBox="0 0 200 200" aria-hidden="true"><path d="M100 8 L124 76 L196 76 L138 118 L160 188 L100 146 L40 188 L62 118 L4 76 L76 76 Z"/></svg>' };
   const headerHTML = `
   <header class="hdr" id="hdr" data-hbranch="${branch}">
     <a class="logo" id="logo" href="${BR.home}" aria-label="Home">${BR.logo}</a>
     ${BR.nav.length ? `<nav class="nav" aria-label="Principale">${BR.nav.map(([t, h, id]) => `<a href="${h}"${id === page ? ' aria-current="page"' : ''}>${t}</a>`).join('')}${BR.more ? `<div class="nav-dd${BR.more[1].some((m) => m[2] === page) ? ' cur' : ''}"><button type="button" aria-expanded="false" aria-haspopup="true">${BR.more[0]}<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button><div class="dd">${BR.more[1].map(([t, h, id, d]) => `<a href="${h}"${id === page ? ' aria-current="page"' : ''}><b>${t}</b><small>${d}</small></a>`).join('')}</div></div>` : ''}</nav>` : '<span class="hdr-space"></span>'}
     ${BR.cta ? `<div class="hdr-ctas"><a class="btn hdr-cta ${BR.cta[2]} magnetic" href="${BR.cta[1]}"><span class="t">${BR.cta[0]}</span></a>${BR.tutor ? `<button class="btn hdr-cta hdr-tutor magnetic" type="button" data-lead><span class="t">${BR.tutor}</span></button>` : ''}</div>` : ''}
-    ${branch !== 'gate' ? `<a class="switch-branch" href="index.html" title="Torna alla scelta del percorso">Cambia percorso</a>` : ''}
+    ${branch !== 'gate' ? `<a class="switch-branch ${branch === 'stud' ? 'to-conc' : 'to-stud'}" href="${OTHER.href}" title="Vai a ${OTHER.name}">${OTHER.ic}<span><i>${OTHER.l1}</i> <i>${OTHER.l2}</i></span></a>` : ''}
     ${BR.nav.length ? '<button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false"><i></i><i></i></button>' : ''}
   </header>
   ${BR.nav.length ? `<nav class="menu" id="menu" aria-label="Menu mobile">
     ${BR.nav.map(([t, h]) => `<a href="${h}"><span>${t}</span></a>`).join('')}
     ${BR.more ? `<div class="m-more"><small>${BR.more[0]}</small>${BR.more[1].map(([t, h]) => `<a href="${h}">${t} →</a>`).join('')}</div>` : ''}
-    <div class="mt">${BR.cta ? `<a href="${BR.cta[1]}">${BR.cta[0]}</a>` : ''}${BR.tutor ? `<button type="button" data-lead>${BR.tutor}</button>` : ''}<a href="index.html">↺ Cambia percorso</a></div>
+    <div class="mt">${BR.cta ? `<a href="${BR.cta[1]}">${BR.cta[0]}</a>` : ''}${BR.tutor ? `<button type="button" data-lead>${BR.tutor}</button>` : ''}<a href="${OTHER.href}">${OTHER.name} →</a></div>
   </nav>` : ''}`;
   const col = (title, items) => `<div><h4>${title}</h4><ul>${items.map(([t, h, soon]) => `<li><a href="${h || '#'}">${t}</a>${soon ? '<span class="soon">PRESTO</span>' : ''}</li>`).join('')}</ul></div>`;
   const legal = (owner) => `<div class="legal"><span>${owner} · © ${new Date().getFullYear()} Preparazione Concorsi LTD · P.IVA: MT 3058-2802</span>

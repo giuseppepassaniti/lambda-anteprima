@@ -454,3 +454,18 @@ body.light-hdr .nav-dd>button{color:rgba(14,33,46,.8)} body.light-hdr .nav-dd:ho
 .menu{overflow-y:auto}
 .nav{align-items:center}
 body.light-hdr .nav-dd .dd a,.nav-dd .dd a:hover{color:#fff}
+/* passaggio all'altro marchio, in alto a destra */
+.switch-branch{display:inline-flex;align-items:center;gap:8px}
+.switch-branch svg{flex-shrink:0;height:14px;width:auto}
+.switch-branch.to-conc svg{width:14px;fill:#D7263D}
+.switch-branch.to-stud svg{width:28px;fill:none;stroke:var(--warm);stroke-width:3;stroke-linecap:round}
+.switch-branch i{font-style:normal}
+/* sui portatili il nome va su due righe, per non uscire dallo schermo */
+@media (max-width: 1560px){ .switch-branch span{display:flex;flex-direction:column;gap:3px;line-height:1.1} }
+@media (max-width: 1560px) and (min-width: 1321px){
+  .hdr:is([data-hbranch="stud"],[data-hbranch="conc"]){gap:22px}
+  .hdr:is([data-hbranch="stud"],[data-hbranch="conc"]) .nav{gap:22px}
+  .hdr:is([data-hbranch="stud"],[data-hbranch="conc"]) .hdr-cta{padding:0 18px;font-size:14px}
+  .hdr:is([data-hbranch="stud"],[data-hbranch="conc"]) .hdr-ctas{gap:8px}
+  .switch-branch{letter-spacing:.08em;font-size:10px}
+}
