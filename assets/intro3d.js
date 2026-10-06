@@ -103,6 +103,7 @@ logo.rotation.y = -0.6;
 let spin = { v: 0 }, float = { a: 0 }, running = true;
 const word = document.getElementById('introWord');
 const tl = gsap.timeline({ onComplete: exit });
+if (innerWidth < 760) tl.timeScale(1.7);   // su telefono l'intro dura meno
 books.forEach((b, i) => {
   tl.to(b.m.position, { y: b.y, duration: 1.0, ease: 'back.out(1.5)' }, 0.15 + i * 0.28)
     .from(b.m.rotation, { z: (i % 2 ? 1 : -1) * 0.5, x: 0.4, duration: 1.0, ease: 'back.out(1.5)' }, '<');

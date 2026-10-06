@@ -69,7 +69,7 @@
   };
   const IG_L = ['https://www.instagram.com/centro_studi_lambda_/', 'Instagram Centro Studi Lambda'], IG_C = ['https://www.instagram.com/concorsi_militari_academy/', 'Instagram Concorsi Militari Academy'];
   const socs = [...(branch === 'conc' ? [IG_C] : branch === 'stud' ? [IG_L] : [IG_L, IG_C]).map(([h, l]) => [h, l, IC.ig]), ['https://www.youtube.com/@centro_studi_lambda', 'YouTube', IC.yt], ['https://www.facebook.com/profile.php?id=61566760292485', 'Facebook', IC.fb]];
-  const fcol = (title, cls, items) => `<div class="ft-col ${cls}"><h4>${title}</h4><ul>${items.map(([t, h]) => `<li><a href="${h}"${/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : ''}>${t}</a></li>`).join('')}</ul></div>`;
+  const fcol = (title, cls, items) => `<div class="ft-col ${cls}"><h4><button type="button" class="ft-acc" aria-expanded="false"><span>${title}</span><i aria-hidden="true"></i></button></h4><ul>${items.map(([t, h]) => `<li><a href="${h}"${/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : ''}>${t}</a></li>`).join('')}</ul></div>`;
   const FCOLS = [
     fcol('Studenti e famiglie<small>Centro Studi Lambda</small>', 'fc-stud', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Medicina · semestre filtro', 'percorso.html?p=test-universitari'], ['DSA e BES', 'percorso.html?p=dsa-bes'], ['Tutti i percorsi', 'studenti.html#percorsi'], ['Vacanze studio a Malta', 'vacanze-studio.html'], ['Percorsi per genitori', 'genitori.html'], ['Risultati studenti', 'risultati.html'], ['Sedi Lambda', 'sedi.html'], ['Blog Lambda', CO.blog]]),
     fcol('Forze Armate e Polizia<small>Concorsi Militari Academy</small>', 'fc-conc', [['Polizia di Stato', 'corpo.html?c=polizia'], ['Carabinieri', 'corpo.html?c=carabinieri'], ['Guardia di Finanza', 'corpo.html?c=gdf'], ['Esercito', 'corpo.html?c=esercito'], ['Marina Militare', 'corpo.html?c=marina'], ['Aeronautica Militare', 'corpo.html?c=aeronautica'], ['Polizia Penitenziaria', 'corpo.html?c=penitenziaria'], ['Vigili del Fuoco', 'corpo.html?c=vvf'], ['Accademie', 'corpo.html?c=accademie'], ['Tutti i concorsi', 'concorsi.html#corpi-sec'], ['Risultati concorsi', 'concorsi.html#risultati'], ['Sedi CMA', 'sedi-concorsi.html']]),
@@ -244,6 +244,8 @@
   L.observe();
 
   /* ---------------- header: test, menu, magnetici ---------------- */
+  // footer su telefono: le colonne si aprono e chiudono toccando il titolo
+  document.querySelectorAll('.ft-acc').forEach((b) => b.addEventListener('click', () => { if (innerWidth > 760) return; const o = b.closest('.ft-col').classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); }));
   // newsletter del footer (prototipo: i dati non vengono inviati)
   document.querySelectorAll('.ft-news').forEach((f) => f.addEventListener('submit', (e) => {
     e.preventDefault(); const m = f.querySelector('.ft-msg'), mail = f.querySelector('input[type=email]').value.trim();

@@ -581,3 +581,25 @@ body.light-hdr .nav-dd .dd a,.nav-dd .dd a:hover{color:#fff}
   .hs{padding-block:10px}
   .jl::before,.ml::before{content:"";position:absolute;inset:-9px -4px}
 }
+
+/* footer: titoli delle colonne come pulsanti (fisarmonica su telefono) */
+.ft-acc{display:block;width:100%;text-align:left;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;cursor:default}
+.ft-acc i{display:none}
+@media (max-width: 760px){
+  .ft-cols{grid-template-columns:minmax(0,1fr)!important;row-gap:0!important}
+  .ft-col{border-bottom:1px solid rgba(255,255,255,.08)}
+  .ft-acc{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;padding:10px 0;cursor:pointer}
+  .ft-acc i{display:block;flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.2);position:relative;transition:transform .4s var(--ease),background .3s}
+  .ft-acc i::before,.ft-acc i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+  .ft-acc i::after{transform:translate(-50%,-50%) rotate(90deg)}
+  .ft-col.open .ft-acc i{transform:rotate(45deg);background:rgba(255,255,255,.08)}
+  .ft-col ul{display:none;margin:0 0 18px;grid-template-columns:1fr 1fr;column-gap:16px}
+  .ft-col.open ul{display:grid}
+  .ft-col ul a{display:inline-block;padding:4px 0}
+}
+
+/* testi piccoli più leggibili su telefono */
+@media (max-width: 760px){
+  .cities a em,.klvl,.kv .klvl,.pc .pt,.crv .tg,.ph-tag,.ft-col h4 small,.cnote,.press-k,.pain-tag,.hs span,.bc .src,.idata dt,.mcar-hint{font-size:12px!important}
+  .eyebrow,.vs-eye,.g-eye,.lbl,.dk,.lbl2,.k,.pin,.ft-k{font-size:12px}
+}

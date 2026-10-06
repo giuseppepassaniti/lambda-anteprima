@@ -152,6 +152,7 @@ function run() {
   /* ---------- la regia ---------- */
   const halves = intro.querySelectorAll('.ghalf'), seam = $('#gseam');
   const tl = gsap.timeline({ delay: 0.2 });
+  if (innerWidth < 760) tl.timeScale(1.7);   // su telefono l'intro dura meno
   tl.to(core.material, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0)
     .fromTo(core.scale, { x: 0.2, y: 0.2 }, { x: 1.1, y: 1.1, duration: 0.55, ease: 'power2.out' }, 0)
     .to(core.scale, { x: 0.7, y: 0.7, duration: 0.18, ease: 'power2.in' }, 0.5)          // si raccoglie...

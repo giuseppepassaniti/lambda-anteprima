@@ -87,6 +87,7 @@ function run() {
   /* ---------- la regia ---------- */
   logo.rotation.set(0.25, -0.6, 0);
   const tl = gsap.timeline({ delay: 0.25 });
+  if (innerWidth < 760) tl.timeScale(1.7);   // su telefono l'intro dura meno
   pieces.forEach((p, i) => {
     tl.to(p.m.position, { x: 0, y: 0, z: 0, duration: 1.15, ease: 'expo.out' }, i * 0.14)
       .to(p.m.rotation, { x: 0, y: 0, z: 0, duration: 1.15, ease: 'expo.out' }, i * 0.14);
