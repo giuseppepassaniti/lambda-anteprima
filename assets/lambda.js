@@ -21,7 +21,7 @@
   const STAR = CM ? CM.svg({ ring: false, cls: 'cma-star' }) : `<svg class="cma-star" viewBox="0 0 200 200" aria-hidden="true"><path fill="#CD141F" d="M100 8 L124 76 L196 76 L138 118 L160 188 L100 146 L40 188 L62 118 L4 76 L76 76 Z"/></svg>`;
   const SEAL = CM ? CM.svg({ ring: true, cls: 'cma-seal' }) : STAR;
   const BR = {
-    gate: { home: 'index.html', logo: `${ICON}<img class="wordmark" src="assets/wordmark-white.png" alt="Centro Studi Lambda">`, nav: [], cta: null },
+    gate: { home: 'index.html', logo: `${ICON}<img class="wordmark" src="assets/wordmark-white.png" alt="Centro Studi Lambda">`, nav: [], cta: null, lead: true },
     stud: { home: 'studenti.html', logo: `${ICON}<img class="wordmark" src="assets/wordmark-white.png" alt="Centro Studi Lambda">`,
       nav: [['Percorsi', 'studenti.html#percorsi', 'percorsi'], ['Metodo FOCUS', 'metodo-focus.html', 'focus'], ['Risultati', 'risultati.html', 'risultati'], ['Sedi', 'sedi.html', 'sedi']],
       // menu a tendina "Oltre la scuola" (tolto dal menu su richiesta: le due pagine restano nel footer e nella home studenti)
@@ -55,35 +55,63 @@
   const wa = `<a class="foot-wa" href="${WA_URL}" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9 2 .9 2.8.9 3.8.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span><b>Canale WhatsApp per genitori</b><small>Consigli sullo studio e novità Lambda</small></span></a>`;
   const TG_URL = 'https://t.me/+UqQopJvsr_5AitxG';
   const tg = `<a class="foot-wa foot-tg" href="${TG_URL}" target="_blank" rel="noopener"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M26.6 6.3 3.9 15.1c-1.5.6-1.5 1.5-.3 1.9l5.8 1.8 2.2 6.9c.3.8.5 1.1 1.1 1.1.5 0 .7-.2 1-.5l2.8-2.7 5.8 4.3c1.1.6 1.8.3 2.1-1l3.8-17.9c.4-1.6-.6-2.3-1.6-1.9zm-3.4 4.1-10.4 9.4-.4 4.3-2-6.4 12.1-7.6c.6-.3 1.1 0 .7.3z"/></svg><span><b>Community Telegram</b><small>Per chi prepara i concorsi</small></span></a>`;
-  const FOOT = {
-    gate: `<footer class="foot foot-gate" aria-label="Informazioni"><div class="fg-split">
-        <div class="fg stud"><div class="fg-in"><div class="brand"><img src="assets/wordmark-white.png" alt="Centro Studi Lambda"><p>Metodo di studio, tutor e lezioni live per studenti di ogni età. Online, in tutta Italia.</p></div>
-          <div class="fg-cols">${col('Percorsi', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Metodo di studio', 'percorso.html?p=metodo-di-studio'], ['Ripetizioni', 'percorso.html?p=ripetizioni']])}
-          ${col('Lambda', [['Metodo FOCUS', 'metodo-focus.html'], ['Performance Test', 'test.html'], ['Vacanze studio', 'vacanze-studio.html'], ['Percorsi per genitori', 'genitori.html'], ['Risultati', 'risultati.html'], ['Sedi', 'sedi.html'], ['Chi siamo', 'chisiamo.html']])}</div>
-          <a class="fg-go" href="studenti.html">Entra in Centro Studi Lambda →</a></div></div>
-        <div class="fg conc"><div class="fg-in"><div class="brand">${STAR}<p><b>Concorsi Militari Academy</b><br>La preparazione ai concorsi delle Forze Armate e di Polizia. Online, in tutta Italia.</p></div>
-          <div class="fg-cols">${col('Concorsi', [['Polizia di Stato', 'corpo.html?c=polizia'], ['Carabinieri', 'corpo.html?c=carabinieri'], ['Guardia di Finanza', 'corpo.html?c=gdf'], ['Esercito', 'corpo.html?c=esercito'], ['Marina Militare', 'corpo.html?c=marina'], ['Aeronautica Militare', 'corpo.html?c=aeronautica']])}
-          ${col('Academy', [['Metodo EAGLE', 'concorsi.html#eagle'], ['Test Concorsi', 'test-concorsi.html'], ['Simulatore', 'simulatore.html'], ['Sedi', 'sedi-concorsi.html'], ['Chi siamo', 'chisiamo.html'], ['Contatti', 'tel:+393514206823']])}</div>
-          <a class="fg-go" href="concorsi.html">Entra in Concorsi Militari Academy →</a></div></div>
-      </div><div class="foot-in fg-bottom">${social}${legal('Centro Studi Lambda · Concorsi Militari Academy')}</div></footer>`,
-    stud: `<footer class="foot" aria-label="Informazioni"><div class="foot-in"><div class="foot-top">
-        <div class="brand"><img src="assets/wordmark-white.png" alt="Centro Studi Lambda"><p>Metodo di studio, tutor e lezioni live. Online, in tutta Italia: per dare a ogni ragazzo gli strumenti per arrivare lontano.</p>${social}${wa}</div>
-        ${col('Percorsi', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Medicina · semestre filtro', 'percorso.html?p=test-universitari']])}
-        ${col('Esigenze', [['Metodo di studio', 'percorso.html?p=metodo-di-studio'], ['Ripetizioni', 'percorso.html?p=ripetizioni'], ['Recupero insufficienze', 'percorso.html?p=recupero-insufficienze'], ['DSA/BES', 'percorso.html?p=dsa-bes'], ['Ansia scolastica', 'percorso.html?p=ansia-scolastica'], ['Memoria e concentrazione', 'percorso.html?p=memoria-concentrazione']])}
-        ${col('Oltre la scuola', [['Vacanze studio a Malta', 'vacanze-studio.html'], ['Percorsi per genitori', 'genitori.html'], ['Performance Test', 'test.html'], ['Metodo FOCUS', 'metodo-focus.html'], ['La storia', 'storia.html'], ['Blog Lambda']])}
-        ${col('Lambda', [['Chi siamo', 'chisiamo.html'], ['Risultati', 'risultati.html'], ['Sedi', 'sedi.html'], ['Lavora con noi'], ['Franchising'], ['Contatti', 'mailto:info@centrostudilambda.it']])}
+  /* ---------------- FOOTER: uno solo per tutto il sito (soglia, Lambda, CMA) ----------------
+     Dati societari, contatti e social dal sito attuale di Centro Studi Lambda. */
+  const CO = { name: 'Preparazione Concorsi LTD', vat: 'MT 3058-2802', tel: '+39 351 420 6823', telH: 'tel:+393514206823',
+    mail: branch === 'conc' ? 'info@concorsimilitariacademy.it' : 'info@centrostudilambda.it',
+    privacy: 'https://www.iubenda.com/privacy-policy/14965751', cookie: 'https://www.iubenda.com/privacy-policy/14965751/cookie-policy', blog: 'https://centrostudilambda.it/blog/' };
+  const IC = {
+    ig: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>',
+    yt: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>',
+    fb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4.5h-3c-2.5 0-4 1.6-4 4V11H7.5v3.5H10V21h3.6v-6.5h3l.5-3.5h-3.5V8.8c0-.5.3-.8.8-.8z" fill="currentColor" stroke="none"/></svg>',
+    mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>',
+    tel: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>',
+  };
+  const IG_L = ['https://www.instagram.com/centro_studi_lambda_/', 'Instagram Centro Studi Lambda'], IG_C = ['https://www.instagram.com/concorsi_militari_academy/', 'Instagram Concorsi Militari Academy'];
+  const socs = [...(branch === 'conc' ? [IG_C] : branch === 'stud' ? [IG_L] : [IG_L, IG_C]).map(([h, l]) => [h, l, IC.ig]), ['https://www.youtube.com/@centro_studi_lambda', 'YouTube', IC.yt], ['https://www.facebook.com/profile.php?id=61566760292485', 'Facebook', IC.fb]];
+  const fcol = (title, cls, items) => `<div class="ft-col ${cls}"><h4>${title}</h4><ul>${items.map(([t, h]) => `<li><a href="${h}"${/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : ''}>${t}</a></li>`).join('')}</ul></div>`;
+  const FCOLS = [
+    fcol('Studenti e famiglie<small>Centro Studi Lambda</small>', 'stud', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Medicina · semestre filtro', 'percorso.html?p=test-universitari'], ['DSA e BES', 'percorso.html?p=dsa-bes'], ['Tutti i percorsi', 'studenti.html#percorsi'], ['Vacanze studio a Malta', 'vacanze-studio.html'], ['Percorsi per genitori', 'genitori.html'], ['Risultati studenti', 'risultati.html'], ['Sedi Lambda', 'sedi.html'], ['Blog Lambda', CO.blog]]),
+    fcol('Forze Armate e Polizia<small>Concorsi Militari Academy</small>', 'conc', [['Polizia di Stato', 'corpo.html?c=polizia'], ['Carabinieri', 'corpo.html?c=carabinieri'], ['Guardia di Finanza', 'corpo.html?c=gdf'], ['Esercito', 'corpo.html?c=esercito'], ['Marina Militare', 'corpo.html?c=marina'], ['Aeronautica Militare', 'corpo.html?c=aeronautica'], ['Polizia Penitenziaria', 'corpo.html?c=penitenziaria'], ['Vigili del Fuoco', 'corpo.html?c=vvf'], ['Accademie', 'corpo.html?c=accademie'], ['Tutti i concorsi', 'concorsi.html#corpi-sec'], ['Risultati concorsi', 'concorsi.html#risultati'], ['Sedi CMA', 'sedi-concorsi.html']]),
+    fcol('Il nostro metodo<small>Strumenti e test</small>', 'meth', [['Metodo FOCUS', 'metodo-focus.html'], ['Metodo EAGLE', 'concorsi.html#eagle'], ['Performance Test', 'test.html'], ['Test Concorsi', 'test-concorsi.html'], ['Simulatore CMA', 'simulatore.html'], ['Come funziona', 'studenti.html#come'], ['La nostra storia', 'storia.html'], ['Domande frequenti', 'studenti.html#faq']]),
+    fcol('Il gruppo<small>Lambda e CMA</small>', 'grp', [['Chi siamo', 'chisiamo.html'], ['Le nostre sedi', 'sedi.html'], ['Contatti', 'contatti.html'], ['Lavora con noi', 'lavora-con-noi.html'], ['Franchising', 'franchising.html'], ['Press e media', 'press.html']]),
+  ];
+  const FKPI = [
+    ['<b>4,9/5</b><span>su Trustpilot · 350+ recensioni</span>', 'M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z'],
+    ['<b data-kpi="stud.docenti"></b><span>docenti esperti in apprendimento</span>', 'M3 9l9-5 9 5-9 5zM7 11.5v4.5c3 2 7 2 10 0v-4.5M21 9v6'],
+    ['<b data-kpi="stud.genitori"></b><span>genitori soddisfatti</span>', 'M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z'],
+    ['<b data-kpi="conc.prima"></b><span>allievi CMA idonei alla prima prova nel 2026</span>', 'M5 21h14M8 21v-4h8v4M12 13a5 5 0 0 0 5-5V3H7v5a5 5 0 0 0 5 5zM7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3'],
+    ['<b>Sedi in Italia</b><span>e online, ovunque tu sia</span>', 'M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11zM12 12.3a2.3 2.3 0 1 0 0-4.6 2.3 2.3 0 0 0 0 4.6z'],
+  ];
+  const brandTop = branch === 'conc' ? `<a class="ft-logo mk-cma" href="concorsi.html">${SEAL}<span class="cma-word"><b>CONCORSI MILITARI</b><span>ACADEMY</span></span></a>` : `<a class="ft-logo" href="${branch === 'gate' ? 'index.html' : 'studenti.html'}"><img src="assets/wordmark-white.png" alt="Centro Studi Lambda"></a>`;
+  const FOOT = `<footer class="ft ft-${branch}" aria-label="Informazioni">
+    <div class="ft-in">
+      <div class="ft-top">
+        <div class="ft-brand">${brandTop}
+          <p>Un metodo, due percorsi. La stessa visione: dare a ogni persona gli strumenti per costruire il proprio futuro.</p>
+          <div class="ft-soc">${socs.map(([h, l, ic]) => `<a href="${h}" target="_blank" rel="noopener" aria-label="${l}">${ic}</a>`).join('')}</div>
+          <ul class="ft-contact"><li><a href="mailto:${CO.mail}">${IC.mail}${CO.mail}</a></li><li><a href="${CO.telH}">${IC.tel}${CO.tel}</a></li></ul>
+          ${branch === 'stud' ? wa : branch === 'conc' ? tg : ''}
+        </div>
+        <div class="ft-cols">${FCOLS.join('')}</div>
+        <form class="ft-news" novalidate>
+          <p class="ft-k">Resta aggiornato</p>
+          <h3>Consigli di studio, novità sui concorsi e storie di successo.</h3>
+          <p class="ft-sub">Iscriviti alla newsletter: contenuti utili, eventi e aggiornamenti da Lambda e CMA.</p>
+          <div class="ft-field"><label class="sr" for="ftMail">La tua email</label><input id="ftMail" type="email" autocomplete="email" placeholder="La tua email" required><button type="submit">Iscriviti →</button></div>
+          <div class="ft-chk"><label><input type="checkbox" name="l"${branch !== 'conc' ? ' checked' : ''}><span>Per studenti e famiglie (Lambda)</span></label><label><input type="checkbox" name="c"${branch !== 'stud' ? ' checked' : ''}><span>Sui concorsi (CMA)</span></label></div>
+          <label class="ft-ok"><input type="checkbox" name="p"><span>Acconsento al trattamento dei dati secondo la <a href="${CO.privacy}" target="_blank" rel="noopener">privacy policy</a>.</span></label>
+          <p class="ft-msg" aria-live="polite"></p>
+        </form>
       </div>
-      <a class="foot-other conc" href="concorsi.html"><span>Prepari un concorso per le Forze Armate o di Polizia?</span><b>Concorsi Militari Academy →</b></a>
-      ${legal('Centro Studi Lambda')}</div></footer>`,
-    conc: `<footer class="foot foot-conc" aria-label="Informazioni"><div class="foot-in"><div class="foot-top">
-        <div class="brand">${SEAL}<p><b>Concorsi Militari Academy</b><br>by Centro Studi Lambda. Preparazione ai concorsi delle Forze Armate e di Polizia, online in tutta Italia.</p>${social}${tg}</div>
-        ${col('Concorsi', [['Polizia di Stato', 'corpo.html?c=polizia'], ['Carabinieri', 'corpo.html?c=carabinieri'], ['Guardia di Finanza', 'corpo.html?c=gdf'], ['Esercito', 'corpo.html?c=esercito'], ['Marina Militare', 'corpo.html?c=marina'], ['Aeronautica Militare', 'corpo.html?c=aeronautica'], ['Polizia Penitenziaria', 'corpo.html?c=penitenziaria'], ['Vigili del Fuoco', 'corpo.html?c=vvf'], ['Accademie', 'corpo.html?c=accademie']])}
-        ${col('Risorse', [['Test Concorsi', 'test-concorsi.html'], ['Simulatore CMA', 'simulatore.html'], ['Metodo EAGLE', 'concorsi.html#eagle'], ['Blog CMA', '#', 1]])}
-        ${col('Academy', [['Chi siamo', 'chisiamo.html'], ['Risultati', 'concorsi.html#risultati'], ['Sedi', 'sedi-concorsi.html'], ['Contatti', 'tel:+393514206823']])}
+      <div class="ft-kpi" data-count-group>${FKPI.map(([t, d]) => `<div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg><p>${t}</p></div>`).join('')}</div>
+      <div class="ft-bottom">
+        <p class="ft-co">© ${new Date().getFullYear()} ${CO.name} · P.IVA ${CO.vat}<br>Tutti i diritti riservati.</p>
+        <nav aria-label="Note legali"><a href="${CO.privacy}" target="_blank" rel="noopener">Privacy</a><a href="${CO.cookie}" target="_blank" rel="noopener">Cookie</a><a href="dati-societari.html">Dati societari</a><a href="mappa-del-sito.html">Mappa del sito</a><a href="lavora-con-noi.html">Lavora con noi</a><a href="contatti.html">Contatti</a></nav>
+        <div class="ft-marks"><a href="studenti.html" aria-label="Centro Studi Lambda"><img src="assets/wordmark-white.png" alt=""></a><i></i><a class="mk-cma" href="concorsi.html" aria-label="Concorsi Militari Academy">${STAR}<span class="cma-word"><b>CONCORSI MILITARI</b><span>ACADEMY</span></span></a></div>
       </div>
-      <a class="foot-other stud" href="studenti.html"><span>Cerchi un metodo di studio per tuo figlio?</span><b>Centro Studi Lambda →</b></a>
-      ${legal('Concorsi Militari Academy')}</div></footer>`,
-  }[branch];
+    </div>
+  </footer>`;
   if ((BR.tutor || BR.lead) && !window.LambdaLead) { const sc = document.createElement('script'); sc.src = 'assets/lead.js?v=6'; document.head.appendChild(sc); }
   const headerHTML_ = headerHTML, footerHTML = FOOT;
   document.querySelector('[data-lambda-header]')?.insertAdjacentHTML('afterend', headerHTML_);
@@ -112,6 +140,7 @@
     { k: 'inblu', name: 'Radio InBlu', html: '<span>Radio</span><b>InBlu</b>', brand: 'both' },
     { k: 'express', name: 'L\'Express Franchisee', html: '<i>L\'Express</i><span>Franchisee</span>', brand: 'both' },
   ];
+  L.PRESS = PRESS;
   document.querySelectorAll('[data-press]').forEach((el) => {
     const list = PRESS.filter((p) => branch === 'gate' || p.brand === 'both' || p.brand === (branch === 'conc' ? 'cma' : 'lambda'));
     if (!list.length) { el.remove(); return; }
@@ -208,6 +237,14 @@
   L.observe();
 
   /* ---------------- header: test, menu, magnetici ---------------- */
+  // newsletter del footer (prototipo: i dati non vengono inviati)
+  document.querySelectorAll('.ft-news').forEach((f) => f.addEventListener('submit', (e) => {
+    e.preventDefault(); const m = f.querySelector('.ft-msg'), mail = f.querySelector('input[type=email]').value.trim();
+    const err = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail) ? 'Inserisci un\'email valida.' : !f.l.checked && !f.c.checked ? 'Scegli almeno un argomento.' : !f.p.checked ? 'Serve il consenso alla privacy.' : '';
+    m.classList.toggle('bad', !!err); if (err) { m.textContent = err; return; }
+    /* TODO: collegare al servizio newsletter (email, argomenti scelti, pagina di provenienza) */
+    m.textContent = 'Grazie! Ti scriveremo presto.'; f.reset();
+  }));
   // menu a tendina "Oltre la scuola": si apre al passaggio del mouse (CSS) e al clic/tastiera
   document.querySelectorAll('.nav-dd > button').forEach((b) => { b.addEventListener('click', () => { const o = b.parentElement.classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); }); });
   document.addEventListener('click', (e) => { if (!e.target.closest('.nav-dd')) document.querySelectorAll('.nav-dd.open').forEach((d) => { d.classList.remove('open'); d.querySelector('button').setAttribute('aria-expanded', 'false'); }); });

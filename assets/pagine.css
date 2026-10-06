@@ -1,0 +1,69 @@
+/* =====================================================================
+   LAMBDA · pagine istituzionali del gruppo (contatti, lavora con noi, franchising, press,
+   dati societari, mappa del sito): testata scura a due anime, sezioni chiare, moduli
+   ===================================================================== */
+.ih{position:relative;overflow:hidden;padding:calc(var(--hdr) + clamp(60px,10vh,110px)) 0 clamp(80px,11vh,120px);
+  background:radial-gradient(ellipse 60% 80% at 15% 30%,#16475a 0%,transparent 65%),radial-gradient(ellipse 55% 75% at 90% 40%,#2c3620 0%,transparent 65%),var(--deep)}
+.ih::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--warm) 25%,#ff9a6b 50%,var(--red) 75%,transparent);opacity:.5}
+.ih .k{font:500 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.ih h1{margin-top:16px;max-width:16ch;font:700 clamp(44px,6.4vw,96px)/.94 var(--font);letter-spacing:-.05em;text-wrap:balance}
+.ih h1 em{font-style:normal;background:linear-gradient(90deg,var(--warm),#ff9a6b 55%,var(--red));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.ih .lead{margin-top:20px;max-width:56ch;font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:rgba(255,255,255,.75)}
+.ih .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.is{background:var(--light);color:var(--navy);padding:clamp(80px,11vh,130px) 0}
+.is.w{background:#fff}
+.is .k{font:500 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
+.is h2{margin-top:14px;max-width:22ch;font:700 clamp(32px,3.8vw,56px)/1 var(--font);letter-spacing:-.045em;text-wrap:balance}
+.is h2 em{font-style:normal;color:var(--teal)}
+.is .sl{margin-top:14px;max-width:60ch;font-size:17px;line-height:1.55;color:#405966}
+.ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin-top:40px}
+.ic{position:relative;padding:28px;border-radius:26px;background:#fff;border:1px solid rgba(14,33,46,.08);box-shadow:0 30px 60px -50px rgba(14,33,46,.45);transition:transform .45s var(--ease),box-shadow .45s}
+.is.w .ic{background:var(--light)}
+.ic:hover{transform:translateY(-5px);box-shadow:0 40px 70px -45px rgba(14,33,46,.5)}
+.ic .ico{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:rgba(0,148,158,.1)}
+.ic .ico svg{width:24px;height:24px;fill:none;stroke:var(--teal);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ic h3{margin-top:18px;font:700 21px/1.15 var(--font);letter-spacing:-.025em}
+.ic p{margin-top:8px;font-size:15px;line-height:1.5;color:#4a6370}
+.ic ul{list-style:none;display:grid;gap:8px;margin-top:14px;font-size:15px}
+.ic li a{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--navy);border-bottom:1px solid rgba(14,33,46,.2)} .ic li a:hover{border-color:var(--navy)}
+.ic.stud{border-top:4px solid var(--warm)} .ic.conc{border-top:4px solid var(--red)}
+.ic .tag{display:inline-block;margin-bottom:6px;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#6b818c}
+/* passaggi numerati */
+.isteps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;margin-top:40px;counter-reset:st}
+.isteps li{counter-increment:st;padding:24px;border-radius:22px;background:#fff;border:1px solid rgba(14,33,46,.08)}
+.isteps li::before{content:counter(st,decimal-leading-zero);display:block;font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--teal)}
+.isteps b{display:block;margin-top:12px;font-size:18px;letter-spacing:-.02em}
+.isteps p{margin-top:6px;font-size:14.5px;line-height:1.5;color:#4a6370}
+/* modulo */
+.iform-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,80px);align-items:start}
+.iform{padding:clamp(24px,3vw,38px);border-radius:30px;background:var(--navy);color:#fff;box-shadow:0 50px 90px -50px rgba(14,33,46,.6)}
+.iform .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.iform label{display:grid;gap:6px;margin-top:14px;font-size:13px;font-weight:500;color:rgba(255,255,255,.7)}
+.iform input,.iform select,.iform textarea{width:100%;padding:13px 14px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:#fff;font:500 15px var(--font);outline:0;transition:border-color .3s}
+.iform select option{color:#000}
+.iform input:focus,.iform select:focus,.iform textarea:focus{border-color:var(--warm)}
+.iform .bad{border-color:#ff8a8a}
+.iform .chk{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4} .iform .chk input{width:auto;margin-top:2px;accent-color:var(--warm)}
+.iform .chk a{text-decoration:underline}
+.iform .btn{margin-top:20px;width:100%;justify-content:center}
+.iform .msg{min-height:1.3em;margin-top:12px;font-size:14px;font-weight:700;color:#7fe0b8} .iform .msg.bad{color:#ff8a8a;border:0}
+.iform h3{font:700 24px/1.1 var(--font);letter-spacing:-.03em} .iform .sub{margin-top:8px;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.7)}
+/* tabella dati */
+.idata{margin-top:36px;border-radius:24px;overflow:hidden;border:1px solid rgba(14,33,46,.1);background:#fff}
+.idata div{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:20px;padding:18px 24px}
+.idata div+div{border-top:1px solid rgba(14,33,46,.08)}
+.idata dt{font:500 12px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#6b818c}
+.idata dd{font-size:16px;font-weight:500}
+.idata dd a{border-bottom:1px solid rgba(14,33,46,.25)}
+.idata .todo{color:#b4552e}
+/* mappa del sito */
+.imap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:30px 24px;margin-top:40px}
+.imap h3{font:500 12px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.imap ul{list-style:none;display:grid;gap:9px;margin-top:14px;font-size:15.5px}
+.imap a{border-bottom:1px solid transparent;transition:border-color .25s} .imap a:hover{border-color:var(--navy)}
+/* press */
+.ipress{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:12px;margin-top:40px;list-style:none}
+.ipress li{display:grid;place-items:center;height:110px;padding:16px;border-radius:20px;background:var(--navy);color:#fff;text-align:center;font-size:24px;transition:transform .45s var(--ease)}
+.ipress li:hover{transform:translateY(-4px)}
+@media (max-width: 900px){ .iform-wrap{grid-template-columns:minmax(0,1fr)} }
+@media (max-width: 560px){ .iform .row{grid-template-columns:1fr} .idata div{grid-template-columns:1fr;gap:4px} }

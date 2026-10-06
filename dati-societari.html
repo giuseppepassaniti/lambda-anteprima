@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E212E%22/%3E%3Ccircle%20cx%3D%2221%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Ccircle%20cx%3D%2243%22%20cy%3D%2230%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M29%2028q3-4%206%200%22%20fill%3D%22none%22%20stroke%3D%22%23FFD66B%22%20stroke-width%3D%224%22/%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dati societari · Centro Studi Lambda · Concorsi Militari Academy</title>
+<meta name="description" content="Dati societari di Preparazione Concorsi LTD, titolare dei marchi Centro Studi Lambda e Concorsi Militari Academy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/lambda.css?v=28">
+<link rel="stylesheet" href="assets/pagine.css?v=1">
+</head>
+<body data-page="dati-societari" data-branch="gate">
+<div data-lambda-header></div>
+<main id="main">
+
+  <section class="ih" data-theme="dark"><div class="wrap">
+    <p class="k" data-reveal>Dati societari</p>
+    <h1 class="split">Chi c'è <em>dietro i due marchi.</em></h1>
+    <p class="lead" data-reveal>Centro Studi Lambda e Concorsi Militari Academy sono marchi di Preparazione Concorsi LTD.</p>
+  </div></section>
+  <section class="is" data-theme="light"><div class="wrap">
+    <p class="k" data-reveal>La società</p><h2 class="split">Preparazione <em>Concorsi LTD.</em></h2>
+    <dl class="idata" data-reveal>
+      <div><dt>Ragione sociale</dt><dd>Preparazione Concorsi LTD</dd></div>
+      <div><dt>Partita IVA</dt><dd>MT 3058-2802</dd></div>
+      <div><dt>Marchi</dt><dd>Centro Studi Lambda · Concorsi Militari Academy</dd></div>
+      <div><dt>Sede legale</dt><dd class="todo">Da inserire</dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:info@centrostudilambda.it">info@centrostudilambda.it</a> · <a href="mailto:info@concorsimilitariacademy.it">info@concorsimilitariacademy.it</a></dd></div>
+      <div><dt>Telefono</dt><dd><a href="tel:+393514206823">+39 351 420 6823</a></dd></div>
+      <div><dt>Privacy e cookie</dt><dd><a href="https://www.iubenda.com/privacy-policy/14965751" target="_blank" rel="noopener">Privacy policy</a> · <a href="https://www.iubenda.com/privacy-policy/14965751/cookie-policy" target="_blank" rel="noopener">Cookie policy</a></dd></div>
+    </dl>
+  </div></section>
+</main>
+<div data-lambda-footer></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="assets/lambda.js?v=38"></script>
+<script>
+gsap.set('#logo', { autoAlpha: 1 });
+/* moduli della pagina (prototipo: i dati non vengono inviati) */
+document.querySelectorAll('.iform').forEach((f) => f.addEventListener('submit', (e) => {
+  e.preventDefault(); const m = f.querySelector('.msg'); let bad = [];
+  f.querySelectorAll('[required]').forEach((el) => { const ok = el.type === 'checkbox' ? el.checked : el.type === 'email' ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()) : el.value.trim().length > 1; el.classList.toggle('bad', !ok); if (!ok) bad.push(el.dataset.n || 'un campo'); });
+  m.classList.toggle('bad', !!bad.length);
+  if (bad.length) { m.textContent = 'Manca ' + bad.join(', ').replace(/, ([^,]*)$/, ' e $1') + '.'; return; }
+  /* TODO: collegare al CRM / alla casella dedicata */
+  m.textContent = f.dataset.ok || 'Grazie! Ti rispondiamo presto.'; f.reset();
+}));
+
+</script>
+</body>
+</html>
