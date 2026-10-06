@@ -4,7 +4,7 @@
    ===================================================================== */
 window.CMA_PRODOTTI = {
   preselettiva: [
-    { k: 'smart', name: 'Preparazione Concorsi SMART', tag: 'Il più completo', price: null, main: true, guarantee: 'Garanzia soddisfatto o ripreparato',
+    { k: 'smart', name: 'PC Smart', tag: 'Il più completo', price: null, main: true, guarantee: 'Garanzia soddisfatto o ripreparato',
       lead: 'Metodo, lezioni, aule studio live e simulazioni con i docenti: la preparazione completa alla prova preselettiva.',
       items: [
         'Accesso riservato al Portale Allievi Concorsi Militari Academy',

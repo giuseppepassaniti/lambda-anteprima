@@ -246,7 +246,7 @@ body{background:var(--ink)}
 <script src="assets/cma-corpi.js?v=2"></script>
 <script src="assets/cma-concorsi.js?v=3"></script>
 <script src="assets/cma-concorsi-dettagli.js?v=4"></script>
-<script src="assets/cma-prodotti.js?v=2"></script>
+<script src="assets/cma-prodotti.js?v=3"></script>
 <script src="assets/cma-recensioni.js?v=1"></script>
 <script>
 /* ---------- costruzione della pagina dai dati (prima del motore) ---------- */
@@ -266,7 +266,7 @@ body{background:var(--ink)}
   const P = window.CMA_PRODOTTI;
   /* spazio in alto uguale per tutte le card: qui andrà la motion graphic che spiega il prodotto */
   const MI = { smart: 'M6 8h16v20H6zM10 13h8M10 17h8M10 21h5M22 12l6-3v20l-6-3', memory: 'M17 6a9 9 0 0 0-9 9c0 3.5 2 5.5 3.5 7V27h11v-5c1.5-1.5 3.5-3.5 3.5-7a9 9 0 0 0-9-9zM13 31h8M14 15h6M17 12v6', psico: 'M17 5a10 10 0 0 1 10 10c0 3-1.3 5-3 6.7V29H14v-3h-3a3 3 0 0 1-3-3v-4l-2-1 2-3a10 10 0 0 1 9-10zM15 13a3 3 0 1 1 3 3v2', academy: 'M5 9h17v16H5zM22 14l8-4v14l-8-4M10 31h7' };
-  const media = (x) => x.cover ? '<div class="pmedia bcover" aria-hidden="true"><div class="bk"><i class="st"></i><small>Concorsi Militari Academy</small><b>La guida completa ai concorsi</b><span>Forze Armate e di Polizia</span></div></div>'
+  const media = (x) => x.k === 'smart' ? '<div class="pmedia promo" data-promo="smart"></div>' : x.cover ? '<div class="pmedia bcover" aria-hidden="true"><div class="bk"><i class="st"></i><small>Concorsi Militari Academy</small><b>La guida completa ai concorsi</b><span>Forze Armate e di Polizia</span></div></div>'
     : x.k === 'presti' ? '<div class="pmedia presti"><img class="plogo-presti" src="assets/loghi/andrea-presti-chiaro.svg" alt="Andrea Presti" width="524" height="385"><span class="mv">In collaborazione con il Team Andrea Presti</span></div>'
     : `<div class="pmedia" aria-hidden="true"><span class="rg"></span><span class="rg r2"></span><svg viewBox="0 0 34 34"><path d="${MI[x.k] || MI.smart}"/></svg><span class="mv">Video in arrivo</span></div>`;
   const card = (x) => { const items = x.items.map((t, i) => Array.isArray(t) ? `<li class="ic${i >= 5 ? ' x' : ''}"><i aria-hidden="true">${t[0]}</i>${t[1]}</li>` : `<li${i >= 5 ? ' class="x"' : ''}>${t}</li>`).join('');
@@ -389,6 +389,8 @@ body{background:var(--ink)}
 })();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="assets/cma-promo.js?v=8"></script>
+<script>window.CMAPromo?.mount(document);</script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="assets/lambda.js?v=44"></script>
 <script>
@@ -399,7 +401,7 @@ gsap.set('#logo', { autoAlpha: 1 });
   const { C, list } = window.__CORPO;
   const LVN = { dir: 'Ufficiali', medio: 'Marescialli · Ispettori', base: 'Truppa · Agenti', scuole: 'Scuole militari' };
   const LVD = { dir: 'Il ruolo direttivo: comando, pianificazione e alta responsabilità. I concorsi più selettivi.', medio: 'Il comando intermedio: coordinamento operativo e responsabilità tecniche.', base: 'La porta d\'ingresso: il ruolo iniziale, da cui parte la carriera.', scuole: 'Formazione liceale e militare, il primo passo verso l\'accademia.' };
-  const SERV = { smart: ['Prima prova', 'Preparazione Concorsi SMART', 'Banca dati, memoria e simulazioni per superare la prova preselettiva.'], memory: ['Prova preselettiva', 'Memory Express', 'Tecniche di memoria per la banca dati della prova preselettiva.'], psico: ['Prove attitudinali', 'Percorso Psicoattitudinale', 'Con le nostre psicologhe: test di personalità, autobiografico e colloquio.'], fisiche: ['Prove fisiche', 'Preparazione prove fisiche', 'Allenamento mirato per le prove di efficienza fisica.'] };
+  const SERV = { smart: ['Prima prova', 'PC Smart', 'Banca dati, memoria e simulazioni per superare la prova preselettiva.'], memory: ['Prova preselettiva', 'Memory Express', 'Tecniche di memoria per la banca dati della prova preselettiva.'], psico: ['Prove attitudinali', 'Percorso Psicoattitudinale', 'Con le nostre psicologhe: test di personalità, autobiografico e colloquio.'], fisiche: ['Prove fisiche', 'Preparazione prove fisiche', 'Allenamento mirato per le prove di efficienza fisica.'] };
   const IC = { eta: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2', tit: 'M3 9l9-5 9 5-9 5zM7 11v5c3 2 7 2 10 0v-5', fed: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4', ido: 'M4 12h4l2-5 4 10 2-5h4', alt: 'M5 12h14M12 5v14' };
   const rq = (ic, label, main, sub = '', wide = false) => `<div class="rq${wide ? ' wide' : ''}"><small><svg viewBox="0 0 24 24"><path d="${IC[ic]}"/></svg>${label}</small><b>${main}</b>${sub ? `<span>${sub}</span>` : ''}</div>`;
   const cap = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
