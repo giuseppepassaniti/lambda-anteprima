@@ -163,7 +163,7 @@ body{background:var(--ink)}
 .pblk .ph h3{font:700 clamp(24px,2.4vw,34px)/1.05 var(--font);letter-spacing:-.035em;color:var(--bone)}
 .pblk .ph p{margin-top:8px;max-width:62ch;font-size:15.5px;line-height:1.5;color:rgba(242,241,236,.68)}
 .pblk .feat{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px} .pblk .feat span{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(169,185,122,.28);font-size:13px;color:rgba(242,241,236,.85)} .pblk .feat span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--hud)}
-.pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px;align-items:start}
+.pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px;align-items:stretch}
 .pcards.n2{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)} .pcards.n1{grid-template-columns:minmax(0,760px)}
 .pc{position:relative;min-width:0;display:flex;flex-direction:column;padding:24px;border-radius:24px;background:linear-gradient(165deg,#161d10,#0d110a);border:1px solid rgba(169,185,122,.2)}
 .pc.main{border-color:var(--cma-red);background:linear-gradient(165deg,rgba(205,20,31,.14),#0d110a 60%)}
@@ -176,7 +176,23 @@ body{background:var(--ink)}
 .pc li.x{display:none} .pc.open li.x{display:block}
 .pc .more{align-self:flex-start;margin-top:10px;font:600 13.5px/1 var(--font);color:var(--hud)}
 .pc .gua{display:flex;align-items:center;gap:8px;margin-top:16px;padding:10px 12px;border-radius:12px;background:rgba(0,182,122,.1);border:1px solid rgba(0,182,122,.35);font-size:13.5px;font-weight:700;color:#bff0dc} .pc .gua::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#00B67A;color:#fff;font-size:12px}
-.pc .btn{margin-top:20px;justify-content:center}
+.pc .btn{margin-top:auto;justify-content:center}
+.pc ul,.pc .more,.pc .pfor,.pc .pclaim{margin-bottom:20px}
+.pc .gua{margin-bottom:16px}
+.pc:not(.open) .pfor,.pc:not(.open) .pclaim{display:none}
+/* testata uguale per tutte le card (motion graphic del prodotto) */
+.pc .pmedia{position:relative;display:grid;place-items:center;height:180px;margin:-8px -8px 18px;padding:0;border-radius:18px;overflow:hidden;background:radial-gradient(80% 90% at 50% 40%,rgba(205,20,31,.2),transparent 70%),repeating-linear-gradient(0deg,rgba(169,185,122,.05) 0 1px,transparent 1px 22px),repeating-linear-gradient(90deg,rgba(169,185,122,.05) 0 1px,transparent 1px 22px),rgba(242,241,236,.03)}
+.pc .pmedia svg{position:relative;z-index:1;width:64px;height:64px;fill:none;stroke:var(--bone);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.pc .pmedia .rg{position:absolute;width:120px;height:120px;border-radius:50%;border:1px solid rgba(205,20,31,.45);animation:pmr 3.2s ease-out infinite}
+.pc .pmedia .rg.r2{animation-delay:1.6s}
+@keyframes pmr{0%{transform:scale(.55);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.pc .pmedia .mv{position:absolute;left:12px;bottom:10px;z-index:2;font:500 9.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(242,241,236,.45)}
+.pc .pmedia.presti{background:radial-gradient(80% 90% at 50% 40%,rgba(201,162,39,.2),transparent 70%),rgba(242,241,236,.03)}
+.pc .tlogo{display:grid;justify-items:center;padding:16px 22px;border:1.5px solid rgba(242,241,236,.35);border-radius:12px;text-align:center}
+.pc .tlogo small{font:500 10px/1 var(--mono);letter-spacing:.3em;text-transform:uppercase;color:rgba(242,241,236,.6)}
+.pc .tlogo b{margin-top:6px;font:700 22px/1 var(--font);letter-spacing:-.01em;text-transform:uppercase;color:var(--bone)}
+.pc .tlogo span{margin-top:6px;font:500 9.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#d8b45a}
+@media (prefers-reduced-motion: reduce){ .pc .pmedia .rg{animation:none;opacity:.4} }
 .pc .psub{margin-top:6px;font-size:14px;line-height:1.4;font-weight:600;color:rgba(242,241,236,.85)}
 .pc .pin{margin-top:16px;font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hud)} .pc .pin + ul{margin-top:10px}
 .pc li.ic{padding-left:30px} .pc li.ic::before{display:none} .pc li.ic i{position:absolute;left:0;top:-1px;font-style:normal;font-size:16px;line-height:1.2}
@@ -227,8 +243,8 @@ body{background:var(--ink)}
 
 <script src="assets/cma-mark.js?v=1"></script>
 <script src="assets/cma-corpi.js?v=2"></script>
-<script src="assets/cma-concorsi.js?v=2"></script>
-<script src="assets/cma-concorsi-dettagli.js?v=3"></script>
+<script src="assets/cma-concorsi.js?v=3"></script>
+<script src="assets/cma-concorsi-dettagli.js?v=4"></script>
 <script src="assets/cma-prodotti.js?v=2"></script>
 <script src="assets/cma-recensioni.js?v=1"></script>
 <script>
@@ -247,8 +263,13 @@ body{background:var(--ink)}
   const LVG = { base: 'Ruolo iniziale', medio: 'Marescialli · ispettori', dir: 'Ufficiali', scuole: 'Scuole militari' };
   const grpHTML = ['base', 'medio', 'dir', 'scuole'].filter((l) => list.some((x) => x.lvl === l)).map((l) => `<div class="grp"><small>${LVG[l]}</small><div class="ctabs">${list.filter((x) => x.lvl === l).map((x) => `<button type="button" role="tab" aria-selected="false" data-k="${x.k}">${x.title}</button>`).join('')}</div></div>`).join('');
   const P = window.CMA_PRODOTTI;
+  /* spazio in alto uguale per tutte le card: qui andrà la motion graphic che spiega il prodotto */
+  const MI = { smart: 'M6 8h16v20H6zM10 13h8M10 17h8M10 21h5M22 12l6-3v20l-6-3', memory: 'M17 6a9 9 0 0 0-9 9c0 3.5 2 5.5 3.5 7V27h11v-5c1.5-1.5 3.5-3.5 3.5-7a9 9 0 0 0-9-9zM13 31h8M14 15h6M17 12v6', psico: 'M17 5a10 10 0 0 1 10 10c0 3-1.3 5-3 6.7V29H14v-3h-3a3 3 0 0 1-3-3v-4l-2-1 2-3a10 10 0 0 1 9-10zM15 13a3 3 0 1 1 3 3v2', academy: 'M5 9h17v16H5zM22 14l8-4v14l-8-4M10 31h7' };
+  const media = (x) => x.cover ? '<div class="pmedia bcover" aria-hidden="true"><div class="bk"><i class="st"></i><small>Concorsi Militari Academy</small><b>La guida completa ai concorsi</b><span>Forze Armate e di Polizia</span></div></div>'
+    : x.k === 'presti' ? '<div class="pmedia presti" aria-hidden="true"><div class="tlogo"><small>Team</small><b>Andrea Presti</b><span>Preparazione atletica</span></div><span class="mv">Logo da inserire</span></div>'
+    : `<div class="pmedia" aria-hidden="true"><span class="rg"></span><span class="rg r2"></span><svg viewBox="0 0 34 34"><path d="${MI[x.k] || MI.smart}"/></svg><span class="mv">Video in arrivo</span></div>`;
   const card = (x) => { const items = x.items.map((t, i) => Array.isArray(t) ? `<li class="ic${i >= 5 ? ' x' : ''}"><i aria-hidden="true">${t[0]}</i>${t[1]}</li>` : `<li${i >= 5 ? ' class="x"' : ''}>${t}</li>`).join('');
-    return `<article class="pc${x.main ? ' main' : ''}${x.cover ? ' book' : ''}">${x.cover ? '<div class="bcover" aria-hidden="true"><div class="bk"><i class="st"></i><small>Concorsi Militari Academy</small><b>La guida completa ai concorsi</b><span>Forze Armate e di Polizia</span></div></div>' : ''}<span class="pt">${x.tag}</span><h4>${x.name}</h4>${x.sub ? `<p class="psub">${x.sub}</p>` : ''}${x.price ? `<p class="pr">${x.price}</p>` : '<p class="pr ask">Prezzo su misura · chiedi al consulente</p>'}<p class="plead">${x.lead}</p>${x.inside ? `<p class="pin">${x.inside}</p>` : ''}${items ? `<ul>${items}</ul>` : ''}${x.items.length > 5 ? `<button class="more" type="button">Vedi tutto (+${x.items.length - 5}) ↓</button>` : ''}${x.for ? `<div class="pfor"><small>Per i concorsi di</small><div>${x.for.map((f) => `<span>${f}</span>`).join('')}</div></div>` : ''}${x.claim ? `<p class="pclaim">${x.claim}</p>` : ''}${x.guarantee ? `<p class="gua">${x.guarantee}</p>` : ''}<button class="btn ${x.main ? 'btn-red' : 'btn-line'}" type="button" data-lead="${C.n}"><span class="t">Richiedi informazioni →</span></button></article>`; };
+    return `<article class="pc${x.main ? ' main' : ''}${x.cover ? ' book' : ''}">${media(x)}<span class="pt">${x.tag}</span><h4>${x.name}</h4>${x.sub ? `<p class="psub">${x.sub}</p>` : ''}${x.price ? `<p class="pr">${x.price}</p>` : '<p class="pr ask">Prezzo su misura · chiedi al consulente</p>'}<p class="plead">${x.lead}</p>${x.inside ? `<p class="pin">${x.inside}</p>` : ''}${items ? `<ul>${items}</ul>` : ''}${x.items.length > 5 ? `<button class="more" type="button">Vedi tutto (+${x.items.length - 5}) ↓</button>` : ''}${x.for ? `<div class="pfor"><small>Per i concorsi di</small><div>${x.for.map((f) => `<span>${f}</span>`).join('')}</div></div>` : ''}${x.claim ? `<p class="pclaim">${x.claim}</p>` : ''}${x.guarantee ? `<p class="gua">${x.guarantee}</p>` : ''}<button class="btn ${x.main ? 'btn-red' : 'btn-line'}" type="button" data-lead="${C.n}"><span class="t">Richiedi informazioni →</span></button></article>`; };
   const cards = (arr) => `<div class="pcards mcar n${arr.length}">${arr.map(card).join('')}</div>${arr.length > 1 ? '<p class="mcar-hint">Scorri</p>' : ''}`;
 
   document.getElementById('main').innerHTML = `
@@ -315,7 +336,7 @@ body{background:var(--ink)}
     <div class="wrap">
       <div class="top"><div><p class="k" data-reveal>I percorsi</p><h2 class="h2 split" id="pcTitle">Un percorso <em>per ogni prova.</em></h2></div>
         <p class="lead" data-reveal>Preselettiva, prove psicoattitudinali e prove fisiche: scegli da dove partire, o mettile insieme. Un consulente ti aiuta a costruire il percorso giusto per ${C.n === 'Accademie' ? 'il tuo concorso' : `il concorso in ${C.n}`}.</p></div>
-      <div class="pblk" data-reveal>
+      <div class="pblk" id="pPre" data-reveal>
         <div class="ph"><span class="no">01</span><div><h3>La prova preselettiva</h3><p>Il primo filtro, e il più duro: memorizzare la banca dati e richiamare le risposte in fretta, con il Metodo EAGLE.</p></div></div>
         ${cards(P.preselettiva)}
       </div>
@@ -432,7 +453,10 @@ gsap.set('#logo', { autoAlpha: 1 });
 
   /* ---------- scelta del concorso (al posto della piramide) ---------- */
   const pick = $('#pick');
-  const select = (x) => { pick.querySelectorAll('[data-k]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.k === x.k))); scheda(x); cur = x; dos(dsel); };
+  // il concorso VFI non ha la prova preselettiva: si nasconde il blocco dei percorsi dedicati e si rinumerano gli altri
+  const prePerc = (x) => { const pre = document.getElementById('pPre'); if (!pre) return; pre.hidden = /^vfi-/.test(x.k);
+    [...document.querySelectorAll('#percorsi .pblk')].filter((b) => !b.hidden).forEach((b, i) => { const n = b.querySelector('.no'); if (n) n.textContent = String(i + 1).padStart(2, '0'); }); };
+  const select = (x) => { pick.querySelectorAll('[data-k]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.k === x.k))); scheda(x); cur = x; dos(dsel); prePerc(x); };
   pick.addEventListener('click', (e) => { const b = e.target.closest('[data-k]'); if (b) select(list.find((x) => x.k === b.dataset.k)); });
 
   /* ---------- il dossier del corpo (box di lato: diventerà una motion graphic) ---------- */

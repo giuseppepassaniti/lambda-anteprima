@@ -627,51 +627,6 @@ window.CMA_CONCORSI = [
   ]
  },
  {
-  "k": "aufp-ei",
-  "corpo": "esercito",
-  "lvl": "dir",
-  "title": "AUFP · Ufficiali a Ferma Prefissata",
-  "what": "Il concorso AUFP (Ufficiali a Ferma Prefissata) consente l’accesso al ruolo ufficiali con una ferma temporanea, rappresentando una porta d’ingresso alternativa all’Accademia. È pensato per laureati (o laureandi) e costituisce uno step strategico verso la ferma permanente o altri concorsi riservati.",
-  "req": {
-   "eta": [
-    "Generalmente entro 32 anni (variabile in base al bando e alla Forza Armata)"
-   ],
-   "titolo": [
-    "Laurea (o laurea conseguibile entro il bando)"
-   ],
-   "fedina": "Pulita",
-   "idoneita": "Psico-fisica obbligatoria",
-   "altri": []
-  },
-  "prove": [
-   {
-    "t": "Prova Preselettiva / Prova Scritta (quando prevista)",
-    "d": []
-   },
-   {
-    "t": "Prove Fisiche",
-    "d": []
-   },
-   {
-    "t": "Accertamenti Psico-Fisici",
-    "d": []
-   },
-   {
-    "t": "Accertamenti Attitudinali",
-    "d": []
-   },
-   {
-    "t": "Valutazione dei Titoli",
-    "d": []
-   }
-  ],
-  "nota": "È un concorso ad alta selezione: chi sottovaluta la prova scritta/preselettiva, i test attitudinali o il colloquio viene escluso anche se fisicamente preparato.",
-  "serv": [
-   "memory",
-   "psico"
-  ]
- },
- {
   "k": "scuole-ei",
   "corpo": "esercito",
   "lvl": "scuole",

@@ -360,7 +360,7 @@ body{background:var(--ink)}
 
 <script src="assets/cma-mark.js?v=1"></script>
 <script src="assets/cma-corpi.js?v=2"></script>
-<script src="assets/cma-concorsi.js?v=2"></script>
+<script src="assets/cma-concorsi.js?v=3"></script>
 <script>
 const FMT = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 /* ---------- link al simulatore: da sostituire con l'indirizzo reale ---------- */
@@ -373,7 +373,7 @@ window.SIM_URL = '';
     'marescialli-ei': [31196, 'Logico-cognitivi: pubblicazione ridotta'], 'marescialli-mm': [14694, 'Logico-cognitivi: pubblicazione ridotta'], 'allievi-pp': [2965, 'Italiano, educazione civica, storia e altre'],
     'scuole-ei': ['si', 'Argomenti del 1° e 2° anno di liceo'], 'scuole-mm': ['si', 'Argomenti del 1° e 2° anno di liceo'], 'scuole-am': ['si', 'Argomenti del 1° e 2° anno di liceo'],
     'allievi-gdf': ['no', 'Matematica, logica, grammatica, storia, educazione civica'], 'marescialli-gdf': ['no', ''], 'ufficiali-gdf': ['no', 'Logica-matematica, grammatica, storia'],
-    'ufficiali-ei': ['no', 'Algebra, storia, grammatica, deduzioni logiche'], 'aufp-ei': ['no', 'Logica, cultura generale, inglese'], 'ufficiali-mm': ['no', 'Italiano, matematica, storia'],
+    'ufficiali-ei': ['no', 'Algebra, storia, grammatica, deduzioni logiche'], 'ufficiali-mm': ['no', 'Italiano, matematica, storia'],
     'marescialli-am': ['no', '75 logico-deduttivi, 25 cultura generale'], 'ufficiali-am': ['no', 'Quesiti logico-deduttivi'] };
   const CORPI = window.CMA_CORPI, items = window.CMA_CONCORSI.filter((c) => BD[c.k]).map((c) => ({ ...c, bd: BD[c.k], C: CORPI.find((x) => x.k === c.corpo) }));
   const withN = items.filter((x) => typeof x.bd[0] === 'number');

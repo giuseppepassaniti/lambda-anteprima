@@ -97,6 +97,7 @@
     },
 
     'universita': {
+      poli: true,
       accent: 'aqua',
       eyebrow: 'Università · 19+ anni',
       title: 'Più autonomia, più organizzazione. <em>Un metodo per gli esami.</em>',
