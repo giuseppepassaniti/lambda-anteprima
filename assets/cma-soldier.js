@@ -108,8 +108,34 @@ function sceneFor(k, lvl) {
   return it;
 }
 
+/* ---------- foto reali dei corpi, dentro l'esagono (al posto del soldato 3D dove la foto c'è) ----------
+   I concorsi VFI e VFT (Esercito, Marina, Aeronautica) usano le foto dell'Esercito.
+   Marina, Aeronautica, Vigili del Fuoco e Accademie restano col soldato 3D finché non arrivano le foto. */
+const FOTO = { polizia: 'polizia', carabinieri: 'carabinieri', gdf: 'gdf', esercito: 'esercito', penitenziaria: 'penitenziaria' };
+const COL = { polizia: '#2D5DA8', carabinieri: '#B3243A', gdf: '#C9A227', esercito: '#6B7F3A', marina: '#3d6bc0', aeronautica: '#4A8FD6', penitenziaria: '#6f86b3', vvf: '#D9541E', accademie: '#C8A14A' };
+const fotoFor = (corpo, k = '') => (/^vfi-/.test(k) ? 'esercito' : /^vft-/.test(k) ? 'esercito-2' : FOTO[corpo] || null);
+const HEX_CSS = `.sfoto{position:absolute;inset:0;z-index:0;display:grid;place-items:center;pointer-events:none}
+.sfoto .hx{position:relative;height:76%;max-width:92%;aspect-ratio:1.136;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);background:var(--hc);padding:3px;transition:transform .8s cubic-bezier(.16,1,.3,1);filter:drop-shadow(0 18px 30px rgba(0,0,0,.5))}
+.sfoto .hx>div{position:relative;width:100%;height:100%;clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);overflow:hidden;background:#12170e}
+.sfoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+.sfoto .rg{position:absolute;height:92%;aspect-ratio:1;border-radius:50%;border:1px dashed color-mix(in srgb,var(--hc) 55%,transparent);animation:sfspin 40s linear infinite}
+.sfoto.big .hx{height:70%;padding:4px;animation:sfbob 6s ease-in-out infinite}
+[data-soldier-card]:hover .sfoto .hx{transform:rotate(-4deg) scale(1.04)}
+[data-soldier-card]:hover .sfoto img{transform:scale(1.12)}
+@keyframes sfspin{to{transform:rotate(360deg)}} @keyframes sfbob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@media (prefers-reduced-motion: reduce){ .sfoto .rg,.sfoto.big .hx{animation:none} }`;
+function mountPhotos(els) {
+  if (!document.getElementById('sfotoCss')) { const st = document.createElement('style'); st.id = 'sfotoCss'; st.textContent = HEX_CSS; document.head.appendChild(st); }
+  return els.filter((el) => {
+    const f = fotoFor(el.dataset.soldier, el.dataset.k); if (!f) return true;
+    const big = el.offsetHeight > 360 || el.closest('.gpatch');
+    el.insertAdjacentHTML('afterbegin', `<div class="sfoto${big ? ' big' : ''}" style="--hc:${COL[el.dataset.soldier] || '#a9b97a'}"><span class="rg"></span><div class="hx"><div><img src="assets/corpi-foto/${f}.jpg" alt="" loading="lazy" decoding="async"></div></div></div>`);
+    el.dataset.foto = f; return false;   // non serve il 3D
+  });
+}
+
 export function mountSoldiers(root = document, { maxDpr = 1.75 } = {}) {
-  const els = [...root.querySelectorAll('[data-soldier]')];
+  const els = mountPhotos([...root.querySelectorAll('[data-soldier]')]);
   if (!els.length) return null;
   let canvas = document.getElementById('soldierCanvas');
   if (!canvas) { canvas = document.createElement('canvas'); canvas.id = 'soldierCanvas'; canvas.setAttribute('aria-hidden', 'true'); document.body.appendChild(canvas); }

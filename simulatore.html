@@ -390,7 +390,7 @@ window.SIM_URL = '';
     const src = off ? `<p class="src off"><i>✓</i>Banca dati ufficiale</p>` : `<p class="src cma"><i>★</i>Banca dati CMA</p>`;
     const num = typeof n === 'number' ? `<div class="num"><b data-n="${n}">${FMT(n)}</b><span>quesiti ufficiali</span></div>` : n === 'si' ? `<div class="num no"><b>Banca dati ufficiale</b></div>` : `<div class="num no"><b>Creata dai docenti di Concorsi Militari Academy</b></div>`;
     const note = off ? x.bd[1] : `Quesiti e materiale di studio preparati dai nostri docenti sulle materie del bando${x.bd[1] ? ` (${x.bd[1].charAt(0).toLowerCase() + x.bd[1].slice(1)})` : ''}: gli stessi con cui hanno già preparato migliaia di allievi.`;
-    return `<article class="bc" data-corpo="${x.corpo}" data-soldier-card style="--c:${x.C.color}"><div class="bv" data-soldier="${x.corpo}" data-lvl="${x.lvl}"><span>${x.C.code}</span></div><div class="hd"><div><small>${x.C.n}</small><b>${x.title}</b></div></div>${src}${num}<p class="note">${note}</p><a class="go" href="corpo.html?c=${x.corpo}">Scheda del concorso →</a></article>`;
+    return `<article class="bc" data-corpo="${x.corpo}" data-soldier-card style="--c:${x.C.color}"><div class="bv" data-soldier="${x.corpo}" data-lvl="${x.lvl}" data-k="${x.k}"><span>${x.C.code}</span></div><div class="hd"><div><small>${x.C.n}</small><b>${x.title}</b></div></div>${src}${num}<p class="note">${note}</p><a class="go" href="corpo.html?c=${x.corpo}">Scheda del concorso →</a></article>`;
   };
   // prima i concorsi con più quesiti
   items.sort((a, b) => (typeof b.bd[0] === 'number' ? b.bd[0] : b.bd[0] === 'si' ? 1 : 0) - (typeof a.bd[0] === 'number' ? a.bd[0] : a.bd[0] === 'si' ? 1 : 0));
@@ -493,6 +493,6 @@ gsap.set('#logo', { autoAlpha: 1 });
 </script>
 <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
 <script type="module" src="assets/sim3d.js?v=4"></script>
-<script type="module">import { mountSoldiers } from './assets/cma-soldier.js?v=3'; mountSoldiers(document);</script>
+<script type="module">import { mountSoldiers } from './assets/cma-soldier.js?v=4'; mountSoldiers(document);</script>
 </body>
 </html>

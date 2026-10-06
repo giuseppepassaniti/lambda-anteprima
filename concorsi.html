@@ -374,7 +374,7 @@ body.intro-on .chero .rwrap{opacity:0;transform:scale(.94)}
       </div>
       <div class="kgrid" id="kgrid" aria-live="polite"></div>
       <div class="kmore"><button class="btn btn-line" type="button" id="kMore"><span class="t">Mostra tutti i concorsi</span></button></div>
-      <p class="note-b" data-reveal>Divise stilizzate da Concorsi Militari Academy: non riproducono stemmi, gradi o fregi ufficiali. Requisiti e prove vanno sempre verificati sul bando.</p>
+      <p class="note-b" data-reveal>Immagini a scopo illustrativo: Concorsi Militari Academy non è affiliata ai corpi. Requisiti e prove vanno sempre verificati sul bando.</p>
     </div>
   </section>
 
@@ -610,7 +610,7 @@ body.intro-on .chero .rwrap{opacity:0;transform:scale(.94)}
   $('#fLvl').innerHTML = `<button type="button" aria-pressed="true" data-l="">Tutti i ruoli</button>` + Object.entries(LV).map(([k, n]) => `<button type="button" aria-pressed="false" data-l="${k}">${n}</button>`).join('');
   grid.innerHTML = ALL.map((x) => { const c = corpo(x.corpo);
     return `<a class="kc" href="corpo.html?c=${x.corpo}&k=${x.k}" data-soldier-card data-c="${x.corpo}" data-l="${x.lvl}" style="--c:${c.color}">
-      <div class="kv" data-soldier="${x.corpo}" data-lvl="${x.lvl}"><span class="kcode">${c.code}</span><span class="klvl">${LV1[x.lvl]}</span></div>
+      <div class="kv" data-soldier="${x.corpo}" data-lvl="${x.lvl}" data-k="${x.k}"><span class="kcode">${c.code}</span><span class="klvl">${LV1[x.lvl]}</span></div>
       <div class="kb"><small>${c.n}</small><b>${x.title}</b><ul class="kf"><li><i>Età</i>${eta(x)}</li><li><i>Titolo</i>${tit(x)}</li><li><i>Prove</i>${x.prove.length} fasi</li></ul><span class="go" aria-hidden="true">→</span></div></a>`; }).join('') + '<p class="kempty" hidden>Nessun concorso con questi filtri: prova un altro ruolo.</p>';
   const kc = [...grid.querySelectorAll('.kc')], more = $('#kMore').parentElement, FIRST = 8;
   let fc = '', fl = '', open = false;
@@ -721,6 +721,6 @@ body.intro-on .chero .rwrap{opacity:0;transform:scale(.94)}
 </script>
 <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>
 <script type="module" src="assets/cma-intro3d.js?v=5"></script>
-<script type="module">import { mountSoldiers } from './assets/cma-soldier.js?v=3'; mountSoldiers(document);</script>
+<script type="module">import { mountSoldiers } from './assets/cma-soldier.js?v=4'; mountSoldiers(document);</script>
 </body>
 </html>
