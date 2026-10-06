@@ -20,7 +20,7 @@ window.PERCORSI = {
     'media':                  { kind: 'età', name: 'Scuola media', age: '11–13 anni', tag: 'Alle medie cambia tutto. È qui che si costruisce il metodo.' },
     'superiore':              { kind: 'età', name: 'Scuola superiore', age: '14–18 anni', tag: 'Non basta studiare di più. Serve studiare meglio.' },
     'universita':             { kind: 'età', name: 'Università', age: '19+ anni', tag: 'Più autonomia, più organizzazione, un metodo per gli esami.' },
-    'test-universitari':      { kind: 'età', name: 'Test universitari', age: 'Test d\'accesso', tag: 'Preparazione mirata ai test d\'accesso.' },
+    'test-universitari':      { kind: 'età', name: 'Medicina · semestre filtro', age: 'Semestre filtro', tag: 'Il semestre filtro di Medicina, preparato con metodo.' },
     'metodo-di-studio':       { kind: 'esigenza', name: 'Metodo di studio', tag: 'Meno ore sui libri, più risultati.' },
     'ripetizioni':            { kind: 'esigenza', name: 'Ripetizioni', tag: 'Recuperare la materia, e intanto imparare a studiarla.' },
     'recupero-insufficienze': { kind: 'esigenza', name: 'Recupero insufficienze', tag: 'Un piano chiaro per tornare alla sufficienza, e restarci.' },

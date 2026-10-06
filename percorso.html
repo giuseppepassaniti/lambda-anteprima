@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=25">
+<link rel="stylesheet" href="assets/lambda.css?v=26">
 <style>
 /* =================== LAMBDA · template sottopagina (età / esigenza) =================== */
 body{--acc:var(--aqua);--acc-l:#3fc8d1}
@@ -110,6 +110,23 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
 .soon{margin-top:30px;display:inline-flex;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;border:1px dashed rgba(255,255,255,.25);font:500 12px/1.4 var(--mono);letter-spacing:.08em;color:rgba(255,255,255,.65)}
 .soon i{width:8px;height:8px;border-radius:50%;background:var(--warm);box-shadow:0 0 12px var(--warm)}
 
+/* ---------- polo universitario eCampus e Unilink (pagina Medicina) ---------- */
+.poli{background:var(--light);padding:0 0 clamp(90px,12vh,130px);color:var(--navy)}
+.poli-card{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,60px);align-items:center;padding:clamp(28px,4vw,56px);border-radius:36px;background:radial-gradient(ellipse 80% 90% at 85% 50%,#1b5a70 0%,var(--navy) 60%,var(--deep) 100%);color:#fff;box-shadow:0 50px 90px -50px rgba(14,33,46,.6)}
+.poli .eyebrow{color:var(--warm)}
+.poli h2{margin-top:14px;font:700 clamp(28px,3vw,46px)/1.02 var(--font);letter-spacing:-.04em;text-wrap:balance}
+.poli h2 em{font-style:normal;color:var(--warm)}
+.poli-tx>p:not(.eyebrow){margin-top:14px;font-size:16.5px;line-height:1.55;color:rgba(255,255,255,.78);max-width:52ch}
+.poli .btn{margin-top:26px}
+.poli-logos{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.plogo{display:grid;place-items:center;align-content:center;min-width:170px;height:120px;padding:18px 22px;border-radius:22px;background:#fff;color:#0d2c54;text-align:center}
+.plogo b{font:700 34px/1 var(--font);letter-spacing:-.03em}
+.plogo small{display:block;margin-top:8px;font:500 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#6b7c8f}
+.plogo.ecampus b i{font-style:normal;color:#e30613}
+.plogo.unilink b{letter-spacing:.02em} .plogo.unilink b i{font-style:normal;color:#1d6fb8}
+.pplus{font:300 30px/1 var(--font);color:rgba(255,255,255,.5)}
+@media (max-width: 900px){ .poli-card{grid-template-columns:minmax(0,1fr)} .poli-logos{justify-content:flex-start} }
+@media (max-width: 520px){ .plogo{min-width:0;flex:1;height:100px} .plogo b{font-size:26px} .pplus{display:none} }
 @media (max-width: 1100px){ .frow{grid-template-columns:repeat(3,1fr)} .incl{grid-template-columns:1fr 1fr} .rlist{grid-template-columns:1fr 1fr} }
 @media (max-width: 980px){ .phero .wrap,.signs .grid,.faq .grid{grid-template-columns:1fr} .vis{max-width:560px} }
 @media (max-width: 640px){
@@ -179,9 +196,9 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
 <div data-lambda-footer></div>
 
 <script src="assets/recensioni.js?v=10"></script>
-<script src="assets/percorsi.js?v=5"></script>
-<script src="assets/percorsi-pagine.js?v=4"></script>
-<script src="assets/percorsi-contenuti.js?v=2"></script>
+<script src="assets/percorsi.js?v=6"></script>
+<script src="assets/percorsi-pagine.js?v=6"></script>
+<script src="assets/percorsi-contenuti.js?v=3"></script>
 <script>
 /* ---------- costruzione della pagina dai dati (prima del motore, così animazioni e titoli funzionano) ---------- */
 (() => {
@@ -291,6 +308,22 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
     </div>
   </section>
 
+  ${D.poli ? `<section class="poli" data-theme="light" aria-labelledby="poTitle">
+    <div class="wrap"><div class="poli-card" data-reveal>
+      <div class="poli-tx">
+        <p class="eyebrow">Polo universitario</p>
+        <h2 id="poTitle">Centro Studi Lambda è polo universitario <em>eCampus e Unilink.</em></h2>
+        <p>Vuoi iscriverti all'università? Puoi farlo con noi: ti aiutiamo a scegliere il corso di laurea e ti seguiamo nell'iscrizione. E durante gli studi hai accanto lo stesso metodo e gli stessi tutor di Lambda.</p>
+        <button class="btn btn-stud magnetic" type="button" data-lead="Iscrizione all'università con eCampus o Unilink"><span class="t">Voglio iscrivermi all'università →</span></button>
+      </div>
+      <div class="poli-logos" aria-label="Università partner: eCampus e Unilink">
+        <div class="plogo ecampus"><b><i>e</i>Campus</b><small>Università</small></div>
+        <span class="pplus" aria-hidden="true">+</span>
+        <div class="plogo unilink"><b>UNI<i>LINK</i></b><small>Università degli Studi</small></div>
+      </div>
+    </div></div>
+  </section>` : ''}
+
   <section class="prevs sheet" data-theme="dark" aria-labelledby="rvTitle">
     <div class="wrap">
       <div class="rtop"><div><p class="eyebrow" data-reveal>Recensioni verificate su Trustpilot</p><h2 class="sec-title split" id="rvTitle">Lo raccontano <em>i genitori.</em></h2></div>
@@ -323,7 +356,7 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=35"></script>
+<script src="assets/lambda.js?v=36"></script>
 <script src="assets/pains.js?v=1"></script>
 <script src="assets/lead.js?v=5"></script>
 <script>

@@ -8,7 +8,7 @@
   Object.assign(P.INCLUDES, {
     genitori: ['Supporto ai genitori', 'Indicazioni pratiche per aiutarlo a casa, senza sostituirvi a lui.', 'M9 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2 25c.8-5 3.6-8 7-8s6.2 3 7 8M17 18c3 0 5.5 2 6.5 6'],
     compensativi: ['Strumenti compensativi', 'Mappe, sintesi vocale e software: impara a usarli con sicurezza.', 'M4 6h20v14H4zM9 24h10M8 11h5M8 15h9M18 10l3 3-3 3'],
-    simtest: ['Simulazioni del test', 'Quiz con struttura e tempi del test vero, con statistiche sui progressi.', 'M6 4h16v20H6zM10 9l2 2 4-4M10 17h8M10 21h5'],
+    simtest: ['Simulazioni degli esami', '31 domande in 50 minuti, a risposta multipla e a completamento, come agli esami del semestre filtro.', 'M6 4h16v20H6zM10 9l2 2 4-4M10 17h8M10 21h5'],
     esami: ['Piano di sessione', 'Esami, appelli e ripassi in un calendario realistico.', 'M4 7h20v17H4zM4 12h20M10 4v6M18 4v6M9 17h3M15 17h4'],
     orali: ['Simulazioni d\'esame', 'Prove orali con i docenti, per arrivare all\'appello sicuro.', 'M4 6h20v13H11l-5 4v-4H4z'],
   });
@@ -120,23 +120,19 @@
 
     'test-universitari': {
       accent: 'aqua',
-      eyebrow: 'Test d\'accesso all\'università',
-      title: 'Preparazione mirata <em>ai test d\'accesso.</em>',
-      lead: 'I test d\'ammissione premiano chi studia con strategia: programma, logica, gestione del tempo e tante simulazioni. Costruiamo un percorso sul test che vuole affrontare, compatibile con l\'ultimo anno di scuola.',
-      quote: 'Sa che vuole fare Medicina. Non sa da dove cominciare.',
-      lens: ['ansia da test', 'strategia'],
-      signs: ['Non sa come è fatto il test', 'Deve prepararlo insieme alla maturità', 'Ha già provato il test senza superarlo', 'Va in crisi con le domande di logica', 'Finisce sempre il tempo a metà'],
-      before: { time: '23:00', items: ['Quiz fatti a caso, senza un piano', 'Programma enorme, nessuna priorità', 'Il tempo finisce a metà test', 'Maturità e test in conflitto'] },
-      after: { time: '19:00', items: ['Un piano fino alla data del test', 'Priorità chiare, materia per materia', 'Strategia sui tempi, domanda per domanda', 'Maturità e test preparati insieme'] },
-      focus: { 1: 'Un calendario fino al giorno del test, compatibile con la scuola.', 2: 'Logica e comprensione del testo: le domande che fanno la differenza.', 3: 'Tecniche di memoria per formule, date e definizioni.' },
+      eyebrow: 'Medicina, Odontoiatria e Veterinaria · semestre filtro',
+      title: 'Il semestre filtro di Medicina, <em>preparato con metodo.</em>',
+      lead: 'A Medicina non c\'è più il test d\'ingresso: ci si iscrive al primo semestre, si seguono Biologia, Chimica e Fisica e si sostengono tre esami nazionali. In graduatoria passa chi ottiene i punteggi migliori. Lo prepariamo prima delle lezioni e lo seguiamo fino agli esami.',
+      quote: 'Vuole fare Medicina. Ma tre esami in tre mesi lo spaventano.',
+      lens: ['tre esami', 'un piano'],
+      poli: true,
+      signs: ['Non ha chiaro come funziona il semestre filtro', 'Deve rinforzare le basi di chimica e fisica', 'Ha paura di non reggere il ritmo delle lezioni', 'Non ha mai provato le domande a completamento', 'Ci ha già provato senza entrare in graduatoria'],
+      before: { time: '23:00', items: ['Lezioni universitarie a ritmo serrato', 'Tre materie, nessuna priorità', 'Domande a completamento mai provate', 'Dicembre che arriva troppo presto'] },
+      after: { time: '19:00', items: ['Basi di biologia, chimica e fisica già solide', 'Un piano settimana per settimana fino agli esami', 'Simulazioni da 31 domande in 50 minuti', 'Due appelli, dicembre e gennaio, usati con strategia'] },
+      focus: { 1: 'Un calendario da settembre agli esami di dicembre e gennaio, materia per materia.', 2: 'Comprensione dei testi scientifici e delle consegne, anche nelle domande a completamento.', 3: 'Tecniche di memoria per definizioni, formule e processi biologici.' },
       includes: ['tutor', 'live', 'simtest', 'lab', 'aule', 'report'],
       review: R.fabio,
-      faq: [
-        ['Garantite il superamento del test?', 'Nessuno può garantire un posto a numero chiuso, e diffidate di chi lo fa. Quello che garantiamo è una preparazione seria, misurata con simulazioni regolari, e un tutor che lo segue fino al giorno del test.'],
-        ['Quando conviene iniziare?', 'Prima si inizia, meglio è. Ma un piano si costruisce anche con pochi mesi: il tutor parte dalla data del test e lavora a ritroso.'],
-        ['Per quali test preparate?', 'Il percorso si costruisce sul test scelto: in consegna vi diciamo con chiarezza programma, tempi e materiali.'],
-        ['Le simulazioni sono come il test vero?', 'Riproducono struttura, tempi e tipologia di domande, così il giorno del test non ci sono sorprese.'],
-      ],
+      faq: [],
       related: ['universita', 'superiore', 'memoria-concentrazione', 'ansia-scolastica'],
     },
 

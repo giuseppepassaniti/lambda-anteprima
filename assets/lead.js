@@ -15,7 +15,7 @@
     ok: 'Un consulente CMA ti contatta presto. Intanto, se vuoi, puoi fare il Test Concorsi: al colloquio avrete già il tuo profilo.', okBtn: ['Fai il Test Concorsi →', 'test-concorsi.html#inizia'], tick: '#CD141F',
   } : {
     ey: 'Parla con un tutor', sub: 'Lascia i tuoi contatti: un tutor Lambda ti contatta entro un giorno lavorativo.',
-    selL: 'Classe o età di tuo figlio', sel: ['Scuola primaria', 'Scuola media', 'Scuola superiore', 'Università', 'Test universitari'],
+    selL: 'Classe o età di tuo figlio', sel: ['Scuola primaria', 'Scuola media', 'Scuola superiore', 'Università', 'Medicina (semestre filtro)'],
     ph: 'Per esempio: studia tanto ma i voti non arrivano', btn: 'btn-stud',
     ok: 'Un tutor ti contatta presto. Intanto, se vuoi, puoi fare il Performance Test: in videochiamata avrete già il suo profilo.', okBtn: ['Fai il Performance Test →', 'test.html'], tick: '#FFD66B',
   };

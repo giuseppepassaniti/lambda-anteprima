@@ -455,7 +455,8 @@ body.light-hdr .nav-dd>button{color:rgba(14,33,46,.8)} body.light-hdr .nav-dd:ho
 .nav{align-items:center}
 body.light-hdr .nav-dd .dd a,.nav-dd .dd a:hover{color:#fff}
 /* passaggio all'altro marchio, in alto a destra */
-.switch-branch{display:inline-flex;align-items:center;gap:8px}
+.switch-branch{align-items:center;gap:8px}
+@media (min-width: 1141px){ .switch-branch{display:inline-flex} }
 .switch-branch svg{flex-shrink:0;height:14px;width:auto}
 .switch-branch.to-conc svg{width:14px;fill:#D7263D}
 .switch-branch.to-stud svg{width:28px;fill:none;stroke:var(--warm);stroke-width:3;stroke-linecap:round}

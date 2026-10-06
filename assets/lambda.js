@@ -24,8 +24,8 @@
     gate: { home: 'index.html', logo: `${ICON}<img class="wordmark" src="assets/wordmark-white.png" alt="Centro Studi Lambda">`, nav: [], cta: null },
     stud: { home: 'studenti.html', logo: `${ICON}<img class="wordmark" src="assets/wordmark-white.png" alt="Centro Studi Lambda">`,
       nav: [['Percorsi', 'studenti.html#percorsi', 'percorsi'], ['Metodo FOCUS', 'metodo-focus.html', 'focus'], ['Risultati', 'risultati.html', 'risultati'], ['Sedi', 'sedi.html', 'sedi']],
-      // i prodotti dell'ecosistema Lambda, separati dal percorso principale: menu a tendina "Oltre la scuola"
-      more: ['Oltre la scuola', [['Vacanze studio a Malta', 'vacanze-studio.html', 'vacanze', 'Inglese, college ed escursioni. Anche con il Metodo FOCUS.'], ['Percorsi per genitori', 'genitori.html', 'genitori', 'Comunicare meglio con i figli, ogni giorno.']]],
+      // menu a tendina "Oltre la scuola" (tolto dal menu su richiesta: le due pagine restano nel footer e nella home studenti)
+      moreOff: ['Oltre la scuola', [['Vacanze studio a Malta', 'vacanze-studio.html', 'vacanze', 'Inglese, college ed escursioni. Anche con il Metodo FOCUS.'], ['Percorsi per genitori', 'genitori.html', 'genitori', 'Comunicare meglio con i figli, ogni giorno.']]],
       cta: ['Fai il Performance Test →', 'test.html', 'btn-cta-stud'], tutor: 'Parla con un tutor' },
     conc: { home: 'concorsi.html', logo: `${STAR}<span class="cma-word"><b>CONCORSI MILITARI</b><span>ACADEMY</span></span>`,
       nav: [['Concorsi', 'concorsi.html#corpi-sec', 'concorsi'], ['Metodo EAGLE', 'concorsi.html#eagle', 'eagle'], ['Simulatore', 'simulatore.html', 'simulatore'], ['Risultati', 'concorsi.html#risultati', 'risultati'], ['Sedi', 'sedi-concorsi.html', 'sedi']],
@@ -68,7 +68,7 @@
       </div><div class="foot-in fg-bottom">${social}${legal('Centro Studi Lambda · Concorsi Militari Academy')}</div></footer>`,
     stud: `<footer class="foot" aria-label="Informazioni"><div class="foot-in"><div class="foot-top">
         <div class="brand"><img src="assets/wordmark-white.png" alt="Centro Studi Lambda"><p>Metodo di studio, tutor e lezioni live. Online, in tutta Italia: per dare a ogni ragazzo gli strumenti per arrivare lontano.</p>${social}${wa}</div>
-        ${col('Percorsi', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Test universitari', 'percorso.html?p=test-universitari']])}
+        ${col('Percorsi', [['Scuola primaria', 'percorso.html?p=primaria'], ['Scuola media', 'percorso.html?p=media'], ['Scuola superiore', 'percorso.html?p=superiore'], ['Università', 'percorso.html?p=universita'], ['Medicina · semestre filtro', 'percorso.html?p=test-universitari']])}
         ${col('Esigenze', [['Metodo di studio', 'percorso.html?p=metodo-di-studio'], ['Ripetizioni', 'percorso.html?p=ripetizioni'], ['Recupero insufficienze', 'percorso.html?p=recupero-insufficienze'], ['DSA/BES', 'percorso.html?p=dsa-bes'], ['Ansia scolastica', 'percorso.html?p=ansia-scolastica'], ['Memoria e concentrazione', 'percorso.html?p=memoria-concentrazione']])}
         ${col('Oltre la scuola', [['Vacanze studio a Malta', 'vacanze-studio.html'], ['Percorsi per genitori', 'genitori.html'], ['Performance Test', 'test.html'], ['Metodo FOCUS', 'metodo-focus.html'], ['La storia', 'storia.html'], ['Blog Lambda']])}
         ${col('Lambda', [['Chi siamo', 'chisiamo.html'], ['Risultati', 'risultati.html'], ['Sedi', 'sedi.html'], ['Lavora con noi'], ['Franchising'], ['Contatti', 'mailto:info@centrostudilambda.it']])}
@@ -84,7 +84,7 @@
       <a class="foot-other stud" href="studenti.html"><span>Cerchi un metodo di studio per tuo figlio?</span><b>Centro Studi Lambda →</b></a>
       ${legal('Concorsi Militari Academy')}</div></footer>`,
   }[branch];
-  if ((BR.tutor || BR.lead) && !window.LambdaLead) { const sc = document.createElement('script'); sc.src = 'assets/lead.js?v=5'; document.head.appendChild(sc); }
+  if ((BR.tutor || BR.lead) && !window.LambdaLead) { const sc = document.createElement('script'); sc.src = 'assets/lead.js?v=6'; document.head.appendChild(sc); }
   const headerHTML_ = headerHTML, footerHTML = FOOT;
   document.querySelector('[data-lambda-header]')?.insertAdjacentHTML('afterend', headerHTML_);
   document.querySelector('[data-lambda-header]')?.remove();

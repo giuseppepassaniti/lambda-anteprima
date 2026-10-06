@@ -1087,79 +1087,79 @@
    "anni accanto a ragazzi e famiglie nelle scelte che contano"
   ],
   "painTitle": "Riconosci tuo figlio? <em>Non è questione di talento.</em>",
-  "painLead": "Un test d'accesso misura non solo cosa sai, ma come lo gestisci in un tempo limitato. Tocca la situazione che riconosci: ti spieghiamo cosa succede davvero, e perché “fare più quiz” spesso non basta.",
+  "painLead": "Il semestre filtro misura non solo cosa sai, ma come studi in tre mesi intensi e come gestisci tre esami a tempo. Tocca la situazione che riconosci: ti spieghiamo cosa succede davvero, e perché “studiare di più” spesso non basta.",
   "pains": [
+   {
+    "a": "bag",
+    "t": "Le basi di chimica e fisica sono fragili",
+    "q": "Al liceo chimica e fisica le ha fatte poco. Ora sono due esami su tre.",
+    "real": "Le lezioni del semestre filtro danno per scontate molte basi delle superiori. Chi parte con lacune in chimica o fisica passa le prime settimane a rincorrere, mentre il programma va avanti.",
+    "mythT": "Perché “le recupererà durante le lezioni” non basta",
+    "myth": "Il semestre dura pochi mesi: recuperare le basi e seguire il programma nello stesso tempo è la situazione più faticosa. Conviene arrivare a settembre con le fondamenta già solide.",
+    "fact": "Le conoscenze nuove si fissano meglio quando si agganciano a quelle che già si hanno: per questo le basi solide rendono più veloce tutto lo studio successivo."
+   },
    {
     "a": "slow",
     "t": "Il tempo finisce sempre a metà",
-    "q": "Alle simulazioni non arriva mai in fondo: il tempo finisce prima.",
-    "real": "Nei test d'accesso il tempo per domanda è poco, e chi affronta ogni quesito con la stessa cura si blocca su quelli difficili e perde quelli facili. Gestire il tempo è una competenza a sé, distinta dal sapere le risposte.",
+    "q": "Alle simulazioni non arriva mai in fondo: 50 minuti volano.",
+    "real": "Ogni esame ha 31 domande in 50 minuti: poco più di un minuto e mezzo a domanda. Chi affronta ogni quesito con la stessa cura si blocca su quelli difficili e perde quelli facili.",
     "mythT": "Perché “devi andare più veloce” non basta",
     "myth": "La fretta aumenta gli errori di lettura. Serve una strategia: quali domande affrontare subito, quando passare oltre, quando tornare indietro.",
-    "fact": "Allenarsi con prove a tempo, nelle stesse condizioni del test, rende più automatiche le decisioni e lascia più energie per ragionare."
+    "fact": "Allenarsi con prove a tempo, nelle stesse condizioni dell'esame, rende più automatiche le decisioni e lascia più energie per ragionare."
    },
    {
     "a": "read",
-    "t": "Sbaglia domande che sapeva",
-    "q": "Rivede il quiz e dice: «Ma questa la sapevo!»",
-    "real": "Le domande a crocette hanno distrattori: opzioni plausibili che penalizzano chi legge di fretta. Molti errori non nascono da lacune, ma da una lettura imprecisa del quesito o da una risposta scelta prima di aver valutato tutte le opzioni.",
-    "mythT": "Perché “studia di più il programma” non basta",
-    "myth": "Se l'errore sta nel modo di leggere il quesito, più contenuti non lo eliminano. Serve allenare la tecnica di risposta.",
-    "fact": "Analizzare i propri errori, capendo perché un'opzione sbagliata sembrava giusta, è uno dei modi più utili per migliorare nei test a risposta multipla."
-   },
-   {
-    "a": "storm",
-    "t": "Va in crisi con la logica",
-    "q": "Con le domande di logica si blocca. Dice che non ci è portato.",
-    "real": "Le domande di logica sembrano un talento innato, ma seguono schemi ricorrenti: sequenze, deduzioni, problemi verbali. Chi non li ha mai visti spende tempo a capire cosa viene chiesto; chi li riconosce va dritto al ragionamento.",
-    "mythT": "Perché “la logica o ce l'hai o non ce l'hai” non basta",
-    "myth": "È un'idea diffusa ma fuorviante. Riconoscere le tipologie di quesito e allenarsi con metodo aiuta molto più di quanto si pensi.",
-    "fact": "Considerare un'abilità come qualcosa che si sviluppa con l'esercizio, e non come un dono fisso, aiuta ad affrontare i problemi difficili con più perseveranza."
+    "t": "Sbaglia le domande a completamento",
+    "q": "Con le crocette se la cava. Quando deve scrivere la risposta, si blocca.",
+    "real": "Dieci domande su 31 sono a completamento: non c'è un'opzione da riconoscere, la risposta va richiamata dalla memoria e scritta in modo preciso. È un'abilità diversa dal riconoscere quella giusta tra quattro.",
+    "mythT": "Perché “fai più quiz a crocette” non basta",
+    "myth": "Le crocette allenano il riconoscimento, non il richiamo. Per le domande a completamento bisogna esercitarsi proprio a recuperare le informazioni senza aiuti.",
+    "fact": "Provare a richiamare un'informazione, invece di rileggerla, è uno dei modi più efficaci per ricordarla a lungo: si chiama pratica di recupero."
    },
    {
     "a": "heart",
     "t": "Si agita e sbaglia sotto pressione",
-    "q": "Negli esercizi a casa va bene. Nella simulazione cronometrata si agita e sbaglia.",
-    "real": "Il test è una prova unica, con molto in palio e la sensazione di giocarsi tutto in poche ore. Questa pressione può assorbire attenzione e memoria proprio quando servono, anche in chi è preparato.",
+    "q": "A casa va bene. Nella simulazione cronometrata si agita e sbaglia.",
+    "real": "Tre esami nella stessa giornata, una graduatoria nazionale e la sensazione di giocarsi tutto: questa pressione può assorbire attenzione e memoria proprio quando servono, anche in chi è preparato.",
     "mythT": "Perché “non pensarci troppo” non basta",
-    "myth": "Non pensarci non si può. La tensione si gestisce allenandosi in condizioni simili al giorno del test, finché la situazione diventa familiare.",
+    "myth": "Non pensarci non si può. La tensione si gestisce allenandosi in condizioni simili al giorno dell'esame, finché la situazione diventa familiare.",
     "fact": "Le simulazioni realistiche non servono solo a ripassare: abituarsi a formato e tempi riduce l'incertezza, una delle principali fonti di tensione."
    },
    {
     "a": "week",
     "t": "Studia senza un piano",
-    "q": "Fa quiz a caso: un giorno biologia, un giorno chimica, senza un ordine.",
-    "real": "Il programma dei test è vasto e copre più materie. Senza un piano a ritroso dalla data del test, si tende a studiare ciò che piace o che viene meglio, e le materie deboli restano scoperte fino alla fine.",
-    "mythT": "Perché “più quiz fai, meglio è” non basta",
-    "myth": "I quiz servono a verificare, ma senza uno studio organizzato della teoria e senza analisi degli errori diventano ripetizione meccanica.",
-    "fact": "Ripassare gli stessi argomenti a intervalli via via più distanti, fino al giorno del test, aiuta a ricordarli più a lungo che studiarli una volta sola."
+    "q": "Segue le lezioni, ma non sa cosa ripassare e quando.",
+    "real": "Tre materie in parallelo, lezioni ogni giorno e gli esami già a dicembre. Senza un piano a ritroso dalle date degli appelli, si studia ciò che viene meglio e le materie deboli restano scoperte fino alla fine.",
+    "mythT": "Perché “basta seguire le lezioni” non basta",
+    "myth": "Le lezioni spiegano il programma, ma non organizzano lo studio personale né il ripasso. Quello va pianificato, settimana per settimana.",
+    "fact": "Ripassare gli stessi argomenti a intervalli via via più distanti, fino al giorno dell'esame, aiuta a ricordarli più a lungo che studiarli una volta sola."
    },
    {
     "a": "battery",
-    "t": "Test e maturità nello stesso anno",
-    "q": "Deve preparare la maturità e il test insieme. È esausto.",
-    "real": "L'ultimo anno di superiori è già pieno: verifiche, interrogazioni, esame di Stato. Aggiungere il test senza un'organizzazione significa togliere tempo al riposo, con il rischio di arrivare stanchi e demotivati a entrambe le prove.",
-    "mythT": "Perché “per un anno sacrifica tutto” non basta",
-    "myth": "Eliminare sonno, sport e pause riduce l'efficacia dello studio. Un piano sostenibile rende di più di uno estremo.",
+    "t": "Il ritmo universitario lo travolge",
+    "q": "Dopo la maturità era carico. Dopo un mese di lezioni è esausto.",
+    "real": "Il passaggio dalle superiori all'università è brusco: lezioni lunghe, nessuno che interroga, tanto studio autonomo. Senza un metodo, si accumula arretrato e la stanchezza cresce proprio mentre si avvicinano gli esami.",
+    "mythT": "Perché “per tre mesi sacrifica tutto” non basta",
+    "myth": "Eliminare sonno, sport e pause riduce l'efficacia dello studio. Un ritmo sostenibile rende di più di uno estremo.",
     "fact": "Il sonno ha un ruolo importante nel consolidare la memoria: dormire poco per studiare di più rischia di far ricordare meno."
    },
    {
     "a": "grades",
     "t": "Si confronta con gli altri",
-    "q": "Dice che i suoi compagni sono molto più avanti e che lui non ce la farà.",
-    "real": "Gruppi online, punteggi condivisi, amici che dicono di aver già finito il programma: il confronto continuo fa sembrare il proprio percorso sempre in ritardo. Spesso si mette a confronto il proprio momento peggiore con il racconto migliore degli altri.",
+    "q": "Dice che i suoi compagni di corso sono molto più avanti e che lui non ce la farà.",
+    "real": "Gruppi online, punteggi delle simulazioni condivisi, migliaia di iscritti in tutta Italia: il confronto continuo fa sembrare il proprio percorso sempre in ritardo. Spesso si mette a confronto il proprio momento peggiore con il racconto migliore degli altri.",
     "mythT": "Perché “non ascoltare gli altri” non basta",
     "myth": "Il confronto non si spegne a comando. Si ridimensiona quando si hanno dati propri: un piano chiaro e progressi misurati nel tempo.",
     "fact": "Confrontarsi con i propri risultati precedenti, invece che con quelli degli altri, tende a sostenere meglio motivazione e fiducia nel lungo periodo."
    }
   ],
-  "howTitle": "Un percorso <em>fino al giorno del test.</em>",
+  "howTitle": "Un percorso <em>fino agli esami del semestre.</em>",
   "how": [
-   "Il Performance Test in dieci minuti, poi la videochiamata con la tutor: punti di forza, lacune e tempo a disposizione fino al test.",
-   "La tutor personale, psicologa esperta in apprendimento, costruisce un calendario a ritroso dalla data del test, compatibile con la scuola.",
-   "Lezioni individuali live con docenti certificati Lambda su programma e logica, più simulazioni con struttura e tempi del test vero.",
-   "Ogni settimana la tutor analizza i risultati delle simulazioni, ricalibra il piano e lo aiuta a gestire la tensione.",
-   "Arriva al giorno del test con il programma ripassato, una strategia sui tempi e la sicurezza di chi si è allenato."
+   "Il Performance Test in dieci minuti, poi la videochiamata con la tutor: punti di forza, lacune nelle basi e tempo a disposizione fino alle lezioni.",
+   "Prima di settembre: lezioni individuali per rinforzare le basi di biologia, chimica e fisica, così le lezioni del semestre non partono in salita.",
+   "Durante il semestre la tutor personale, psicologa esperta in apprendimento, costruisce un calendario a ritroso dagli appelli di dicembre e gennaio.",
+   "Lezioni individuali live con docenti certificati Lambda sulle tre materie, e simulazioni da 31 domande in 50 minuti, a crocette e a completamento.",
+   "Ogni settimana la tutor analizza i risultati, ricalibra il piano e lo aiuta a gestire la tensione, fino al giorno degli esami."
   ],
   "reviews": [
    "fabio",
@@ -1168,24 +1168,32 @@
   ],
   "faq": [
    [
-    "Chi lo segue?",
-    "Due figure. I docenti certificati Lambda fanno con lui le lezioni individuali sul programma e sulla logica, applicando il metodo. La tutor personale, psicologa esperta in apprendimento, costruisce il piano fino alla data del test, segue i risultati delle simulazioni ogni settimana ed è il vostro punto di riferimento."
+    "Come funziona il semestre filtro?",
+    "Dall'anno accademico 2025/26 a Medicina, Odontoiatria e Veterinaria non c'è più il test d'ingresso. Ci si iscrive liberamente al primo semestre su Universitaly, si frequentano le lezioni (dal 1° settembre, con frequenza obbligatoria) di Biologia, Chimica e propedeutica biochimica e Fisica, e si sostengono tre esami nazionali. Ogni esame ha 31 domande, 21 a risposta multipla e 10 a completamento, in 50 minuti."
    ],
    [
-    "Garantite il superamento del test?",
-    "Nessuno può garantire un posto a numero chiuso, e diffidate di chi lo fa. Quello che garantiamo è una preparazione seria, misurata con simulazioni regolari, e una tutor personale che lo segue fino al giorno del test."
+    "Quali sono le date del 2026/27?",
+    "Iscrizioni su Universitaly dal 13 luglio al 3 agosto 2026, lezioni dal 1° settembre, primo appello il 10 dicembre 2026 e secondo appello l'11 gennaio 2027. La graduatoria nazionale esce il 22 gennaio 2027. Le date possono cambiare: fa fede il bando ufficiale."
+   ],
+   [
+    "Come si entra in graduatoria?",
+    "Bisogna superare ogni esame con almeno 18/30. La graduatoria nazionale si forma sulla somma dei punteggi delle tre materie; se un esame si sostiene in entrambi gli appelli, vale il punteggio migliore. Si può partecipare al semestre filtro al massimo tre volte."
+   ],
+   [
+    "E se non entra a Medicina?",
+    "Gli esami superati non vanno persi: i 18 crediti del semestre vengono riconosciuti per iscriversi a un corso affine, come Biotecnologie o Farmacia."
    ],
    [
     "Quando conviene iniziare?",
-    "Prima si inizia, meglio è. Ma un piano si costruisce anche con pochi mesi: la tutor parte dalla data del test e lavora a ritroso."
+    "Prima di settembre: rinforzare le basi in estate permette di seguire le lezioni senza rincorrere. Ma si può iniziare anche a semestre avviato: la tutor parte dalle date degli appelli e lavora a ritroso."
    ],
    [
-    "Per quali test preparate?",
-    "Il percorso si costruisce sul test scelto: in consegna vi diciamo con chiarezza programma, tempi e materiali."
+    "Garantite l'ingresso a Medicina?",
+    "Nessuno può garantire un posto in graduatoria, e diffidate di chi lo fa. Quello che garantiamo è una preparazione seria, misurata con simulazioni regolari, e una tutor personale che lo segue fino agli esami."
    ],
    [
-    "Le simulazioni sono come il test vero?",
-    "Riproducono struttura, tempi e tipologia di domande, così il giorno del test non ci sono sorprese."
+    "Chi lo segue?",
+    "Due figure. I docenti certificati Lambda fanno con lui le lezioni individuali di biologia, chimica e fisica, applicando il metodo. La tutor personale, psicologa esperta in apprendimento, costruisce il piano fino agli appelli, segue i risultati delle simulazioni ogni settimana ed è il vostro punto di riferimento."
    ]
   ]
  },
