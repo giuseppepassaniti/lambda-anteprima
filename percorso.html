@@ -118,8 +118,9 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
 .poli h2 em{font-style:normal;color:var(--warm)}
 .poli-tx>p:not(.eyebrow){margin-top:14px;font-size:16.5px;line-height:1.55;color:rgba(255,255,255,.78);max-width:52ch}
 .poli .btn{margin-top:26px}
-.poli-logos{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
-.plogo{display:grid;place-items:center;align-content:center;min-width:170px;height:120px;padding:18px 22px;border-radius:22px;background:#fff;color:#0d2c54;text-align:center}
+.poli-logos{display:flex;align-items:center;justify-content:center;gap:12px}
+.plogo{display:grid;place-items:center;align-content:center;flex:1 1 0;min-width:0;max-width:230px;height:120px;padding:18px 22px;border-radius:22px;background:#fff;color:#0d2c54;text-align:center}
+.plogo img{display:block;width:100%;max-width:190px;max-height:84px;height:auto;object-fit:contain}
 .plogo b{font:700 34px/1 var(--font);letter-spacing:-.03em}
 .plogo small{display:block;margin-top:8px;font:500 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#6b7c8f}
 .plogo.ecampus b i{font-style:normal;color:#e30613}
@@ -317,9 +318,9 @@ body[data-acc="teal"]{--acc:#1f7a93;--acc-l:#6cc6da}
         <button class="btn btn-stud magnetic" type="button" data-lead="Iscrizione all'università con eCampus o Unilink"><span class="t">Voglio iscrivermi all'università →</span></button>
       </div>
       <div class="poli-logos" aria-label="Università partner: eCampus e Unilink">
-        <div class="plogo ecampus"><b><i>e</i>Campus</b><small>Università</small></div>
+        <div class="plogo"><img src="assets/loghi/ecampus.png" alt="Università eCampus" width="228" height="70"></div>
         <span class="pplus" aria-hidden="true">+</span>
-        <div class="plogo unilink"><b>UNI<i>LINK</i></b><small>Università degli Studi</small></div>
+        <div class="plogo"><img src="assets/loghi/unilink.webp" alt="Università degli Studi Link (Unilink)" width="600" height="294"></div>
       </div>
     </div></div>
   </section>` : ''}
