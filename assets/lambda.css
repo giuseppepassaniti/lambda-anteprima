@@ -135,6 +135,9 @@ body.light-hdr .switch-branch{color:rgba(14,33,46,.5)}
 [data-reveal].in{opacity:1;transform:none}
 .stars{display:flex;gap:3px}
 .stars i{width:20px;height:20px;background:var(--tp);display:grid;place-items:center}
+/* stella di riserva: se la stella SVG non è stata inserita (contenuti creati dopo), la disegna il CSS */
+.stars i:empty::before{content:"";width:72%;height:72%;background:#fff;clip-path:polygon(50% 4%,61.8% 35.4%,95% 35.4%,68.2% 56%,78.6% 90%,50% 70%,21.4% 90%,31.8% 56%,5% 35.4%,38.2% 35.4%)}
+.stars i svg{width:78%;height:78%}
 .stars svg{width:14px;height:14px}
 /* transizione tra sezioni: il foglio successivo sale sopra il precedente */
 .sheet{position:relative;z-index:2;margin-top:-44px;border-radius:44px 44px 0 0;overflow:clip} /* clip e non hidden: le scene fissate (sticky) continuano a funzionare */

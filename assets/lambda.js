@@ -185,6 +185,10 @@
     el.querySelectorAll('.word > span').forEach((s, i) => (s.style.transitionDelay = i * 0.045 + 's'));
   };
   document.querySelectorAll('.split').forEach(L.split);
+  // titoli con gradiente sulle parole (.ih h1 em): ogni parola mostra il suo pezzo del gradiente della riga
+  const gradWords = () => document.querySelectorAll('.ih h1 em').forEach((em) => { const r0 = em.getBoundingClientRect();
+    em.querySelectorAll('.word > span').forEach((w) => { const r = w.getBoundingClientRect(); w.style.backgroundSize = `${r0.width}px 100%`; w.style.backgroundPosition = `${r0.left - r.left}px 0`; }); });
+  gradWords(); addEventListener('resize', gradWords); document.fonts?.ready.then(gradWords);
   // stelle Trustpilot
   const STAR5 = '<svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.5 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg>';
   L.stars = (root = document) => root.querySelectorAll('.stars i').forEach((i) => { if (!i.innerHTML) i.innerHTML = STAR5; });

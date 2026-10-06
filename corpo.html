@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=28">
+<link rel="stylesheet" href="assets/lambda.css?v=29">
 <style>
 /* =================== CMA · template della pagina di un corpo =================== */
 body{background:var(--ink)}
@@ -368,7 +368,7 @@ body{background:var(--ink)}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="assets/lambda.js?v=38"></script>
+<script src="assets/lambda.js?v=39"></script>
 <script>
 gsap.set('#logo', { autoAlpha: 1 });
 (() => {
@@ -468,6 +468,7 @@ gsap.set('#logo', { autoAlpha: 1 });
   const mine = R.filter((r) => r.corpo === C.k || (C.k === 'accademie' && /Accademi|Ufficiali/i.test(r.tag)));
   const revs = [...mine, ...R.filter((r) => !mine.includes(r))].slice(0, 6);
   $('#crev').innerHTML = revs.map((r) => { const c = r.corpo && CO.find((x) => x.k === r.corpo); return `<figure class="crv" style="${c ? `--c:${c.color}` : ''}">${STARS}<q>${r.q}</q><span class="tg">${r.tag}</span><figcaption class="who"><b>${r.n}</b> · ${c ? c.n + ', ' : ''}su Trustpilot</figcaption></figure>`; }).join('');
+  window.Lambda?.stars(document.getElementById('crev'));
 })();
 </script>
 <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }</script>

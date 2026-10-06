@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@500&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/lambda.css?v=28">
+<link rel="stylesheet" href="assets/lambda.css?v=29">
 <style>
 /* =================== CONCORSI MILITARI ACADEMY · home =================== */
 body{background:var(--ink)}
@@ -504,7 +504,7 @@ body.intro-on .chero .rwrap{opacity:0;transform:scale(.94)}
 <script src="assets/cma-corpi.js?v=2"></script>
 <script src="assets/cma-concorsi.js?v=2"></script>
 <script src="assets/cma-recensioni.js?v=1"></script>
-<script src="assets/lambda.js?v=38"></script>
+<script src="assets/lambda.js?v=39"></script>
 <script>
 (() => {
   const L = window.Lambda, M = window.CMA_MARK, $ = (s) => document.querySelector(s);
@@ -655,6 +655,7 @@ body.intro-on .chero .rwrap{opacity:0;transform:scale(.94)}
   const STARS = '<div class="stars"><i></i><i></i><i></i><i></i><i></i></div>';
   $('#crev').innerHTML = window.CMA_REVIEWS.map((r) => { const c = r.corpo && corpo(r.corpo);
     return `<figure class="crv" style="${c ? `--c:${c.color}` : ''}">${STARS}<q>${r.q}</q><span class="tg">${r.tag}</span><figcaption class="who"><b>${r.n}</b> · ${c ? c.n + ', ' : ''}su Trustpilot</figcaption></figure>`; }).join('');
+  window.Lambda?.stars(document.getElementById('crev'));
 
   /* ---------- Metodo EAGLE: la missione in 5 fasi, guidata dallo scroll ---------- */
   (() => {
